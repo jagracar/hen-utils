@@ -54,3 +54,8 @@ add_copyminter_information(artists, copyminters)
 # Save the artists information into a json file
 artists_file_name = "artists_%s.json" % time_stamp
 save_json_file(artists_file_name, artists)
+
+# Save the artists aliases into a json file
+artists_aliases = {walletId: artist["alias"] if "alias" in artist else ""  for walletId, artist in artists.items()}
+artists_aliases_file_name = "artists_aliases_%s.json" % time_stamp
+save_json_file(artists_aliases_file_name, artists_aliases)
