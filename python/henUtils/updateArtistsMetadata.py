@@ -5,7 +5,7 @@ from henUtils.queryUtils import *
 time_stamp = datetime.now().strftime("%Y-%m-%d")
 
 # Read the previously saved artist metadata
-saved_artists = read_json_file("../data/artists_2021-04-22.json")
+saved_artists = read_json_file("../data/artists.json")
 
 # Get the complete list of mint transactions and save them into a json file
 transactions = get_all_mint_transactions()
@@ -31,7 +31,7 @@ counter = 1
 
 while True:
     print_info("Processing batch %i: artists %i to %i" % (counter, from_index, to_index))
-    add_accounts_metadata(new_artists, from_index, to_index)
+    add_accounts_metadata(new_artists, from_index, to_index, sleep_time=2)
 
     if to_index == len(new_artists):
         break

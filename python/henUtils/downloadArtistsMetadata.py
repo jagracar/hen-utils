@@ -25,7 +25,7 @@ counter = 1
 
 while True:
     print_info("Processing batch %i: artists %i to %i" % (counter, from_index, to_index))
-    add_accounts_metadata(artists, from_index, to_index)
+    add_accounts_metadata(artists, from_index, to_index, sleep_time=2)
 
     if to_index == len(artists):
         break
@@ -38,3 +38,8 @@ while True:
 # Save the artists information into a json file
 artists_file_name = "artists_%s.json" % time_stamp
 save_json_file(artists_file_name, artists)
+
+# Save the artists aliases into a json file
+artists_aliases = {walletId: artist["alias"] if "alias" in artist else ""  for walletId, artist in artists.items()}
+artists_aliases_file_name = "artists_aliases_%s.json" % time_stamp
+save_json_file(artists_aliases_file_name, artists_aliases)
