@@ -51,13 +51,15 @@ def save_json_file(file_name, data):
         json.dump(data, json_file, indent=4)
 
 
-def get_query_result(query):
+def get_query_result(query, timeout=10):
     """Executes the given query and returns the result.
 
     Parameters
     ----------
     query: str
         The complete query.
+    timeout: float, optional
+        The query timeout in seconds. Default is 10 seconds.
 
     Returns
     -------
@@ -65,7 +67,7 @@ def get_query_result(query):
         The query result.
 
     """
-    with urlopen(query) as request:
+    with urlopen(query, timeout=timeout) as request:
         if request.status == 200:
             return json.loads(request.read().decode())
 
@@ -590,7 +592,12 @@ def add_accounts_metadata(accounts, from_account_index=0, to_account_index=None,
 
     for i, wallet_id in enumerate(wallet_ids):
         account = accounts[wallet_id]
-        metadata = get_account_metadata(wallet_id)
+
+        try:
+            metadata = get_account_metadata(wallet_id)
+        except:
+            print_info("Blocked by the server? Trying again...")
+            metadata = get_account_metadata(wallet_id)
 
         if metadata is not None:
             for keyword, value in metadata.items():
