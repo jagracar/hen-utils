@@ -1,20 +1,22 @@
-from datetime import datetime
+import time
 from henUtils.queryUtils import *
 
-# Get a time stamp for the file names
-time_stamp = datetime.now().strftime("%Y-%m-%d")
+# Set the path to the directory where the transaction information will be saved
+# to avoid to query for it again and again
+transactions_dir = "../data/transactions"
 
-# Get the complete list of mint transactions and save them into a json file
-transactions = get_all_mint_transactions()
-transactions_file_name = "mintTransactions_%s.json" % time_stamp
-save_json_file(transactions_file_name, transactions)
+# Get the complete list of mint transactions
+mint_transactions = get_all_mint_transactions(transactions_dir, sleep_time=10)
 
-# Extract the artists accounts from the mint transactions
-artists = extract_artist_accounts(transactions)
+# Extract the artists accounts
+artists = extract_artist_accounts(mint_transactions)
+print_info("Found %i artists." % len(artists))
 
-# Add the copyminter information
-copyminters = get_copyminters()
-add_copyminter_information(artists, copyminters)
+# Get the list of H=N reported users
+reported_users = get_reported_users()
+
+# Add the reported users information
+add_reported_users_information(artists, reported_users)
 
 # Get the account metadata for all the artists
 print_info("Adding artists metadata...")
@@ -24,7 +26,8 @@ to_index = min(from_index + batch_size, len(artists))
 counter = 1
 
 while True:
-    print_info("Processing batch %i: artists %i to %i" % (counter, from_index, to_index))
+    print_info("Processing batch %i: artists %i to %i" % (
+        counter, from_index, to_index))
     add_accounts_metadata(artists, from_index, to_index, sleep_time=2)
 
     if to_index == len(artists):
@@ -36,10 +39,12 @@ while True:
     time.sleep(120)
 
 # Save the artists information into a json file
-artists_file_name = "artists_%s.json" % time_stamp
-save_json_file(artists_file_name, artists)
+save_json_file("artists.json", artists)
 
 # Save the artists aliases into a json file
-artists_aliases = {walletId: artist["alias"] if "alias" in artist else ""  for walletId, artist in artists.items()}
-artists_aliases_file_name = "artists_aliases_%s.json" % time_stamp
-save_json_file(artists_aliases_file_name, artists_aliases)
+artists_aliases = {}
+
+for walletId, artist in artists.items():
+    artists_aliases[walletId] = artist["alias"] if "alias" in artist else ""
+
+save_json_file("artists_aliases.json", artists_aliases)

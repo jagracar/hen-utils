@@ -1,5 +1,7 @@
 import json
 import time
+import os.path
+import numpy as np
 from datetime import datetime
 from urllib.request import urlopen
 
@@ -70,14 +72,14 @@ def get_query_result(query):
     return None
 
 
-def get_copyminters():
-    """Returns the list of copyminters stored in the hic et nunc github
+def get_reported_users():
+    """Returns the list of reported users stored in the hic et nunc github
     repository.
 
     Returns
     -------
     list
-        A python list with the wallet ids of all known copyminters.
+        A python list with the wallet ids of all the reported users.
 
     """
     github_repository = "hicetnunc2000/hicetnunc"
@@ -85,7 +87,7 @@ def get_copyminters():
     query = "https://raw.githubusercontent.com//%s/main/%s" % (
         github_repository, file_path)
 
-    return get_query_result(query)
+    return list(set(get_query_result(query)))
 
 
 def get_objkt_metadata(objkt_id):
@@ -176,6 +178,7 @@ def get_object_id(operation_hash):
 
     return ""
 
+
 def get_mint_transactions(offset=0, limit=100, timestamp=None):
     """Returns a list of applied hic et nunc mint transactions ordered by
     increasing time stamp.
@@ -246,14 +249,17 @@ def get_collect_transactions(offset=0, limit=100, timestamp=None):
     return get_query_result(query)
 
 
-def get_all_mint_transactions(transactions_per_batch=1000, sleep_time=1):
+def get_all_mint_transactions(data_dir, transactions_per_batch=10000, sleep_time=1):
     """Returns the complete list of applied hic et nunc mint transactions
     ordered by increasing time stamp.
 
     Parameters
     ----------
+    data_dir: str
+        The complete path to the directory where the transactions information
+        should be saved.
     transactions_per_batch: int, optional
-        The maximum number of transactions per API query. Default is 1000. The
+        The maximum number of transactions per API query. Default is 10000. The
         maximum allowed by the API is 10000.
     sleep_time: float, optional
         The sleep time between API queries in seconds. This is used to avoid
@@ -270,29 +276,47 @@ def get_all_mint_transactions(transactions_per_batch=1000, sleep_time=1):
     counter = 1
 
     while True:
-        print_info("Downloading batch %i" % counter)
-        new_transactions = get_mint_transactions(len(transactions), transactions_per_batch)
-        transactions += new_transactions
+        file_name = os.path.join(
+            data_dir, "mint_transactions_%i-%i.json" % (
+                len(transactions), len(transactions) + transactions_per_batch))
 
-        if len(new_transactions) != transactions_per_batch:
-            break
+        if os.path.exists(file_name):
+            print_info(
+                "Batch %i has been already downloaded. Reading it from local "
+                "json file." % counter)
+            transactions += read_json_file(file_name)
+        else:
+            print_info("Downloading batch %i" % counter)
+            new_transactions = get_mint_transactions(
+                len(transactions), transactions_per_batch)
+            transactions += new_transactions
+
+            if len(new_transactions) != transactions_per_batch:
+                break
+
+            print_info("Saving batch %i in the output directory" % counter)
+            save_json_file(file_name, new_transactions)
+
+            time.sleep(sleep_time)
 
         counter += 1
-        time.sleep(sleep_time)
 
     print_info("Downloaded %i mint transactions." % len(transactions))
 
     return transactions
 
 
-def get_all_collect_transactions(transactions_per_batch=1000, sleep_time=1):
+def get_all_collect_transactions(data_dir, transactions_per_batch=10000, sleep_time=1):
     """Returns the complete list of applied hic et nunc collect transactions
     ordered by increasing time stamp.
 
     Parameters
     ----------
+    data_dir: str
+        The complete path to the directory where the transactions information
+        should be saved.
     transactions_per_batch: int, optional
-        The maximum number of transactions per API query. Default is 1000. The
+        The maximum number of transactions per API query. Default is 10000. The
         maximum allowed by the API is 10000.
     sleep_time: float, optional
         The sleep time between API queries in seconds. This is used to avoid
@@ -309,15 +333,30 @@ def get_all_collect_transactions(transactions_per_batch=1000, sleep_time=1):
     counter = 1
 
     while True:
-        print_info("Downloading batch %i" % counter)
-        new_transactions = get_collect_transactions(len(transactions), transactions_per_batch)
-        transactions += new_transactions
+        file_name = os.path.join(
+            data_dir, "collect_transactions_%i-%i.json" % (
+                len(transactions), len(transactions) + transactions_per_batch))
 
-        if len(new_transactions) != transactions_per_batch:
-            break
+        if os.path.exists(file_name):
+            print_info(
+                "Batch %i has been already downloaded. Reading it from local "
+                "json file." % counter)
+            transactions += read_json_file(file_name)
+        else:
+            print_info("Downloading batch %i" % counter)
+            new_transactions = get_collect_transactions(
+                len(transactions), transactions_per_batch)
+            transactions += new_transactions
+
+            if len(new_transactions) != transactions_per_batch:
+                break
+
+            print_info("Saving batch %i in the output directory" % counter)
+            save_json_file(file_name, new_transactions)
+
+            time.sleep(sleep_time)
 
         counter += 1
-        time.sleep(sleep_time)
 
     print_info("Downloaded %i collect transactions." % len(transactions))
 
@@ -347,16 +386,21 @@ def extract_artist_accounts(transactions):
 
         if wallet_id not in artists:
             artists[wallet_id] = {
+                "order": counter,
+                "type": "artist",
                 "wallet_id": wallet_id,
                 "first_objkt": {
                     "id" : transaction["parameter"]["value"]["token_id"],
                     "amount": transaction["parameter"]["value"]["amount"],
                     "timestamp": transaction["timestamp"]},
-                "order": counter,
-                "copyminter": False}
-            counter += 1
+                "first_interaction": {
+                    "type": "mint",
+                    "timestamp": transaction["timestamp"]},
+                "reported": False,
+                "money_spent": [],
+                "total_money_spent": 0}
 
-    print_info("Found %i unique artists." % len(artists))
+            counter += 1
 
     return artists
 
@@ -384,34 +428,134 @@ def extract_collector_accounts(transactions):
 
         if wallet_id not in collectors:
             collectors[wallet_id] = {
+                "order": counter,
+                "type": "collector",
                 "wallet_id": wallet_id,
                 "first_collect": {
                     "objkt_id": "",
                     "operation_hash": transaction["hash"],
                     "timestamp": transaction["timestamp"]},
-                "order": counter,
-                "copyminter": False}
+                "first_interaction": {
+                    "type": "collect",
+                    "timestamp": transaction["timestamp"]},
+                "reported": False,
+                "money_spent": [transaction["amount"] / 1e6]}
             counter += 1
+        else:
+            collectors[wallet_id]["money_spent"].append(
+                transaction["amount"] / 1e6)
 
-    print_info("Found %i unique collectors." % len(collectors))
+    for collector in collectors.values():
+        collector["total_money_spent"] = sum(collector["money_spent"])
 
     return collectors
 
 
-def add_copyminter_information(accounts, copyminters):
-    """Adds the copyminter information to a set of accounts.
+def get_patron_accounts(artists, collectors):
+    """Gets the patron accounts from a set of artists and collectors.
+
+    Parameters
+    ----------
+    artists: dict
+        The python dictionary with the artists accounts.
+    collectors: dict
+        The python dictionary with the collectors accounts.
+
+    Returns
+    -------
+    dict
+        A python dictionary with the patron accounts.
+
+    """
+    patrons = {}
+
+    for wallet_id, collector in collectors.items():
+        # Check if the collector is also an artist
+        if wallet_id in artists:
+            # Set the collector type to artist
+            collector["type"] = "artist"
+
+            # Save the first collect information and the money spent
+            artist = artists[wallet_id]
+            artist["first_collect"] = collector["first_collect"]
+            artist["money_spent"] = collector["money_spent"]
+            artist["total_money_spent"] = collector["total_money_spent"]
+
+            # Check which was the first artist interation
+            datetime_format = "%Y-%m-%dT%H:%M:%SZ"
+            first_objkt_date = datetime.strptime(
+                artist["first_objkt"]["timestamp"], datetime_format)
+            first_collect_date = datetime.strptime(
+                artist["first_collect"]["timestamp"], datetime_format)
+
+            if first_objkt_date > first_collect_date:
+                artist["first_interaction"]["type"] = "collect"
+                artist["first_interaction"]["timestamp"] = artist[
+                    "first_collect"]["timestamp"]
+        else:
+            # Set the collector type to patron
+            collector["type"] = "patron"
+
+            # Add the collector to the patrons dictionary
+            patrons[wallet_id] = collector
+
+    return patrons
+
+
+def get_user_accounts(artists, patrons):
+    """Gets the user accounts from a set of artists and patrons.
+
+    Parameters
+    ----------
+    artists: dict
+        The python dictionary with the artists accounts.
+    patrons: dict
+        The python dictionary with the patrons accounts.
+
+    Returns
+    -------
+    dict
+        A python dictionary with the user accounts.
+
+    """
+    # Get the combined wallet ids and time stamps
+    wallet_ids = np.array(
+        [artists[i]["wallet_id"] for i in artists] + 
+        [patrons[i]["wallet_id"] for i in patrons])
+    timestamps = np.array(
+        [artists[i]["first_interaction"]["timestamp"] for i in artists] + 
+        [patrons[i]["first_interaction"]["timestamp"] for i in patrons])
+
+    # Order the users by their time stamps
+    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
+    dates = np.array(
+        [datetime.strptime(timestamp, datetime_format) for timestamp in timestamps])
+    wallet_ids = wallet_ids[np.argsort(dates)]
+    users = {}
+
+    for wallet_id in wallet_ids:
+        if wallet_id in artists:
+            users[wallet_id] = artists[wallet_id]
+        else:
+            users[wallet_id] = patrons[wallet_id]
+
+    return users
+
+
+def add_reported_users_information(accounts, reported_users):
+    """Adds the reported users information to a set of accounts.
 
     Parameters
     ----------
     accounts: dict
         The python dictionary with the accounts information.
-    copyminters: list
-        The python list with the wallet ids of all known copyminters.
+    reported_users: list
+        The python list with the wallet ids of all H=N reported users.
 
     """
-    for wallet_id in copyminters:
+    for wallet_id in reported_users:
         if wallet_id in accounts:
-            accounts[wallet_id]["copyminter"] = True
+            accounts[wallet_id]["reported"] = True
 
 
 def add_accounts_metadata(accounts, from_account_index=0, to_account_index=None, sleep_time=1):
@@ -458,7 +602,7 @@ def add_accounts_metadata(accounts, from_account_index=0, to_account_index=None,
         time.sleep(sleep_time)
 
 
-def add_first_collect_objkt_id(accounts, from_account_index=0, to_account_index=None, sleep_time=1):
+def add_first_collected_objkt_id(accounts, from_account_index=0, to_account_index=None, sleep_time=1):
     """Adds the id of the first collected OBJKT to a set of collector accounts.
 
     Be careful, this will send a lot of API queries and you might be temporally
