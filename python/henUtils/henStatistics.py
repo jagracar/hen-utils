@@ -98,23 +98,23 @@ for i in [0.1, 0.5, 1, 2, 3, 5, 10, 100]:
 plot_new_users_per_day(
     artists, title="New artists per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New artists per day", exclude_last_day=True)
+    y_label="New artists per day", exclude_last_day=False)
 save_figure(os.path.join(figures_dir, "new_artists_per_day.png"))
 
 plot_new_users_per_day(
     collectors, title="New collectors per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New collectors per day", exclude_last_day=True)
+    y_label="New collectors per day", exclude_last_day=False)
 save_figure(os.path.join(figures_dir, "new_collectors_per_day.png"))
 
 plot_new_users_per_day(
     patrons, title="New patrons per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New patrons per day", exclude_last_day=True)
+    y_label="New patrons per day", exclude_last_day=False)
 save_figure(os.path.join(figures_dir, "new_patros_per_day.png"))
 
 plot_new_users_per_day(
     users, title="New users per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New users per day", exclude_last_day=True)
+    y_label="New users per day", exclude_last_day=False)
 save_figure(os.path.join(figures_dir, "new_users_per_day.png"))

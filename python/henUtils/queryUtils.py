@@ -386,7 +386,7 @@ def extract_artist_accounts(transactions):
     for transaction in transactions:
         wallet_id = transaction["initiator"]["address"]
 
-        if wallet_id not in artists:
+        if wallet_id.startswith("tz") and wallet_id not in artists:
             artists[wallet_id] = {
                 "order": counter,
                 "type": "artist",
@@ -428,24 +428,25 @@ def extract_collector_accounts(transactions):
     for transaction in transactions:
         wallet_id = transaction["sender"]["address"]
 
-        if wallet_id not in collectors:
-            collectors[wallet_id] = {
-                "order": counter,
-                "type": "collector",
-                "wallet_id": wallet_id,
-                "first_collect": {
-                    "objkt_id": "",
-                    "operation_hash": transaction["hash"],
-                    "timestamp": transaction["timestamp"]},
-                "first_interaction": {
-                    "type": "collect",
-                    "timestamp": transaction["timestamp"]},
-                "reported": False,
-                "money_spent": [transaction["amount"] / 1e6]}
-            counter += 1
-        else:
-            collectors[wallet_id]["money_spent"].append(
-                transaction["amount"] / 1e6)
+        if wallet_id.startswith("tz"):
+            if wallet_id not in collectors:
+                collectors[wallet_id] = {
+                    "order": counter,
+                    "type": "collector",
+                    "wallet_id": wallet_id,
+                    "first_collect": {
+                        "objkt_id": "",
+                        "operation_hash": transaction["hash"],
+                        "timestamp": transaction["timestamp"]},
+                    "first_interaction": {
+                        "type": "collect",
+                        "timestamp": transaction["timestamp"]},
+                    "reported": False,
+                    "money_spent": [transaction["amount"] / 1e6]}
+                counter += 1
+            else:
+                collectors[wallet_id]["money_spent"].append(
+                    transaction["amount"] / 1e6)
 
     for collector in collectors.values():
         collector["total_money_spent"] = sum(collector["money_spent"])
@@ -641,8 +642,14 @@ def add_first_collected_objkt_id(accounts, from_account_index=0, to_account_inde
 
     for i, wallet_id in enumerate(wallet_ids):
         account = accounts[wallet_id]
-        account["first_collect"]["objkt_id"] = get_object_id(
-            account["first_collect"]["operation_hash"])
+
+        try:
+            account["first_collect"]["objkt_id"] = get_object_id(
+                account["first_collect"]["operation_hash"])
+        except:
+            print_info("Blocked by the server? Trying again...")
+            account["first_collect"]["objkt_id"] = get_object_id(
+                account["first_collect"]["operation_hash"])
 
         if i != 0 and (i + 1) % 10 == 0:
             print_info("Added the OBJKT id for %i accounts" % (i + 1))

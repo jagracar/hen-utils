@@ -1,6 +1,9 @@
 import time
 from henUtils.queryUtils import *
 
+# Read the previously saved patrons metadata
+saved_patrons = read_json_file("../data/patrons.json")
+
 # Set the path to the directory where the transaction information will be saved
 # to avoid to query for it again and again
 transactions_dir = "../data/transactions"
@@ -16,6 +19,17 @@ patrons = get_patron_accounts(artists, collectors)
 print_info("Found %i patrons (collectors that are not artists at the same "
            "time)." % len(patrons))
 
+# Use the saved metadata information for the old patrons and select the new ones
+new_patrons = {}
+
+for wallet_id in patrons:
+    if wallet_id in saved_patrons:
+        patrons[wallet_id] = saved_patrons[wallet_id]
+    else:
+        new_patrons[wallet_id] = patrons[wallet_id]
+
+print_info("Found %i new patrons." % len(new_patrons))
+
 # Get the list of H=N reported users
 reported_users = get_reported_users()
 
@@ -23,24 +37,24 @@ reported_users = get_reported_users()
 add_reported_users_information(artists, reported_users)
 add_reported_users_information(patrons, reported_users)
 
-# Get the account metadata and the first collected object id for the patrons
-print_info("Adding patrons metadata...")
+# Get the account metadata for all the new patrons
+print_info("Adding new patrons metadata...")
 batch_size = 50
 from_index = 0
-to_index = min(from_index + batch_size, len(patrons))
+to_index = min(from_index + batch_size, len(new_patrons))
 counter = 1
 
 while True:
     print_info("Processing batch %i: patrons %i to %i" % (
         counter, from_index, to_index))
-    add_accounts_metadata(patrons, from_index, to_index, sleep_time=1)
-    add_first_collected_objkt_id(patrons, from_index, to_index, sleep_time=1)
+    add_accounts_metadata(new_patrons, from_index, to_index, sleep_time=1)
+    add_first_collected_objkt_id(new_patrons, from_index, to_index, sleep_time=1)
 
-    if to_index == len(patrons):
+    if to_index == len(new_patrons):
         break
 
     from_index = to_index
-    to_index = min(from_index + batch_size, len(patrons))
+    to_index = min(from_index + batch_size, len(new_patrons))
     counter += 1
     time.sleep(60)
 

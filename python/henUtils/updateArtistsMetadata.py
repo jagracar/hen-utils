@@ -34,7 +34,7 @@ add_reported_users_information(artists, reported_users)
 
 # Get the account metadata for all the new artists
 print_info("Adding new artists metadata...")
-batch_size = 250
+batch_size = 50
 from_index = 0
 to_index = min(from_index + batch_size, len(new_artists))
 counter = 1
@@ -42,7 +42,7 @@ counter = 1
 while True:
     print_info("Processing batch %i: artists %i to %i" % (
         counter, from_index, to_index))
-    add_accounts_metadata(new_artists, from_index, to_index, sleep_time=2)
+    add_accounts_metadata(new_artists, from_index, to_index, sleep_time=1)
 
     if to_index == len(new_artists):
         break
@@ -50,7 +50,7 @@ while True:
     from_index = to_index
     to_index = min(from_index + batch_size, len(new_artists))
     counter += 1
-    time.sleep(120)
+    time.sleep(60)
 
 # Save the artists information into a json file
 save_json_file("artists.json", artists)
@@ -62,3 +62,11 @@ for walletId, artist in artists.items():
     artists_aliases[walletId] = artist["alias"] if "alias" in artist else ""
 
 save_json_file("artists_aliases.json", artists_aliases)
+
+# Save the artists twitter accounts into a json file
+artists_twitter_accounts = {}
+
+for walletId, artist in artists.items():
+    artists_twitter_accounts[walletId] = artist["twitter"] if "twitter" in artist else ""
+
+save_json_file("artists_twitter_accounts.json", artists_twitter_accounts)
