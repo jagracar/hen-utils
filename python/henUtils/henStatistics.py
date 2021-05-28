@@ -69,52 +69,78 @@ for wallet_id in wallet_ids[:10]:
     print("  User %s spent %.0f tez" % (wallet_id, users[wallet_id]["total_money_spent"]))
 
 # Get the collected money that doesn't come from a reported user
-collected_money = []
+collect_from_patron = []
+collect_timestamps = []
+collect_money = []
 
 for transaction in collect_transactions:
     wallet_id = transaction["sender"]["address"]
 
     if wallet_id not in reported_users:
-        collected_money.append(transaction["amount"] / 1e6)
+        collect_from_patron.append(wallet_id in patrons)
+        collect_timestamps.append(transaction["timestamp"])
+        collect_money.append(transaction["amount"] / 1e6)
 
-collected_money = np.array(collected_money)
-collect_operations = len(collected_money)
-total_collected_money = np.sum(collected_money)
+collect_from_patron = np.array(collect_from_patron)
+collect_timestamps = np.array(collect_timestamps)
+collect_money = np.array(collect_money)
+
+# Plot the money spent in collect operations per day
+plot_collected_money_per_day(
+    collect_money, collect_timestamps,
+    "Money spent in collect operations per day",
+    "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "money_per_day.png"))
+
+plot_collected_money_per_day(
+    collect_money[collect_from_patron], collect_timestamps[collect_from_patron],
+    "Money spent in collect operations per day by patrons",
+    "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "money_per_day_by_patrons.png"))
+
+plot_price_distribution_per_day(
+    collect_money, collect_timestamps, [0.01, 1, 5, 50],
+    "Price distribution of collected OBJKTs per day",
+    "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "price_distribution_per_day.png"))
 
 # Print some information about the collect operations
-print("Non-reported users performed %i collect operations." % collect_operations)
+print("Non-reported users performed %i collect operations." % len(collect_money))
 
 for i in [0.0, 0.1, 0.5, 1, 2, 3, 5, 10, 100]:
     print("%.1f%% of them were for editions with a value <= %.1ftez." % (
-        100 * np.sum(collected_money <= i) / collect_operations, i))
+        100 * np.sum(collect_money <= i) / len(collect_money), i))
 
-print("Non-reported users spent a total of %.0f tez." % total_collected_money)
+print("Non-reported users spent a total of %.0f tez." % np.sum(collect_money))
 
 for i in [0.1, 0.5, 1, 2, 3, 5, 10, 100]:
     print("%.1f%% of that was on editions with a value <= %.1ftez." % (
-        100 * np.sum(collected_money[collected_money <= i]) / total_collected_money, i))
+        100 * np.sum(collect_money[collect_money <= i]) / np.sum(collect_money), i))
 
 # Plot the new users per day
 plot_new_users_per_day(
     artists, title="New artists per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New artists per day", exclude_last_day=False)
+    y_label="New artists per day", exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "new_artists_per_day.png"))
 
 plot_new_users_per_day(
     collectors, title="New collectors per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New collectors per day", exclude_last_day=False)
+    y_label="New collectors per day", exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "new_collectors_per_day.png"))
 
 plot_new_users_per_day(
     patrons, title="New patrons per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New patrons per day", exclude_last_day=False)
+    y_label="New patrons per day", exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "new_patros_per_day.png"))
 
 plot_new_users_per_day(
     users, title="New users per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New users per day", exclude_last_day=False)
+    y_label="New users per day", exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "new_users_per_day.png"))
