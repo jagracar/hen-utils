@@ -42237,23 +42237,6 @@
         "money_spent": [],
         "total_money_spent": 0.0
     },
-    "tz1cYveEBqHrMmnYvYzHu4pDzSTyHBEufYDp": {
-        "order": 6660,
-        "type": "patron",
-        "wallet_id": "tz1cYveEBqHrMmnYvYzHu4pDzSTyHBEufYDp",
-        "first_collect": {
-            "objkt_id": "49240",
-            "operation_hash": "opSNPvuSzAVFf6F6G4RogXR5SRQJ12VHqmVh2TZpNS77RYbd4xV",
-            "timestamp": "2021-04-26T00:22:08Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-04-26T00:22:08Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 8.5
-    },
     "tz1MgpQFRSKQ8hFtVRop7ddnRLiWx31LY4yV": {
         "order": 6661,
         "type": "patron",
@@ -42355,23 +42338,6 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 0.32000000000000006
-    },
-    "tz2QaaTsyR4JZR9p8wP8HD138FNZvtcnFWYZ": {
-        "order": 6669,
-        "type": "patron",
-        "wallet_id": "tz2QaaTsyR4JZR9p8wP8HD138FNZvtcnFWYZ",
-        "first_collect": {
-            "objkt_id": "49275",
-            "operation_hash": "opDyxqqMHxqqusvBQSEHA3297KpAoZrHc7MEPtw9szFjMbf5CPA",
-            "timestamp": "2021-04-26T00:48:48Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-04-26T00:48:48Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 3.19
     },
     "tz1gcQv73R8haNKwS6ApS8pWnTpj5QpaxkAq": {
         "order": 6670,
@@ -64806,23 +64772,6 @@
         "email": "atm@pfuellabs.com",
         "twitter": "techmoney11"
     },
-    "tz1S2ccSMLLv31gZyjzT5SY7fkGYKAfLwJDq": {
-        "order": 9584,
-        "type": "patron",
-        "wallet_id": "tz1S2ccSMLLv31gZyjzT5SY7fkGYKAfLwJDq",
-        "first_collect": {
-            "objkt_id": "76560",
-            "operation_hash": "oojAY8RYAhgzcMDTm718RPK6hefap6FjkMKPcqPW6TpvTKiudFi",
-            "timestamp": "2021-05-12T22:06:42Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-12T22:06:42Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 0.1332
-    },
     "tz1YhdiBvxSZM175MLupcHbUYwxb2ki14ZAX": {
         "order": 9587,
         "type": "patron",
@@ -74670,30 +74619,6 @@
         "twitter": "stina_jones",
         "instagram": "stina_jones"
     },
-    "tz1c6NKDXd2ayDYJovHSsovFNfav3BF91Nvv": {
-        "order": 11040,
-        "type": "patron",
-        "wallet_id": "tz1c6NKDXd2ayDYJovHSsovFNfav3BF91Nvv",
-        "first_collect": {
-            "objkt_id": "90552",
-            "operation_hash": "oo7aBLwDGYncquCDraiUnBV3krjAYmiBFVg8CrkzAzfCZbRtwj9",
-            "timestamp": "2021-05-20T22:14:22Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-20T22:14:22Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 6.0,
-        "address": "tz1c6NKDXd2ayDYJovHSsovFNfav3BF91Nvv",
-        "kind": "person",
-        "alias": "visual_citizens",
-        "logo": "tz1c6NKDXd2ayDYJovHSsovFNfav3BF91Nvv.png",
-        "email": "studio@visualcitizens.com",
-        "twitter": "visual_citizens",
-        "instagram": "visual_citizens"
-    },
     "tz1gMpCALZseFvdQQovsU5qLRK5whFiECUJ1": {
         "order": 11041,
         "type": "patron",
@@ -76173,23 +76098,6 @@
         "logo": "tz1Sd2CisH9j4tqtjPAmJvn8XdtgTT6sBYMr.png",
         "twitter": "wildflower_weed"
     },
-    "tz1Y4rigeuzhaYa7SZMWCsVqwzdDvPE3QyqM": {
-        "order": 11227,
-        "type": "patron",
-        "wallet_id": "tz1Y4rigeuzhaYa7SZMWCsVqwzdDvPE3QyqM",
-        "first_collect": {
-            "objkt_id": "92665",
-            "operation_hash": "oom5LH1PwstzKeFkjJmvN7v57Rca9p4vJuCbupjREQ4G9CXXm3c",
-            "timestamp": "2021-05-22T04:56:42Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-22T04:56:42Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 16.18
-    },
     "tz1czYJD6pCNJ1nsXtZS79eH6HNpevV3B8hu": {
         "order": 11228,
         "type": "patron",
@@ -77605,30 +77513,6 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 29.64
-    },
-    "tz1TWWUcZQtmTC6wGQdBwyt3cRdzjtgWKBFT": {
-        "order": 11402,
-        "type": "patron",
-        "wallet_id": "tz1TWWUcZQtmTC6wGQdBwyt3cRdzjtgWKBFT",
-        "first_collect": {
-            "objkt_id": "94248",
-            "operation_hash": "oowxmWjXoZH4qwg8QPbCEnsTxVmMmgHttCHTBzEeyhkbuT5kWmL",
-            "timestamp": "2021-05-23T08:13:42Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-23T08:13:42Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 24.538800000000002,
-        "address": "tz1TWWUcZQtmTC6wGQdBwyt3cRdzjtgWKBFT",
-        "kind": "person",
-        "alias": "Indelible",
-        "description": "Artist and Nurse. Creating and collecting digital art. Hoping and believing in our future..",
-        "logo": "tz1TWWUcZQtmTC6wGQdBwyt3cRdzjtgWKBFT.png",
-        "email": "Indelible@chemist.com",
-        "twitter": "Indelible_01"
     },
     "tz1SHW2PUfV6PzS9jsJmHCCLTE6qHRNwwGbZ": {
         "order": 11403,
@@ -79188,23 +79072,6 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 57.17000000000001
-    },
-    "tz1Wzi2S5PSmnH3hSgosHM9xb5NqTh1G7cFe": {
-        "order": 11604,
-        "type": "patron",
-        "wallet_id": "tz1Wzi2S5PSmnH3hSgosHM9xb5NqTh1G7cFe",
-        "first_collect": {
-            "objkt_id": "96565",
-            "operation_hash": "op7sezdvYE4YgNSDhFfBtCjAVwiiszbw95xbshzbEQTeUPSHX2k",
-            "timestamp": "2021-05-24T20:26:58Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-24T20:26:58Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 5.0
     },
     "tz1TtjmQDLDrktJPyNrCgydF9h62hcCd6Cxz": {
         "order": 11605,
@@ -81847,23 +81714,6 @@
         "twitter": "HumanGoneRotten",
         "instagram": "gonerotten2021"
     },
-    "tz1PCHeNeM4zcMA46o78cfHeopZoUd6mVsgq": {
-        "order": 11904,
-        "type": "patron",
-        "wallet_id": "tz1PCHeNeM4zcMA46o78cfHeopZoUd6mVsgq",
-        "first_collect": {
-            "objkt_id": "99889",
-            "operation_hash": "oofBSrEkm5ZT5srH44DiCZLYbEHX3GWNTVucibTDDehjtHiVT8x",
-            "timestamp": "2021-05-26T22:39:58Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-26T22:39:58Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 0.001
-    },
     "tz1c52mR5M1hdqb7rBbVnP8nWrR6w9AbnYeN": {
         "order": 11905,
         "type": "patron",
@@ -83033,7 +82883,15 @@
         },
         "reported": false,
         "money_spent": [],
-        "total_money_spent": 0.0
+        "total_money_spent": 0.0,
+        "address": "tz1gvko8qMwWxAFpAiVhFU9XENzxeZZyoFwZ",
+        "kind": "person",
+        "alias": "iiamRas",
+        "description": "Karot.M  B.G  I take offers ! :)",
+        "logo": "tz1gvko8qMwWxAFpAiVhFU9XENzxeZZyoFwZ.png",
+        "email": "prince.tim973@gmail.com",
+        "twitter": "IIamRas",
+        "instagram": "r__t02"
     },
     "tz1NCuCFGcRWXfZJCpTvWxso4jGTLBKmY9cp": {
         "order": 12041,
@@ -85047,23 +84905,6 @@
         "twitter": "jophenstein",
         "instagram": "jophenstein"
     },
-    "tz1hEQ1NY1Hq7zEHzRaN6hX9HKe8pbU846Yw": {
-        "order": 12247,
-        "type": "patron",
-        "wallet_id": "tz1hEQ1NY1Hq7zEHzRaN6hX9HKe8pbU846Yw",
-        "first_collect": {
-            "objkt_id": "103486",
-            "operation_hash": "op95wbPxNWUoQ7x9cLDvDvti8MEG76jikGTckg8G8KhVZ947hSk",
-            "timestamp": "2021-05-28T23:31:54Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-28T23:31:54Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 9.55
-    },
     "tz1dgiK7iX8RtL8zQx52XHjms8QXafNujQEL": {
         "order": 12248,
         "type": "patron",
@@ -85097,32 +84938,6 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 61.400000000000006
-    },
-    "tz1QL9awi9efVHHj8FahZN8482oS9CDj9huj": {
-        "order": 12250,
-        "type": "patron",
-        "wallet_id": "tz1QL9awi9efVHHj8FahZN8482oS9CDj9huj",
-        "first_collect": {
-            "objkt_id": "103505",
-            "operation_hash": "ooJvpGYF48pabNDPNoVCcZcjt1XLkmW1GVWTQb4yDqwxCij1r4H",
-            "timestamp": "2021-05-28T23:44:34Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-28T23:44:34Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 1.4,
-        "address": "tz1QL9awi9efVHHj8FahZN8482oS9CDj9huj",
-        "kind": "person",
-        "alias": "El Santos World",
-        "description": "I am an artist making art \u2764\ufe0f",
-        "logo": "tz1QL9awi9efVHHj8FahZN8482oS9CDj9huj.png",
-        "email": "sergio@lossantosart.com",
-        "twitter": "elsantosworld",
-        "instagram": "elsantosworld",
-        "facebook": "elsantosworld"
     },
     "tz1iWLwf1TfmcNaygkHS7rnauEAF5v7NRNnv": {
         "order": 12254,
@@ -85268,28 +85083,6 @@
         "money_spent": [],
         "total_money_spent": 5.0
     },
-    "tz1RatjqzChccqPZJDYRtdSsdMBtgEXgLzh3": {
-        "order": 12268,
-        "type": "patron",
-        "wallet_id": "tz1RatjqzChccqPZJDYRtdSsdMBtgEXgLzh3",
-        "first_collect": {
-            "objkt_id": "103637",
-            "operation_hash": "ooHcvGPJ63QwKLUVcgXr4gAqM9kwVyPPjKYHE2kxQ3DSwtcCkXu",
-            "timestamp": "2021-05-29T02:07:54Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-29T02:07:54Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 259.69897999999995,
-        "address": "tz1RatjqzChccqPZJDYRtdSsdMBtgEXgLzh3",
-        "kind": "person",
-        "alias": "shdweffects",
-        "logo": "tz1RatjqzChccqPZJDYRtdSsdMBtgEXgLzh3.png",
-        "twitter": "shdweffects"
-    },
     "tz1embUGiC566U5GBBAtuRiee8FQtRuPeGBj": {
         "order": 12270,
         "type": "patron",
@@ -85373,7 +85166,16 @@
         },
         "reported": false,
         "money_spent": [],
-        "total_money_spent": 103.63000000000001
+        "total_money_spent": 103.63000000000001,
+        "address": "tz1TJMxVQhTyFf72SvaSPxmSCojR4ukiwuWP",
+        "kind": "person",
+        "alias": "Adinalini",
+        "description": "20. I procrastinate more than you. Purple is the only one true colour :D",
+        "logo": "tz1TJMxVQhTyFf72SvaSPxmSCojR4ukiwuWP.png",
+        "site": "https://xn--fl8h6n05b.y.at",
+        "email": "adinalini2000@gmail.com",
+        "twitter": "adinalini",
+        "github": "adinalini"
     },
     "tz2QMBs25ZDBDczPQ5qDzAsvep4NSUKgVvF7": {
         "order": 12279,
@@ -85482,31 +85284,6 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 5.0
-    },
-    "tz1cBjjFpbJuyAewjH8LKhp6X4xUjhVpRmRV": {
-        "order": 12286,
-        "type": "patron",
-        "wallet_id": "tz1cBjjFpbJuyAewjH8LKhp6X4xUjhVpRmRV",
-        "first_collect": {
-            "objkt_id": "103770",
-            "operation_hash": "ooh6mknxsgX4y6sxMgd9G8QzDYHxi5AUmc4yefZfzS4WNKR3ae5",
-            "timestamp": "2021-05-29T05:28:14Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-29T05:28:14Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 0.30000000000000004,
-        "address": "tz1cBjjFpbJuyAewjH8LKhp6X4xUjhVpRmRV",
-        "kind": "person",
-        "alias": "aserdry",
-        "description": "Photographer who create Video and Experimental Photography",
-        "logo": "tz1cBjjFpbJuyAewjH8LKhp6X4xUjhVpRmRV.png",
-        "email": "ashrsyifa@gmail.com",
-        "twitter": "aserdry",
-        "instagram": "aserdry"
     },
     "tz1aVidyssPNnEYuJHWg7iXUwddanHsTGqEy": {
         "order": 12287,
@@ -85974,30 +85751,6 @@
         "money_spent": [],
         "total_money_spent": 18.09
     },
-    "tz1aNFFn2Z1u3xUJgdGuwUqcu633hnmD8tXM": {
-        "order": 12335,
-        "type": "patron",
-        "wallet_id": "tz1aNFFn2Z1u3xUJgdGuwUqcu633hnmD8tXM",
-        "first_collect": {
-            "objkt_id": "104101",
-            "operation_hash": "ooVi7vEHxvH9Q4qe2TohWXCZeVqCnKwDob4cdYBubr8wmrNQp3A",
-            "timestamp": "2021-05-29T12:56:10Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-29T12:56:10Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 6.0,
-        "address": "tz1aNFFn2Z1u3xUJgdGuwUqcu633hnmD8tXM",
-        "kind": "person",
-        "alias": "Marco Zagara",
-        "description": "3D / 2D Digital Artist based in Italy, turning my visions into dreamlike compositions.",
-        "logo": "tz1aNFFn2Z1u3xUJgdGuwUqcu633hnmD8tXM.png",
-        "twitter": "marcozagara",
-        "instagram": "marcozagara"
-    },
     "tz2Dv2p78Yu4ik48tVmVeWrHKAGNFj9YjaaK": {
         "order": 12338,
         "type": "patron",
@@ -86314,32 +86067,6 @@
         "money_spent": [],
         "total_money_spent": 220.68899999999996
     },
-    "tz1fehLVubMEMRpod6dDWVTABouXmEySNvhx": {
-        "order": 12381,
-        "type": "patron",
-        "wallet_id": "tz1fehLVubMEMRpod6dDWVTABouXmEySNvhx",
-        "first_collect": {
-            "objkt_id": "104722",
-            "operation_hash": "ooNKifgASyVkRoqtjkiozdHea5f6UoCsypmMiDqoxn9K9vFFfHa",
-            "timestamp": "2021-05-29T20:20:38Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-29T20:20:38Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 57.260000000000005,
-        "address": "tz1fehLVubMEMRpod6dDWVTABouXmEySNvhx",
-        "kind": "person",
-        "alias": "LAPSTER",
-        "description": "Games Developer and Creature / Character Artist - Creator of Ghastlies, Popsicle Pals, and Tallheads",
-        "logo": "tz1fehLVubMEMRpod6dDWVTABouXmEySNvhx.png",
-        "site": "https://louisprotanogames.com/artwork",
-        "email": "nftlapster@gmail.com",
-        "twitter": "NFTLapster",
-        "instagram": "nftlapster"
-    },
     "tz1SJMnBwWhRce2mqAtrTrhoMnQgAdyAR8ej": {
         "order": 12382,
         "type": "patron",
@@ -86425,32 +86152,6 @@
         "money_spent": [],
         "total_money_spent": 37.755
     },
-    "tz1dc1bLBQTTAmPS6ghkKDMhscdmFMipmPZB": {
-        "order": 12391,
-        "type": "patron",
-        "wallet_id": "tz1dc1bLBQTTAmPS6ghkKDMhscdmFMipmPZB",
-        "first_collect": {
-            "objkt_id": "104916",
-            "operation_hash": "ooeXttUms5KcArBHfKdRwoKawo4zytBPMTP88u9aQS6vH7Lr3hB",
-            "timestamp": "2021-05-29T22:26:58Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-29T22:26:58Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 2.0,
-        "address": "tz1dc1bLBQTTAmPS6ghkKDMhscdmFMipmPZB",
-        "kind": "person",
-        "alias": "Bonnie Kate Wolf",
-        "description": "The art and illustration of Bonnie Kate Wolf, a designer from San Francisco.",
-        "logo": "tz1dc1bLBQTTAmPS6ghkKDMhscdmFMipmPZB.png",
-        "site": "https://www.bonniekatewolf.com",
-        "email": "bonniekatewolf@gmail.com",
-        "twitter": "bonniekatewolf",
-        "instagram": "bonniekatewolf"
-    },
     "tz1epnW7xfcmPG3dbttxFi8pKiSSsR4nPKNV": {
         "order": 12394,
         "type": "patron",
@@ -86501,23 +86202,6 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 30.55
-    },
-    "tz1Z89EpjzQUU13wzsB4PaPpDyKYRm9Lbtij": {
-        "order": 12403,
-        "type": "patron",
-        "wallet_id": "tz1Z89EpjzQUU13wzsB4PaPpDyKYRm9Lbtij",
-        "first_collect": {
-            "objkt_id": "105056",
-            "operation_hash": "opYUoHxhfdfYA27PEsvVReidNYk2e1RRoFXFK2muc11euUeMZRq",
-            "timestamp": "2021-05-30T00:25:38Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-30T00:25:38Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 18.0
     },
     "tz1dporKYLNwgkVjD37Unbf5qVHJLNERAL97": {
         "order": 12404,
@@ -86804,7 +86488,13 @@
         },
         "reported": false,
         "money_spent": [],
-        "total_money_spent": 129.0
+        "total_money_spent": 129.0,
+        "address": "tz1ZRfGi5CFPQEgnG3XXvX44g8F4Vmdksiqy",
+        "kind": "person",
+        "alias": "Aggro Crag",
+        "description": "The addled Zen scientist with the inwardly infinite capacity for mindfulness",
+        "logo": "tz1ZRfGi5CFPQEgnG3XXvX44g8F4Vmdksiqy.png",
+        "twitter": "ReyCrypto810"
     },
     "tz1XQ6uEBzMRTyhDoYk1EDidFgUuMyDEiZZb": {
         "order": 12431,
@@ -86879,23 +86569,6 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 3.0
-    },
-    "tz1YguQV62xHkUbGdcxkq1udbmRASnUi4GgD": {
-        "order": 12439,
-        "type": "patron",
-        "wallet_id": "tz1YguQV62xHkUbGdcxkq1udbmRASnUi4GgD",
-        "first_collect": {
-            "objkt_id": "105466",
-            "operation_hash": "ooZCbbpaEWUmUGjKuFQQ6QesnyWNDuDR3rAUBsqxscT6U5rMyFd",
-            "timestamp": "2021-05-30T10:21:18Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-30T10:21:18Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 1.0
     },
     "tz1Qaerc34o7jE9v8DnUKaGGE4Qw89kgyvpN": {
         "order": 12440,
@@ -86973,32 +86646,6 @@
         "money_spent": [],
         "total_money_spent": 40.68
     },
-    "tz1hwNo5K37hEKA2tdzHjpGQZwVNijtrrRKr": {
-        "order": 12450,
-        "type": "patron",
-        "wallet_id": "tz1hwNo5K37hEKA2tdzHjpGQZwVNijtrrRKr",
-        "first_collect": {
-            "objkt_id": "105607",
-            "operation_hash": "op87muNZhg1o1pW3tpToAztUhsjHMG44ZovLsAoKkmJdYYXCpv3",
-            "timestamp": "2021-05-30T13:07:58Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-30T13:07:58Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 0.1,
-        "address": "tz1hwNo5K37hEKA2tdzHjpGQZwVNijtrrRKr",
-        "kind": "person",
-        "alias": "Purz",
-        "description": "Armed with aphantasia, adhd, and a nostalgic CRT glow, I make mostly improvised generative work. Striving to make immersive worlds.",
-        "logo": "tz1hwNo5K37hEKA2tdzHjpGQZwVNijtrrRKr.png",
-        "site": "https://gumroad.com/purz",
-        "email": "purzbeats@gmail.com",
-        "twitter": "purzbeats",
-        "instagram": "purzbeats"
-    },
     "tz1baCxzKBbt98zcUQh4dKQkqQ5o5Bob7o91": {
         "order": 12453,
         "type": "patron",
@@ -87065,7 +86712,15 @@
         },
         "reported": false,
         "money_spent": [],
-        "total_money_spent": 3.666
+        "total_money_spent": 3.666,
+        "address": "tz1Ug6yUJ7PGNaevDTSF8do35TvenjjT4zcf",
+        "kind": "person",
+        "alias": "Barakato",
+        "description": "i create what makes me alive (ART)",
+        "logo": "tz1Ug6yUJ7PGNaevDTSF8do35TvenjjT4zcf.png",
+        "email": "barakaa.art@gmail.com",
+        "twitter": "barakaa10",
+        "instagram": "baraka.rt"
     },
     "tz1fjL3U9MAGKC2SvGd6BaJYghNeUbELbeyE": {
         "order": 12460,
@@ -87489,7 +87144,14 @@
         },
         "reported": false,
         "money_spent": [],
-        "total_money_spent": 0.0
+        "total_money_spent": 0.0,
+        "address": "tz1iFe4xswz4AXTJJm1ABCJvZmWCPgG3nbEE",
+        "kind": "person",
+        "alias": "Efe Ya\u011f\u0131z Soysal",
+        "logo": "tz1iFe4xswz4AXTJJm1ABCJvZmWCPgG3nbEE.png",
+        "email": "efeyagizsoysal@gmail.com",
+        "twitter": "efeyagizs",
+        "instagram": "efeyagizs"
     },
     "tz1PAAL1zS8UmmhUnuPcxeiVYuxKQHUzgCRP": {
         "order": 12506,
@@ -87712,23 +87374,6 @@
         "money_spent": [],
         "total_money_spent": 11.649999999999999
     },
-    "tz1SeMEY8qdFFVNSZNRKoYkggyAYwF7kW6Gk": {
-        "order": 12524,
-        "type": "patron",
-        "wallet_id": "tz1SeMEY8qdFFVNSZNRKoYkggyAYwF7kW6Gk",
-        "first_collect": {
-            "objkt_id": "106350",
-            "operation_hash": "ongCUqrHvR9skHRHMnVtarBpHWBRdaycFV4X8CtJ43cBgsfdcDJ",
-            "timestamp": "2021-05-30T21:32:46Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-30T21:32:46Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 4.4
-    },
     "tz1YTtxbrR7wRPrShLcXgyAgbpEjrYDYp6Hy": {
         "order": 12525,
         "type": "patron",
@@ -87779,31 +87424,6 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 5.0
-    },
-    "tz1iWUnW8o985UynFuGDZg98HKxfjkhb5TYV": {
-        "order": 12533,
-        "type": "patron",
-        "wallet_id": "tz1iWUnW8o985UynFuGDZg98HKxfjkhb5TYV",
-        "first_collect": {
-            "objkt_id": "106464",
-            "operation_hash": "onojtWPxVitQFFEyqjPA7Fs87pk6RAXTEnkqu8rDzyxsYJgCBAU",
-            "timestamp": "2021-05-30T22:43:46Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-30T22:43:46Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 2.5,
-        "address": "tz1iWUnW8o985UynFuGDZg98HKxfjkhb5TYV",
-        "kind": "person",
-        "alias": "emviR",
-        "description": "I'm just expressing my feelings and dreams through art",
-        "logo": "tz1iWUnW8o985UynFuGDZg98HKxfjkhb5TYV.png",
-        "email": "mvilaruiz96@gmail.com",
-        "twitter": "iamemvir",
-        "instagram": "iamemvir"
     },
     "tz1SisqJyxvjLucqdgo7rkCEEWM1WSov3b3D": {
         "order": 12534,
@@ -87973,7 +87593,12 @@
         },
         "reported": false,
         "money_spent": [],
-        "total_money_spent": 8.0
+        "total_money_spent": 8.0,
+        "address": "tz1bAy4X7evYa1ukMQB1dgDxsKy4vgGYkjh6",
+        "kind": "person",
+        "alias": "gdot",
+        "logo": "tz1bAy4X7evYa1ukMQB1dgDxsKy4vgGYkjh6.png",
+        "twitter": "_gdots"
     },
     "tz1LzFPWDKZLuHzQFUSq2ioT49wtBJ8KNxFu": {
         "order": 12547,
@@ -88024,7 +87649,16 @@
         },
         "reported": false,
         "money_spent": [],
-        "total_money_spent": 7.85
+        "total_money_spent": 7.85,
+        "address": "tz1ZDKbXGZBuJvLYk3scpvvCXE6rv4LexLsk",
+        "kind": "person",
+        "alias": "Lhean Storm",
+        "description": "Exploring art + tech. Let's connect!",
+        "logo": "tz1ZDKbXGZBuJvLYk3scpvvCXE6rv4LexLsk.png",
+        "site": "https://lheanstorm.com",
+        "email": "stormxart@gmail.com",
+        "twitter": "StormNft",
+        "instagram": "art.lheanstorm"
     },
     "tz1Kuh5QhHjxdqt5PzknxGMzMDCiAxWraqkM": {
         "order": 12550,
@@ -88076,23 +87710,6 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 25.0
-    },
-    "tz1WtCJfTaK7GLpgs7HPqoJsphMKa87QMZcw": {
-        "order": 12555,
-        "type": "patron",
-        "wallet_id": "tz1WtCJfTaK7GLpgs7HPqoJsphMKa87QMZcw",
-        "first_collect": {
-            "objkt_id": "106675",
-            "operation_hash": "op9jvq9s5Br49GswKgVqLYkNA8Y3GS8UwuGdnGQujRqW6XHJ845",
-            "timestamp": "2021-05-31T02:44:38Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-31T02:44:38Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 59.9
     },
     "tz1cWMXjU3AFQ9MCXxaTqDoyEXQYkWrwP6h2": {
         "order": 12556,
@@ -88365,23 +87982,6 @@
         "money_spent": [],
         "total_money_spent": 0.0
     },
-    "tz1bjzkC56SCcYwrnRP2VCPPrj31CsfjVsyG": {
-        "order": 12577,
-        "type": "patron",
-        "wallet_id": "tz1bjzkC56SCcYwrnRP2VCPPrj31CsfjVsyG",
-        "first_collect": {
-            "objkt_id": "106889",
-            "operation_hash": "ooZo6mBDg1w6MN2DW8Mw3TdVm9qzr9fvuYM8GKhCQzRDfbysuvH",
-            "timestamp": "2021-05-31T07:43:58Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-31T07:43:58Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 9.9
-    },
     "tz1iNdzx7BJpGD2e2YaV2QbsteMQWMAXjjDf": {
         "order": 12578,
         "type": "patron",
@@ -88516,24 +88116,17 @@
         },
         "reported": false,
         "money_spent": [],
-        "total_money_spent": 0.0
-    },
-    "tz1SNz98oEcTm5TArZAkD7futFGu9XmEypAZ": {
-        "order": 12592,
-        "type": "patron",
-        "wallet_id": "tz1SNz98oEcTm5TArZAkD7futFGu9XmEypAZ",
-        "first_collect": {
-            "objkt_id": "107036",
-            "operation_hash": "ooesV6FhnT3afFxqk6GSU1BgDjXJpjPAcqqhPaSwFEnSfbcvBhK",
-            "timestamp": "2021-05-31T10:33:30Z"
-        },
-        "first_interaction": {
-            "type": "collect",
-            "timestamp": "2021-05-31T10:33:30Z"
-        },
-        "reported": false,
-        "money_spent": [],
-        "total_money_spent": 43.799989999999994
+        "total_money_spent": 0.0,
+        "address": "tz1W9JFnKCRKVTGB7BhZnZNh2yh2gc6krrPt",
+        "kind": "person",
+        "alias": "Paolo De",
+        "description": "I am a digital artist based in Havana.",
+        "logo": "tz1W9JFnKCRKVTGB7BhZnZNh2yh2gc6krrPt.png",
+        "site": "https://nftcuba.art/artist/paolo-de",
+        "email": "paolodeyimeil@gmail.com",
+        "twitter": "PaoloDe6",
+        "instagram": "paolo_de_insta",
+        "facebook": "profile.php?id=100010465123430"
     },
     "tz1QfxXvb8iVxFezBHPkRu5tRp9HAsbKgMe9": {
         "order": 12595,
@@ -88594,5 +88187,1102 @@
         "reported": false,
         "money_spent": [],
         "total_money_spent": 1.0
+    },
+    "tz1VNKic8eoCw9kxZosJnJPyHsji3pkqXMYX": {
+        "order": 12604,
+        "type": "patron",
+        "wallet_id": "tz1VNKic8eoCw9kxZosJnJPyHsji3pkqXMYX",
+        "first_collect": {
+            "objkt_id": "107243",
+            "operation_hash": "oooPGp9F1rH8BiMRXxABPM9gyanKqRKYJhaLkGXRwhYmDGwL9GL",
+            "timestamp": "2021-05-31T13:39:30Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T13:39:30Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 52.2
+    },
+    "tz1PQhhQqzLPPzEriFrZRve8TQ4W1aWzkcaG": {
+        "order": 12607,
+        "type": "patron",
+        "wallet_id": "tz1PQhhQqzLPPzEriFrZRve8TQ4W1aWzkcaG",
+        "first_collect": {
+            "objkt_id": "107279",
+            "operation_hash": "op2mVtbeuY5cRQphyuaR8uCL67hq2R19iQEr7qquji3NvdTHvXk",
+            "timestamp": "2021-05-31T14:03:10Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T14:03:10Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 5.0
+    },
+    "tz1TA7qXJyM9YjxdfALij5cPCUPyH8AZicDg": {
+        "order": 12608,
+        "type": "patron",
+        "wallet_id": "tz1TA7qXJyM9YjxdfALij5cPCUPyH8AZicDg",
+        "first_collect": {
+            "objkt_id": "107297",
+            "operation_hash": "opHgvvLWaYH7axEW5w2XkA3edV3gHLgT4Kz47cSds3A2c2Rjfup",
+            "timestamp": "2021-05-31T14:17:10Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T14:17:10Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 22.399999
+    },
+    "tz1b6L1e9pfaoYcSc76kMpyHtYZR4Wok9dhR": {
+        "order": 12611,
+        "type": "patron",
+        "wallet_id": "tz1b6L1e9pfaoYcSc76kMpyHtYZR4Wok9dhR",
+        "first_collect": {
+            "objkt_id": "107316",
+            "operation_hash": "ooSNjNCkRnGFTZQbQdpbCzeuSS3PQsHxRbWoF8k3yWXnLvEwDoU",
+            "timestamp": "2021-05-31T14:30:10Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T14:30:10Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 1.5000000000000002
+    },
+    "tz1gA5a92Uq99Aa2fjoe3x6osfnWN2rtxWGY": {
+        "order": 12613,
+        "type": "patron",
+        "wallet_id": "tz1gA5a92Uq99Aa2fjoe3x6osfnWN2rtxWGY",
+        "first_collect": {
+            "objkt_id": "107344",
+            "operation_hash": "ooFFr4eJjYQoLJPgXn5hAsxgd3AyoUckt8uHkM1vNZDnK72tCvx",
+            "timestamp": "2021-05-31T14:49:10Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T14:49:10Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.0001,
+        "address": "tz1gA5a92Uq99Aa2fjoe3x6osfnWN2rtxWGY",
+        "kind": "person",
+        "alias": "macastone",
+        "description": "\u2093\u02da. \u0b6d \u02da\u25cb\u25e6\u02daGenerative daydreamer based in Buenos Aires, Argentina\u02da\u25e6\u25cb\u02da \u0b67 .\u02da\u2093",
+        "logo": "tz1gA5a92Uq99Aa2fjoe3x6osfnWN2rtxWGY.png",
+        "twitter": "maca_stone",
+        "instagram": "macastone"
+    },
+    "tz1KsWGFxs1qkSnVvZrB2gMCbNy2xoTsbgpE": {
+        "order": 12615,
+        "type": "patron",
+        "wallet_id": "tz1KsWGFxs1qkSnVvZrB2gMCbNy2xoTsbgpE",
+        "first_collect": {
+            "objkt_id": "107369",
+            "operation_hash": "ooQzsHm8MUgUFZrQPEsEs8QP3RMKMMdiYm73kcQgPxp1TKvwQBs",
+            "timestamp": "2021-05-31T15:08:10Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T15:08:10Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 12.399999999999999
+    },
+    "tz1SnXJF49X912Hf5275DkynZSbawUXTS5Jc": {
+        "order": 12616,
+        "type": "patron",
+        "wallet_id": "tz1SnXJF49X912Hf5275DkynZSbawUXTS5Jc",
+        "first_collect": {
+            "objkt_id": "107388",
+            "operation_hash": "ono1UZF7kHTHSdriXvJ1xsJ28HQNPF2fDYg4eFSMuwBw8j5eCEw",
+            "timestamp": "2021-05-31T15:21:50Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T15:21:50Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 2.0
+    },
+    "tz1hShTaEAWA8gcWcLRpbzE1p3rSfnWX2MSs": {
+        "order": 12618,
+        "type": "patron",
+        "wallet_id": "tz1hShTaEAWA8gcWcLRpbzE1p3rSfnWX2MSs",
+        "first_collect": {
+            "objkt_id": "107419",
+            "operation_hash": "ooF5p1xhfG3FD4mgzLZdoqFURFMAuF7x6iywAJHbpVjY4xyNqGw",
+            "timestamp": "2021-05-31T15:35:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T15:35:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 1.0
+    },
+    "tz1gJpwrJy66fWH2niNwLzWv2YhbggKq8crT": {
+        "order": 12619,
+        "type": "patron",
+        "wallet_id": "tz1gJpwrJy66fWH2niNwLzWv2YhbggKq8crT",
+        "first_collect": {
+            "objkt_id": "107451",
+            "operation_hash": "opZ1t5WuLnVZLfdAB2rna7iTLYh1NXtDPkMS7tYmCDMfGovHono",
+            "timestamp": "2021-05-31T16:00:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T16:00:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 916.8900000000001
+    },
+    "tz1LfKjYW1z1x8v6VQ2JrwFhitb5etpbugoY": {
+        "order": 12620,
+        "type": "patron",
+        "wallet_id": "tz1LfKjYW1z1x8v6VQ2JrwFhitb5etpbugoY",
+        "first_collect": {
+            "objkt_id": "107455",
+            "operation_hash": "onhTYrNZ5ESrCW6WgyMHRCKT6vCkVDnx6PPqR5VeCYF7iaE7ChQ",
+            "timestamp": "2021-05-31T16:01:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T16:01:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.0
+    },
+    "tz1Y2DdxJ5gQbS9VAksvS3rWJDPrqa8YdWiR": {
+        "order": 12621,
+        "type": "patron",
+        "wallet_id": "tz1Y2DdxJ5gQbS9VAksvS3rWJDPrqa8YdWiR",
+        "first_collect": {
+            "objkt_id": "107455",
+            "operation_hash": "opPHCDPEv9Yt3h48w54mpeGHAsck55ErBkyhHrW5p7M8JDQw5UV",
+            "timestamp": "2021-05-31T16:01:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T16:01:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 116.6
+    },
+    "tz1QZvU3bF3kEWjyGvBmrNEt5ZiQbrD4F1Go": {
+        "order": 12622,
+        "type": "patron",
+        "wallet_id": "tz1QZvU3bF3kEWjyGvBmrNEt5ZiQbrD4F1Go",
+        "first_collect": {
+            "objkt_id": "107455",
+            "operation_hash": "onyUyLLJsiBvjLqh94BAvDfWyc7YV5qWGPV4HHvFoXC2fQ4rSY9",
+            "timestamp": "2021-05-31T16:02:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T16:02:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 131.45000000000002
+    },
+    "tz1VFQWiPDyXarfpQY5pMkvKNUydwEtZE25a": {
+        "order": 12623,
+        "type": "patron",
+        "wallet_id": "tz1VFQWiPDyXarfpQY5pMkvKNUydwEtZE25a",
+        "first_collect": {
+            "objkt_id": "107460",
+            "operation_hash": "ooR5fpdGrxcRDkY1VvyvovkFmJ4sUokUwS3woA9VZYgCHvkhJM6",
+            "timestamp": "2021-05-31T16:04:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T16:04:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 3.0
+    },
+    "tz1hftiPVSUJMNLhaSRgfVqgvXC5Mmk65DvX": {
+        "order": 12624,
+        "type": "patron",
+        "wallet_id": "tz1hftiPVSUJMNLhaSRgfVqgvXC5Mmk65DvX",
+        "first_collect": {
+            "objkt_id": "107464",
+            "operation_hash": "opMyaDFzdLgn61f6T2pjRqEf93w2s17yXf33bFtdALAo99u3N9Q",
+            "timestamp": "2021-05-31T16:07:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T16:07:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 19.73996
+    },
+    "tz1Pxpj2Tr838nLmzt9eCpwjhVcwfFejfdcb": {
+        "order": 12626,
+        "type": "patron",
+        "wallet_id": "tz1Pxpj2Tr838nLmzt9eCpwjhVcwfFejfdcb",
+        "first_collect": {
+            "objkt_id": "107513",
+            "operation_hash": "onefaVpHTqULbo5bhW6PWh7BiEtEGU4k3dYtKFmsRHVVne6nKKg",
+            "timestamp": "2021-05-31T16:37:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T16:37:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.5
+    },
+    "tz1L1j7Xm8ranP5krDy6cDXhQ5HVDURNHXts": {
+        "order": 12628,
+        "type": "patron",
+        "wallet_id": "tz1L1j7Xm8ranP5krDy6cDXhQ5HVDURNHXts",
+        "first_collect": {
+            "objkt_id": "107531",
+            "operation_hash": "opRWS7tpRkgoGpuWPGaGDBYPwVUT7QendaGZzL4hR7vvry8kD3E",
+            "timestamp": "2021-05-31T16:45:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T16:45:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 1.5
+    },
+    "tz1iWMZ4xktswiBdBFVsww8vH9QbEX7Fj3k6": {
+        "order": 12629,
+        "type": "patron",
+        "wallet_id": "tz1iWMZ4xktswiBdBFVsww8vH9QbEX7Fj3k6",
+        "first_collect": {
+            "objkt_id": "107539",
+            "operation_hash": "oorKReFcVcTquA2gxGmbBj85oJp8jE5EVMtYmXphU68yYQwNqZx",
+            "timestamp": "2021-05-31T16:52:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T16:52:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 43.32
+    },
+    "tz1NCZ22YDxbk5XrPJkGsTS1Q5ZVrF1W7sBX": {
+        "order": 12630,
+        "type": "patron",
+        "wallet_id": "tz1NCZ22YDxbk5XrPJkGsTS1Q5ZVrF1W7sBX",
+        "first_collect": {
+            "objkt_id": "107569",
+            "operation_hash": "opYxUvU8Hf2YFLQmJQHHivKb6tg2fKHwgnZBqXYWLobC5mjE34j",
+            "timestamp": "2021-05-31T17:05:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T17:05:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 11.1,
+        "address": "tz1NCZ22YDxbk5XrPJkGsTS1Q5ZVrF1W7sBX",
+        "kind": "person",
+        "alias": "AVA Digital Art",
+        "description": "You're invited to the exploration of AVA universe: a mix of art, technology and the groove. Connecting my love for illustration, 3D and AR.",
+        "logo": "tz1NCZ22YDxbk5XrPJkGsTS1Q5ZVrF1W7sBX.png",
+        "email": "ava.groove@gmail.com",
+        "twitter": "ava_digitalart",
+        "telegram": "ava_digitalart",
+        "instagram": "ava_digitalart"
+    },
+    "tz1ZKmtjVorwjb7QgcRhQKRSaJSyXYEGRq8o": {
+        "order": 12631,
+        "type": "patron",
+        "wallet_id": "tz1ZKmtjVorwjb7QgcRhQKRSaJSyXYEGRq8o",
+        "first_collect": {
+            "objkt_id": "107573",
+            "operation_hash": "ooPRimHqkrWaTkMYVJ9Mak7DubJzj4DqyZ2YzQr3PtjGxSNQgGb",
+            "timestamp": "2021-05-31T17:07:38Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T17:07:38Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 4.0,
+        "address": "tz1ZKmtjVorwjb7QgcRhQKRSaJSyXYEGRq8o",
+        "kind": "person",
+        "alias": "Tye Died",
+        "description": "Just a self taught artist making what I love <3",
+        "logo": "tz1ZKmtjVorwjb7QgcRhQKRSaJSyXYEGRq8o.png",
+        "email": "tyehasdied@gmail.com",
+        "twitter": "_tyedied",
+        "instagram": "_tyedied"
+    },
+    "tz1SRv5RbbJg1fsLLiAJQKXoyFgYNqHHw3Ce": {
+        "order": 12633,
+        "type": "patron",
+        "wallet_id": "tz1SRv5RbbJg1fsLLiAJQKXoyFgYNqHHw3Ce",
+        "first_collect": {
+            "objkt_id": "107667",
+            "operation_hash": "oouc5BzGmgzdEv9zfG1ttMjmS41yfRLR4DyrjtTjHGLrCX2328A",
+            "timestamp": "2021-05-31T17:53:58Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T17:53:58Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 15.0
+    },
+    "tz1Nj1G167WUM1Nf39ShxZvNJvEtAkmunpAd": {
+        "order": 12635,
+        "type": "patron",
+        "wallet_id": "tz1Nj1G167WUM1Nf39ShxZvNJvEtAkmunpAd",
+        "first_collect": {
+            "objkt_id": "107688",
+            "operation_hash": "onhzHPFFUHtUCHPUpJSaiTZ9kj7ZiHdHiyZX9WJ2qQXaQpXRPBu",
+            "timestamp": "2021-05-31T18:03:58Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T18:03:58Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 15.5
+    },
+    "tz1QAjGbzVBPS7qoH8f9aHEFWeyyiUk15xrg": {
+        "order": 12636,
+        "type": "patron",
+        "wallet_id": "tz1QAjGbzVBPS7qoH8f9aHEFWeyyiUk15xrg",
+        "first_collect": {
+            "objkt_id": "107691",
+            "operation_hash": "opS3qucRS74EVPwQWwm53uNMsiNTHJ462UA6hd9Q5DQYiS7qgg8",
+            "timestamp": "2021-05-31T18:04:58Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T18:04:58Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 7.0
+    },
+    "tz1ZYkjVHkxAV4yCK5Ey1FF9Zvt6YRsYmo9j": {
+        "order": 12640,
+        "type": "patron",
+        "wallet_id": "tz1ZYkjVHkxAV4yCK5Ey1FF9Zvt6YRsYmo9j",
+        "first_collect": {
+            "objkt_id": "107784",
+            "operation_hash": "ooTTBuPuBQrLUfqzkLvbJDsMZhbqatPVfgBt9W5qwty4EBHfmsS",
+            "timestamp": "2021-05-31T19:08:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T19:08:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 21.0
+    },
+    "tz1e9frvL24BnbehpMZSYXN7TwJk8b3BmBPJ": {
+        "order": 12641,
+        "type": "patron",
+        "wallet_id": "tz1e9frvL24BnbehpMZSYXN7TwJk8b3BmBPJ",
+        "first_collect": {
+            "objkt_id": "107784",
+            "operation_hash": "oo752Qgm4WkkvPBWTNZNFPx33JJzWG7VAEzUgw5Gw53Cyk1iTUL",
+            "timestamp": "2021-05-31T19:08:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T19:08:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 20.0
+    },
+    "tz1P18A2vciACJg9myNqqVCdrrh9kzod8oGk": {
+        "order": 12642,
+        "type": "patron",
+        "wallet_id": "tz1P18A2vciACJg9myNqqVCdrrh9kzod8oGk",
+        "first_collect": {
+            "objkt_id": "107784",
+            "operation_hash": "oo22zRGQFK5kZHT3uyFrJ5xC97zfR17cLboStbmZppiQMfmtUMP",
+            "timestamp": "2021-05-31T19:08:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T19:08:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 20.0
+    },
+    "tz1U4BLPJqRwxaoFJYkfDME62Qc8BX13ey5k": {
+        "order": 12647,
+        "type": "patron",
+        "wallet_id": "tz1U4BLPJqRwxaoFJYkfDME62Qc8BX13ey5k",
+        "first_collect": {
+            "objkt_id": "107820",
+            "operation_hash": "opa4xv5udrE4787vEk3hwsX7EjGawoQ3UkNqec7if5ehWLkCoFq",
+            "timestamp": "2021-05-31T19:34:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T19:34:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 65.8
+    },
+    "tz1bvhVAWYRJFnjWAFjuQTwzjiuqyjvsh2sq": {
+        "order": 12650,
+        "type": "patron",
+        "wallet_id": "tz1bvhVAWYRJFnjWAFjuQTwzjiuqyjvsh2sq",
+        "first_collect": {
+            "objkt_id": "107896",
+            "operation_hash": "opUXL3mT3RrwSTmFCaM1PvjeczEncgX84Hpoau3QiyqLr5A2Waa",
+            "timestamp": "2021-05-31T20:17:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T20:17:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 3.0,
+        "address": "tz1bvhVAWYRJFnjWAFjuQTwzjiuqyjvsh2sq",
+        "kind": "person",
+        "alias": "TheVisualAye",
+        "description": "Designer | 3D Artist. Interiors, worlds & furniture....",
+        "logo": "tz1bvhVAWYRJFnjWAFjuQTwzjiuqyjvsh2sq.png",
+        "site": "https://www.thevisualaye.com/",
+        "email": "craig@thevisualaye.com",
+        "twitter": "TheVisualAye",
+        "instagram": "thevisualaye"
+    },
+    "tz1VuYcVdJbt1QQWnkFugLETsSUdmdYuEV4w": {
+        "order": 12652,
+        "type": "patron",
+        "wallet_id": "tz1VuYcVdJbt1QQWnkFugLETsSUdmdYuEV4w",
+        "first_collect": {
+            "objkt_id": "107901",
+            "operation_hash": "ooCGQjHWZcWFUQF6W3o6gCnvzdoU9j6QenpDL4tHexwGeumAUWB",
+            "timestamp": "2021-05-31T20:22:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T20:22:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 7.8
+    },
+    "tz1TTq5iw2tSoGMLeLrRtQHcF1XujxrUmYps": {
+        "order": 12655,
+        "type": "patron",
+        "wallet_id": "tz1TTq5iw2tSoGMLeLrRtQHcF1XujxrUmYps",
+        "first_collect": {
+            "objkt_id": "107971",
+            "operation_hash": "ooBwyDXH5UqXCNvUVwxAdNPJ56u5q5d84LJmcfn8haPAEozo8yS",
+            "timestamp": "2021-05-31T21:09:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T21:09:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 2.79
+    },
+    "tz1hSnMpRrCFsgkJwrqVfPBjeTahU1d1K6mt": {
+        "order": 12656,
+        "type": "patron",
+        "wallet_id": "tz1hSnMpRrCFsgkJwrqVfPBjeTahU1d1K6mt",
+        "first_collect": {
+            "objkt_id": "107976",
+            "operation_hash": "opEf42VgZBNoWnTMfCSSQrK7A4TDXiSbSijgxg3Havb22Z4Zgos",
+            "timestamp": "2021-05-31T21:14:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T21:14:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 3.0
+    },
+    "tz1ZRMb18gEHV6zyYBs4EJDeLJmAoBB3Nfn4": {
+        "order": 12657,
+        "type": "patron",
+        "wallet_id": "tz1ZRMb18gEHV6zyYBs4EJDeLJmAoBB3Nfn4",
+        "first_collect": {
+            "objkt_id": "108012",
+            "operation_hash": "onhWALSvJyB1LNRGGPoMJ6rnaXVXrT6rj3PvoQSLnbvV1mPHdJV",
+            "timestamp": "2021-05-31T21:40:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T21:40:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.3
+    },
+    "tz1VMGmQj89QpHPL27u56vrJouGLZnSLxGKM": {
+        "order": 12658,
+        "type": "patron",
+        "wallet_id": "tz1VMGmQj89QpHPL27u56vrJouGLZnSLxGKM",
+        "first_collect": {
+            "objkt_id": "108044",
+            "operation_hash": "ooZz2gD7Y1WmhB8VEUAsB5BpE4ZiuBmmiVWNW47tEYLVdKihcfR",
+            "timestamp": "2021-05-31T21:57:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T21:57:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 1.1
+    },
+    "tz1WdGoHis4WLYhKwFGVPeRAhS1cCSHcmTFN": {
+        "order": 12660,
+        "type": "patron",
+        "wallet_id": "tz1WdGoHis4WLYhKwFGVPeRAhS1cCSHcmTFN",
+        "first_collect": {
+            "objkt_id": "108117",
+            "operation_hash": "ony37db4dLUeFk2S8vunxbNT9VgsKPJdRsVXJ47ZiHWmZwnS4ii",
+            "timestamp": "2021-05-31T23:07:46Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T23:07:46Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 42.949999999999996
+    },
+    "tz2BDGhsFjabA9huyJNVXaitvZYV3fP2dqZU": {
+        "order": 12661,
+        "type": "patron",
+        "wallet_id": "tz2BDGhsFjabA9huyJNVXaitvZYV3fP2dqZU",
+        "first_collect": {
+            "objkt_id": "108123",
+            "operation_hash": "oo4yim1yGbZJCupxdfjgnKH59w6ebo4YrGCnyqkvT2pdM6u8n5n",
+            "timestamp": "2021-05-31T23:10:46Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-05-31T23:10:46Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 4.5
+    },
+    "tz1XLt65Wz4usrdJsmYyovr2YRjp3dojtjT2": {
+        "order": 12662,
+        "type": "patron",
+        "wallet_id": "tz1XLt65Wz4usrdJsmYyovr2YRjp3dojtjT2",
+        "first_collect": {
+            "objkt_id": "108196",
+            "operation_hash": "oogXMQyZEsiNfBBSU3Px1m2ppzcr5jGfU9zgC3y622Zy5sNNg3V",
+            "timestamp": "2021-06-01T00:32:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T00:32:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 1.2
+    },
+    "tz1ge23vcuVCecBLVe2QiPWyMbvj6cgWuDWn": {
+        "order": 12663,
+        "type": "patron",
+        "wallet_id": "tz1ge23vcuVCecBLVe2QiPWyMbvj6cgWuDWn",
+        "first_collect": {
+            "objkt_id": "108208",
+            "operation_hash": "oo5hMv9XfqNLMhrGchPjZp1796NtTkemAwAKUwwgkbYaUxg6QaN",
+            "timestamp": "2021-06-01T00:50:06Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T00:50:06Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 3.0
+    },
+    "tz1XmS8UdqEe7MDpmztHr1EZoRDuXHmaq4GF": {
+        "order": 12668,
+        "type": "patron",
+        "wallet_id": "tz1XmS8UdqEe7MDpmztHr1EZoRDuXHmaq4GF",
+        "first_collect": {
+            "objkt_id": "108230",
+            "operation_hash": "ooiyNPe1pyHrNb8HwraomddkX9Gvg2kNVgKZWdrv8urukMwZYFY",
+            "timestamp": "2021-06-01T01:15:46Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T01:15:46Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 2.0
+    },
+    "tz1KpmX7Rbf7kLS1udY33nRMygnnvScU7oQ4": {
+        "order": 12673,
+        "type": "patron",
+        "wallet_id": "tz1KpmX7Rbf7kLS1udY33nRMygnnvScU7oQ4",
+        "first_collect": {
+            "objkt_id": "108281",
+            "operation_hash": "oojHTSpeUCDpcyGU8rcRghGRxXAtzutRdgbcyAvoe1MEPygcj5Z",
+            "timestamp": "2021-06-01T02:08:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T02:08:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 16.0
+    },
+    "tz1dhspBj7d6ZWGVZEnK5Gibh76Egr8sm5ym": {
+        "order": 12675,
+        "type": "patron",
+        "wallet_id": "tz1dhspBj7d6ZWGVZEnK5Gibh76Egr8sm5ym",
+        "first_collect": {
+            "objkt_id": "108287",
+            "operation_hash": "oo7DL4a67vhdqVASWA8HiJoxMgg38VC6SdswAv9wKVCwEQx4ovt",
+            "timestamp": "2021-06-01T02:16:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T02:16:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 5.0
+    },
+    "tz1NuiERPgKCLzqJjcv3MVtcnJe7Wope9XZe": {
+        "order": 12676,
+        "type": "patron",
+        "wallet_id": "tz1NuiERPgKCLzqJjcv3MVtcnJe7Wope9XZe",
+        "first_collect": {
+            "objkt_id": "108289",
+            "operation_hash": "opZTkY4sntR9DA9t6zf26eQKC3DB7PRM1W7yr8KMScupq5RGvLt",
+            "timestamp": "2021-06-01T02:17:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T02:17:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.29000000000000004
+    },
+    "tz1bkqZ1MStmswnrTehiNWKn2oVB9SSqV2RX": {
+        "order": 12678,
+        "type": "patron",
+        "wallet_id": "tz1bkqZ1MStmswnrTehiNWKn2oVB9SSqV2RX",
+        "first_collect": {
+            "objkt_id": "108302",
+            "operation_hash": "opMtxCR4EiMdfUJFzyx6TQbB6RjJvbnq7YBfpFC1eXWaTY38DpD",
+            "timestamp": "2021-06-01T02:38:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T02:38:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 52.5
+    },
+    "tz1Y9Y2PrUHKf1oLvJJGEb4ZHj76u1ikKysR": {
+        "order": 12679,
+        "type": "patron",
+        "wallet_id": "tz1Y9Y2PrUHKf1oLvJJGEb4ZHj76u1ikKysR",
+        "first_collect": {
+            "objkt_id": "108305",
+            "operation_hash": "oowZYjTo8TVB2sC2E6NxSQgCPNAjF9UVensccLrK6amTEX3XR2s",
+            "timestamp": "2021-06-01T02:38:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T02:38:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 17.009
+    },
+    "tz1VPXt3m3J4dVNy4avwHtMYSh4dWhHpMYN3": {
+        "order": 12681,
+        "type": "patron",
+        "wallet_id": "tz1VPXt3m3J4dVNy4avwHtMYSh4dWhHpMYN3",
+        "first_collect": {
+            "objkt_id": "108310",
+            "operation_hash": "opaKSiEoYWQvJuMUa1D6MwH6YpSp4LZydxbQMNPcXuRYjeqaq8W",
+            "timestamp": "2021-06-01T02:49:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T02:49:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 2.0
+    },
+    "tz1f2SQ5thsfMv6zX2Ra5rPoNSCtuExSxNoY": {
+        "order": 12682,
+        "type": "patron",
+        "wallet_id": "tz1f2SQ5thsfMv6zX2Ra5rPoNSCtuExSxNoY",
+        "first_collect": {
+            "objkt_id": "108312",
+            "operation_hash": "onmtgZbkp56Qm7EBHfhHWBRVZnvoPdSCPjjL7jLHMGpz5sN7xR2",
+            "timestamp": "2021-06-01T02:53:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T02:53:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 1.220244
+    },
+    "tz1SPpzxUxyiXG91R8dmjj4sS745CSybuih1": {
+        "order": 12683,
+        "type": "patron",
+        "wallet_id": "tz1SPpzxUxyiXG91R8dmjj4sS745CSybuih1",
+        "first_collect": {
+            "objkt_id": "108312",
+            "operation_hash": "ooHtF2KDwCbaYQrKbMoaHUa7Vo67LiQ2SizeDzboUXCZDpyBC8Y",
+            "timestamp": "2021-06-01T02:58:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T02:58:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.8
+    },
+    "tz1ZoLSDtEridRrx3R3gLtpyMXHemHDBjsdA": {
+        "order": 12684,
+        "type": "patron",
+        "wallet_id": "tz1ZoLSDtEridRrx3R3gLtpyMXHemHDBjsdA",
+        "first_collect": {
+            "objkt_id": "108319",
+            "operation_hash": "ooHq722ZFBgDZMHoELKWzEr6UhEJaeF1bYCyTKkaFietTBGQD5L",
+            "timestamp": "2021-06-01T03:10:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T03:10:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 6.0
+    },
+    "tz1eNNh9Ea11qYW3MdRht5Jn3PJ1ZRjGx5Qv": {
+        "order": 12688,
+        "type": "patron",
+        "wallet_id": "tz1eNNh9Ea11qYW3MdRht5Jn3PJ1ZRjGx5Qv",
+        "first_collect": {
+            "objkt_id": "108374",
+            "operation_hash": "onoGYKDRz1cVUyu3tQbhYxzE67ZxnHzbkVmKDn5LMCD7ehN5jqu",
+            "timestamp": "2021-06-01T04:16:14Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T04:16:14Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 11.5
+    },
+    "tz1M9SUxxb26A3dqTgCgjfaWknfTQAEVQGAm": {
+        "order": 12689,
+        "type": "patron",
+        "wallet_id": "tz1M9SUxxb26A3dqTgCgjfaWknfTQAEVQGAm",
+        "first_collect": {
+            "objkt_id": "108377",
+            "operation_hash": "ongaJVtvsa3ynLK2owvLawcY3WK4oqHFkj7KXXDoinJDDNfmBT6",
+            "timestamp": "2021-06-01T04:20:14Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T04:20:14Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 1.2999999999999998,
+        "address": "tz1M9SUxxb26A3dqTgCgjfaWknfTQAEVQGAm",
+        "kind": "person",
+        "alias": "Fateh Avtar Singh",
+        "description": "Artist / NFTs, Digital, Prints /",
+        "logo": "tz1M9SUxxb26A3dqTgCgjfaWknfTQAEVQGAm.png",
+        "site": "https://fatehavtarsingh.blogspot.com",
+        "twitter": "AvtarFateh",
+        "telegram": "OleksandrPodzirey",
+        "reddit": "user/Fateh-Avtar-Singh",
+        "instagram": "fateh_avtar_singh"
+    },
+    "tz1aqb6BSzXxVJsgkSc2F5v79NMgezNzCjbP": {
+        "order": 12691,
+        "type": "patron",
+        "wallet_id": "tz1aqb6BSzXxVJsgkSc2F5v79NMgezNzCjbP",
+        "first_collect": {
+            "objkt_id": "108406",
+            "operation_hash": "ontmduoCiYVBCWMeD42ppncop7eLSB3QKvSJGyEXWaAtFbGRzHc",
+            "timestamp": "2021-06-01T05:06:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T05:06:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 3.49
+    },
+    "tz1cZQ8Ey9dpQs5AKCxs9kWWW8rvKL58amGm": {
+        "order": 12693,
+        "type": "patron",
+        "wallet_id": "tz1cZQ8Ey9dpQs5AKCxs9kWWW8rvKL58amGm",
+        "first_collect": {
+            "objkt_id": "108430",
+            "operation_hash": "oo7eKbfovtqWb4t8v4TV5fWYZDeF3qsqFrzWUEsmogLzjgtjRti",
+            "timestamp": "2021-06-01T05:49:14Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T05:49:14Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 5.02
+    },
+    "tz1eh9a9C98fpKxXbQ2U3zh1yoFp4gjEvHca": {
+        "order": 12694,
+        "type": "patron",
+        "wallet_id": "tz1eh9a9C98fpKxXbQ2U3zh1yoFp4gjEvHca",
+        "first_collect": {
+            "objkt_id": "108441",
+            "operation_hash": "ooDybphRD1CsemAGy7DH5QnqRBLftGGFga1RxVDpENKvxazz31V",
+            "timestamp": "2021-06-01T06:08:54Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T06:08:54Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 4.6
+    },
+    "tz1VGbGNJkxgoQc1efaJLwA6CLY5wQS1EidM": {
+        "order": 12695,
+        "type": "patron",
+        "wallet_id": "tz1VGbGNJkxgoQc1efaJLwA6CLY5wQS1EidM",
+        "first_collect": {
+            "objkt_id": "108446",
+            "operation_hash": "opMrNDK25fsbYUe4ybEafXLmxYyts6NZPK4M7WPPZkPPatgFcSr",
+            "timestamp": "2021-06-01T06:24:14Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T06:24:14Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 7.83
+    },
+    "tz1gDmVLfd7WjVHF7UuAFGJaFJsGEsr3TZDh": {
+        "order": 12697,
+        "type": "patron",
+        "wallet_id": "tz1gDmVLfd7WjVHF7UuAFGJaFJsGEsr3TZDh",
+        "first_collect": {
+            "objkt_id": "108456",
+            "operation_hash": "opU9mhWC4noEjWpWdn5JifYFNKhq12fP1TjmEixDYGZG5Xiw6Fx",
+            "timestamp": "2021-06-01T06:40:14Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T06:40:14Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.89
+    },
+    "tz1Z9Rt4FZzHTuKV3B6tu6bwLLAxqj1kZphG": {
+        "order": 12699,
+        "type": "patron",
+        "wallet_id": "tz1Z9Rt4FZzHTuKV3B6tu6bwLLAxqj1kZphG",
+        "first_collect": {
+            "objkt_id": "108483",
+            "operation_hash": "ooYQYopxv1fZj6mYKvZC4DZ6NZKFghy1Jp2E5myzyVfH3VrqKSZ",
+            "timestamp": "2021-06-01T07:03:54Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T07:03:54Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 8.99
+    },
+    "tz1Us8KXD8aCE4h3BFNNWzXFfFMtvVDAbEhy": {
+        "order": 12701,
+        "type": "patron",
+        "wallet_id": "tz1Us8KXD8aCE4h3BFNNWzXFfFMtvVDAbEhy",
+        "first_collect": {
+            "objkt_id": "108506",
+            "operation_hash": "op6y93xYycfZiVBpfMGmSxVr6HfSRCRnCzLefAPq2uB6tU7U3RM",
+            "timestamp": "2021-06-01T07:31:54Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T07:31:54Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 30.887999999999998
+    },
+    "tz1N5Rci5LHhexyqYFkqKUmyjMBv8Ni8GJdj": {
+        "order": 12705,
+        "type": "patron",
+        "wallet_id": "tz1N5Rci5LHhexyqYFkqKUmyjMBv8Ni8GJdj",
+        "first_collect": {
+            "objkt_id": "108595",
+            "operation_hash": "oofiRYaNkzPCuzQTgh3ZUr9WRwDKhZnE2WEppgGpQkx9yFNQZii",
+            "timestamp": "2021-06-01T09:31:14Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T09:31:14Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 2.0
+    },
+    "tz2KYhhhWR83nJ2YtMJd5y5fozGHGKJpMx2E": {
+        "order": 12708,
+        "type": "patron",
+        "wallet_id": "tz2KYhhhWR83nJ2YtMJd5y5fozGHGKJpMx2E",
+        "first_collect": {
+            "objkt_id": "108619",
+            "operation_hash": "oo8fENQjNyhqijDxA1r7BkqfkApDskAgeBNzkxq3tTZtJKe2KNq",
+            "timestamp": "2021-06-01T09:50:54Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T09:50:54Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.1
+    },
+    "tz1NiHo6byHF9WKBtTE5EGMsgECrZfJs83sT": {
+        "order": 12709,
+        "type": "patron",
+        "wallet_id": "tz1NiHo6byHF9WKBtTE5EGMsgECrZfJs83sT",
+        "first_collect": {
+            "objkt_id": "108628",
+            "operation_hash": "ooqXkjDP2BgqsNJC7ELzHrmWkSLVMAmiephJkPhid3iB1Vkr9fx",
+            "timestamp": "2021-06-01T10:01:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T10:01:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.2
+    },
+    "tz2T57trHNr7kNXagWUDMqrvZy5EjbY7h9qT": {
+        "order": 12710,
+        "type": "patron",
+        "wallet_id": "tz2T57trHNr7kNXagWUDMqrvZy5EjbY7h9qT",
+        "first_collect": {
+            "objkt_id": "108630",
+            "operation_hash": "ongTfd9sjngf2ZQgHyhxWL4vitr8BWkTzCEymfFMDR24jVFvUiV",
+            "timestamp": "2021-06-01T10:04:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T10:04:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.1
+    },
+    "tz29iNQxkCoHYoGn6MKaTg5Dy9cZLydZepnX": {
+        "order": 12713,
+        "type": "patron",
+        "wallet_id": "tz29iNQxkCoHYoGn6MKaTg5Dy9cZLydZepnX",
+        "first_collect": {
+            "objkt_id": "108657",
+            "operation_hash": "oohLe2UNTSmJjobRRo9fusKegsGPJVsqVGFum45xaUFkyUDMFh3",
+            "timestamp": "2021-06-01T10:42:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T10:42:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 9.0
+    },
+    "tz1KpJRoYe6wcB17aFG588JTp3ZT9X9FGPJs": {
+        "order": 12714,
+        "type": "patron",
+        "wallet_id": "tz1KpJRoYe6wcB17aFG588JTp3ZT9X9FGPJs",
+        "first_collect": {
+            "objkt_id": "108662",
+            "operation_hash": "oo3CoqZ3ZvCmT56Be47PsJiv6GJu4vLvpkPQrPFrsuvgLKf1L9w",
+            "timestamp": "2021-06-01T10:51:34Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T10:51:34Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 2.0
+    },
+    "tz1iZkQtDpRMWxq1SrJe13SajV1YRCLpUiGy": {
+        "order": 12715,
+        "type": "patron",
+        "wallet_id": "tz1iZkQtDpRMWxq1SrJe13SajV1YRCLpUiGy",
+        "first_collect": {
+            "objkt_id": "108666",
+            "operation_hash": "opFyNmAr6QjfdoGQau9FYaLNj2vRdgbKP7zvmbk3zsXLRSEE51o",
+            "timestamp": "2021-06-01T10:59:14Z"
+        },
+        "first_interaction": {
+            "type": "collect",
+            "timestamp": "2021-06-01T10:59:14Z"
+        },
+        "reported": false,
+        "money_spent": [],
+        "total_money_spent": 0.1
     }
 }

@@ -94,6 +94,14 @@ plot_collected_money_per_day(
 save_figure(os.path.join(figures_dir, "money_per_day.png"))
 
 plot_collected_money_per_day(
+    collect_money[~collect_from_patron],
+    collect_timestamps[~collect_from_patron],
+    "Money spent in collect operations per day by artists",
+    "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "money_per_day_by_artists.png"))
+
+plot_collected_money_per_day(
     collect_money[collect_from_patron], collect_timestamps[collect_from_patron],
     "Money spent in collect operations per day by patrons",
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
@@ -106,6 +114,22 @@ plot_price_distribution_per_day(
     "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
     exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "price_distribution_per_day.png"))
+
+plot_price_distribution_per_day(
+    collect_money[~collect_from_patron],
+    collect_timestamps[~collect_from_patron], [0.01, 1, 5, 50],
+    "Price distribution of collected OBJKTs per day by artists",
+    "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "price_distribution_per_day_by_artists.png"))
+
+plot_price_distribution_per_day(
+    collect_money[collect_from_patron], collect_timestamps[collect_from_patron],
+    [0.01, 1, 5, 50],
+    "Price distribution of collected OBJKTs per day by patrons",
+    "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "price_distribution_per_day_by_patrons.png"))
 
 # Print some information about the collect operations
 print("Non-reported users performed %i collect operations." % len(collect_money))
