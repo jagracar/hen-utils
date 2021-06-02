@@ -391,6 +391,8 @@ def extract_artist_accounts(transactions):
                 "order": counter,
                 "type": "artist",
                 "wallet_id": wallet_id,
+                    "alias": transaction["initiator"][
+                        "alias"] if "alias" in transaction["initiator"] else "",
                 "first_objkt": {
                     "id" : transaction["parameter"]["value"]["token_id"],
                     "amount": transaction["parameter"]["value"]["amount"],
@@ -434,6 +436,8 @@ def extract_collector_accounts(transactions):
                     "order": counter,
                     "type": "collector",
                     "wallet_id": wallet_id,
+                    "alias": transaction["sender"][
+                        "alias"] if "alias" in transaction["sender"] else "",
                     "first_collect": {
                         "objkt_id": "",
                         "operation_hash": transaction["hash"],
