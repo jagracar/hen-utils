@@ -9,9 +9,10 @@ transactions_dir = "../data/transactions"
 # Set the path to the directory where the figures will be saved
 figures_dir = "../figures"
 
-# Get the complete list of mint and collect transactions
-mint_transactions = get_all_mint_transactions(transactions_dir, sleep_time=1)
-collect_transactions = get_all_collect_transactions(transactions_dir, sleep_time=1)
+# Get the complete list of mint, collect and swap transactions
+mint_transactions = get_all_transactions("mint", transactions_dir, sleep_time=1)
+collect_transactions = get_all_transactions("collect", transactions_dir, sleep_time=1)
+swap_transactions = get_all_transactions("swap", transactions_dir, sleep_time=1)
 
 # Extract the artists, collector and patron accounts
 artists = extract_artist_accounts(mint_transactions)
@@ -190,3 +191,30 @@ plot_new_users_per_day(
     x_label="Days since first minted OBJKT (1st of March)",
     y_label="New users per day", exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "new_users_per_day.png"))
+
+# Get the wallet ids and the time stamps of each transaction
+transactions_wallet_ids = []
+transactions_timestamps = []
+
+for transaction in mint_transactions:
+    transactions_wallet_ids.append(transaction["initiator"]["address"])
+    transactions_timestamps.append(transaction["timestamp"])
+
+for transaction in collect_transactions:
+    transactions_wallet_ids.append(transaction["sender"]["address"])
+    transactions_timestamps.append(transaction["timestamp"])
+
+for transaction in swap_transactions:
+    transactions_wallet_ids.append(transaction["sender"]["address"])
+    transactions_timestamps.append(transaction["timestamp"])
+
+transactions_wallet_ids = np.array(transactions_wallet_ids)
+transactions_timestamps = np.array(transactions_timestamps)
+
+# Plot the active users per day
+plot_active_users_per_day(
+    transactions_wallet_ids, transactions_timestamps,
+    "Active users per day",
+    "Days since first minted OBJKT (1st of March)", "Active users per day",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "active_users_per_day.png"))

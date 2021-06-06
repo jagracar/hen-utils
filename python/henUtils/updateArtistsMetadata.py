@@ -9,7 +9,7 @@ saved_artists = read_json_file("../data/artists.json")
 transactions_dir = "../data/transactions"
 
 # Get the complete list of mint transactions
-mint_transactions = get_all_mint_transactions(transactions_dir, sleep_time=10)
+mint_transactions = get_all_transactions("mint", transactions_dir, sleep_time=10)
 
 # Extract the artists accounts
 artists = extract_artist_accounts(mint_transactions)

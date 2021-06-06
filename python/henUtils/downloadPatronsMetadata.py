@@ -6,8 +6,8 @@ from henUtils.queryUtils import *
 transactions_dir = "../data/transactions"
 
 # Get the complete list of mint and collect transactions
-mint_transactions = get_all_mint_transactions(transactions_dir, sleep_time=10)
-collect_transactions = get_all_collect_transactions(transactions_dir, sleep_time=10)
+mint_transactions = get_all_transactions("mint", transactions_dir, sleep_time=10)
+collect_transactions = get_all_transactions("collect", transactions_dir, sleep_time=10)
 
 # Extract the artists, collectors and patrons accounts
 artists = extract_artist_accounts(mint_transactions)

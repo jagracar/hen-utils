@@ -200,6 +200,58 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_la
     plt.show(block=False)
 
 
+def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, exclude_last_day=False, **kwargs):
+    """Plots the active users per day as a function of time.
+
+    Parameters
+    ----------
+    wallet_ids: object
+        A numpy array with the wallet id of each operation.
+    timestamps: object
+        A numpy array with the timestamps of each operation.
+    title: str
+        The plot title.
+    x_label: str
+        The label for the x axis.
+    y_label: str
+        The label for the y axis.
+    exclude_last_day: bool, optional
+        If True the last day will be excluded from the plot. Default is False.
+    kwargs: plt.figure properties
+        Any additional property that should be passed to the figure.
+
+    """
+    # Get the active users per day
+    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
+    dates = [datetime.strptime(
+        timestamp, datetime_format) for timestamp in timestamps]
+    years = np.array([date.year for date in dates])
+    months = np.array([date.month for date in dates])
+    days = np.array([date.day for date in dates])
+    active_users_per_day = []
+
+    for year in np.unique(years):
+        months_in_year = np.unique(months[years == year])
+
+        for month in months_in_year:
+            days_in_month = np.unique(days[(years == year) & (months == month)])
+
+            for day in days_in_month:
+                cond = (years == year) & (months == month) & (days == day)
+                active_users_per_day.append(len(np.unique(wallet_ids[cond])))
+
+    if exclude_last_day:
+        active_users_per_day = active_users_per_day[:-1]
+
+    # Create the figure
+    plt.figure(figsize=(7, 5), facecolor="white", tight_layout=True, **kwargs)
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.plot(active_users_per_day)
+    plt.show(block=False)
+
+
 def save_figure(file_name, **kwargs):
     """Saves an image of the current figure.
 

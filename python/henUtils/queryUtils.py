@@ -181,14 +181,16 @@ def get_object_id(operation_hash):
     return ""
 
 
-def get_mint_transactions(offset=0, limit=100, timestamp=None):
-    """Returns a list of applied hic et nunc mint transactions ordered by
+def get_transactions(entrypoint, offset=0, limit=100, timestamp=None):
+    """Returns a list of applied hic et nunc transactions ordered by
     increasing time stamp.
 
     Parameters
     ----------
+    entrypoint: str
+        The transaction entrypoint: mint, collect or swap.
     offset: int, optional
-        The number of initial mint transactions that should be skipped. This is
+        The number of initial transactions that should be skipped. This is
         mostly used for pagination. Default is 0.
     limit: int, optional
         The maximum number of transactions to return. Default is 100. The
@@ -201,14 +203,19 @@ def get_mint_transactions(offset=0, limit=100, timestamp=None):
     Returns
     -------
     list
-        A python list with the mint transactions information.
+        A python list with the transactions information.
 
     """
+    target = "KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9"
+
+    if entrypoint == "mint":
+        target = "KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"
+
     query = "https://api.tzkt.io/v1/"
     query += "operations/transactions?"
-    query += "target=KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"
+    query += "target=%s" % target
     query += "&status=applied"
-    query += "&entrypoint=mint"
+    query += "&entrypoint=%s" % entrypoint
     query += "&offset=%i" % offset
     query += "&limit=%i" % limit
     query += "&timestamp.le=%s" % timestamp if timestamp is not None else ""
@@ -216,47 +223,14 @@ def get_mint_transactions(offset=0, limit=100, timestamp=None):
     return get_query_result(query)
 
 
-def get_collect_transactions(offset=0, limit=100, timestamp=None):
-    """Returns a list of applied hic et nunc collect transactions ordered by
-    increasing time stamp.
+def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_time=1):
+    """Returns the complete list of applied hic et nunc transactions of a given
+    type ordered by increasing time stamp.
 
     Parameters
     ----------
-    offset: int, optional
-        The number of initial collect transactions that should be skipped. This
-        is mostly used for pagination. Default is 0.
-    limit: int, optional
-        The maximum number of transactions to return. Default is 100. The
-        maximum allowed by the API is 10000.
-    timestamp: str, optional
-        The maximum transaction time stamp. Only earlier transactions will be
-        returned. It should follow the ISO format (e.g. 2021-04-20T00:00:00Z).
-        Default is no limit.
-
-    Returns
-    -------
-    list
-        A python list with the collect transactions information.
-
-    """
-    query = "https://api.tzkt.io/v1/"
-    query += "operations/transactions?"
-    query += "target=KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9"
-    query += "&status=applied"
-    query += "&entrypoint=collect"
-    query += "&offset=%i" % offset
-    query += "&limit=%i" % limit
-    query += "&timestamp.le=%s" % timestamp if timestamp is not None else ""
-
-    return get_query_result(query)
-
-
-def get_all_mint_transactions(data_dir, transactions_per_batch=10000, sleep_time=1):
-    """Returns the complete list of applied hic et nunc mint transactions
-    ordered by increasing time stamp.
-
-    Parameters
-    ----------
+    type: str
+        The transaction type: mint, collect or swap.
     data_dir: str
         The complete path to the directory where the transactions information
         should be saved.
@@ -270,17 +244,17 @@ def get_all_mint_transactions(data_dir, transactions_per_batch=10000, sleep_time
     Returns
     -------
     list
-        A python list with the mint transactions information.
+        A python list with the transactions information.
 
     """
-    print_info("Downloading mint transactions...")
+    print_info("Downloading %s transactions..." % type)
     transactions = []
     counter = 1
 
     while True:
         file_name = os.path.join(
-            data_dir, "mint_transactions_%i-%i.json" % (
-                len(transactions), len(transactions) + transactions_per_batch))
+            data_dir, "%s_transactions_%i-%i.json" % (
+                type, len(transactions), len(transactions) + transactions_per_batch))
 
         if os.path.exists(file_name):
             print_info(
@@ -289,8 +263,8 @@ def get_all_mint_transactions(data_dir, transactions_per_batch=10000, sleep_time
             transactions += read_json_file(file_name)
         else:
             print_info("Downloading batch %i" % counter)
-            new_transactions = get_mint_transactions(
-                len(transactions), transactions_per_batch)
+            new_transactions = get_transactions(
+                type, len(transactions), transactions_per_batch)
             transactions += new_transactions
 
             if len(new_transactions) != transactions_per_batch:
@@ -303,64 +277,7 @@ def get_all_mint_transactions(data_dir, transactions_per_batch=10000, sleep_time
 
         counter += 1
 
-    print_info("Downloaded %i mint transactions." % len(transactions))
-
-    return transactions
-
-
-def get_all_collect_transactions(data_dir, transactions_per_batch=10000, sleep_time=1):
-    """Returns the complete list of applied hic et nunc collect transactions
-    ordered by increasing time stamp.
-
-    Parameters
-    ----------
-    data_dir: str
-        The complete path to the directory where the transactions information
-        should be saved.
-    transactions_per_batch: int, optional
-        The maximum number of transactions per API query. Default is 10000. The
-        maximum allowed by the API is 10000.
-    sleep_time: float, optional
-        The sleep time between API queries in seconds. This is used to avoid
-        being blocked by the server. Default is 1 second.
-
-    Returns
-    -------
-    list
-        A python list with the collect transactions information.
-
-    """
-    print_info("Downloading collect transactions...")
-    transactions = []
-    counter = 1
-
-    while True:
-        file_name = os.path.join(
-            data_dir, "collect_transactions_%i-%i.json" % (
-                len(transactions), len(transactions) + transactions_per_batch))
-
-        if os.path.exists(file_name):
-            print_info(
-                "Batch %i has been already downloaded. Reading it from local "
-                "json file." % counter)
-            transactions += read_json_file(file_name)
-        else:
-            print_info("Downloading batch %i" % counter)
-            new_transactions = get_collect_transactions(
-                len(transactions), transactions_per_batch)
-            transactions += new_transactions
-
-            if len(new_transactions) != transactions_per_batch:
-                break
-
-            print_info("Saving batch %i in the output directory" % counter)
-            save_json_file(file_name, new_transactions)
-
-            time.sleep(sleep_time)
-
-        counter += 1
-
-    print_info("Downloaded %i collect transactions." % len(transactions))
+    print_info("Downloaded %i %s transactions." % (len(transactions), type))
 
     return transactions
 
