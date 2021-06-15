@@ -9,6 +9,9 @@ transactions_dir = "../data/transactions"
 # Set the path to the directory where the figures will be saved
 figures_dir = "../figures"
 
+# Read the connected wallets information (wallets connected to the same user)
+connected_wallets = read_json_file("../data/connected_wallets.json")
+
 # Get the complete list of mint, collect and swap transactions
 mint_transactions = get_all_transactions("mint", transactions_dir, sleep_time=1)
 collect_transactions = get_all_transactions("collect", transactions_dir, sleep_time=1)
@@ -49,6 +52,26 @@ wallet_ids = wallet_ids[~is_reported_collector]
 aliases = aliases[~is_reported_collector]
 total_money_spent = total_money_spent[~is_reported_collector]
 
+# Combine those wallets that are connected to the same user
+is_secondary_wallet = np.full(wallet_ids.shape, False)
+
+for main_wallet_id, secondary_wallet_ids in connected_wallets.items():
+    main_wallet_index = np.where(wallet_ids == main_wallet_id)[0]
+
+    if len(main_wallet_index) == 1:
+        for secondary_wallet_id in secondary_wallet_ids:
+            secondary_wallet_index = np.where(
+                wallet_ids == secondary_wallet_id)[0]
+
+            if len(secondary_wallet_index) == 1:
+                total_money_spent[main_wallet_index] += total_money_spent[
+                    secondary_wallet_index]
+                is_secondary_wallet[secondary_wallet_index] = True
+
+wallet_ids = wallet_ids[~is_secondary_wallet]
+aliases = aliases[~is_secondary_wallet]
+total_money_spent = total_money_spent[~is_secondary_wallet]
+
 # Plot a histogram of the collectors that spent more than 100tez
 plot_histogram(
     total_money_spent[total_money_spent >= 100],
@@ -77,16 +100,16 @@ for i in [10, 100, 500, 1000, 10000]:
     print("%.1f%% of that was spent by the top %i collectors." % (
         100 * np.sum(total_money_spent[:i]) / np.sum(total_money_spent), i))
 
-# Print the list of the top 10 collectors
-print("This is the list of the top 10 collectors:")
+# Print the list of the top 100 collectors
+print("This is the list of the top 100 collectors:")
 
-for collector in collectors_ranking[:10]:
+for i, collector in enumerate(collectors_ranking[:100]):
     if collector["alias"] != "":
-        print("  Collector %s spent %5.0f tez (%s)" % (
-            collector["wallet_id"], collector["total_money_spent"], collector["alias"]))
+        print("%i: Collector %s spent %5.0f tez (%s)" % (
+            i, collector["wallet_id"], collector["total_money_spent"], collector["alias"]))
     else:
-        print("  Collector %s spent %5.0f tez" % (
-            collector["wallet_id"], collector["total_money_spent"]))
+        print("%i: Collector %s spent %5.0f tez" % (
+            i, collector["wallet_id"], collector["total_money_spent"]))
 
 # Save the collectors ranking list in a json file
 save_json_file("collectors_ranking.json", collectors_ranking)
