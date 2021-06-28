@@ -576,3 +576,46 @@ def add_first_collected_objkt_id(accounts, from_account_index=0, to_account_inde
             print_info("Added the OBJKT id for %i accounts" % (i + 1))
 
         time.sleep(sleep_time)
+
+
+def group_users_by_day(users):
+    """Groups the given users by the day of their first interaction.
+
+    Parameters
+    ----------
+    users: dict
+        A python dictionary with the users information.
+
+    Returns
+    -------
+    list
+        A python list with the users grouped by day.
+
+    """
+    # Get the users wallet ids and their first interation time stamp
+    wallet_ids = np.array(list(users.keys()))
+    timestamps = [user["first_interaction"]["timestamp"] for user in users.values()]
+
+    # Extract the year, month and day from the time stamp
+    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
+    dates = [datetime.strptime(timestamp, datetime_format) for timestamp in timestamps]
+    years = np.array([date.year for date in dates])
+    months = np.array([date.month for date in dates])
+    days = np.array([date.day for date in dates])
+
+    # Group the users by day
+    users_by_day = []
+
+    for year in np.unique(years):
+        months_in_year = np.unique(months[years == year])
+
+        for month in months_in_year:
+            days_in_month = np.unique(days[(years == year) & (months == month)])
+
+            for day in days_in_month:
+                selected_wallets_ids = wallet_ids[
+                    (years == year) & (months == month) & (days == day)]
+                users_by_day.append(
+                    [users[wallet_id] for wallet_id in selected_wallets_ids])
+
+    return users_by_day

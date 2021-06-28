@@ -1,3 +1,4 @@
 /collect_transactions_*.json
 /mint_transactions_*.json
 /swap_transactions_*.json
+/cancel_swap_transactions_*.json

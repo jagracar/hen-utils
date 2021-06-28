@@ -30,6 +30,56 @@ def plot_histogram(data, title, x_label, y_label, bins=100, **kwargs):
     plt.show(block=False)
 
 
+def plot_operations_per_day(operations, title, x_label, y_label, exclude_last_day=False, **kwargs):
+    """Plots the number of operation per day as a function of time.
+
+    Parameters
+    ----------
+    operations: list
+        A python list with the operations information.
+    title: str
+        The plot title.
+    x_label: str
+        The label for the x axis.
+    y_label: str
+        The label for the y axis.
+    exclude_last_day: bool, optional
+        If True the last day will be excluded from the plot. Default is False.
+    kwargs: plt.figure properties
+        Any additional property that should be passed to the figure.
+
+    """
+    # Get the new users per day counts
+    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
+    dates = [datetime.strptime(
+        operation["timestamp"], datetime_format) for operation in operations]
+    years = np.array([date.year for date in dates])
+    months = np.array([date.month for date in dates])
+    days = np.array([date.day for date in dates])
+    counts = None
+
+    for year in np.unique(years):
+        for month in np.unique(months[years == year]):
+            month_counts = np.unique(
+                days[np.logical_and(years == year, months == month)], return_counts=True)[1]
+
+            if counts is None:
+                counts = month_counts
+            else:
+                counts = np.hstack((counts, month_counts))
+
+    if exclude_last_day:
+        counts = counts[:-1]
+
+    # Create the figure
+    plt.figure(figsize=(7, 5), facecolor="white", tight_layout=True, **kwargs)
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.plot(counts)
+    plt.show(block=False)
+
+
 def plot_new_users_per_day(users, title, x_label, y_label, exclude_last_day=False, **kwargs):
     """Plots the new users per day as a function of time.
 

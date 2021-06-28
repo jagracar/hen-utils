@@ -16,6 +16,32 @@ connected_wallets = read_json_file("../data/connected_wallets.json")
 mint_transactions = get_all_transactions("mint", transactions_dir, sleep_time=1)
 collect_transactions = get_all_transactions("collect", transactions_dir, sleep_time=1)
 swap_transactions = get_all_transactions("swap", transactions_dir, sleep_time=1)
+cancel_swap_transactions = get_all_transactions("cancel_swap", transactions_dir, sleep_time=1)
+
+# Plot the number of mint, collect and swap operations per day
+plot_operations_per_day(
+    mint_transactions, "Mint operations per day",
+    "Days since first minted OBJKT (1st of March)", "Mint operations per day",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "mint_operations_per_day.png"))
+
+plot_operations_per_day(
+    collect_transactions, "Collect operations per day",
+    "Days since first minted OBJKT (1st of March)", "Collect operations per day",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "collect_operations_per_day.png"))
+
+plot_operations_per_day(
+    swap_transactions, "Swap operations per day",
+    "Days since first minted OBJKT (1st of March)", "Swap operations per day",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "swap_operations_per_day.png"))
+
+plot_operations_per_day(
+    cancel_swap_transactions, "cancel_swap operations per day",
+    "Days since first minted OBJKT (1st of March)", "cancel_swap operations per day",
+    exclude_last_day=False)
+save_figure(os.path.join(figures_dir, "cancel_swap_operations_per_day.png"))
 
 # Extract the artists, collector and patron accounts
 artists = extract_artist_accounts(mint_transactions)
@@ -35,6 +61,12 @@ add_reported_users_information(artists, reported_users)
 add_reported_users_information(collectors, reported_users)
 add_reported_users_information(patrons, reported_users)
 add_reported_users_information(users, reported_users)
+
+# Group the users by the day of their first interaction
+artists_by_day = group_users_by_day(artists)
+collectors_by_day = group_users_by_day(collectors)
+patrons_by_day = group_users_by_day(patrons)
+users_by_day = group_users_by_day(users)
 
 # Print some information about the total number of users
 print("There are currently %i unique users in hic et nunc." % len(users))
