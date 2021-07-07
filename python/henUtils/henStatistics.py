@@ -40,7 +40,7 @@ save_figure(os.path.join(figures_dir, "swap_operations_per_day.png"))
 plot_operations_per_day(
     cancel_swap_transactions, "cancel_swap operations per day",
     "Days since first minted OBJKT (1st of March)", "cancel_swap operations per day",
-    exclude_last_day=False)
+    exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "cancel_swap_operations_per_day.png"))
 
 # Extract the artists, collector and patron accounts

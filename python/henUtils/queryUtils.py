@@ -181,14 +181,16 @@ def get_object_id(operation_hash):
     return ""
 
 
-def get_transactions(entrypoint, offset=0, limit=100, timestamp=None):
+def get_transactions(entrypoint, contract, offset=0, limit=100, timestamp=None):
     """Returns a list of applied hic et nunc transactions ordered by
     increasing time stamp.
 
     Parameters
     ----------
     entrypoint: str
-        The transaction entrypoint: mint, collect or swap.
+        The transaction entrypoint: mint, collect, swap or cancel_swap.
+    contract: str
+        The contract address.
     offset: int, optional
         The number of initial transactions that should be skipped. This is
         mostly used for pagination. Default is 0.
@@ -206,14 +208,9 @@ def get_transactions(entrypoint, offset=0, limit=100, timestamp=None):
         A python list with the transactions information.
 
     """
-    target = "KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9"
-
-    if entrypoint == "mint":
-        target = "KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"
-
     query = "https://api.tzkt.io/v1/"
     query += "operations/transactions?"
-    query += "target=%s" % target
+    query += "target=%s" % contract
     query += "&status=applied"
     query += "&entrypoint=%s" % entrypoint
     query += "&offset=%i" % offset
@@ -230,7 +227,7 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_tim
     Parameters
     ----------
     type: str
-        The transaction type: mint, collect or swap.
+        The transaction type: mint, collect, swap or cancel_swap.
     data_dir: str
         The complete path to the directory where the transactions information
         should be saved.
@@ -247,35 +244,50 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_tim
         A python list with the transactions information.
 
     """
+    # Set the contract addresses
+    if type == "mint":
+        contracts = ["KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"]
+    else:
+        contracts = ["KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9",
+                     "KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn"]
+
+    # Download the transactions
     print_info("Downloading %s transactions..." % type)
     transactions = []
     counter = 1
+    total_counter = 1
 
-    while True:
-        file_name = os.path.join(
-            data_dir, "%s_transactions_%i-%i.json" % (
-                type, len(transactions), len(transactions) + transactions_per_batch))
+    for contract in contracts:
+        while True:
+            file_name = os.path.join(
+                data_dir, "%s_transactions_%s_%i-%i.json" % (
+                    type, contract, (counter - 1) * transactions_per_batch,
+                    counter * transactions_per_batch))
 
-        if os.path.exists(file_name):
-            print_info(
-                "Batch %i has been already downloaded. Reading it from local "
-                "json file." % counter)
-            transactions += read_json_file(file_name)
-        else:
-            print_info("Downloading batch %i" % counter)
-            new_transactions = get_transactions(
-                type, len(transactions), transactions_per_batch)
-            transactions += new_transactions
+            if os.path.exists(file_name):
+                print_info(
+                    "Batch %i has been already downloaded. Reading it from "
+                    "local json file." % total_counter)
+                transactions += read_json_file(file_name)
+            else:
+                print_info("Downloading batch %i" % total_counter)
+                new_transactions = get_transactions(
+                    type, contract, (counter - 1) * transactions_per_batch,
+                    transactions_per_batch)
+                transactions += new_transactions
 
-            if len(new_transactions) != transactions_per_batch:
-                break
+                if len(new_transactions) != transactions_per_batch:
+                    counter = 1
+                    total_counter += 1
+                    break
 
-            print_info("Saving batch %i in the output directory" % counter)
-            save_json_file(file_name, new_transactions)
+                print_info("Saving batch %i in the output directory" % counter)
+                save_json_file(file_name, new_transactions)
 
-            time.sleep(sleep_time)
+                time.sleep(sleep_time)
 
-        counter += 1
+            counter += 1
+            total_counter += 1
 
     print_info("Downloaded %i %s transactions." % (len(transactions), type))
 
