@@ -63,10 +63,10 @@ add_reported_users_information(patrons, reported_users)
 add_reported_users_information(users, reported_users)
 
 # Group the users by the day of their first interaction
-artists_by_day = group_users_by_day(artists)
-collectors_by_day = group_users_by_day(collectors)
-patrons_by_day = group_users_by_day(patrons)
-users_by_day = group_users_by_day(users)
+artists_per_day = group_users_per_day(artists)
+collectors_per_day = group_users_per_day(collectors)
+patrons_per_day = group_users_per_day(patrons)
+users_per_day = group_users_per_day(users)
 
 # Print some information about the total number of users
 print("There are currently %i unique users in hic et nunc." % len(users))

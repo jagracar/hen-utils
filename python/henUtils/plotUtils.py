@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from datetime import datetime
+from calendar import monthrange
+
+from henUtils.queryUtils import split_timestamps, get_counts_per_day
 
 
 def plot_histogram(data, title, x_label, y_label, bins=100, **kwargs):
@@ -49,34 +51,19 @@ def plot_operations_per_day(operations, title, x_label, y_label, exclude_last_da
         Any additional property that should be passed to the figure.
 
     """
-    # Get the new users per day counts
-    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
-    dates = [datetime.strptime(
-        operation["timestamp"], datetime_format) for operation in operations]
-    years = np.array([date.year for date in dates])
-    months = np.array([date.month for date in dates])
-    days = np.array([date.day for date in dates])
-    counts = None
-
-    for year in np.unique(years):
-        for month in np.unique(months[years == year]):
-            month_counts = np.unique(
-                days[np.logical_and(years == year, months == month)], return_counts=True)[1]
-
-            if counts is None:
-                counts = month_counts
-            else:
-                counts = np.hstack((counts, month_counts))
+    # Get the operations per day
+    timestamps = [operation["timestamp"] for operation in operations]
+    operations_per_day = get_counts_per_day(timestamps)
 
     if exclude_last_day:
-        counts = counts[:-1]
+        operations_per_day = operations_per_day[:-1]
 
     # Create the figure
     plt.figure(figsize=(7, 5), facecolor="white", tight_layout=True, **kwargs)
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.plot(counts)
+    plt.plot(operations_per_day)
     plt.show(block=False)
 
 
@@ -99,34 +86,19 @@ def plot_new_users_per_day(users, title, x_label, y_label, exclude_last_day=Fals
         Any additional property that should be passed to the figure.
 
     """
-    # Get the new users per day counts
-    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
-    dates = [datetime.strptime(
-        users[wallet_id]["first_interaction"]["timestamp"], datetime_format) for wallet_id in users]
-    years = np.array([date.year for date in dates])
-    months = np.array([date.month for date in dates])
-    days = np.array([date.day for date in dates])
-    counts = None
-
-    for year in np.unique(years):
-        for month in np.unique(months[years == year]):
-            month_counts = np.unique(
-                days[np.logical_and(years == year, months == month)], return_counts=True)[1]
-
-            if counts is None:
-                counts = month_counts
-            else:
-                counts = np.hstack((counts, month_counts))
+    # Get the users per day
+    timestamps = [users[wallet_id]["first_interaction"]["timestamp"] for wallet_id in users]
+    users_per_day = get_counts_per_day(timestamps)
 
     if exclude_last_day:
-        counts = counts[:-1]
+        users_per_day = users_per_day[:-1]
 
     # Create the figure
     plt.figure(figsize=(7, 5), facecolor="white", tight_layout=True, **kwargs)
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.plot(counts)
+    plt.plot(users_per_day)
     plt.show(block=False)
 
 
@@ -152,24 +124,30 @@ def plot_collected_money_per_day(money, timestamps, title, x_label, y_label, exc
         Any additional property that should be passed to the figure.
 
     """
+    # Extract the years, months and days from the time stamps
+    years, months, days = split_timestamps(timestamps)
+
     # Get the money spent per day
-    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
-    dates = [datetime.strptime(
-        timestamp, datetime_format) for timestamp in timestamps]
-    years = np.array([date.year for date in dates])
-    months = np.array([date.month for date in dates])
-    days = np.array([date.day for date in dates])
     money_per_day = []
+    started = False
+    finished = False
 
-    for year in np.unique(years):
-        months_in_year = np.unique(months[years == year])
+    for year in range(2021, np.max(years) + 1):
+        for month in range(1, 13):
+            for day in range(1, monthrange(year, month)[1] + 1):
+                # Check if we passed the starting day: 2021-03-01
+                if not started:
+                    started = (year == 2021) and (month == 3) and (day == 1)
 
-        for month in months_in_year:
-            days_in_month = np.unique(days[(years == year) & (months == month)])
+                # Check that we started and didn't finish yet
+                if started and not finished:
+                    # Add the total money spent for the current day
+                    money_per_day.append(np.sum(money[
+                        (years == year) & (months == month) & (days == day)]))
 
-            for day in days_in_month:
-                cond = (years == year) & (months == month) & (days == day)
-                money_per_day.append(np.sum(money[cond]))
+                    # Check if we reached the last day
+                    finished = (year == years[-1]) and (
+                        month == months[-1]) and (day == days[-1])
 
     if exclude_last_day:
         money_per_day = money_per_day[:-1]
@@ -207,46 +185,56 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_la
         Any additional property that should be passed to the figure.
 
     """
-    # Get the OBJKT distribution in different price ranges per day
-    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
-    dates = [datetime.strptime(
-        timestamp, datetime_format) for timestamp in timestamps]
-    years = np.array([date.year for date in dates])
-    months = np.array([date.month for date in dates])
-    days = np.array([date.day for date in dates])
-    range_1 = []
-    range_2 = []
-    range_3 = []
-    range_4 = []
+    # Extract the years, months and days from the time stamps
+    years, months, days = split_timestamps(timestamps)
 
-    for year in np.unique(years):
-        months_in_year = np.unique(months[years == year])
+    # Get the operation counts in the different price ranges per day
+    counts_range_1 = []
+    counts_range_2 = []
+    counts_range_3 = []
+    counts_range_4 = []
+    started = False
+    finished = False
 
-        for month in months_in_year:
-            days_in_month = np.unique(days[(years == year) & (months == month)])
+    for year in range(2021, np.max(years) + 1):
+        for month in range(1, 13):
+            for day in range(1, monthrange(year, month)[1] + 1):
+                # Check if we passed the starting day: 2021-03-01
+                if not started:
+                    started = (year == 2021) and (month == 3) and (day == 1)
 
-            for day in days_in_month:
-                cond = (years == year) & (months == month) & (days == day)
-                range_1.append(np.sum((money[cond] >= price_ranges[0]) & (money[cond] < price_ranges[1])))
-                range_2.append(np.sum((money[cond] >= price_ranges[1]) & (money[cond] < price_ranges[2])))
-                range_3.append(np.sum((money[cond] >= price_ranges[2]) & (money[cond] < price_ranges[3])))
-                range_4.append(10 * np.sum((money[cond] >= price_ranges[3])))
+                # Check that we started and didn't finish yet
+                if started and not finished:
+                    # Get the number of operations for the current day in each range
+                    cond = (years == year) & (months == month) & (days == day)
+                    counts_range_1.append(np.sum(
+                        (money[cond] >= price_ranges[0]) & (money[cond] < price_ranges[1])))
+                    counts_range_2.append(np.sum(
+                        (money[cond] >= price_ranges[1]) & (money[cond] < price_ranges[2])))
+                    counts_range_3.append(np.sum(
+                        (money[cond] >= price_ranges[2]) & (money[cond] < price_ranges[3])))
+                    counts_range_4.append(10 * np.sum(
+                        (money[cond] >= price_ranges[3])))
+
+                    # Check if we reached the last day
+                    finished = (year == years[-1]) and (
+                        month == months[-1]) and (day == days[-1])
 
     if exclude_last_day:
-        range_1 = range_1[:-1]
-        range_2 = range_2[:-1]
-        range_3 = range_3[:-1]
-        range_4 = range_4[:-1]
+        counts_range_1 = counts_range_1[:-1]
+        counts_range_2 = counts_range_2[:-1]
+        counts_range_3 = counts_range_3[:-1]
+        counts_range_4 = counts_range_4[:-1]
 
     # Create the figure
     plt.figure(figsize=(7, 5), facecolor="white", tight_layout=True, **kwargs)
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.plot(range_1)
-    plt.plot(range_2)
-    plt.plot(range_3)
-    plt.plot(range_4)
+    plt.plot(counts_range_1)
+    plt.plot(counts_range_2)
+    plt.plot(counts_range_3)
+    plt.plot(counts_range_4)
     plt.show(block=False)
 
 
@@ -271,24 +259,30 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, e
         Any additional property that should be passed to the figure.
 
     """
+    # Extract the years, months and days from the time stamps
+    years, months, days = split_timestamps(timestamps)
+
     # Get the active users per day
-    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
-    dates = [datetime.strptime(
-        timestamp, datetime_format) for timestamp in timestamps]
-    years = np.array([date.year for date in dates])
-    months = np.array([date.month for date in dates])
-    days = np.array([date.day for date in dates])
     active_users_per_day = []
+    started = False
+    finished = False
 
-    for year in np.unique(years):
-        months_in_year = np.unique(months[years == year])
+    for year in range(2021, np.max(years) + 1):
+        for month in range(1, 13):
+            for day in range(1, monthrange(year, month)[1] + 1):
+                # Check if we passed the starting day: 2021-03-01
+                if not started:
+                    started = (year == 2021) and (month == 3) and (day == 1)
 
-        for month in months_in_year:
-            days_in_month = np.unique(days[(years == year) & (months == month)])
+                # Check that we started and didn't finish yet
+                if started and not finished:
+                    # Get the number of unique users for the current day
+                    active_users_per_day.append(len(np.unique(wallet_ids[
+                        (years == year) & (months == month) & (days == day)])))
 
-            for day in days_in_month:
-                cond = (years == year) & (months == month) & (days == day)
-                active_users_per_day.append(len(np.unique(wallet_ids[cond])))
+                    # Check if we reached the last day
+                    finished = (year == years[-1]) and (
+                        month == months[-1]) and (day == days[-1])
 
     if exclude_last_day:
         active_users_per_day = active_users_per_day[:-1]

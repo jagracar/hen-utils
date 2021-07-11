@@ -3,6 +3,7 @@ import time
 import os.path
 import numpy as np
 from datetime import datetime
+from calendar import monthrange
 from urllib.request import urlopen
 
 
@@ -281,7 +282,8 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_tim
                     total_counter += 1
                     break
 
-                print_info("Saving batch %i in the output directory" % counter)
+                print_info(
+                    "Saving batch %i in the output directory" % total_counter)
                 save_json_file(file_name, new_transactions)
 
                 time.sleep(sleep_time)
@@ -590,8 +592,75 @@ def add_first_collected_objkt_id(accounts, from_account_index=0, to_account_inde
         time.sleep(sleep_time)
 
 
-def group_users_by_day(users):
-    """Groups the given users by the day of their first interaction.
+def split_timestamps(timestamps):
+    """Splits the input time stamps in 3 arrays containing the years, months
+    and days.
+
+    Parameters
+    ----------
+    timestamps: list
+        A python list with the time stamps.
+
+    Returns
+    -------
+    tuple
+        A python tuple with the years, months and days numpy arrays.
+
+    """
+    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
+    dates = [datetime.strptime(
+        timestamp, datetime_format) for timestamp in timestamps]
+    years = np.array([date.year for date in dates])
+    months = np.array([date.month for date in dates])
+    days = np.array([date.day for date in dates])
+
+    return years, months, days
+
+
+def get_counts_per_day(timestamps):
+    """Calculates the counts per day for a list of time stamps.
+
+    Parameters
+    ----------
+    timestamps: list
+        A python list with ordered time stamps.
+
+    Returns
+    -------
+    list
+        A python list with the counts per day, starting from 2021-03-01.
+
+    """
+    # Extract the years, months and days from the time stamps
+    years, months, days = split_timestamps(timestamps)
+
+    # Get the counts per day
+    counts_per_day = []
+    started = False
+    finished = False
+
+    for year in range(2021, np.max(years) + 1):
+        for month in range(1, 13):
+            for day in range(1, monthrange(year, month)[1] + 1):
+                # Check if we passed the starting day: 2021-03-01
+                if not started:
+                    started = (year == 2021) and (month == 3) and (day == 1)
+
+                # Check that we started and didn't finish yet
+                if started and not finished:
+                    # Add the number of operations for the current day
+                    counts_per_day.append(np.sum(
+                        (years == year) & (months == month) & (days == day)))
+
+                    # Check if we reached the last day
+                    finished = (year == years[-1]) and (
+                        month == months[-1]) and (day == days[-1])
+
+    return counts_per_day
+
+
+def group_users_per_day(users):
+    """Groups the given users per the day of their first interaction.
 
     Parameters
     ----------
@@ -608,26 +677,30 @@ def group_users_by_day(users):
     wallet_ids = np.array(list(users.keys()))
     timestamps = [user["first_interaction"]["timestamp"] for user in users.values()]
 
-    # Extract the year, month and day from the time stamp
-    datetime_format = "%Y-%m-%dT%H:%M:%SZ"
-    dates = [datetime.strptime(timestamp, datetime_format) for timestamp in timestamps]
-    years = np.array([date.year for date in dates])
-    months = np.array([date.month for date in dates])
-    days = np.array([date.day for date in dates])
+    # Extract the years, months and days from the time stamps
+    years, months, days = split_timestamps(timestamps)
 
-    # Group the users by day
-    users_by_day = []
+    # Get the users per day
+    users_per_day = []
+    started = False
+    finished = False
 
-    for year in np.unique(years):
-        months_in_year = np.unique(months[years == year])
+    for year in range(2021, np.max(years) + 1):
+        for month in range(1, 13):
+            for day in range(1, monthrange(year, month)[1] + 1):
+                # Check if we passed the starting day: 2021-03-01
+                if not started:
+                    started = (year == 2021) and (month == 3) and (day == 1)
 
-        for month in months_in_year:
-            days_in_month = np.unique(days[(years == year) & (months == month)])
+                # Check that we started and didn't finish yet
+                if started and not finished:
+                    selected_wallets_ids = wallet_ids[
+                        (years == year) & (months == month) & (days == day)]
+                    users_per_day.append(
+                        [users[wallet_id] for wallet_id in selected_wallets_ids])
 
-            for day in days_in_month:
-                selected_wallets_ids = wallet_ids[
-                    (years == year) & (months == month) & (days == day)]
-                users_by_day.append(
-                    [users[wallet_id] for wallet_id in selected_wallets_ids])
+                    # Check if we reached the last day
+                    finished = (year == years[-1]) and (
+                        month == months[-1]) and (day == days[-1])
 
-    return users_by_day
+    return users_per_day
