@@ -182,7 +182,8 @@ def get_object_id(operation_hash):
     return ""
 
 
-def get_transactions(entrypoint, contract, offset=0, limit=100, timestamp=None):
+def get_transactions(entrypoint, contract, offset=0, limit=100, timestamp=None,
+                     parameter_query=None):
     """Returns a list of applied hic et nunc transactions ordered by
     increasing time stamp.
 
@@ -202,6 +203,8 @@ def get_transactions(entrypoint, contract, offset=0, limit=100, timestamp=None):
         The maximum transaction time stamp. Only earlier transactions will be
         returned. It should follow the ISO format (e.g. 2021-04-20T00:00:00Z).
         Default is no limit.
+    parameter_query: str, optional
+        The parameter query. Default is no query.
 
     Returns
     -------
@@ -217,6 +220,7 @@ def get_transactions(entrypoint, contract, offset=0, limit=100, timestamp=None):
     query += "&offset=%i" % offset
     query += "&limit=%i" % limit
     query += "&timestamp.le=%s" % timestamp if timestamp is not None else ""
+    query += "&%s" % parameter_query if parameter_query is not None else ""
 
     return get_query_result(query)
 
@@ -246,11 +250,20 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_tim
 
     """
     # Set the contract addresses
-    if type == "mint":
+    if type in ["mint", "burn"]:
         contracts = ["KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"]
     else:
         contracts = ["KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9",
                      "KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn"]
+
+    # Set the entry point
+    entrypoint = "transfer" if type == "burn" else type
+
+    # Set the parameter query
+    parameter_query = None
+
+    if type == "burn":
+        parameter_query = "parameter.[0].txs.[0].to_=tz1burnburnburnburnburnburnburjAYjjX"
 
     # Download the transactions
     print_info("Downloading %s transactions..." % type)
@@ -273,8 +286,9 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_tim
             else:
                 print_info("Downloading batch %i" % total_counter)
                 new_transactions = get_transactions(
-                    type, contract, (counter - 1) * transactions_per_batch,
-                    transactions_per_batch)
+                    entrypoint, contract,
+                    (counter - 1) * transactions_per_batch,
+                    transactions_per_batch, parameter_query=parameter_query)
                 transactions += new_transactions
 
                 if len(new_transactions) != transactions_per_batch:

@@ -17,8 +17,9 @@ mint_transactions = get_all_transactions("mint", transactions_dir, sleep_time=1)
 collect_transactions = get_all_transactions("collect", transactions_dir, sleep_time=1)
 swap_transactions = get_all_transactions("swap", transactions_dir, sleep_time=1)
 cancel_swap_transactions = get_all_transactions("cancel_swap", transactions_dir, sleep_time=1)
+burn_transactions = get_all_transactions("burn", transactions_dir, sleep_time=1)
 
-# Plot the number of mint, collect and swap operations per day
+# Plot the number of operations per day
 plot_operations_per_day(
     mint_transactions, "Mint operations per day",
     "Days since first minted OBJKT (1st of March)", "Mint operations per day",
@@ -42,6 +43,72 @@ plot_operations_per_day(
     "Days since first minted OBJKT (1st of March)", "cancel_swap operations per day",
     exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "cancel_swap_operations_per_day.png"))
+
+plot_operations_per_day(
+    burn_transactions, "burn operations per day",
+    "Days since first minted OBJKT (1st of March)", "burn operations per day",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "burn_operations_per_day.png"))
+
+# Plot the number of editions minted, collected, swapped and burned per day
+timestamps = []
+editions = []
+
+for transaction in mint_transactions:
+    timestamps.append(transaction["timestamp"])
+    editions.append(int(transaction["parameter"]["value"]["amount"]))
+
+plot_data_per_day(
+    editions, timestamps,
+    "Minted OBJKT editions per day",
+    "Days since first minted OBJKT (1st of March)", "Minted OBJKT editions",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "minted_editions_per_day.png"))
+
+timestamps = []
+editions = []
+
+for transaction in collect_transactions:
+    timestamps.append(transaction["timestamp"])
+    if "objkt_amount" in transaction["parameter"]["value"]:
+        editions.append(int(transaction["parameter"]["value"]["objkt_amount"]))
+    else:
+        editions.append(1)
+
+plot_data_per_day(
+    editions, timestamps,
+    "Collected OBJKT editions per day",
+    "Days since first minted OBJKT (1st of March)", "Collected OBJKT editions",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "collected_editions_per_day.png"))
+
+timestamps = []
+editions = []
+
+for transaction in swap_transactions:
+    timestamps.append(transaction["timestamp"])
+    editions.append(int(transaction["parameter"]["value"]["objkt_amount"]))
+
+plot_data_per_day(
+    editions, timestamps,
+    "Swapped OBJKT editions per day",
+    "Days since first minted OBJKT (1st of March)", "Swapped OBJKT editions",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "swapped_editions_per_day.png"))
+
+timestamps = []
+editions = []
+
+for transaction in burn_transactions:
+    timestamps.append(transaction["timestamp"])
+    editions.append(int(transaction["parameter"]["value"][0]["txs"][0]["amount"]))
+
+plot_data_per_day(
+    editions, timestamps,
+    "Burned OBJKT editions per day",
+    "Days since first minted OBJKT (1st of March)", "Burned OBJKT editions",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "burned_editions_per_day.png"))
 
 # Extract the artists, collector and patron accounts
 artists = extract_artist_accounts(mint_transactions)
@@ -72,6 +139,24 @@ users_per_day = group_users_per_day(users)
 print("There are currently %i unique users in hic et nunc." % len(users))
 print("Of those %i are artists and %i are patrons." % (len(artists), len(patrons)))
 print("%i artists are also collectors." % (len(collectors) - len(patrons)))
+
+# Get the collectors that collected multiple editions in one call
+multiple_editions_collectors = {}
+
+for transaction in collect_transactions: 
+    if "objkt_amount" in transaction["parameter"]["value"]:
+        wallet_id = transaction["sender"]["address"]
+        editions = int(transaction["parameter"]["value"]["objkt_amount"])
+
+        if editions > 50:
+            if wallet_id not in multiple_editions_collectors:
+                multiple_editions_collectors[wallet_id] = {
+                        "alias" : transaction[
+                            "sender"]["alias"] if "alias" in transaction["sender"] else "",
+                        "editions": editions
+                    }
+            else:
+                multiple_editions_collectors[wallet_id]["editions"] += editions
 
 # Get the total money spent by non-reported collectors
 wallet_ids = np.array([wallet_id for wallet_id in collectors])
@@ -164,14 +249,14 @@ collect_timestamps = np.array(collect_timestamps)
 collect_money = np.array(collect_money)
 
 # Plot the money spent in collect operations per day
-plot_collected_money_per_day(
+plot_data_per_day(
     collect_money, collect_timestamps,
     "Money spent in collect operations per day",
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
     exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "money_per_day.png"))
 
-plot_collected_money_per_day(
+plot_data_per_day(
     collect_money[~collect_from_patron],
     collect_timestamps[~collect_from_patron],
     "Money spent in collect operations per day by artists",
@@ -179,7 +264,7 @@ plot_collected_money_per_day(
     exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "money_per_day_by_artists.png"))
 
-plot_collected_money_per_day(
+plot_data_per_day(
     collect_money[collect_from_patron], collect_timestamps[collect_from_patron],
     "Money spent in collect operations per day by patrons",
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
@@ -260,6 +345,10 @@ for transaction in collect_transactions:
     transactions_timestamps.append(transaction["timestamp"])
 
 for transaction in swap_transactions:
+    transactions_wallet_ids.append(transaction["sender"]["address"])
+    transactions_timestamps.append(transaction["timestamp"])
+
+for transaction in burn_transactions:
     transactions_wallet_ids.append(transaction["sender"]["address"])
     transactions_timestamps.append(transaction["timestamp"])
 

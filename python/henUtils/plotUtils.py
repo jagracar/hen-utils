@@ -102,16 +102,15 @@ def plot_new_users_per_day(users, title, x_label, y_label, exclude_last_day=Fals
     plt.show(block=False)
 
 
-def plot_collected_money_per_day(money, timestamps, title, x_label, y_label, exclude_last_day=False, **kwargs):
-    """Plots the money spent in collect operations per day as a function of
-    time.
+def plot_data_per_day(data, timestamps, title, x_label, y_label, exclude_last_day=False, **kwargs):
+    """Plots some combined data per day as a function of time.
 
     Parameters
     ----------
-    money: object
-        A numpy array with the money of each collect operation.
+    editions: object
+        A numpy array with the data.
     timestamps: object
-        A numpy array with the timestamps of each collect operation.
+        A numpy array with the timestamps.
     title: str
         The plot title.
     x_label: str
@@ -127,8 +126,9 @@ def plot_collected_money_per_day(money, timestamps, title, x_label, y_label, exc
     # Extract the years, months and days from the time stamps
     years, months, days = split_timestamps(timestamps)
 
-    # Get the money spent per day
-    money_per_day = []
+    # Get the data per day
+    data = np.array(data)
+    data_per_day = []
     started = False
     finished = False
 
@@ -141,8 +141,8 @@ def plot_collected_money_per_day(money, timestamps, title, x_label, y_label, exc
 
                 # Check that we started and didn't finish yet
                 if started and not finished:
-                    # Add the total money spent for the current day
-                    money_per_day.append(np.sum(money[
+                    # Add the combined data for the current day
+                    data_per_day.append(np.sum(data[
                         (years == year) & (months == month) & (days == day)]))
 
                     # Check if we reached the last day
@@ -150,14 +150,14 @@ def plot_collected_money_per_day(money, timestamps, title, x_label, y_label, exc
                         month == months[-1]) and (day == days[-1])
 
     if exclude_last_day:
-        money_per_day = money_per_day[:-1]
+        data_per_day = data_per_day[:-1]
 
     # Create the figure
     plt.figure(figsize=(7, 5), facecolor="white", tight_layout=True, **kwargs)
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.plot(money_per_day)
+    plt.plot(data_per_day)
     plt.show(block=False)
 
 
