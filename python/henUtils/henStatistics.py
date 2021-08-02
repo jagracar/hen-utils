@@ -222,10 +222,10 @@ print("This is the list of the top 100 collectors:")
 
 for i, collector in enumerate(collectors_ranking[:100]):
     if collector["alias"] != "":
-        print("%i: Collector %s spent %5.0f tez (%s)" % (
+        print("%2i: Collector %s spent %5.0f tez (%s)" % (
             i, collector["wallet_id"], collector["total_money_spent"], collector["alias"]))
     else:
-        print("%i: Collector %s spent %5.0f tez" % (
+        print("%2i: Collector %s spent %5.0f tez" % (
             i, collector["wallet_id"], collector["total_money_spent"]))
 
 # Save the collectors ranking list in a json file
