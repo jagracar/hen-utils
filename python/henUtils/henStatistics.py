@@ -19,6 +19,9 @@ swap_transactions = get_all_transactions("swap", transactions_dir, sleep_time=1)
 cancel_swap_transactions = get_all_transactions("cancel_swap", transactions_dir, sleep_time=1)
 burn_transactions = get_all_transactions("burn", transactions_dir, sleep_time=1)
 
+# Get the complete list of swaps bigmap keys
+swaps_bigmap_keys = get_swaps_bigmap_keys(transactions_dir, sleep_time=1)
+
 # Plot the number of operations per day
 plot_operations_per_day(
     mint_transactions, "Mint operations per day",
@@ -135,6 +138,12 @@ collectors_per_day = group_users_per_day(collectors)
 patrons_per_day = group_users_per_day(patrons)
 users_per_day = group_users_per_day(users)
 
+# Get a dictionary with the OBJKT creators
+objkt_creators = get_objkt_creators(mint_transactions)
+
+# Build the swaps bigmap
+swaps_bigmap = build_swaps_bigmap(swaps_bigmap_keys)
+
 # Print some information about the total number of users
 print("There are currently %i unique users in hic et nunc." % len(users))
 print("Of those %i are artists and %i are patrons." % (len(artists), len(patrons)))
@@ -232,6 +241,7 @@ for i, collector in enumerate(collectors_ranking[:100]):
 save_json_file("collectors_ranking.json", collectors_ranking)
 
 # Get the collected money that doesn't come from a reported user
+collect_is_secondary = []
 collect_from_patron = []
 collect_timestamps = []
 collect_money = []
@@ -240,10 +250,19 @@ for transaction in collect_transactions:
     wallet_id = transaction["sender"]["address"]
 
     if wallet_id not in reported_users:
+        if "swap_id" in transaction["parameter"]["value"]:
+            swap_id = transaction["parameter"]["value"]["swap_id"]
+        else:
+            swap_id = transaction["parameter"]["value"]
+
+        swap = swaps_bigmap[swap_id]
+        collect_is_secondary.append(
+            objkt_creators[swap["objkt_id"]] != swap["issuer"])
         collect_from_patron.append(wallet_id in patrons)
         collect_timestamps.append(transaction["timestamp"])
         collect_money.append(transaction["amount"] / 1e6)
 
+collect_is_secondary = np.array(collect_is_secondary)
 collect_from_patron = np.array(collect_from_patron)
 collect_timestamps = np.array(collect_timestamps)
 collect_money = np.array(collect_money)
@@ -255,6 +274,22 @@ plot_data_per_day(
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
     exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "money_per_day.png"))
+
+plot_data_per_day(
+    collect_money[~collect_is_secondary],
+    collect_timestamps[~collect_is_secondary],
+    "Money spent in primary market collect operations per day",
+    "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "money_primary_per_day.png"))
+
+plot_data_per_day(
+    collect_money[collect_is_secondary],
+    collect_timestamps[collect_is_secondary],
+    "Money spent in secondary market collect operations per day",
+    "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "money_secondary_per_day.png"))
 
 plot_data_per_day(
     collect_money[~collect_from_patron],
@@ -277,6 +312,23 @@ plot_price_distribution_per_day(
     "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
     exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "price_distribution_per_day.png"))
+
+plot_price_distribution_per_day(
+    collect_money[~collect_is_secondary],
+    collect_timestamps[~collect_is_secondary], [0.01, 1, 5, 50],
+    "Price distribution of collected OBJKTs per day on the primary market",
+    "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "price_distribution_per_day_primary.png"))
+
+plot_price_distribution_per_day(
+    collect_money[collect_is_secondary],
+    collect_timestamps[collect_is_secondary], [0.01, 1, 5, 50],
+    "Price distribution of collected OBJKTs per day on the secondary market",
+    "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
+    exclude_last_day=True)
+save_figure(
+    os.path.join(figures_dir, "price_distribution_per_day_secondary.png"))
 
 plot_price_distribution_per_day(
     collect_money[~collect_from_patron],

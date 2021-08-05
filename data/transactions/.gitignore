@@ -3,3 +3,4 @@
 /swap_transactions_*.json
 /cancel_swap_transactions_*.json
 /burn_transactions_*.json
+/swaps_bigmap_*.json

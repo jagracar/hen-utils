@@ -231,10 +231,15 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_la
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.plot(counts_range_1)
-    plt.plot(counts_range_2)
-    plt.plot(counts_range_3)
-    plt.plot(counts_range_4)
+    plt.plot(counts_range_1, label="%.2f tez ≤ edition price < %.0f tez" % (
+        price_ranges[0], price_ranges[1]))
+    plt.plot(counts_range_2, label="%.0f tez ≤ edition price < %.0f tez" % (
+        price_ranges[1], price_ranges[2]))
+    plt.plot(counts_range_3, label="%.0f tez ≤ edition price < %.0f tez" % (
+        price_ranges[2], price_ranges[3]))
+    plt.plot(counts_range_4, label="edition price ≥ %.0f tez (x10)" % (
+        price_ranges[3]))
+    plt.legend()
     plt.show(block=False)
 
 

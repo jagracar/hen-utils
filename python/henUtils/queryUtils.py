@@ -310,6 +310,102 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_tim
     return transactions
 
 
+def get_swaps_bigmap_keys(data_dir, keys_per_batch=10000, sleep_time=1):
+    """Returns the complete swaps bigmap key list.
+
+    Parameters
+    ----------
+    data_dir: str
+        The complete path to the directory where the swaps bigmap keys 
+        information should be saved.
+    keys_per_batch: int, optional
+        The maximum number of swap bigmap keys per API query. Default is 10000.
+        The maximum allowed by the API is 10000.
+    sleep_time: float, optional
+        The sleep time between API queries in seconds. This is used to avoid
+        being blocked by the server. Default is 1 second.
+
+    Returns
+    -------
+    list
+        A python list with the swaps bigmap keys.
+
+    """
+    # Set the contract addresses
+    contracts = ["KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9",
+                 "KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn"]
+
+    # Download the swaps bigmap keys
+    print_info("Downloading swaps bigmap keys...")
+    swaps_bigmap_keys = []
+    counter = 1
+    total_counter = 1
+
+    for contract in contracts:
+        while True:
+            file_name = os.path.join(
+                data_dir, "swaps_bigmap_keys_%s_%i-%i.json" % (
+                    contract, (counter - 1) * keys_per_batch,
+                    counter * keys_per_batch))
+
+            if os.path.exists(file_name):
+                print_info(
+                    "Batch %i has been already downloaded. Reading it from "
+                    "local json file." % total_counter)
+                swaps_bigmap_keys += read_json_file(file_name)
+            else:
+                print_info("Downloading batch %i" % total_counter)
+                query = "https://api.tzkt.io/v1/bigmaps/updates?"
+                query += "contract=%s" % contract
+                query += "&path=swaps"
+                query += "&action=add_key"
+                query += "&offset=%i" % ((counter - 1) * keys_per_batch)
+                query += "&limit=%i" % keys_per_batch
+                new_swaps_bigmap_keys = get_query_result(query)
+                swaps_bigmap_keys += new_swaps_bigmap_keys
+
+                if len(new_swaps_bigmap_keys) != keys_per_batch:
+                    counter = 1
+                    total_counter += 1
+                    break
+
+                print_info(
+                    "Saving batch %i in the output directory" % total_counter)
+                save_json_file(file_name, new_swaps_bigmap_keys)
+
+                time.sleep(sleep_time)
+
+            counter += 1
+            total_counter += 1
+
+    print_info("Downloaded %i swap bigmap keys." % len(swaps_bigmap_keys))
+
+    return swaps_bigmap_keys
+
+
+def build_swaps_bigmap(swaps_bigmap_keys):
+    """Builds the swaps bigmap from the swaps bigmap keys.
+
+    Parameters
+    ----------
+    swaps_bigmap_keys: list
+        A python list with the swaps bigmap keys.
+
+    Returns
+    -------
+    dict
+        A python dictionary with the swaps bigmap.
+
+    """
+    swaps_bigmap = {}
+
+    for bigmap_key in swaps_bigmap_keys:
+        content = bigmap_key["content"]
+        swaps_bigmap[content["key"]] = content["value"]
+
+    return swaps_bigmap
+
+
 def extract_artist_accounts(transactions):
     """Extracts the artists accounts information from a list of mint
     transactions.
@@ -492,6 +588,31 @@ def get_user_accounts(artists, patrons):
             users[wallet_id] = patrons[wallet_id]
 
     return users
+
+
+def get_objkt_creators(transactions):
+    """Gets a dictionary with the OBJKT creators from a list of mint
+    transactions.
+
+    Parameters
+    ----------
+    transactions: list
+        The list of mint transactions.
+
+    Returns
+    -------
+    dict
+        A python dictionary with the OBJKT creators.
+
+    """
+    objkt_creators = {}
+
+    for transaction in transactions:
+        objkt_id = transaction["parameter"]["value"]["token_id"]
+        creator = transaction["initiator"]["address"]
+        objkt_creators[objkt_id] = creator
+
+    return objkt_creators
 
 
 def add_reported_users_information(accounts, reported_users):
