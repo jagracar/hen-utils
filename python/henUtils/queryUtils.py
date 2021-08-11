@@ -773,6 +773,7 @@ def get_counts_per_day(timestamps):
     counts_per_day = []
     started = False
     finished = False
+    now = datetime.now()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):
@@ -787,9 +788,9 @@ def get_counts_per_day(timestamps):
                     counts_per_day.append(np.sum(
                         (years == year) & (months == month) & (days == day)))
 
-                    # Check if we reached the last day
-                    finished = (year == years[-1]) and (
-                        month == months[-1]) and (day == days[-1])
+                    # Check if we reached the current day
+                    finished = (year == now.year) and (
+                        month == now.month) and (day == now.day)
 
     return counts_per_day
 
@@ -810,7 +811,8 @@ def group_users_per_day(users):
     """
     # Get the users wallet ids and their first interation time stamp
     wallet_ids = np.array(list(users.keys()))
-    timestamps = [user["first_interaction"]["timestamp"] for user in users.values()]
+    timestamps = np.array(
+        [user["first_interaction"]["timestamp"] for user in users.values()])
 
     # Extract the years, months and days from the time stamps
     years, months, days = split_timestamps(timestamps)
@@ -819,6 +821,7 @@ def group_users_per_day(users):
     users_per_day = []
     started = False
     finished = False
+    now = datetime.now()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):
@@ -834,8 +837,8 @@ def group_users_per_day(users):
                     users_per_day.append(
                         [users[wallet_id] for wallet_id in selected_wallets_ids])
 
-                    # Check if we reached the last day
-                    finished = (year == years[-1]) and (
-                        month == months[-1]) and (day == days[-1])
+                    # Check if we reached the current day
+                    finished = (year == now.year) and (
+                        month == now.month) and (day == now.day)
 
     return users_per_day

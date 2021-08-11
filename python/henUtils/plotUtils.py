@@ -1,4 +1,5 @@
 import numpy as np
+from datetime import datetime
 import matplotlib.pyplot as plt
 from calendar import monthrange
 
@@ -131,6 +132,7 @@ def plot_data_per_day(data, timestamps, title, x_label, y_label, exclude_last_da
     data_per_day = []
     started = False
     finished = False
+    now = datetime.now()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):
@@ -145,9 +147,9 @@ def plot_data_per_day(data, timestamps, title, x_label, y_label, exclude_last_da
                     data_per_day.append(np.sum(data[
                         (years == year) & (months == month) & (days == day)]))
 
-                    # Check if we reached the last day
-                    finished = (year == years[-1]) and (
-                        month == months[-1]) and (day == days[-1])
+                    # Check if we reached the current day
+                    finished = (year == now.year) and (
+                        month == now.month) and (day == now.day)
 
     if exclude_last_day:
         data_per_day = data_per_day[:-1]
@@ -195,6 +197,7 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_la
     counts_range_4 = []
     started = False
     finished = False
+    now = datetime.now()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):
@@ -217,8 +220,8 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_la
                         (money[cond] >= price_ranges[3])))
 
                     # Check if we reached the last day
-                    finished = (year == years[-1]) and (
-                        month == months[-1]) and (day == days[-1])
+                    finished = (year == now.year) and (
+                        month == now.month) and (day == now.day)
 
     if exclude_last_day:
         counts_range_1 = counts_range_1[:-1]
@@ -271,6 +274,7 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, e
     active_users_per_day = []
     started = False
     finished = False
+    now = datetime.now()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):
@@ -286,8 +290,8 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, e
                         (years == year) & (months == month) & (days == day)])))
 
                     # Check if we reached the last day
-                    finished = (year == years[-1]) and (
-                        month == months[-1]) and (day == days[-1])
+                    finished = (year == now.year) and (
+                        month == now.month) and (day == now.day)
 
     if exclude_last_day:
         active_users_per_day = active_users_per_day[:-1]
@@ -298,6 +302,55 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, e
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.plot(active_users_per_day)
+    plt.show(block=False)
+
+
+def plot_users_last_active_day(wallet_ids, timestamps, title, x_label, y_label, exclude_last_day=False, **kwargs):
+    """Plots users last active day as a function of time.
+
+    Parameters
+    ----------
+    wallet_ids: object
+        A numpy array with the wallet id of each operation.
+    timestamps: object
+        A numpy array with the timestamps of each operation.
+    title: str
+        The plot title.
+    x_label: str
+        The label for the x axis.
+    y_label: str
+        The label for the y axis.
+    exclude_last_day: bool, optional
+        If True the last day will be excluded from the plot. Default is False.
+    kwargs: plt.figure properties
+        Any additional property that should be passed to the figure.
+
+    """
+    # Get the users last activity time stamp
+    users_last_activity = {}
+
+    for wallet_id, timestamp in zip(wallet_ids, timestamps):
+        if wallet_id in users_last_activity:
+            if users_last_activity[wallet_id] < timestamp:
+                users_last_activity[wallet_id] = timestamp
+        else:
+            users_last_activity[wallet_id] = timestamp
+
+    # Get the last activity time stamps
+    timestamps = list(users_last_activity.values())
+
+    # Get the users per day
+    users_per_day = get_counts_per_day(timestamps)
+
+    if exclude_last_day:
+        users_per_day = users_per_day[:-1]
+
+    # Create the figure
+    plt.figure(figsize=(7, 5), facecolor="white", tight_layout=True, **kwargs)
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.plot(users_per_day)
     plt.show(block=False)
 
 

@@ -414,3 +414,11 @@ plot_active_users_per_day(
     "Days since first minted OBJKT (1st of March)", "Active users per day",
     exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "active_users_per_day.png"))
+
+# Plot the users last active day
+plot_users_last_active_day(
+    transactions_wallet_ids, transactions_timestamps,
+    "Users last active day",
+    "Days since first minted OBJKT (1st of March)", "Users",
+    exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "users_last_active_day.png"))
