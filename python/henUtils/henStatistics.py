@@ -420,5 +420,5 @@ plot_users_last_active_day(
     transactions_wallet_ids, transactions_timestamps,
     "Users last active day",
     "Days since first minted OBJKT (1st of March)", "Users",
-    exclude_last_day=True)
+    exclude_last_day=False)
 save_figure(os.path.join(figures_dir, "users_last_active_day.png"))
