@@ -226,13 +226,14 @@ def get_transactions(entrypoint, contract, offset=0, limit=100, timestamp=None,
 
 
 def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_time=1):
-    """Returns the complete list of applied hic et nunc transactions of a given
-    type ordered by increasing time stamp.
+    """Returns the complete list of applied transactions of a given type
+    ordered by increasing time stamp.
 
     Parameters
     ----------
     type: str
-        The transaction type: mint, collect, swap or cancel_swap.
+        The transaction type: mint, collect, swap, cancel_swap, fulfill_bid or
+        fulfill_ask.
     data_dir: str
         The complete path to the directory where the transactions information
         should be saved.
@@ -249,21 +250,28 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_tim
         A python list with the transactions information.
 
     """
-    # Set the contract addresses
-    if type in ["mint", "burn"]:
-        contracts = ["KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"]
-    else:
-        contracts = ["KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9",
-                     "KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn"]
-
-    # Set the entry point
-    entrypoint = "transfer" if type == "burn" else type
-
-    # Set the parameter query
+    # Set the contract addresses, the entrypoint and the parameter query
+    entrypoint = type
     parameter_query = None
 
-    if type == "burn":
+    if type in "mint":
+        contracts = ["KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"]
+    elif type in "burn":
+        contracts = ["KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"]
+        entrypoint = "transfer"
         parameter_query = "parameter.[0].txs.[0].to_=tz1burnburnburnburnburnburnburjAYjjX"
+    elif type in ["collect", "swap", "cancel_swap"]:
+        contracts = ["KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9",
+                     "KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn"]
+    elif type in ["bid", "ask"]:
+        contracts = ["KT1FvqJwEDWb1Gwc55Jd1jjTHRVWbYKUUpyq"]
+        entrypoint = "fulfill_" + type
+    elif type == "english_auction":
+        contracts = ["KT1XjcRq5MLAzMKQ3UHsrue2SeU2NbxUrzmU"]
+        entrypoint = "conclude_auction"
+    elif type == "dutch_auction":
+        contracts = ["KT1QJ71jypKGgyTNtXjkCAYJZNhCKWiHuT2r"]
+        entrypoint = "buy"
 
     # Download the transactions
     print_info("Downloading %s transactions..." % type)
@@ -310,16 +318,18 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_tim
     return transactions
 
 
-def get_swaps_bigmap_keys(data_dir, keys_per_batch=10000, sleep_time=1):
-    """Returns the complete swaps bigmap key list.
+def get_bigmap_keys(bigmap_ids, data_dir, keys_per_batch=10000, sleep_time=1):
+    """Returns the complete bigmap key list.
 
     Parameters
     ----------
+    bigmap_ids: list
+        A list with the bigmap ids to query.
     data_dir: str
-        The complete path to the directory where the swaps bigmap keys 
-        information should be saved.
+        The complete path to the directory where the bigmap keys information
+        should be saved.
     keys_per_batch: int, optional
-        The maximum number of swap bigmap keys per API query. Default is 10000.
+        The maximum number of bigmap keys per API query. Default is 10000.
         The maximum allowed by the API is 10000.
     sleep_time: float, optional
         The sleep time between API queries in seconds. This is used to avoid
@@ -328,82 +338,150 @@ def get_swaps_bigmap_keys(data_dir, keys_per_batch=10000, sleep_time=1):
     Returns
     -------
     list
-        A python list with the swaps bigmap keys.
+        A python list with the bigmap keys.
 
     """
-    # Set the contract addresses
-    contracts = ["KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9",
-                 "KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn"]
-
-    # Download the swaps bigmap keys
-    print_info("Downloading swaps bigmap keys...")
-    swaps_bigmap_keys = []
+    # Download the bigmap keys
+    print_info("Downloading bigmap keys...")
+    bigmap_keys = []
     counter = 1
     total_counter = 1
 
-    for contract in contracts:
+    for bigmap_id in bigmap_ids:
         while True:
             file_name = os.path.join(
-                data_dir, "swaps_bigmap_keys_%s_%i-%i.json" % (
-                    contract, (counter - 1) * keys_per_batch,
+                data_dir, "bigmap_keys_%s_%i-%i.json" % (
+                    bigmap_id, (counter - 1) * keys_per_batch,
                     counter * keys_per_batch))
 
             if os.path.exists(file_name):
                 print_info(
                     "Batch %i has been already downloaded. Reading it from "
                     "local json file." % total_counter)
-                swaps_bigmap_keys += read_json_file(file_name)
+                bigmap_keys += read_json_file(file_name)
             else:
                 print_info("Downloading batch %i" % total_counter)
-                query = "https://api.tzkt.io/v1/bigmaps/updates?"
-                query += "contract=%s" % contract
-                query += "&path=swaps"
-                query += "&action=add_key"
+                query = "https://api.tzkt.io/v1/bigmaps/%s/keys?" % bigmap_id
                 query += "&offset=%i" % ((counter - 1) * keys_per_batch)
                 query += "&limit=%i" % keys_per_batch
-                new_swaps_bigmap_keys = get_query_result(query)
-                swaps_bigmap_keys += new_swaps_bigmap_keys
+                new_bigmap_keys = get_query_result(query)
+                bigmap_keys += new_bigmap_keys
 
-                if len(new_swaps_bigmap_keys) != keys_per_batch:
+                if len(new_bigmap_keys) != keys_per_batch:
                     counter = 1
                     total_counter += 1
                     break
 
                 print_info(
                     "Saving batch %i in the output directory" % total_counter)
-                save_json_file(file_name, new_swaps_bigmap_keys)
+                save_json_file(file_name, new_bigmap_keys)
 
                 time.sleep(sleep_time)
 
             counter += 1
             total_counter += 1
 
-    print_info("Downloaded %i swap bigmap keys." % len(swaps_bigmap_keys))
+    print_info("Downloaded %i bigmap keys." % len(bigmap_keys))
 
-    return swaps_bigmap_keys
+    return bigmap_keys
 
 
-def build_swaps_bigmap(swaps_bigmap_keys):
-    """Builds the swaps bigmap from the swaps bigmap keys.
+def get_hen_swaps_bigmap(data_dir, keys_per_batch=10000, sleep_time=1):
+    """Returns the HEN swaps bigmap.
 
     Parameters
     ----------
-    swaps_bigmap_keys: list
-        A python list with the swaps bigmap keys.
+    data_dir: str
+        The complete path to the directory where the HEN swaps bigmap keys
+        information should be saved.
+    keys_per_batch: int, optional
+        The maximum number of bigmap keys per API query. Default is 10000. The
+        maximum allowed by the API is 10000.
+    sleep_time: float, optional
+        The sleep time between API queries in seconds. This is used to avoid
+        being blocked by the server. Default is 1 second.
 
     Returns
     -------
     dict
-        A python dictionary with the swaps bigmap.
+        A python dictionary with the HEN swaps bigmap.
 
     """
-    swaps_bigmap = {}
+    # Set the HEN swap bigmap ids
+    bigmap_ids = [
+        "523",  # KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9
+        "6072"  # KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn
+    ]
 
-    for bigmap_key in swaps_bigmap_keys:
-        content = bigmap_key["content"]
-        swaps_bigmap[content["key"]] = content["value"]
+    # Get the HEN swap bigmap keys
+    bigmap_keys = get_bigmap_keys(
+        bigmap_ids, data_dir, keys_per_batch, sleep_time)
 
-    return swaps_bigmap
+    # Build the bigmap
+    bigmap = {}
+
+    for bigmap_key in bigmap_keys:
+        bigmap[bigmap_key["key"]] = bigmap_key["value"]
+        bigmap[bigmap_key["key"]]["active"] = bigmap_key["active"]
+
+    return bigmap
+
+
+def get_objktcom_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
+    """Returns one of the objkt.com bigmaps.
+
+    Parameters
+    ----------
+    name: str
+        The bigmap name: bids, asks, english auctions or ductch auctions.
+    data_dir: str
+        The complete path to the directory where the objkt.com bigmap keys
+        information should be saved.
+    keys_per_batch: int, optional
+        The maximum number of bigmap keys per API query. Default is 10000. The
+        maximum allowed by the API is 10000.
+    sleep_time: float, optional
+        The sleep time between API queries in seconds. This is used to avoid
+        being blocked by the server. Default is 1 second.
+
+    Returns
+    -------
+    dict
+        A python dictionary with the objkt.com bigmap.
+
+    """
+    # Set the objkt.bid bigmap ids
+    if name == "bids":
+        bigmap_ids = [
+            "5910"  # KT1FvqJwEDWb1Gwc55Jd1jjTHRVWbYKUUpyq
+        ]
+    elif name == "asks":
+        bigmap_ids = [
+            "5909"  # KT1FvqJwEDWb1Gwc55Jd1jjTHRVWbYKUUpyq
+        ]
+    elif name == "english auctions":
+        bigmap_ids = [
+            "6210"  # KT1XjcRq5MLAzMKQ3UHsrue2SeU2NbxUrzmU
+        ]
+    elif name == "dutch auctions":
+        bigmap_ids = [
+            "6212"  # KT1QJ71jypKGgyTNtXjkCAYJZNhCKWiHuT2r
+        ]
+
+    # Get the objkt.com bigmap keys
+    bigmap_keys = get_bigmap_keys(
+        bigmap_ids, data_dir, keys_per_batch, sleep_time)
+
+    # Build the bigmap
+    bigmap = {}
+
+    for bigmap_key in bigmap_keys:
+        # Consider only H=N OBJKTs
+        if bigmap_key["value"]["fa2"] == "KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton":
+            bigmap[bigmap_key["key"]] = bigmap_key["value"]
+            bigmap[bigmap_key["key"]]["active"] = bigmap_key["active"]
+
+    return bigmap
 
 
 def extract_artist_accounts(transactions):
@@ -495,6 +573,109 @@ def extract_collector_accounts(transactions):
 
     for collector in collectors.values():
         collector["total_money_spent"] = sum(collector["money_spent"])
+
+    return collectors
+
+
+def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
+                                        english_auction_transactions,
+                                        dutch_auction_transactions,
+                                        bids_bigmap, english_auctions_bigmap):
+    """Extracts the objkt.com collector accounts information from a several
+    lists of transactions.
+
+    Parameters
+    ----------
+    bid_transactions: list
+        The list of objkt.com bid transactions.
+    ask_transactions: list
+        The list of objkt.com ask transactions.
+    english_auction_transactions: list
+        The list of objkt.com english auction transactions.
+    dutch_auction_transactions: list
+        The list of objkt.com dutch auction transactions.
+    bids_bigmap: dict
+        The objkt.com bid bigmap.
+    english_auctions_bigmap: dict
+        The objkt.com english auctions bigmap.
+
+    Returns
+    -------
+    dict
+        A python dictionary with the objkt.com unique collector accounts.
+
+    """
+    collectors = {}
+
+    for transaction in bid_transactions:
+        bid = bids_bigmap[transaction["parameter"]["value"]]
+        collector_wallet_id = bid["issuer"]
+        amount = int(bid["xtz_per_objkt"]) / 1e6
+
+        if collector_wallet_id not in collectors:
+            collectors[collector_wallet_id] = {
+                "bid_money_spent": [],
+                "ask_money_spent": [],
+                "english_auction_money_spent": [],
+                "dutch_auction_money_spent": [],
+                "reported": False}
+
+        collectors[collector_wallet_id]["bid_money_spent"].append(amount)
+
+    for transaction in ask_transactions:
+        collector_wallet_id = transaction["sender"]["address"]
+        amount = transaction["amount"] / 1e6
+
+        if collector_wallet_id not in collectors:
+            collectors[collector_wallet_id] = {
+                "bid_money_spent": [],
+                "ask_money_spent": [],
+                "english_auction_money_spent": [],
+                "dutch_auction_money_spent": [],
+                "reported": False}
+
+        collectors[collector_wallet_id]["ask_money_spent"].append(amount)
+
+    for transaction in english_auction_transactions:
+        auction = english_auctions_bigmap[transaction["parameter"]["value"]]
+        collector_wallet_id = auction["highest_bidder"]
+        amount = int(auction["current_price"]) / 1e6
+
+        if amount == 0:
+            continue
+
+        if collector_wallet_id not in collectors:
+            collectors[collector_wallet_id] = {
+                "bid_money_spent": [],
+                "ask_money_spent": [],
+                "english_auction_money_spent": [],
+                "dutch_auction_money_spent": [],
+                "reported": False}
+
+        collectors[collector_wallet_id]["english_auction_money_spent"].append(
+            amount)
+
+    for transaction in dutch_auction_transactions:
+        collector_wallet_id = transaction["sender"]["address"]
+        amount = transaction["amount"] / 1e6
+
+        if collector_wallet_id not in collectors:
+            collectors[collector_wallet_id] = {
+                "bid_money_spent": [],
+                "ask_money_spent": [],
+                "english_auction_money_spent": [],
+                "dutch_auction_money_spent": [],
+                "reported": False}
+
+        collectors[collector_wallet_id]["dutch_auction_money_spent"].append(
+            amount)
+
+    for collector in collectors.values():
+        collector["total_money_spent"] = (
+            sum(collector["bid_money_spent"]) + 
+            sum(collector["ask_money_spent"]) + 
+            sum(collector["english_auction_money_spent"]) + 
+            sum(collector["dutch_auction_money_spent"]))
 
     return collectors
 

@@ -6,7 +6,7 @@ from calendar import monthrange
 from henUtils.queryUtils import split_timestamps, get_counts_per_day
 
 
-def plot_histogram(data, title, x_label, y_label, bins=100, **kwargs):
+def plot_histogram(data, title, x_label, y_label, bins=100, log=False, **kwargs):
     """Plots a histogram of the given data.
 
     Parameters
@@ -21,6 +21,8 @@ def plot_histogram(data, title, x_label, y_label, bins=100, **kwargs):
         The label for the y axis.
     bins: int, optional
         The number of bins that the histogram should have. Default is 100.
+    log: bool, optional
+        If true the y axis will be in log scale. Default is False.
     kwargs: plt.figure properties
         Any additional property that should be passed to the figure.
 
@@ -29,7 +31,7 @@ def plot_histogram(data, title, x_label, y_label, bins=100, **kwargs):
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.hist(data, bins=bins)
+    plt.hist(data, bins=bins, log=log)
     plt.show(block=False)
 
 

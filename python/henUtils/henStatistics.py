@@ -12,15 +12,53 @@ figures_dir = "../figures"
 # Read the connected wallets information (wallets connected to the same user)
 connected_wallets = read_json_file("../data/connected_wallets.json")
 
-# Get the complete list of mint, collect and swap transactions
+# Get the complete list of HEN mint, collect, swap, cancel swap and burn
+# transactions
 mint_transactions = get_all_transactions("mint", transactions_dir, sleep_time=1)
-collect_transactions = get_all_transactions("collect", transactions_dir, sleep_time=1)
+collect_transactions = get_all_transactions(
+    "collect", transactions_dir, sleep_time=1)
 swap_transactions = get_all_transactions("swap", transactions_dir, sleep_time=1)
-cancel_swap_transactions = get_all_transactions("cancel_swap", transactions_dir, sleep_time=1)
+cancel_swap_transactions = get_all_transactions(
+    "cancel_swap", transactions_dir, sleep_time=1)
 burn_transactions = get_all_transactions("burn", transactions_dir, sleep_time=1)
 
-# Get the complete list of swaps bigmap keys
-swaps_bigmap_keys = get_swaps_bigmap_keys(transactions_dir, sleep_time=1)
+# Get the complete list of objkt.com bid, ask, english auction and dutch auction
+# transactions
+bid_transactions = get_all_transactions("bid", transactions_dir, sleep_time=1)
+ask_transactions = get_all_transactions("ask", transactions_dir, sleep_time=1)
+english_auction_transactions = get_all_transactions(
+    "english_auction", transactions_dir, sleep_time=1)
+dutch_auction_transactions = get_all_transactions(
+    "dutch_auction", transactions_dir, sleep_time=1)
+
+# Get the H=N swaps bigmap
+swaps_bigmap = get_hen_swaps_bigmap(transactions_dir, sleep_time=1)
+
+# Get the objktbid bids, asks, english auctions and dutch auctions bigmaps
+# related with H=N OBJKTs
+bids_bigmap = get_objktcom_bigmap("bids", transactions_dir, sleep_time=1)
+asks_bigmap = get_objktcom_bigmap("asks", transactions_dir, sleep_time=1)
+english_auctions_bigmap = get_objktcom_bigmap(
+    "english auctions", transactions_dir, sleep_time=1)
+dutch_auctions_bigmap = get_objktcom_bigmap(
+    "dutch auctions", transactions_dir, sleep_time=1)
+
+# Select only the bids and asks transactions related with H=N OBJKTs
+bid_transactions = [transaction for transaction in bid_transactions if 
+                    transaction["parameter"]["value"] in bids_bigmap]
+ask_transactions = [transaction for transaction in ask_transactions if 
+                    transaction["parameter"]["value"] in asks_bigmap]
+english_auction_transactions = [
+    transaction for transaction in english_auction_transactions if 
+    transaction["parameter"]["value"] in english_auctions_bigmap]
+dutch_auction_transactions = [
+    transaction for transaction in dutch_auction_transactions if 
+    transaction["parameter"]["value"] in dutch_auctions_bigmap]
+
+# Get only the english auction transactions that resulted in a successful sell
+english_auction_transactions = [
+    transaction for transaction in english_auction_transactions if 
+    english_auctions_bigmap[transaction["parameter"]["value"]]["current_price"] != "0"]
 
 # Plot the number of operations per day
 plot_operations_per_day(
@@ -53,71 +91,38 @@ plot_operations_per_day(
     exclude_last_day=True)
 save_figure(os.path.join(figures_dir, "burn_operations_per_day.png"))
 
-# Plot the number of editions minted, collected, swapped and burned per day
-timestamps = []
-editions = []
-
-for transaction in mint_transactions:
-    timestamps.append(transaction["timestamp"])
-    editions.append(int(transaction["parameter"]["value"]["amount"]))
-
-plot_data_per_day(
-    editions, timestamps,
-    "Minted OBJKT editions per day",
-    "Days since first minted OBJKT (1st of March)", "Minted OBJKT editions",
+plot_operations_per_day(
+    bid_transactions, "objkt.com bid operations per day",
+    "Days since first minted OBJKT (1st of March)", "Bid operations per day",
     exclude_last_day=True)
-save_figure(os.path.join(figures_dir, "minted_editions_per_day.png"))
+save_figure(os.path.join(figures_dir, "bid_operations_per_day.png"))
 
-timestamps = []
-editions = []
-
-for transaction in collect_transactions:
-    timestamps.append(transaction["timestamp"])
-    if "objkt_amount" in transaction["parameter"]["value"]:
-        editions.append(int(transaction["parameter"]["value"]["objkt_amount"]))
-    else:
-        editions.append(1)
-
-plot_data_per_day(
-    editions, timestamps,
-    "Collected OBJKT editions per day",
-    "Days since first minted OBJKT (1st of March)", "Collected OBJKT editions",
+plot_operations_per_day(
+    ask_transactions, "objkt.com ask operations per day",
+    "Days since first minted OBJKT (1st of March)", "Ask operations per day",
     exclude_last_day=True)
-save_figure(os.path.join(figures_dir, "collected_editions_per_day.png"))
+save_figure(os.path.join(figures_dir, "ask_operations_per_day.png"))
 
-timestamps = []
-editions = []
+plot_operations_per_day(
+    english_auction_transactions, "objkt.com english auction operations per day",
+    "Days since first minted OBJKT (1st of March)",
+    "English auction operations per day", exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "english_auction_operations_per_day.png"))
 
-for transaction in swap_transactions:
-    timestamps.append(transaction["timestamp"])
-    editions.append(int(transaction["parameter"]["value"]["objkt_amount"]))
-
-plot_data_per_day(
-    editions, timestamps,
-    "Swapped OBJKT editions per day",
-    "Days since first minted OBJKT (1st of March)", "Swapped OBJKT editions",
-    exclude_last_day=True)
-save_figure(os.path.join(figures_dir, "swapped_editions_per_day.png"))
-
-timestamps = []
-editions = []
-
-for transaction in burn_transactions:
-    timestamps.append(transaction["timestamp"])
-    editions.append(int(transaction["parameter"]["value"][0]["txs"][0]["amount"]))
-
-plot_data_per_day(
-    editions, timestamps,
-    "Burned OBJKT editions per day",
-    "Days since first minted OBJKT (1st of March)", "Burned OBJKT editions",
-    exclude_last_day=True)
-save_figure(os.path.join(figures_dir, "burned_editions_per_day.png"))
+plot_operations_per_day(
+    dutch_auction_transactions, "objkt.com dutch auction operations per day",
+    "Days since first minted OBJKT (1st of March)",
+    "Dutch auction operations per day", exclude_last_day=True)
+save_figure(os.path.join(figures_dir, "dutch_auction_operations_per_day.png"))
 
 # Extract the artists, collector and patron accounts
 artists = extract_artist_accounts(mint_transactions)
 collectors = extract_collector_accounts(collect_transactions)
 patrons = get_patron_accounts(artists, collectors)
 users = get_user_accounts(artists, patrons)
+objktcom_collectors = extract_objktcom_collector_accounts(
+    bid_transactions, ask_transactions, english_auction_transactions,
+    dutch_auction_transactions, bids_bigmap, english_auctions_bigmap)
 
 # Get the list of H=N reported users and add some extra ones that are suspect
 # of buying their own OBJKTs with the only purpose to get the free hDAOs
@@ -131,6 +136,7 @@ add_reported_users_information(artists, reported_users)
 add_reported_users_information(collectors, reported_users)
 add_reported_users_information(patrons, reported_users)
 add_reported_users_information(users, reported_users)
+add_reported_users_information(objktcom_collectors, reported_users)
 
 # Group the users by the day of their first interaction
 artists_per_day = group_users_per_day(artists)
@@ -140,9 +146,6 @@ users_per_day = group_users_per_day(users)
 
 # Get a dictionary with the OBJKT creators
 objkt_creators = get_objkt_creators(mint_transactions)
-
-# Build the swaps bigmap
-swaps_bigmap = build_swaps_bigmap(swaps_bigmap_keys)
 
 # Print some information about the total number of users
 print("There are currently %i unique users in hic et nunc." % len(users))
@@ -177,6 +180,12 @@ is_reported_collector = np.array(
 wallet_ids = wallet_ids[~is_reported_collector]
 aliases = aliases[~is_reported_collector]
 total_money_spent = total_money_spent[~is_reported_collector]
+
+# Add the money spent in objkt.com
+for i, wallet_id in enumerate(wallet_ids):
+    if wallet_id in objktcom_collectors:
+        total_money_spent[i] += objktcom_collectors[
+            wallet_id]["total_money_spent"]
 
 # Combine those wallets that are connected to the same user
 is_secondary_wallet = np.full(wallet_ids.shape, False)
@@ -267,6 +276,18 @@ collect_from_patron = np.array(collect_from_patron)
 collect_timestamps = np.array(collect_timestamps)
 collect_money = np.array(collect_money)
 
+# Plot a histogram of the collected editions prices
+adapted_collect_money = collect_money.copy()
+adapted_collect_money[adapted_collect_money > 1000] = 999
+
+plot_histogram(
+    adapted_collect_money,
+    title="Collected editions price distribution",
+    x_label="Edition price (tez)", y_label="Number of collected editions",
+    bins=[0, 0.25, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 300, 500, 1000],
+    log=True)
+save_figure(os.path.join(figures_dir, "edition_price_histogram.png"))
+
 # Plot the money spent in collect operations per day
 plot_data_per_day(
     collect_money, collect_timestamps,
@@ -347,16 +368,16 @@ plot_price_distribution_per_day(
 save_figure(os.path.join(figures_dir, "price_distribution_per_day_by_patrons.png"))
 
 # Print some information about the collect operations
-print("Non-reported users performed %i collect operations." % len(collect_money))
+print(" Non-reported users performed %i collect operations." % len(collect_money))
 
 for i in [0.0, 0.1, 0.5, 1, 2, 3, 5, 10, 100]:
-    print("%.1f%% of them were for editions with a value <= %.1ftez." % (
+    print(" %.1f%% of them were for editions with a value <= %.1ftez." % (
         100 * np.sum(collect_money <= i) / len(collect_money), i))
 
-print("Non-reported users spent a total of %.0f tez." % np.sum(collect_money))
+print(" Non-reported users spent a total of %.0f tez." % np.sum(collect_money))
 
 for i in [0.1, 0.5, 1, 2, 3, 5, 10, 100]:
-    print("%.1f%% of that was on editions with a value <= %.1ftez." % (
+    print(" %.1f%% of that was on editions with a value <= %.1ftez." % (
         100 * np.sum(collect_money[collect_money <= i]) / np.sum(collect_money), i))
 
 # Plot the new users per day
