@@ -2,6 +2,9 @@ import numpy as np
 from henUtils.queryUtils import *
 from henUtils.plotUtils import *
 
+# Exclude the last day from most of the plots?
+exclude_last_day = False
+
 # Set the path to the directory where the transaction information will be saved
 # to avoid to query for it again and again
 transactions_dir = "../data/transactions"
@@ -31,11 +34,13 @@ english_auction_transactions = get_all_transactions(
 dutch_auction_transactions = get_all_transactions(
     "dutch_auction", transactions_dir, sleep_time=1)
 
-# Get the H=N swaps bigmap
-swaps_bigmap = get_hen_swaps_bigmap(transactions_dir, sleep_time=1)
+# Get the H=N bigmaps
+swaps_bigmap = get_hen_bigmap("swaps", transactions_dir, sleep_time=1)
+registries_bigmap = get_hen_bigmap("registries", transactions_dir, sleep_time=1)
+subjkts_metadata_bigmap = get_hen_bigmap(
+    "subjkts metadata", transactions_dir, sleep_time=1)
 
-# Get the objktbid bids, asks, english auctions and dutch auctions bigmaps
-# related with H=N OBJKTs
+# Get the objkt.com bigmaps
 bids_bigmap = get_objktcom_bigmap("bids", transactions_dir, sleep_time=1)
 asks_bigmap = get_objktcom_bigmap("asks", transactions_dir, sleep_time=1)
 english_auctions_bigmap = get_objktcom_bigmap(
@@ -64,55 +69,55 @@ english_auction_transactions = [
 plot_operations_per_day(
     mint_transactions, "Mint operations per day",
     "Days since first minted OBJKT (1st of March)", "Mint operations per day",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "mint_operations_per_day.png"))
 
 plot_operations_per_day(
     collect_transactions, "Collect operations per day",
     "Days since first minted OBJKT (1st of March)", "Collect operations per day",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "collect_operations_per_day.png"))
 
 plot_operations_per_day(
     swap_transactions, "Swap operations per day",
     "Days since first minted OBJKT (1st of March)", "Swap operations per day",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "swap_operations_per_day.png"))
 
 plot_operations_per_day(
     cancel_swap_transactions, "cancel_swap operations per day",
     "Days since first minted OBJKT (1st of March)", "cancel_swap operations per day",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "cancel_swap_operations_per_day.png"))
 
 plot_operations_per_day(
     burn_transactions, "burn operations per day",
     "Days since first minted OBJKT (1st of March)", "burn operations per day",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "burn_operations_per_day.png"))
 
 plot_operations_per_day(
     bid_transactions, "objkt.com bid operations per day",
     "Days since first minted OBJKT (1st of March)", "Bid operations per day",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "bid_operations_per_day.png"))
 
 plot_operations_per_day(
     ask_transactions, "objkt.com ask operations per day",
     "Days since first minted OBJKT (1st of March)", "Ask operations per day",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "ask_operations_per_day.png"))
 
 plot_operations_per_day(
     english_auction_transactions, "objkt.com english auction operations per day",
     "Days since first minted OBJKT (1st of March)",
-    "English auction operations per day", exclude_last_day=True)
+    "English auction operations per day", exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "english_auction_operations_per_day.png"))
 
 plot_operations_per_day(
     dutch_auction_transactions, "objkt.com dutch auction operations per day",
     "Days since first minted OBJKT (1st of March)",
-    "Dutch auction operations per day", exclude_last_day=True)
+    "Dutch auction operations per day", exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "dutch_auction_operations_per_day.png"))
 
 # Extract the artists, collector and patron accounts
@@ -181,6 +186,11 @@ wallet_ids = wallet_ids[~is_reported_collector]
 aliases = aliases[~is_reported_collector]
 total_money_spent = total_money_spent[~is_reported_collector]
 
+# Add the name registered with the SUBJKT contract if the alias is not present
+for i, wallet_id in enumerate(wallet_ids):
+    if aliases[i] == "" and wallet_id in registries_bigmap:
+        aliases[i] = registries_bigmap[wallet_id]["user"]
+
 # Add the money spent in objkt.com
 for i, wallet_id in enumerate(wallet_ids):
     if wallet_id in objktcom_collectors:
@@ -236,15 +246,15 @@ for i in [10, 100, 500, 1000, 10000]:
         100 * np.sum(total_money_spent[:i]) / np.sum(total_money_spent), i))
 
 # Print the list of the top 100 collectors
-print("This is the list of the top 100 collectors:")
+print("\n This is the list of the top 100 collectors:\n")
 
 for i, collector in enumerate(collectors_ranking[:100]):
     if collector["alias"] != "":
-        print("%2i: Collector %s spent %5.0f tez (%s)" % (
-            i, collector["wallet_id"], collector["total_money_spent"], collector["alias"]))
+        print(" %3i: Collector %s spent %5.0f tez (%s)" % (
+            i + 1, collector["wallet_id"], collector["total_money_spent"], collector["alias"]))
     else:
-        print("%2i: Collector %s spent %5.0f tez" % (
-            i, collector["wallet_id"], collector["total_money_spent"]))
+        print(" %3i: Collector %s spent %5.0f tez" % (
+            i + 1, collector["wallet_id"], collector["total_money_spent"]))
 
 # Save the collectors ranking list in a json file
 save_json_file("collectors_ranking.json", collectors_ranking)
@@ -284,7 +294,7 @@ plot_histogram(
     adapted_collect_money,
     title="Collected editions price distribution",
     x_label="Edition price (tez)", y_label="Number of collected editions",
-    bins=[0, 0.25, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 300, 500, 1000],
+    bins=[0, 0.1, 0.5, 1, 1.5, 3, 5, 8, 15, 30, 50, 100, 200, 400, 800, 1000],
     log=True)
 save_figure(os.path.join(figures_dir, "edition_price_histogram.png"))
 
@@ -293,7 +303,7 @@ plot_data_per_day(
     collect_money, collect_timestamps,
     "Money spent in collect operations per day",
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "money_per_day.png"))
 
 plot_data_per_day(
@@ -301,7 +311,7 @@ plot_data_per_day(
     collect_timestamps[~collect_is_secondary],
     "Money spent in primary market collect operations per day",
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "money_primary_per_day.png"))
 
 plot_data_per_day(
@@ -309,7 +319,7 @@ plot_data_per_day(
     collect_timestamps[collect_is_secondary],
     "Money spent in secondary market collect operations per day",
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "money_secondary_per_day.png"))
 
 plot_data_per_day(
@@ -317,21 +327,21 @@ plot_data_per_day(
     collect_timestamps[~collect_from_patron],
     "Money spent in collect operations per day by artists",
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "money_per_day_by_artists.png"))
 
 plot_data_per_day(
     collect_money[collect_from_patron], collect_timestamps[collect_from_patron],
     "Money spent in collect operations per day by patrons",
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "money_per_day_by_patrons.png"))
 
 plot_price_distribution_per_day(
     collect_money, collect_timestamps, [0.01, 1, 5, 50],
     "Price distribution of collected OBJKTs per day",
     "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "price_distribution_per_day.png"))
 
 plot_price_distribution_per_day(
@@ -339,7 +349,7 @@ plot_price_distribution_per_day(
     collect_timestamps[~collect_is_secondary], [0.01, 1, 5, 50],
     "Price distribution of collected OBJKTs per day on the primary market",
     "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "price_distribution_per_day_primary.png"))
 
 plot_price_distribution_per_day(
@@ -347,7 +357,7 @@ plot_price_distribution_per_day(
     collect_timestamps[collect_is_secondary], [0.01, 1, 5, 50],
     "Price distribution of collected OBJKTs per day on the secondary market",
     "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(
     os.path.join(figures_dir, "price_distribution_per_day_secondary.png"))
 
@@ -356,7 +366,7 @@ plot_price_distribution_per_day(
     collect_timestamps[~collect_from_patron], [0.01, 1, 5, 50],
     "Price distribution of collected OBJKTs per day by artists",
     "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "price_distribution_per_day_by_artists.png"))
 
 plot_price_distribution_per_day(
@@ -364,7 +374,7 @@ plot_price_distribution_per_day(
     [0.01, 1, 5, 50],
     "Price distribution of collected OBJKTs per day by patrons",
     "Days since first minted OBJKT (1st of March)", "Number of collected OBJKTs",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "price_distribution_per_day_by_patrons.png"))
 
 # Print some information about the collect operations
@@ -384,25 +394,25 @@ for i in [0.1, 0.5, 1, 2, 3, 5, 10, 100]:
 plot_new_users_per_day(
     artists, title="New artists per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New artists per day", exclude_last_day=True)
+    y_label="New artists per day", exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "new_artists_per_day.png"))
 
 plot_new_users_per_day(
     collectors, title="New collectors per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New collectors per day", exclude_last_day=True)
+    y_label="New collectors per day", exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "new_collectors_per_day.png"))
 
 plot_new_users_per_day(
     patrons, title="New patrons per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New patrons per day", exclude_last_day=True)
+    y_label="New patrons per day", exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "new_patros_per_day.png"))
 
 plot_new_users_per_day(
     users, title="New users per day",
     x_label="Days since first minted OBJKT (1st of March)",
-    y_label="New users per day", exclude_last_day=True)
+    y_label="New users per day", exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "new_users_per_day.png"))
 
 # Get the wallet ids and the time stamps of each transaction
@@ -433,7 +443,7 @@ plot_active_users_per_day(
     transactions_wallet_ids, transactions_timestamps,
     "Active users per day",
     "Days since first minted OBJKT (1st of March)", "Active users per day",
-    exclude_last_day=True)
+    exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "active_users_per_day.png"))
 
 # Plot the users last active day

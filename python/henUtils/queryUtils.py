@@ -386,14 +386,16 @@ def get_bigmap_keys(bigmap_ids, data_dir, keys_per_batch=10000, sleep_time=1):
     return bigmap_keys
 
 
-def get_hen_swaps_bigmap(data_dir, keys_per_batch=10000, sleep_time=1):
-    """Returns the HEN swaps bigmap.
+def get_hen_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
+    """Returns one of the HEN bigmaps.
 
     Parameters
     ----------
+    name: str
+        The bigmap name: swaps, registries, subjkts metadata.
     data_dir: str
-        The complete path to the directory where the HEN swaps bigmap keys
-        information should be saved.
+        The complete path to the directory where the HEN bigmap keys information
+        should be saved.
     keys_per_batch: int, optional
         The maximum number of bigmap keys per API query. Default is 10000. The
         maximum allowed by the API is 10000.
@@ -404,16 +406,25 @@ def get_hen_swaps_bigmap(data_dir, keys_per_batch=10000, sleep_time=1):
     Returns
     -------
     dict
-        A python dictionary with the HEN swaps bigmap.
+        A python dictionary with the HEN bigmap.
 
     """
-    # Set the HEN swap bigmap ids
-    bigmap_ids = [
-        "523",  # KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9
-        "6072"  # KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn
-    ]
+    # Set the HEN bigmap ids
+    if name == "swaps":
+        bigmap_ids = [
+            "523",  # KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9
+            "6072"  # KT1HbQepzV1nVGg8QVznG7z4RcHseD5kwqBn
+        ]
+    elif name == "registries":
+        bigmap_ids = [
+            "3919"  # KT1My1wDZHDGweCrJnQJi3wcFaS67iksirvj
+        ]
+    elif name == "subjkts metadata":
+        bigmap_ids = [
+            "3921"  # KT1My1wDZHDGweCrJnQJi3wcFaS67iksirvj
+        ]
 
-    # Get the HEN swap bigmap keys
+    # Get the HEN bigmap keys
     bigmap_keys = get_bigmap_keys(
         bigmap_ids, data_dir, keys_per_batch, sleep_time)
 
@@ -421,8 +432,22 @@ def get_hen_swaps_bigmap(data_dir, keys_per_batch=10000, sleep_time=1):
     bigmap = {}
 
     for bigmap_key in bigmap_keys:
-        bigmap[bigmap_key["key"]] = bigmap_key["value"]
-        bigmap[bigmap_key["key"]]["active"] = bigmap_key["active"]
+        if name == "swaps":
+            key = bigmap_key["key"]
+            bigmap[key] = bigmap_key["value"]
+        elif name == "registries":
+            key = bigmap_key["key"]
+            value = bytes.fromhex(bigmap_key["value"]).decode(
+                "utf-8", errors="replace")
+            bigmap[key] = {"user": value}
+        elif name == "subjkts metadata":
+            key = bytes.fromhex(bigmap_key["key"]).decode(
+                "utf-8", errors="replace")
+            value = bytes.fromhex(bigmap_key["value"]).decode(
+                "utf-8", errors="replace")
+            bigmap[key] = {"user_metadata": value}
+
+        bigmap[key]["active"] = bigmap_key["active"]
 
     return bigmap
 
