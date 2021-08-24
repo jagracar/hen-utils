@@ -3,7 +3,7 @@ from henUtils.queryUtils import *
 from henUtils.plotUtils import *
 
 # Exclude the last day from most of the plots?
-exclude_last_day = False
+exclude_last_day = True
 
 # Set the path to the directory where the transaction information will be saved
 # to avoid to query for it again and again
