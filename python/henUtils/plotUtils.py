@@ -134,7 +134,7 @@ def plot_data_per_day(data, timestamps, title, x_label, y_label, exclude_last_da
     data_per_day = []
     started = False
     finished = False
-    now = datetime.now()
+    now = datetime.utcnow()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):
@@ -199,7 +199,7 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_la
     counts_range_4 = []
     started = False
     finished = False
-    now = datetime.now()
+    now = datetime.utcnow()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):
@@ -276,7 +276,7 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, e
     active_users_per_day = []
     started = False
     finished = False
-    now = datetime.now()
+    now = datetime.utcnow()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):

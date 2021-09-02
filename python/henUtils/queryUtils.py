@@ -16,7 +16,7 @@ def print_info(info):
         The information to print.
 
     """
-    print("%s  %s" % (datetime.now(), info))
+    print("%s  %s" % (datetime.utcnow(), info))
 
 
 def read_json_file(file_name):
@@ -509,7 +509,7 @@ def get_objktcom_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
     return bigmap
 
 
-def extract_artist_accounts(transactions):
+def extract_artist_accounts(transactions, registries_bigmap):
     """Extracts the artists accounts information from a list of mint
     transactions.
 
@@ -517,6 +517,8 @@ def extract_artist_accounts(transactions):
     ----------
     transactions: list
         The list of mint transactions.
+    registries_bigmap: dict
+        The H=N registries bigmap.
 
     Returns
     -------
@@ -529,31 +531,45 @@ def extract_artist_accounts(transactions):
 
     for transaction in transactions:
         wallet_id = transaction["initiator"]["address"]
+        objkt_id = transaction["parameter"]["value"]["token_id"]
 
-        if wallet_id.startswith("tz") and wallet_id not in artists:
-            artists[wallet_id] = {
-                "order": counter,
-                "type": "artist",
-                "wallet_id": wallet_id,
-                    "alias": transaction["initiator"][
-                        "alias"] if "alias" in transaction["initiator"] else "",
-                "first_objkt": {
-                    "id" : transaction["parameter"]["value"]["token_id"],
-                    "amount": transaction["parameter"]["value"]["amount"],
-                    "timestamp": transaction["timestamp"]},
-                "first_interaction": {
-                    "type": "mint",
-                    "timestamp": transaction["timestamp"]},
-                "reported": False,
-                "money_spent": [],
-                "total_money_spent": 0}
+        if wallet_id.startswith("tz"):
+            if wallet_id not in artists:
+                # Get the artist alias
+                if wallet_id in registries_bigmap:
+                    alias = registries_bigmap[wallet_id]["user"]
+                elif "alias" in transaction["initiator"]:
+                    alias = transaction["initiator"]["alias"]
+                else:
+                    alias = ""
 
-            counter += 1
+                # Add the artist information
+                artists[wallet_id] = {
+                    "order": counter,
+                    "type": "artist",
+                    "wallet_id": wallet_id,
+                    "alias": alias,
+                    "first_objkt": {
+                        "id" : objkt_id,
+                        "amount": transaction["parameter"]["value"]["amount"],
+                        "timestamp": transaction["timestamp"]},
+                    "first_interaction": {
+                        "type": "mint",
+                        "timestamp": transaction["timestamp"]},
+                    "minted_objkts": [objkt_id],
+                    "reported": False,
+                    "money_spent": [],
+                    "total_money_spent": 0}
+
+                counter += 1
+            else:
+                # Add the OBJKT id to the minted OBJKTs list
+                artists[wallet_id]["minted_objkts"].append(objkt_id)
 
     return artists
 
 
-def extract_collector_accounts(transactions):
+def extract_collector_accounts(transactions, registries_bigmap, swaps_bigmap):
     """Extracts the collector accounts information from a list of collect
     transactions.
 
@@ -561,6 +577,10 @@ def extract_collector_accounts(transactions):
     ----------
     transactions: list
         The list of collect transactions.
+    registries_bigmap: dict
+        The H=N registries bigmap.
+    swaps_bigmap: dict
+        The H=N marketplace swaps bigmap.
 
     Returns
     -------
@@ -576,15 +596,30 @@ def extract_collector_accounts(transactions):
 
         if wallet_id.startswith("tz"):
             if wallet_id not in collectors:
+                # Get the collector alias
+                if wallet_id in registries_bigmap:
+                    alias = registries_bigmap[wallet_id]["user"]
+                elif "alias" in transaction["sender"]:
+                    alias = transaction["sender"]["alias"]
+                else:
+                    alias = ""
+
+                # Get the swap id from the collect entrypoint input parameters
+                parameters = transaction["parameter"]["value"]
+
+                if isinstance(parameters, dict):
+                    swap_id = parameters["swap_id"]
+                else:
+                    swap_id = parameters
+
+                # Add the collector information
                 collectors[wallet_id] = {
                     "order": counter,
                     "type": "collector",
                     "wallet_id": wallet_id,
-                    "alias": transaction["sender"][
-                        "alias"] if "alias" in transaction["sender"] else "",
+                    "alias": alias,
                     "first_collect": {
-                        "objkt_id": "",
-                        "operation_hash": transaction["hash"],
+                        "objkt_id": swaps_bigmap[swap_id]["objkt_id"],
                         "timestamp": transaction["timestamp"]},
                     "first_interaction": {
                         "type": "collect",
@@ -821,6 +856,82 @@ def get_objkt_creators(transactions):
     return objkt_creators
 
 
+def extract_users_connections(objkt_creators, transactions, swaps_bigmap,
+                              reported_users):
+    users_connections = {}
+    user_counter = 0
+
+    for artist_wallet_id in objkt_creators.values():
+        if artist_wallet_id.startswith("KT"):
+            continue
+        elif artist_wallet_id not in users_connections:
+            users_connections[artist_wallet_id] = {
+                "artists" : set(),
+                "collectors" : set(),
+                "reported": False,
+                "counter": user_counter}
+            user_counter += 1
+
+    for transaction in transactions:
+        # Get the swap id from the collect entrypoint input parameters
+        parameters = transaction["parameter"]["value"]
+
+        if isinstance(parameters, dict):
+            swap_id = parameters["swap_id"]
+        else:
+            swap_id = parameters
+
+        # Get the objkt id from the swaps bigmap
+        objkt_id = swaps_bigmap[swap_id]["objkt_id"]
+
+        # Get the collector and artist wallet ids
+        collector_wallet_id = transaction["sender"]["address"]
+        artist_wallet_id = objkt_creators[objkt_id]
+
+        if (artist_wallet_id.startswith("KT") or 
+            collector_wallet_id.startswith("KT")):
+            continue
+
+        users_connections[artist_wallet_id]["collectors"].add(
+            collector_wallet_id)
+
+        if collector_wallet_id not in users_connections:
+            users_connections[collector_wallet_id] = {
+                "artists" : set([artist_wallet_id]),
+                "collectors" : set(),
+                "reported": False,
+                "counter": user_counter}
+            user_counter += 1
+        else:
+            users_connections[collector_wallet_id]["artists"].add(
+                artist_wallet_id)
+
+    for reported_user_wallet_id in reported_users:
+        if reported_user_wallet_id in users_connections:
+            users_connections[reported_user_wallet_id]["reported"] = True
+
+    for user in users_connections.values():
+        user["artists"] = list(user["artists"])
+        user["collectors"] = list(user["collectors"])
+
+    serialized_users_connections = {}
+
+    for wallet_id, user in users_connections.items():
+        serialized_artists = [
+            users_connections[artist]["counter"] for artist in user["artists"]]
+        serialized_collectors = [
+            users_connections[collector]["counter"] for collector in user["collectors"]]
+
+        serialized_users_connections[user["counter"]] = {
+             "wallet_id": wallet_id,
+             "artists": serialized_artists,
+             "collectors": serialized_collectors,
+             "reported": user["reported"]
+            }
+
+    return users_connections, serialized_users_connections
+
+
 def add_reported_users_information(accounts, reported_users):
     """Adds the reported users information to a set of accounts.
 
@@ -886,53 +997,6 @@ def add_accounts_metadata(accounts, from_account_index=0, to_account_index=None,
         time.sleep(sleep_time)
 
 
-def add_first_collected_objkt_id(accounts, from_account_index=0, to_account_index=None, sleep_time=1):
-    """Adds the id of the first collected OBJKT to a set of collector accounts.
-
-    Be careful, this will send a lot of API queries and you might be temporally
-    blocked!
-
-    Parameters
-    ----------
-    accounts: dict
-        The python dictionary with the collector accounts information.
-    from_account_index: int, optional
-        The index of the first account where the metadata should be added. This
-        is used to avoid being blocked by the server or to only update a set of
-        new accounts. Default is 0.
-    to_account_index: int, optional
-        The index of the account starting from which the metadata will not be
-        added. This is used to avoid being blocked by the server or to only
-        update a set of new accounts. Default is None, which indicates that the
-        metadata information will be added for all accounts starting from
-        from_account_index.
-    sleep_time: float, optional
-        The sleep time between API queries in seconds. This is used to avoid
-        being blocked by the server. Default is 1 second.
-
-    """
-    if to_account_index is None or to_account_index > len(accounts):
-        to_account_index = len(accounts)
-
-    wallet_ids = list(accounts.keys())[from_account_index:to_account_index]
-
-    for i, wallet_id in enumerate(wallet_ids):
-        account = accounts[wallet_id]
-
-        try:
-            account["first_collect"]["objkt_id"] = get_object_id(
-                account["first_collect"]["operation_hash"])
-        except:
-            print_info("Blocked by the server? Trying again...")
-            account["first_collect"]["objkt_id"] = get_object_id(
-                account["first_collect"]["operation_hash"])
-
-        if i != 0 and (i + 1) % 10 == 0:
-            print_info("Added the OBJKT id for %i accounts" % (i + 1))
-
-        time.sleep(sleep_time)
-
-
 def split_timestamps(timestamps):
     """Splits the input time stamps in 3 arrays containing the years, months
     and days.
@@ -979,7 +1043,7 @@ def get_counts_per_day(timestamps):
     counts_per_day = []
     started = False
     finished = False
-    now = datetime.now()
+    now = datetime.utcnow()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):
@@ -1027,7 +1091,7 @@ def group_users_per_day(users):
     users_per_day = []
     started = False
     finished = False
-    now = datetime.now()
+    now = datetime.utcnow()
 
     for year in range(2021, np.max(years) + 1):
         for month in range(1, 13):
@@ -1048,3 +1112,47 @@ def group_users_per_day(users):
                         month == now.month) and (day == now.day)
 
     return users_per_day
+
+
+def get_swapped_objkts(swaps_bigmap, min_objkt_id=0, max_objkt_id=np.Inf, min_price=0, max_price=np.Inf):
+    """Gets a list of swapped OBJKTs with the lowest price.
+
+    Parameters
+    ----------
+    swaps_bigmap: dict
+        A python dictionary with the H=N swaps bigmap.
+    min_objkt_id: int, optional
+        The minimum OBJKT id to use for the selection. Default is 0.
+    max_objkt_id: int, optional
+        The maximum OBJKT id to use for the selection. Default is no upper
+        limit.
+    min_price: float, optional
+        The minimum OBJKT edition price in tez to use for the selection.
+        Default is 0.
+    max_price: float, optional
+        The maximum OBJKT edition price in tez to use for the selection.
+        Default is no upper limit.
+
+    Returns
+    -------
+    dict
+        A python dictionary with selected OBJKTs lowest price.
+
+    """
+    # Select the swaps that satisfy the specified conditions
+    selected_swaps = {}
+
+    for key, swap in swaps_bigmap.items():
+        # Select only active swaps from the H=N marketplace v2 smart contract
+        if int(key) >= 500000 and swap["active"] and int(swap["objkt_amount"]) > 0:
+            objkt_id = int(swap["objkt_id"])
+            price = float(swap["xtz_per_objkt"]) / 1e6
+
+            if objkt_id >= min_objkt_id and objkt_id <= max_objkt_id and price >= min_price and price <= max_price:
+                if objkt_id not in selected_swaps:
+                    selected_swaps[objkt_id] = price
+                elif price < selected_swaps[objkt_id]:
+                    selected_swaps[objkt_id] = price
+
+    return {key: selected_swaps[key] for key in sorted(selected_swaps.keys())}
+

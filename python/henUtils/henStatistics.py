@@ -121,8 +121,9 @@ plot_operations_per_day(
 save_figure(os.path.join(figures_dir, "dutch_auction_operations_per_day.png"))
 
 # Extract the artists, collector and patron accounts
-artists = extract_artist_accounts(mint_transactions)
-collectors = extract_collector_accounts(collect_transactions)
+artists = extract_artist_accounts(mint_transactions, registries_bigmap)
+collectors = extract_collector_accounts(
+    collect_transactions, registries_bigmap, swaps_bigmap)
 patrons = get_patron_accounts(artists, collectors)
 users = get_user_accounts(artists, patrons)
 objktcom_collectors = extract_objktcom_collector_accounts(
@@ -151,6 +152,10 @@ users_per_day = group_users_per_day(users)
 
 # Get a dictionary with the OBJKT creators
 objkt_creators = get_objkt_creators(mint_transactions)
+
+# Get a dictionary with the users connections
+users_connections, serialized_users_connections = extract_users_connections(
+    objkt_creators, collect_transactions, swaps_bigmap, reported_users)
 
 # Print some information about the total number of users
 print("There are currently %i unique users in hic et nunc." % len(users))
@@ -185,11 +190,6 @@ is_reported_collector = np.array(
 wallet_ids = wallet_ids[~is_reported_collector]
 aliases = aliases[~is_reported_collector]
 total_money_spent = total_money_spent[~is_reported_collector]
-
-# Add the name registered with the SUBJKT contract if the alias is not present
-for i, wallet_id in enumerate(wallet_ids):
-    if aliases[i] == "" and wallet_id in registries_bigmap:
-        aliases[i] = registries_bigmap[wallet_id]["user"]
 
 # Add the money spent in objkt.com
 for i, wallet_id in enumerate(wallet_ids):
