@@ -452,13 +452,15 @@ def get_hen_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
     return bigmap
 
 
-def get_objktcom_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
+def get_objktcom_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
     """Returns one of the objkt.com bigmaps.
 
     Parameters
     ----------
     name: str
         The bigmap name: bids, asks, english auctions or ductch auctions.
+    token: str
+        The token name: OBJKT, tezzardz.
     data_dir: str
         The complete path to the directory where the objkt.com bigmap keys
         information should be saved.
@@ -493,6 +495,12 @@ def get_objktcom_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
             "6212"  # KT1QJ71jypKGgyTNtXjkCAYJZNhCKWiHuT2r
         ]
 
+    # Set the token contract
+    if token == "OBJKT":
+        token_contract = "KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"
+    elif token == "tezzardz":
+        token_contract = "KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6"
+        
     # Get the objkt.com bigmap keys
     bigmap_keys = get_bigmap_keys(
         bigmap_ids, data_dir, keys_per_batch, sleep_time)
@@ -501,8 +509,7 @@ def get_objktcom_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
     bigmap = {}
 
     for bigmap_key in bigmap_keys:
-        # Consider only H=N OBJKTs
-        if bigmap_key["value"]["fa2"] == "KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton":
+        if bigmap_key["value"]["fa2"] == token_contract:
             bigmap[bigmap_key["key"]] = bigmap_key["value"]
             bigmap[bigmap_key["key"]]["active"] = bigmap_key["active"]
 
@@ -678,6 +685,7 @@ def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
                 "ask_money_spent": [],
                 "english_auction_money_spent": [],
                 "dutch_auction_money_spent": [],
+                "alias": "",
                 "reported": False}
 
         collectors[collector_wallet_id]["bid_money_spent"].append(amount)
@@ -686,15 +694,22 @@ def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
         collector_wallet_id = transaction["sender"]["address"]
         amount = transaction["amount"] / 1e6
 
+        if "alias" in transaction["sender"]:
+            collector_alias = transaction["sender"]["alias"]
+        else:
+            collector_alias = ""
+
         if collector_wallet_id not in collectors:
             collectors[collector_wallet_id] = {
                 "bid_money_spent": [],
                 "ask_money_spent": [],
                 "english_auction_money_spent": [],
                 "dutch_auction_money_spent": [],
+                "alias": "",
                 "reported": False}
 
         collectors[collector_wallet_id]["ask_money_spent"].append(amount)
+        collectors[collector_wallet_id]["alias"] = collector_alias
 
     for transaction in english_auction_transactions:
         auction = english_auctions_bigmap[transaction["parameter"]["value"]]
@@ -710,6 +725,7 @@ def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
                 "ask_money_spent": [],
                 "english_auction_money_spent": [],
                 "dutch_auction_money_spent": [],
+                "alias": "",
                 "reported": False}
 
         collectors[collector_wallet_id]["english_auction_money_spent"].append(
@@ -719,16 +735,23 @@ def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
         collector_wallet_id = transaction["sender"]["address"]
         amount = transaction["amount"] / 1e6
 
+        if "alias" in transaction["sender"]:
+            collector_alias = transaction["sender"]["alias"]
+        else:
+            collector_alias = ""
+
         if collector_wallet_id not in collectors:
             collectors[collector_wallet_id] = {
                 "bid_money_spent": [],
                 "ask_money_spent": [],
                 "english_auction_money_spent": [],
                 "dutch_auction_money_spent": [],
+                "alias": "",
                 "reported": False}
 
         collectors[collector_wallet_id]["dutch_auction_money_spent"].append(
             amount)
+        collectors[collector_wallet_id]["alias"] = collector_alias
 
     for collector in collectors.values():
         collector["total_money_spent"] = (

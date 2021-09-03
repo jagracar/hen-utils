@@ -3,7 +3,7 @@ from henUtils.queryUtils import *
 from henUtils.plotUtils import *
 
 # Exclude the last day from most of the plots?
-exclude_last_day = True
+exclude_last_day = False
 
 # Set the path to the directory where the transaction information will be saved
 # to avoid to query for it again and again
@@ -41,12 +41,14 @@ subjkts_metadata_bigmap = get_hen_bigmap(
     "subjkts metadata", transactions_dir, sleep_time=1)
 
 # Get the objkt.com bigmaps
-bids_bigmap = get_objktcom_bigmap("bids", transactions_dir, sleep_time=1)
-asks_bigmap = get_objktcom_bigmap("asks", transactions_dir, sleep_time=1)
+bids_bigmap = get_objktcom_bigmap(
+    "bids", "OBJKT", transactions_dir, sleep_time=1)
+asks_bigmap = get_objktcom_bigmap(
+    "asks", "OBJKT", transactions_dir, sleep_time=1)
 english_auctions_bigmap = get_objktcom_bigmap(
-    "english auctions", transactions_dir, sleep_time=1)
+    "english auctions", "OBJKT", transactions_dir, sleep_time=1)
 dutch_auctions_bigmap = get_objktcom_bigmap(
-    "dutch auctions", transactions_dir, sleep_time=1)
+    "dutch auctions", "OBJKT", transactions_dir, sleep_time=1)
 
 # Select only the bids and asks transactions related with H=N OBJKTs
 bid_transactions = [transaction for transaction in bid_transactions if 
