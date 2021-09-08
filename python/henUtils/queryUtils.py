@@ -647,7 +647,8 @@ def extract_collector_accounts(transactions, registries_bigmap, swaps_bigmap):
 def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
                                         english_auction_transactions,
                                         dutch_auction_transactions,
-                                        bids_bigmap, english_auctions_bigmap):
+                                        bids_bigmap, english_auctions_bigmap,
+                                        registries_bigmap):
     """Extracts the objkt.com collector accounts information from a several
     lists of transactions.
 
@@ -665,6 +666,8 @@ def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
         The objkt.com bid bigmap.
     english_auctions_bigmap: dict
         The objkt.com english auctions bigmap.
+    registries_bigmap: dict
+        The H=N registries bigmap.
 
     Returns
     -------
@@ -753,12 +756,15 @@ def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
             amount)
         collectors[collector_wallet_id]["alias"] = collector_alias
 
-    for collector in collectors.values():
+    for collector_wallet_id, collector in collectors.items():
         collector["total_money_spent"] = (
             sum(collector["bid_money_spent"]) + 
             sum(collector["ask_money_spent"]) + 
             sum(collector["english_auction_money_spent"]) + 
             sum(collector["dutch_auction_money_spent"]))
+        
+        if collector_wallet_id in registries_bigmap:
+            collector["alias"] = registries_bigmap[collector_wallet_id]["user"]
 
     return collectors
 

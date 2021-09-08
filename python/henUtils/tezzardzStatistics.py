@@ -51,6 +51,9 @@ english_auction_transactions = [
     transaction for transaction in english_auction_transactions if 
     english_auctions_bigmap[transaction["parameter"]["value"]]["current_price"] != "0"]
 
+# Get the H=N registries bigmap
+registries_bigmap = get_hen_bigmap("registries", transactions_dir, sleep_time=1)
+
 # Plot the number of operations per day
 plot_operations_per_day(
     bid_transactions, "objkt.com bid operations per day",
@@ -79,7 +82,8 @@ save_figure(os.path.join(figures_dir, "dutch_auction_operations_per_day.png"))
 # Extract the collector accounts
 collectors = extract_objktcom_collector_accounts(
     bid_transactions, ask_transactions, english_auction_transactions,
-    dutch_auction_transactions, bids_bigmap, english_auctions_bigmap)
+    dutch_auction_transactions, bids_bigmap, english_auctions_bigmap,
+    registries_bigmap)
 
 # Get the list of H=N reported users and add some extra ones that are suspect
 # of buying their own OBJKTs with the only purpose to get the free hDAOs

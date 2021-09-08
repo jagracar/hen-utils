@@ -3,7 +3,7 @@ from henUtils.queryUtils import *
 from henUtils.plotUtils import *
 
 # Exclude the last day from most of the plots?
-exclude_last_day = False
+exclude_last_day = True
 
 # Set the path to the directory where the transaction information will be saved
 # to avoid to query for it again and again
@@ -130,7 +130,8 @@ patrons = get_patron_accounts(artists, collectors)
 users = get_user_accounts(artists, patrons)
 objktcom_collectors = extract_objktcom_collector_accounts(
     bid_transactions, ask_transactions, english_auction_transactions,
-    dutch_auction_transactions, bids_bigmap, english_auctions_bigmap)
+    dutch_auction_transactions, bids_bigmap, english_auctions_bigmap,
+    registries_bigmap)
 
 # Get the list of H=N reported users and add some extra ones that are suspect
 # of buying their own OBJKTs with the only purpose to get the free hDAOs
