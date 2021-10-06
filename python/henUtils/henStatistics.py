@@ -148,22 +148,27 @@ add_reported_users_information(users, reported_users)
 add_reported_users_information(objktcom_collectors, reported_users)
 
 # Group the users by the day of their first interaction
-artists_per_day = group_users_per_day(artists)
-collectors_per_day = group_users_per_day(collectors)
-patrons_per_day = group_users_per_day(patrons)
-users_per_day = group_users_per_day(users)
+#artists_per_day = group_users_per_day(artists)
+#collectors_per_day = group_users_per_day(collectors)
+#patrons_per_day = group_users_per_day(patrons)
+#users_per_day = group_users_per_day(users)
 
 # Get a dictionary with the OBJKT creators
 objkt_creators = get_objkt_creators(mint_transactions)
 
 # Get a dictionary with the users connections
 users_connections, serialized_users_connections = extract_users_connections(
-    objkt_creators, collect_transactions, swaps_bigmap, reported_users)
+    objkt_creators, collect_transactions, swaps_bigmap, users, reported_users)
+save_json_file("users_connections.json", users_connections)
+save_json_file(
+    "serialized_users_connections.json", serialized_users_connections,
+    compact=True)
 
 # Print some information about the total number of users
 print("There are currently %i unique users in hic et nunc." % len(users))
 print("Of those %i are artists and %i are patrons." % (len(artists), len(patrons)))
 print("%i artists are also collectors." % (len(collectors) - len(patrons)))
+print("%i users are in the block list." % len(reported_users))
 
 # Get the collectors that collected multiple editions in one call
 multiple_editions_collectors = {}

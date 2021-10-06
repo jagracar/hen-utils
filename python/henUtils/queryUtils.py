@@ -37,7 +37,7 @@ def read_json_file(file_name):
         return json.load(json_file)
 
 
-def save_json_file(file_name, data):
+def save_json_file(file_name, data, compact=False):
     """Saves some data as a json file.
 
     Parameters
@@ -46,10 +46,15 @@ def save_json_file(file_name, data):
         The complete path to the json file where the data will be saved.
     data: object
         The data to save.
+    compact: bool, optinal
+        If True, the json file will be save in a compact form. Default is False.
 
     """
     with open(file_name, "w", encoding="utf-8") as json_file:
-        json.dump(data, json_file, indent=4)
+        if compact:
+            json.dump(data, json_file, indent=None, separators=(",", ":"))
+        else:
+            json.dump(data, json_file, indent=4)
 
 
 def get_query_result(query, timeout=10):
@@ -886,7 +891,7 @@ def get_objkt_creators(transactions):
 
 
 def extract_users_connections(objkt_creators, transactions, swaps_bigmap,
-                              reported_users):
+                              users, reported_users):
     users_connections = {}
     user_counter = 0
 
@@ -894,7 +899,13 @@ def extract_users_connections(objkt_creators, transactions, swaps_bigmap,
         if artist_wallet_id.startswith("KT"):
             continue
         elif artist_wallet_id not in users_connections:
+            if artist_wallet_id in users:
+                alias = users[artist_wallet_id]["alias"]
+            else:
+                alias = ""
+
             users_connections[artist_wallet_id] = {
+                "alias": alias,
                 "artists" : set(),
                 "collectors" : set(),
                 "reported": False,
@@ -921,42 +932,58 @@ def extract_users_connections(objkt_creators, transactions, swaps_bigmap,
             collector_wallet_id.startswith("KT")):
             continue
 
+        if artist_wallet_id == collector_wallet_id:
+            continue
+
         users_connections[artist_wallet_id]["collectors"].add(
             collector_wallet_id)
 
-        if collector_wallet_id not in users_connections:
+        if collector_wallet_id in users_connections:
+            users_connections[collector_wallet_id]["artists"].add(
+                artist_wallet_id)
+        else:
+            if collector_wallet_id in users:
+                alias = users[collector_wallet_id]["alias"]
+            else:
+                alias = ""
+
             users_connections[collector_wallet_id] = {
+                "alias": alias,
                 "artists" : set([artist_wallet_id]),
                 "collectors" : set(),
                 "reported": False,
                 "counter": user_counter}
             user_counter += 1
-        else:
-            users_connections[collector_wallet_id]["artists"].add(
-                artist_wallet_id)
 
     for reported_user_wallet_id in reported_users:
         if reported_user_wallet_id in users_connections:
             users_connections[reported_user_wallet_id]["reported"] = True
 
     for user in users_connections.values():
+        user["artists_and_collectors"] = user["artists"].intersection(user["collectors"])
+        user["artists"] = user["artists"] - user["artists_and_collectors"] 
+        user["collectors"] = user["collectors"] - user["artists_and_collectors"] 
+        user["artists_and_collectors"] = list(user["artists_and_collectors"])
         user["artists"] = list(user["artists"])
         user["collectors"] = list(user["collectors"])
 
     serialized_users_connections = {}
 
     for wallet_id, user in users_connections.items():
+        serialized_artists_and_collectors = [
+            users_connections[artist_and_collector]["counter"] for artist_and_collector in user["artists_and_collectors"]]
         serialized_artists = [
             users_connections[artist]["counter"] for artist in user["artists"]]
         serialized_collectors = [
             users_connections[collector]["counter"] for collector in user["collectors"]]
 
         serialized_users_connections[user["counter"]] = {
-             "wallet_id": wallet_id,
-             "artists": serialized_artists,
-             "collectors": serialized_collectors,
-             "reported": user["reported"]
-            }
+            "wallet": wallet_id,
+            "alias": user["alias"],
+            "artists_and_collectors": serialized_artists_and_collectors,
+            "artists": serialized_artists,
+            "collectors": serialized_collectors,
+            "reported": user["reported"]}
 
     return users_connections, serialized_users_connections
 
