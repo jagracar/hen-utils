@@ -1,0 +1,4804 @@
+[
+    {
+        "ranking": 1,
+        "wallet_id": "tz1Vw1tsHuRYaCuk341eUzPfK7oj6FFcs6c9",
+        "alias": "",
+        "total_money_spent": 6056.789899999999,
+        "items": 102
+    },
+    {
+        "ranking": 2,
+        "wallet_id": "tz1Tth3DumyPqMsYUgxSGLiNGgeCV3b6fqp2",
+        "alias": "",
+        "total_money_spent": 2407.1500000000005,
+        "items": 45
+    },
+    {
+        "ranking": 3,
+        "wallet_id": "tz1cn14ZxSKse3ZZD3HLgA6cH356YSVuLPDp",
+        "alias": "",
+        "total_money_spent": 1388.05,
+        "items": 25
+    },
+    {
+        "ranking": 4,
+        "wallet_id": "tz1bSuMV4MWKMquZGfBumS9BSzT1RofszY6k",
+        "alias": "",
+        "total_money_spent": 1369.1200000000001,
+        "items": 25
+    },
+    {
+        "ranking": 5,
+        "wallet_id": "tz1dKB95f8KpX3AZNK7UkJuzkRxVJxWYLWca",
+        "alias": "",
+        "total_money_spent": 1200.77,
+        "items": 21
+    },
+    {
+        "ranking": 6,
+        "wallet_id": "tz1MH7vTRc4yXkttnoU93CYqiZfhEzk7C17a",
+        "alias": "lonliboy",
+        "total_money_spent": 1094.23,
+        "items": 17
+    },
+    {
+        "ranking": 7,
+        "wallet_id": "tz1acojysQDQ5scLxARiQHPHUc2Wo5vaLBMf",
+        "alias": "",
+        "total_money_spent": 1009.3999999999999,
+        "items": 18
+    },
+    {
+        "ranking": 8,
+        "wallet_id": "tz1W6rXGstJPSmMBsg6Fcj9yCDZXCMf6u7aZ",
+        "alias": "",
+        "total_money_spent": 976.84,
+        "items": 16
+    },
+    {
+        "ranking": 9,
+        "wallet_id": "tz1YSyUbRRLikD2Q7gLTDdXwn3DD6QRrLQxi",
+        "alias": "fund137lbhot",
+        "total_money_spent": 896.8299999999999,
+        "items": 15
+    },
+    {
+        "ranking": 10,
+        "wallet_id": "tz1a6fbh6LwnvMo2LYFUtqNxGXoaMg63kfTh",
+        "alias": "AINFTCreator",
+        "total_money_spent": 821.58,
+        "items": 15
+    },
+    {
+        "ranking": 11,
+        "wallet_id": "tz1Y64BZJuFV4t9E6pouNec8YLzJUi9kgFEi",
+        "alias": "stokarz",
+        "total_money_spent": 690.8,
+        "items": 12
+    },
+    {
+        "ranking": 12,
+        "wallet_id": "tz1Mha2kBmZFF6hj2vZ1BKYPFGWPEfZi1PLA",
+        "alias": "",
+        "total_money_spent": 671.88,
+        "items": 11
+    },
+    {
+        "ranking": 13,
+        "wallet_id": "tz1gWzVC5kZbvzby4fRCji9d1jkT5ty1z9wo",
+        "alias": "",
+        "total_money_spent": 663.5899999999999,
+        "items": 11
+    },
+    {
+        "ranking": 14,
+        "wallet_id": "tz1RhDf3hL8P5vTF8Cm9u8UHnc7E1gzYrVZa",
+        "alias": "SaucyMcSauce",
+        "total_money_spent": 651.0,
+        "items": 11
+    },
+    {
+        "ranking": 15,
+        "wallet_id": "tz1i4Ng8TwcjFdnbVZ1uhY52PhUS9qxdZDUF",
+        "alias": "",
+        "total_money_spent": 639.4,
+        "items": 11
+    },
+    {
+        "ranking": 16,
+        "wallet_id": "tz1YHWL72KHVVRGxPfEA2r1jtLtuCmjM4hgW",
+        "alias": "",
+        "total_money_spent": 627.0,
+        "items": 9
+    },
+    {
+        "ranking": 17,
+        "wallet_id": "tz1ggMZqirXjNXJYTr8TJkVirZstNmyKS3t3",
+        "alias": "",
+        "total_money_spent": 616.74,
+        "items": 11
+    },
+    {
+        "ranking": 18,
+        "wallet_id": "tz1cNnEdJYgbkB8YN6vD5QJTBays2EJsw5A7",
+        "alias": "TheParty",
+        "total_money_spent": 591.4699999999999,
+        "items": 12
+    },
+    {
+        "ranking": 19,
+        "wallet_id": "tz1PDvJfTWagz9KnUZ8TCcbwU77WKUh6vfAY",
+        "alias": "nftrooster",
+        "total_money_spent": 580.25,
+        "items": 10
+    },
+    {
+        "ranking": 20,
+        "wallet_id": "tz1aS2NBMpL9NVkWjniUk9Rno2nx2vDgxXuk",
+        "alias": "Powderly",
+        "total_money_spent": 533.98,
+        "items": 9
+    },
+    {
+        "ranking": 21,
+        "wallet_id": "tz1WEgnR7fKQM78ttbCnQvBw87QfM4Jimnkz",
+        "alias": "HUNC",
+        "total_money_spent": 490.1799,
+        "items": 8
+    },
+    {
+        "ranking": 22,
+        "wallet_id": "tz1N41FtehodrnPFjHPp2iFpCa7tSPFAquS5",
+        "alias": "",
+        "total_money_spent": 468.959999,
+        "items": 8
+    },
+    {
+        "ranking": 23,
+        "wallet_id": "tz1aKfJtAjz57Dpq36GWCB9epYERKWVx39Yy",
+        "alias": "",
+        "total_money_spent": 467.4,
+        "items": 8
+    },
+    {
+        "ranking": 24,
+        "wallet_id": "tz1UW7KHBJLYdfsxCxyHyigWHztBdQavfaru",
+        "alias": "",
+        "total_money_spent": 465.0,
+        "items": 8
+    },
+    {
+        "ranking": 25,
+        "wallet_id": "tz1TZfBq35tE72CE6JDcmnAbaukW48yvGhVU",
+        "alias": "",
+        "total_money_spent": 452.75,
+        "items": 9
+    },
+    {
+        "ranking": 26,
+        "wallet_id": "tz1TiDPcT6xcTVno2iDgp3etZmFqkUfugbQf",
+        "alias": "Di3sIr43",
+        "total_money_spent": 440.9,
+        "items": 8
+    },
+    {
+        "ranking": 27,
+        "wallet_id": "tz1hjZuttQSUcSbkg47i1izUMykXCcdqq1zx",
+        "alias": "",
+        "total_money_spent": 439.98,
+        "items": 7
+    },
+    {
+        "ranking": 28,
+        "wallet_id": "tz1dW4z811rbrACxH5PTu5VtdhRisLZUDhdU",
+        "alias": "jstn",
+        "total_money_spent": 412.86,
+        "items": 6
+    },
+    {
+        "ranking": 29,
+        "wallet_id": "tz1Rux3pGrp2KpZUBKvg3VQ4edRYVJsapr4z",
+        "alias": "",
+        "total_money_spent": 411.88,
+        "items": 7
+    },
+    {
+        "ranking": 30,
+        "wallet_id": "tz1hFcDVSCCfU8UMZbtfv1mptKEt6CzcmANQ",
+        "alias": "",
+        "total_money_spent": 405.57000000000005,
+        "items": 7
+    },
+    {
+        "ranking": 31,
+        "wallet_id": "tz1dY2t1d4BvF4sH7vctGtZVLAU2v5xcHhq7",
+        "alias": "",
+        "total_money_spent": 404.7,
+        "items": 7
+    },
+    {
+        "ranking": 32,
+        "wallet_id": "tz1NCqLEjcDewJuxt3NTj9wnhmvGkWdzbpFN",
+        "alias": "CeylonMetaverse",
+        "total_money_spent": 400.49,
+        "items": 7
+    },
+    {
+        "ranking": 33,
+        "wallet_id": "tz1TPegbMDEU597trvhhkCt1M85YtaNGPMxY",
+        "alias": "",
+        "total_money_spent": 399.3,
+        "items": 7
+    },
+    {
+        "ranking": 34,
+        "wallet_id": "tz1VY543f4YJvbCp2QpgvspvRtP5ucQJi4oZ",
+        "alias": "",
+        "total_money_spent": 390.0,
+        "items": 6
+    },
+    {
+        "ranking": 35,
+        "wallet_id": "tz1ek9wEDD2edxuV1JniLuh2ckh5DeM4FjQo",
+        "alias": "",
+        "total_money_spent": 378.0,
+        "items": 7
+    },
+    {
+        "ranking": 36,
+        "wallet_id": "tz1cADjS9MPYcd3cXp1p31gvwvN2TJZeDDon",
+        "alias": "purpleflg",
+        "total_money_spent": 375.19,
+        "items": 9
+    },
+    {
+        "ranking": 37,
+        "wallet_id": "tz1YFnZ5EiQw2RhnTVb41DyTL2aGmDEibgQk",
+        "alias": "Polygon1993",
+        "total_money_spent": 368.888,
+        "items": 6
+    },
+    {
+        "ranking": 38,
+        "wallet_id": "tz1dBmr5ypWVjHQtAJ4QjtkcH5d1UVWyrtrk",
+        "alias": "",
+        "total_money_spent": 366.5,
+        "items": 6
+    },
+    {
+        "ranking": 39,
+        "wallet_id": "tz1QAhnUgCf94s4hg46TThFAJkoXgaYaHMVm",
+        "alias": "",
+        "total_money_spent": 359.87,
+        "items": 6
+    },
+    {
+        "ranking": 40,
+        "wallet_id": "tz1SGWQsjWgNeiUFkxFZBKEXuUgrmfk7oYCY",
+        "alias": "air",
+        "total_money_spent": 356.99,
+        "items": 6
+    },
+    {
+        "ranking": 41,
+        "wallet_id": "tz1MHVtpYFsW7VDH1rhbhK3Krad14n6Ww8RD",
+        "alias": "fwwm",
+        "total_money_spent": 353.0,
+        "items": 6
+    },
+    {
+        "ranking": 42,
+        "wallet_id": "tz1gQyvkV8ofzcRjUhancM47wK8MuHz6Thzf",
+        "alias": "ballislife.tez",
+        "total_money_spent": 343.45,
+        "items": 6
+    },
+    {
+        "ranking": 43,
+        "wallet_id": "tz1TYyoSGug8bTmFASWNYGsNfJDwmEeGCT33",
+        "alias": "GCT33",
+        "total_money_spent": 339.69,
+        "items": 6
+    },
+    {
+        "ranking": 44,
+        "wallet_id": "tz1iFKBz9HbJDp6omQGG9LC9bTXF4zKdkJfR",
+        "alias": "",
+        "total_money_spent": 337.0,
+        "items": 5
+    },
+    {
+        "ranking": 45,
+        "wallet_id": "tz1Q6WJPByR3fwhAvcMJPtU7af7614YcSpBo",
+        "alias": "",
+        "total_money_spent": 336.4,
+        "items": 6
+    },
+    {
+        "ranking": 46,
+        "wallet_id": "tz2MA2GHcZtGs6bz6EbyHkQjH4oecnxzL3cJ",
+        "alias": "megalonibbles",
+        "total_money_spent": 334.8,
+        "items": 6
+    },
+    {
+        "ranking": 47,
+        "wallet_id": "tz1fRUsEStfWhkA6jMcax88cwoY9ELExvMfw",
+        "alias": "makemsayuh",
+        "total_money_spent": 327.0,
+        "items": 6
+    },
+    {
+        "ranking": 48,
+        "wallet_id": "tz1L5SiSne6m8RphPSBDBpnYKS5aeKsiwzKm",
+        "alias": "",
+        "total_money_spent": 325.5,
+        "items": 6
+    },
+    {
+        "ranking": 49,
+        "wallet_id": "tz1VxK2AKMJhZWNZ29xcCpC5YnmarTrZAquA",
+        "alias": "far",
+        "total_money_spent": 313.999,
+        "items": 5
+    },
+    {
+        "ranking": 50,
+        "wallet_id": "tz1R7RiyxQvhz7zmLpjtzyiJ8JKFwVLoMSTT",
+        "alias": "Gloomtube",
+        "total_money_spent": 311.0,
+        "items": 5
+    },
+    {
+        "ranking": 51,
+        "wallet_id": "tz1dKy8pMCFpPnBmmcjcbRdp9Ys57etvEXmZ",
+        "alias": "ZOOTGHOST",
+        "total_money_spent": 305.45,
+        "items": 5
+    },
+    {
+        "ranking": 52,
+        "wallet_id": "tz1UdjuZcLvKoV9iYDp5bRbmZaeFhUQAVLcc",
+        "alias": "mcllama",
+        "total_money_spent": 303.7,
+        "items": 6
+    },
+    {
+        "ranking": 53,
+        "wallet_id": "tz1ZjEwXyHtcnD48WfYy9YRpkkc7dSP3Nh4W",
+        "alias": "",
+        "total_money_spent": 302.95,
+        "items": 5
+    },
+    {
+        "ranking": 54,
+        "wallet_id": "tz1ZmSqkvZ3BmFuF8E5KHUHck3ReWjLdS12a",
+        "alias": "",
+        "total_money_spent": 299.5,
+        "items": 5
+    },
+    {
+        "ranking": 55,
+        "wallet_id": "tz1WrNAAHUtiMaS3S9Dvspz8vsUjMapZCqbh",
+        "alias": "nftforhumans",
+        "total_money_spent": 298.0,
+        "items": 5
+    },
+    {
+        "ranking": 56,
+        "wallet_id": "tz1a1EbVo59pL1MoU4q1VSnLCKLyLDFaaCwH",
+        "alias": "",
+        "total_money_spent": 296.0,
+        "items": 6
+    },
+    {
+        "ranking": 57,
+        "wallet_id": "tz1hx7d1qWCHkSDy6HXVmZRzWvpNMHxSNvuC",
+        "alias": "1mpo$ter",
+        "total_money_spent": 294.9,
+        "items": 5
+    },
+    {
+        "ranking": 58,
+        "wallet_id": "tz1dtHNwTNm54j2dSRt2jRTS2yGpf1haEiJt",
+        "alias": "cellfade",
+        "total_money_spent": 290.28,
+        "items": 5
+    },
+    {
+        "ranking": 59,
+        "wallet_id": "tz1KpPNvYjGK5bL4Ct9jLE9qa92GHLcVcqYA",
+        "alias": "",
+        "total_money_spent": 286.9,
+        "items": 5
+    },
+    {
+        "ranking": 60,
+        "wallet_id": "tz1WGMbfVnzVSTD8oNgZA8feaYvNvBYzSVmD",
+        "alias": "",
+        "total_money_spent": 283.75,
+        "items": 6
+    },
+    {
+        "ranking": 61,
+        "wallet_id": "tz1SYj4S3GnWLMHL63UfGiuDj9B2wfxgkSqn",
+        "alias": "truth999",
+        "total_money_spent": 283.5,
+        "items": 6
+    },
+    {
+        "ranking": 62,
+        "wallet_id": "tz2HJ8ixFtMuP9t3NG22sSwtpPCzmf31bmmH",
+        "alias": "Ashywickr ",
+        "total_money_spent": 281.5,
+        "items": 5
+    },
+    {
+        "ranking": 63,
+        "wallet_id": "tz1KgTRWWqutpmCn3NJePZfpiCpw2QntHGFK",
+        "alias": "Chandrew",
+        "total_money_spent": 279.0,
+        "items": 6
+    },
+    {
+        "ranking": 64,
+        "wallet_id": "tz1Z1pDsbfuF7t6fHfbVxhjhouRemXuREpH5",
+        "alias": "memoakten",
+        "total_money_spent": 270.99,
+        "items": 5
+    },
+    {
+        "ranking": 65,
+        "wallet_id": "tz1c2gbPKmkHTKW29rpXBYBRCbw57w5AaRPh",
+        "alias": "",
+        "total_money_spent": 270.76,
+        "items": 4
+    },
+    {
+        "ranking": 66,
+        "wallet_id": "tz1iCi9BdMEE36L8DjaD9dQjwqLnXFALHXeZ",
+        "alias": "0x3y3",
+        "total_money_spent": 269.0,
+        "items": 6
+    },
+    {
+        "ranking": 67,
+        "wallet_id": "tz1McypcjprAei2zwdfTDQhu6SZ9TvGFrxQY",
+        "alias": "michael",
+        "total_money_spent": 268.5,
+        "items": 6
+    },
+    {
+        "ranking": 68,
+        "wallet_id": "tz1g2H2EvaLiJoH2YjYys1wBkhjGCe1k6VQF",
+        "alias": "",
+        "total_money_spent": 252.08,
+        "items": 4
+    },
+    {
+        "ranking": 69,
+        "wallet_id": "tz1gmEhUq9i3VBVaYgBUDH1XGEwmaZ6vyc9G",
+        "alias": "klepsydros",
+        "total_money_spent": 245.0,
+        "items": 4
+    },
+    {
+        "ranking": 70,
+        "wallet_id": "tz1eht4WAjkqU7kaupJd8qCDmec9HuKfGf68",
+        "alias": "andrevenancio",
+        "total_money_spent": 243.99,
+        "items": 4
+    },
+    {
+        "ranking": 71,
+        "wallet_id": "tz1R35y3drkRbWX2rbGF1i3pt9iPNAb3JVro",
+        "alias": "",
+        "total_money_spent": 243.0,
+        "items": 4
+    },
+    {
+        "ranking": 72,
+        "wallet_id": "tz1ehGMhxarDhwppx14PX1Y3eqbZ5W9Bc2Y1",
+        "alias": "Igneous",
+        "total_money_spent": 240.99,
+        "items": 4
+    },
+    {
+        "ranking": 73,
+        "wallet_id": "tz1chg2T1s4DTjLqthPc49HDcqkFHMwdSPwb",
+        "alias": "Kobx",
+        "total_money_spent": 240.399999,
+        "items": 4
+    },
+    {
+        "ranking": 74,
+        "wallet_id": "tz1SfnwSzL99ZAe67FqhPJLsUkf7gNTSfwuj",
+        "alias": "",
+        "total_money_spent": 240.0,
+        "items": 4
+    },
+    {
+        "ranking": 75,
+        "wallet_id": "tz1LRWNRLxQWKzFqahQDKzLgTkhUwxKiAJQu",
+        "alias": "",
+        "total_money_spent": 240.0,
+        "items": 4
+    },
+    {
+        "ranking": 76,
+        "wallet_id": "tz1Zq6MgbUEyzerEdVKnsrGqrPhSocFXjGMW",
+        "alias": "bigpapa",
+        "total_money_spent": 239.888888,
+        "items": 4
+    },
+    {
+        "ranking": 77,
+        "wallet_id": "tz1NEvcH9TRPrfSTAXwDQkpZbWnsswZV1Bse",
+        "alias": "PixYvonne",
+        "total_money_spent": 238.57,
+        "items": 4
+    },
+    {
+        "ranking": 78,
+        "wallet_id": "tz2BAHP8dqrG8ZhEqysVuBvx4Aktx7Fk1smL",
+        "alias": "",
+        "total_money_spent": 238.0,
+        "items": 4
+    },
+    {
+        "ranking": 79,
+        "wallet_id": "tz1Yy1piWFcYaDRArVRdrBPke5RMogwfwprp",
+        "alias": "",
+        "total_money_spent": 234.0,
+        "items": 5
+    },
+    {
+        "ranking": 80,
+        "wallet_id": "tz1ST9xJHrmBRyhiNzG8LEN6K8zRhYxu1yMv",
+        "alias": "",
+        "total_money_spent": 230.9,
+        "items": 4
+    },
+    {
+        "ranking": 81,
+        "wallet_id": "tz1T6w684B6tiFnjNR3xRcRiqjkDJdrfXeHs",
+        "alias": "",
+        "total_money_spent": 230.35,
+        "items": 4
+    },
+    {
+        "ranking": 82,
+        "wallet_id": "tz1a5RSMLpQBXWgtmvbgX5dHpiU71JEsikDe",
+        "alias": "",
+        "total_money_spent": 229.0,
+        "items": 4
+    },
+    {
+        "ranking": 83,
+        "wallet_id": "tz1QmjgzaECAza8wLpNbna8nePEvnBQoRRzt",
+        "alias": "",
+        "total_money_spent": 228.9,
+        "items": 4
+    },
+    {
+        "ranking": 84,
+        "wallet_id": "tz1g5Jk4BCb5ug7bxP8tCRq6iid1pkUyc8m6",
+        "alias": "",
+        "total_money_spent": 228.39000000000001,
+        "items": 4
+    },
+    {
+        "ranking": 85,
+        "wallet_id": "tz1VP1q5rPikuziQTpGRBNyacfaFAcRwuMXN",
+        "alias": "metaman",
+        "total_money_spent": 228.2,
+        "items": 4
+    },
+    {
+        "ranking": 86,
+        "wallet_id": "tz1QTTnPf5mT6T9Fvyed5ReNy5NYRHKVUbaQ",
+        "alias": "fbl-legends",
+        "total_money_spent": 224.0,
+        "items": 4
+    },
+    {
+        "ranking": 87,
+        "wallet_id": "tz1grf5YrVdJ2dzfGuvJk7oSJvS9GbztoSaB",
+        "alias": "infinity_plus_one",
+        "total_money_spent": 220.94,
+        "items": 4
+    },
+    {
+        "ranking": 88,
+        "wallet_id": "tz1LFnG3bVAXruBg41BYJ3XPwQH7NecJWDv6",
+        "alias": "",
+        "total_money_spent": 217.9,
+        "items": 4
+    },
+    {
+        "ranking": 89,
+        "wallet_id": "tz1fXcyugtuDQt7yMqHKNPcBkG9s1PqkqTCY",
+        "alias": "MysterDoubleU",
+        "total_money_spent": 216.5,
+        "items": 4
+    },
+    {
+        "ranking": 90,
+        "wallet_id": "tz1eDyTvgxmpbLyWpwxo2dxrFJMDg1LiaeM3",
+        "alias": "",
+        "total_money_spent": 215.0,
+        "items": 4
+    },
+    {
+        "ranking": 91,
+        "wallet_id": "tz1RoA34HzfB3RHmA5KAAQXHFKQyA5fN1BGx",
+        "alias": "Numin",
+        "total_money_spent": 214.0,
+        "items": 4
+    },
+    {
+        "ranking": 92,
+        "wallet_id": "tz1d77NvhtWgia9RxbHZULdU9dUE8L38M85C",
+        "alias": "",
+        "total_money_spent": 207.4,
+        "items": 4
+    },
+    {
+        "ranking": 93,
+        "wallet_id": "tz1Z8PmM7aThjJSLRNqZAY3zvCcPn8FCWfnr",
+        "alias": "pangeandao_hot",
+        "total_money_spent": 205.999999,
+        "items": 3
+    },
+    {
+        "ranking": 94,
+        "wallet_id": "tz1VZYuCuMT6ppYcptYmbBLLbHFSYn7UB28N",
+        "alias": "",
+        "total_money_spent": 197.0,
+        "items": 3
+    },
+    {
+        "ranking": 95,
+        "wallet_id": "tz1bfbdgEjrR3svJa7gELDte7i7ktCM6FxoV",
+        "alias": "",
+        "total_money_spent": 196.0,
+        "items": 3
+    },
+    {
+        "ranking": 96,
+        "wallet_id": "tz1S51we2XQiVvxPP7qZSeuXHAGfFRmxDgo6",
+        "alias": "",
+        "total_money_spent": 185.0,
+        "items": 3
+    },
+    {
+        "ranking": 97,
+        "wallet_id": "tz1d6gzyjDrkzBBrocQHDqX1zYq2do4gFsGr",
+        "alias": "",
+        "total_money_spent": 184.9,
+        "items": 3
+    },
+    {
+        "ranking": 98,
+        "wallet_id": "tz1TopmDhmbCejYtdYbdK3NyCSwT3UhNfdmT",
+        "alias": "",
+        "total_money_spent": 184.57999999999998,
+        "items": 3
+    },
+    {
+        "ranking": 99,
+        "wallet_id": "tz1VqXA6L6hPEFjvsgWv7Viw4xQn5GyNszzy",
+        "alias": "",
+        "total_money_spent": 184.0,
+        "items": 3
+    },
+    {
+        "ranking": 100,
+        "wallet_id": "tz1SeCNLMagdX3QJa25wJpewTAffPnkaUf7C",
+        "alias": "",
+        "total_money_spent": 183.63,
+        "items": 3
+    },
+    {
+        "ranking": 101,
+        "wallet_id": "tz1bGbwHUDw5JF16scd8xavRuhVocxDeVN8V",
+        "alias": "paperbuddha",
+        "total_money_spent": 183.28,
+        "items": 3
+    },
+    {
+        "ranking": 102,
+        "wallet_id": "tz2TFkmqh1L66hWvnq6MBaTtxrLmfgY8coYM",
+        "alias": "",
+        "total_money_spent": 183.0,
+        "items": 3
+    },
+    {
+        "ranking": 103,
+        "wallet_id": "tz1LpQs9b1QXsw57jdkfvEdg31p4WTBVAUmd",
+        "alias": "Datzel",
+        "total_money_spent": 182.0,
+        "items": 3
+    },
+    {
+        "ranking": 104,
+        "wallet_id": "tz1hw2j2LNXaH8X71QyYQ56zwB7vNNCzV96m",
+        "alias": "mulligan",
+        "total_money_spent": 181.5,
+        "items": 4
+    },
+    {
+        "ranking": 105,
+        "wallet_id": "tz1U5BHEWV59q6Hc6fA9jEqCHk24cu8nZxkw",
+        "alias": "dave_greber",
+        "total_money_spent": 181.5,
+        "items": 3
+    },
+    {
+        "ranking": 106,
+        "wallet_id": "tz1M1NCgeMnVjapqtogQxVt3LQng4SeppF3L",
+        "alias": "",
+        "total_money_spent": 180.0,
+        "items": 3
+    },
+    {
+        "ranking": 107,
+        "wallet_id": "tz1bAbzmvx4ZmvDUc8DhUYv1Mvx54rqCaLxJ",
+        "alias": "",
+        "total_money_spent": 178.81,
+        "items": 3
+    },
+    {
+        "ranking": 108,
+        "wallet_id": "tz1i6i3h7J6hPuH3sLzmu41KuBQKn2qCZtE3",
+        "alias": "johnyfreeze",
+        "total_money_spent": 178.0,
+        "items": 3
+    },
+    {
+        "ranking": 109,
+        "wallet_id": "tz1TueRzt2nfrpcoTTBshWqortncMt8YfSrf",
+        "alias": "",
+        "total_money_spent": 177.99,
+        "items": 3
+    },
+    {
+        "ranking": 110,
+        "wallet_id": "tz2Mx4r8j141zUwfZReozja1cTEYSujcMrwG",
+        "alias": "",
+        "total_money_spent": 177.6,
+        "items": 3
+    },
+    {
+        "ranking": 111,
+        "wallet_id": "tz1XZ2BDH1hwmebiw87hc2ngARNFhW2Q2MEk",
+        "alias": "notime4pants",
+        "total_money_spent": 176.8,
+        "items": 3
+    },
+    {
+        "ranking": 112,
+        "wallet_id": "tz1Saus1xv8aYPDgHjZ22pZyxorkURhC8BoD",
+        "alias": "",
+        "total_money_spent": 176.75,
+        "items": 3
+    },
+    {
+        "ranking": 113,
+        "wallet_id": "tz1hxBEa9oZpfzyjKdEERbeE52t81kKYaG4p",
+        "alias": "dez.nft",
+        "total_money_spent": 176.4,
+        "items": 3
+    },
+    {
+        "ranking": 114,
+        "wallet_id": "tz1ZLPbUr9de1Heuw2ey95wqd45MZzhFDWWz",
+        "alias": "manixx",
+        "total_money_spent": 175.9999,
+        "items": 3
+    },
+    {
+        "ranking": 115,
+        "wallet_id": "tz1UgdzTpRpvRWScFgiM38p2femKio1v7MUL",
+        "alias": "",
+        "total_money_spent": 174.95,
+        "items": 3
+    },
+    {
+        "ranking": 116,
+        "wallet_id": "tz1ZbZBJga7nqGNzzeRWV1zuNQoNJ2wzyQ6m",
+        "alias": "",
+        "total_money_spent": 174.0,
+        "items": 3
+    },
+    {
+        "ranking": 117,
+        "wallet_id": "tz2VKnGTzZTReRzFxCc9LzJRrjZWmcMv8DP8",
+        "alias": "slmnsmk",
+        "total_money_spent": 173.1,
+        "items": 3
+    },
+    {
+        "ranking": 118,
+        "wallet_id": "tz1i6xA3khZHRBQLjaScc3GB1S4LaswDDHyb",
+        "alias": "hulk",
+        "total_money_spent": 172.9,
+        "items": 3
+    },
+    {
+        "ranking": 119,
+        "wallet_id": "tz2RMqeeUsNVcPnxzGMVZzeLjRkUKY46Zx5s",
+        "alias": "",
+        "total_money_spent": 172.0,
+        "items": 3
+    },
+    {
+        "ranking": 120,
+        "wallet_id": "tz2LwTaAkA7Bjgci9c73wiAvcxzV9ANW9dSo",
+        "alias": "",
+        "total_money_spent": 171.85,
+        "items": 3
+    },
+    {
+        "ranking": 121,
+        "wallet_id": "tz1csEiENUJGFfpGD1a6tZ4NukSCCTueSjT6",
+        "alias": "chilly",
+        "total_money_spent": 171.15,
+        "items": 3
+    },
+    {
+        "ranking": 122,
+        "wallet_id": "tz1YmKVfcCi8NX9m8LgpT5as8cjjMf2FY7Rw",
+        "alias": "",
+        "total_money_spent": 170.0,
+        "items": 3
+    },
+    {
+        "ranking": 123,
+        "wallet_id": "tz1Pfg5NFswF2vt8sPV5yuwRNQHYSfGfDDB9",
+        "alias": "",
+        "total_money_spent": 169.0,
+        "items": 3
+    },
+    {
+        "ranking": 124,
+        "wallet_id": "tz1LaMHAsDeRxNErUVktAfdaYEiyyUjgnjMA",
+        "alias": "",
+        "total_money_spent": 169.0,
+        "items": 3
+    },
+    {
+        "ranking": 125,
+        "wallet_id": "tz1NW1MMFL3jytxBjhx1qATMJyY47vLBMa4p",
+        "alias": "",
+        "total_money_spent": 168.9,
+        "items": 3
+    },
+    {
+        "ranking": 126,
+        "wallet_id": "tz1WSPRrHwF97xkMfJM3jQsVHkqPfQvwSZpW",
+        "alias": "krpdm_hot",
+        "total_money_spent": 168.9,
+        "items": 3
+    },
+    {
+        "ranking": 127,
+        "wallet_id": "tz2S8xbSkYZ2pnFhiRvC2cVapErz75rNfkWo",
+        "alias": "nicoarbogast",
+        "total_money_spent": 168.0,
+        "items": 3
+    },
+    {
+        "ranking": 128,
+        "wallet_id": "tz1LUqguDivxgbi6d94AuwDfoF2MtS5Mb9p9",
+        "alias": "notwal",
+        "total_money_spent": 165.0,
+        "items": 3
+    },
+    {
+        "ranking": 129,
+        "wallet_id": "tz1cNpkVqSSd8Dqp7QLfMNEhQzbjhMxRgGBj",
+        "alias": "Lonzelot",
+        "total_money_spent": 163.5,
+        "items": 4
+    },
+    {
+        "ranking": 130,
+        "wallet_id": "tz1btVgX8UjjXsg6cE3fjzEwu3dJ3kMdtxQT",
+        "alias": "",
+        "total_money_spent": 161.62,
+        "items": 3
+    },
+    {
+        "ranking": 131,
+        "wallet_id": "tz1gbTB8MUY1kzWwWYXvqBJngU4t2SxZ4Q6h",
+        "alias": "collector5000",
+        "total_money_spent": 161.0,
+        "items": 3
+    },
+    {
+        "ranking": 132,
+        "wallet_id": "tz1cakiZtBebjNqM5V66dJgTbM9JrZm5Q6Kr",
+        "alias": "woot_wooten",
+        "total_money_spent": 161.0,
+        "items": 3
+    },
+    {
+        "ranking": 133,
+        "wallet_id": "tz1Lb2PAxSdEj7iv9bP5RguJYz4PiLaSdQ2q",
+        "alias": "",
+        "total_money_spent": 157.62,
+        "items": 3
+    },
+    {
+        "ranking": 134,
+        "wallet_id": "tz1iabvFX2r61cz9wJ2NjUHyVVsyFYMB5kqN",
+        "alias": "tiv",
+        "total_money_spent": 156.0,
+        "items": 3
+    },
+    {
+        "ranking": 135,
+        "wallet_id": "tz1SSJAyTFLJqDBwJJkZRmqB3x6FMRuT5e5v",
+        "alias": "GuillaumeCornet",
+        "total_money_spent": 152.8,
+        "items": 4
+    },
+    {
+        "ranking": 136,
+        "wallet_id": "tz1bW968dC2zUPG8LUPoiTSZ78xbFxxz6ZD2",
+        "alias": "",
+        "total_money_spent": 150.0,
+        "items": 3
+    },
+    {
+        "ranking": 137,
+        "wallet_id": "tz1QM7phyZACH4bsQ6toC8h7ix5xTtgRzJZy",
+        "alias": "bisdvrk",
+        "total_money_spent": 148.68,
+        "items": 3
+    },
+    {
+        "ranking": 138,
+        "wallet_id": "tz1Qjn91AB8VHJCjC5FZx89sqAmEYiKnPSWM",
+        "alias": "cryptogrinch",
+        "total_money_spent": 147.31,
+        "items": 3
+    },
+    {
+        "ranking": 139,
+        "wallet_id": "tz1Pu8zRmNghAHzWxsT9Cy2qXHxkCrHcB3vc",
+        "alias": "DerNadler",
+        "total_money_spent": 146.99,
+        "items": 3
+    },
+    {
+        "ranking": 140,
+        "wallet_id": "tz1XBjP996EQAY6omEZysVqikMXpCjHbxsYD",
+        "alias": "deep",
+        "total_money_spent": 145.0,
+        "items": 2
+    },
+    {
+        "ranking": 141,
+        "wallet_id": "tz1TRUwkzi64ejV29vMh6cCYRQKHgho2BGGk",
+        "alias": "",
+        "total_money_spent": 140.99,
+        "items": 3
+    },
+    {
+        "ranking": 142,
+        "wallet_id": "tz1hnY5rRSEwc5yidgtfRicHP45NPjN7Do5G",
+        "alias": "magpie",
+        "total_money_spent": 139.69,
+        "items": 3
+    },
+    {
+        "ranking": 143,
+        "wallet_id": "tz1LwY9B47RjxyzfQu3hi3ruJV3EA1CZcHeV",
+        "alias": "TheSearch",
+        "total_money_spent": 138.0,
+        "items": 3
+    },
+    {
+        "ranking": 144,
+        "wallet_id": "tz1h6s8iRxNee9wfrAeY1G5UVprdpN6ZmoEk",
+        "alias": "",
+        "total_money_spent": 137.9,
+        "items": 2
+    },
+    {
+        "ranking": 145,
+        "wallet_id": "tz1ZCjxGYpKjLWkrvxZmiGSB84zYTFDLuwXY",
+        "alias": "Mandelsage",
+        "total_money_spent": 133.0,
+        "items": 2
+    },
+    {
+        "ranking": 146,
+        "wallet_id": "tz1LGWketx49cJ6H5jAzkDHhdiz2sfMPXYw8",
+        "alias": "Boeta3061",
+        "total_money_spent": 132.9,
+        "items": 2
+    },
+    {
+        "ranking": 147,
+        "wallet_id": "tz1L7JF1ghvTqoAkLiHD5Ze5EonsYAaD3pv4",
+        "alias": "Mentakatz",
+        "total_money_spent": 132.099999,
+        "items": 2
+    },
+    {
+        "ranking": 148,
+        "wallet_id": "tz1XrEk4giAGtSZ9BSYsgjrYvYdTq3FxaeZ6",
+        "alias": "",
+        "total_money_spent": 132.0,
+        "items": 2
+    },
+    {
+        "ranking": 149,
+        "wallet_id": "tz1dui6oTS67ncND9kZAC4F7Z4wS3hPTKFMu",
+        "alias": "Jambo",
+        "total_money_spent": 132.0,
+        "items": 3
+    },
+    {
+        "ranking": 150,
+        "wallet_id": "tz1TJs9NYH2xhsXid5mmWieW9HmPDTFN7dMb",
+        "alias": "",
+        "total_money_spent": 132.0,
+        "items": 2
+    },
+    {
+        "ranking": 151,
+        "wallet_id": "tz1eyY1KVKWfgidV4VcukK28NC3qEtoEftPW",
+        "alias": "",
+        "total_money_spent": 130.0,
+        "items": 2
+    },
+    {
+        "ranking": 152,
+        "wallet_id": "tz1fq6G7p78YqYJve5fgA29pctY9baEFPfCW",
+        "alias": "",
+        "total_money_spent": 130.0,
+        "items": 3
+    },
+    {
+        "ranking": 153,
+        "wallet_id": "tz1TSdoeS5udkYmVr1cEpErTqxGVrC3Kcd2J",
+        "alias": "",
+        "total_money_spent": 129.0,
+        "items": 2
+    },
+    {
+        "ranking": 154,
+        "wallet_id": "tz1fgokMqeaDt8tDSgsaguNYo5vdxH4bKD1Q",
+        "alias": "cryptobenda",
+        "total_money_spent": 129.0,
+        "items": 2
+    },
+    {
+        "ranking": 155,
+        "wallet_id": "tz1isCw6c1HMrpP4xCdbhVauS91Z7vzqiDzt",
+        "alias": "0xant",
+        "total_money_spent": 129.0,
+        "items": 2
+    },
+    {
+        "ranking": 156,
+        "wallet_id": "tz1R16Gc5ArchsHT9dGaAkYzh6RdxGXeGE91",
+        "alias": "",
+        "total_money_spent": 129.0,
+        "items": 2
+    },
+    {
+        "ranking": 157,
+        "wallet_id": "tz1gTwzp7EW17xYs7Lubk27aGik6WTBAmkzA",
+        "alias": "",
+        "total_money_spent": 129.0,
+        "items": 2
+    },
+    {
+        "ranking": 158,
+        "wallet_id": "tz1fYcM9tAXYn8YhLjSHpvuoKskKw7Rdqz2K",
+        "alias": "",
+        "total_money_spent": 128.0,
+        "items": 2
+    },
+    {
+        "ranking": 159,
+        "wallet_id": "tz1fuK62DXQ4mZ9QVJcNV2MxKo2ytdxny12C",
+        "alias": "",
+        "total_money_spent": 128.0,
+        "items": 2
+    },
+    {
+        "ranking": 160,
+        "wallet_id": "tz1RGsTASXTvmrusua4ADuoW1Z7mDtrzFW4Q",
+        "alias": "",
+        "total_money_spent": 127.26,
+        "items": 2
+    },
+    {
+        "ranking": 161,
+        "wallet_id": "tz1Yu1qh4mk9ejf2MLxRNnRwdHoidXqoSqqm",
+        "alias": "",
+        "total_money_spent": 126.656,
+        "items": 2
+    },
+    {
+        "ranking": 162,
+        "wallet_id": "tz2DcdqWpHRn41WBCS3AYEiqVNwePHLjcMeH",
+        "alias": "boardyone",
+        "total_money_spent": 126.0,
+        "items": 2
+    },
+    {
+        "ranking": 163,
+        "wallet_id": "tz1LqjGb5C9yGyckCYogu9ZgTQUpkzChLPWc",
+        "alias": "michiimon",
+        "total_money_spent": 126.0,
+        "items": 2
+    },
+    {
+        "ranking": 164,
+        "wallet_id": "tz1eFijSM4c972VjkhFNQaGdcwBUM2k4FtbC",
+        "alias": "",
+        "total_money_spent": 125.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 165,
+        "wallet_id": "tz1VqycbkKHeSXsU1BddNSTPBcRXnfAi45oX",
+        "alias": "Cherry",
+        "total_money_spent": 125.0,
+        "items": 2
+    },
+    {
+        "ranking": 166,
+        "wallet_id": "tz1icH8UoRqwy4dsaVt2VEcLFS2yM8PKFTP3",
+        "alias": "mitchputnam",
+        "total_money_spent": 125.0,
+        "items": 2
+    },
+    {
+        "ranking": 167,
+        "wallet_id": "tz1ZngtWnErurc97WWAybgLz3aJ4ojhQssSt",
+        "alias": "",
+        "total_money_spent": 125.0,
+        "items": 2
+    },
+    {
+        "ranking": 168,
+        "wallet_id": "tz1VDozgtk1EDt6ac3Cbd6NzMqdC5kpoBUzL",
+        "alias": "",
+        "total_money_spent": 125.0,
+        "items": 2
+    },
+    {
+        "ranking": 169,
+        "wallet_id": "tz2Jd4b6HanhckTaoJGRLesSWysod7NfZ3Y3",
+        "alias": "pixelspyda",
+        "total_money_spent": 124.95,
+        "items": 2
+    },
+    {
+        "ranking": 170,
+        "wallet_id": "tz2GJSWF2FzSbgHjPdQW1VQuSadPNk8yBXZM",
+        "alias": "",
+        "total_money_spent": 124.0,
+        "items": 2
+    },
+    {
+        "ranking": 171,
+        "wallet_id": "tz1MQT3sS6xFL2dLoE6CSZVWCPpWU5JAtmXK",
+        "alias": "yuramiron",
+        "total_money_spent": 124.0,
+        "items": 2
+    },
+    {
+        "ranking": 172,
+        "wallet_id": "tz1f6QpaRy967eHqXPXQNVtRugDvNVBcWWRd",
+        "alias": "n.",
+        "total_money_spent": 123.5,
+        "items": 2
+    },
+    {
+        "ranking": 173,
+        "wallet_id": "tz1MYYmb5t9YLrmZiFJwbQv7brXLoZqoreEZ",
+        "alias": "",
+        "total_money_spent": 123.44,
+        "items": 3
+    },
+    {
+        "ranking": 174,
+        "wallet_id": "tz1M1TAPmAWgZGR4hcC1MFALjAVSih3YCXE2",
+        "alias": "simulation",
+        "total_money_spent": 123.0,
+        "items": 2
+    },
+    {
+        "ranking": 175,
+        "wallet_id": "tz1XJbWHknMLJF1FJjdwewzujubaJK3qAnrK",
+        "alias": "",
+        "total_money_spent": 122.9,
+        "items": 2
+    },
+    {
+        "ranking": 176,
+        "wallet_id": "tz1QDunNSnWrqwCc78TqzHP86BMNXq1P7Jxb",
+        "alias": "MdDA",
+        "total_money_spent": 122.5,
+        "items": 2
+    },
+    {
+        "ranking": 177,
+        "wallet_id": "tz1MPmtzUvX5qoY6RU61EoExzPggA1gT3119",
+        "alias": "Mwan",
+        "total_money_spent": 122.5,
+        "items": 2
+    },
+    {
+        "ranking": 178,
+        "wallet_id": "tz1TVVJNYaeM4Z6ko9QWx6k6Pp1TNng3d6Er",
+        "alias": "",
+        "total_money_spent": 122.0,
+        "items": 2
+    },
+    {
+        "ranking": 179,
+        "wallet_id": "tz1aN6oVeatcqgmGUhUXyeHxpD891JwK8GhR",
+        "alias": "nftblack",
+        "total_money_spent": 122.0,
+        "items": 2
+    },
+    {
+        "ranking": 180,
+        "wallet_id": "tz1TLZUxMgA5Q6SaQxvwm4nMurCPLgZ3J4kG",
+        "alias": "",
+        "total_money_spent": 121.0,
+        "items": 2
+    },
+    {
+        "ranking": 181,
+        "wallet_id": "tz2PE68ZYzNvSLMnw9UpRn16nh1burkvu9BR",
+        "alias": "",
+        "total_money_spent": 120.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 182,
+        "wallet_id": "tz1MPw7AxusoZZMSa7GALmgsF1eqgriRG9ms",
+        "alias": "DarkandDark",
+        "total_money_spent": 120.9,
+        "items": 2
+    },
+    {
+        "ranking": 183,
+        "wallet_id": "tz1QSZmv3FkzeK89VuomzxSsb1B8FAseVNb6",
+        "alias": "",
+        "total_money_spent": 120.78999999999999,
+        "items": 2
+    },
+    {
+        "ranking": 184,
+        "wallet_id": "tz1YSTKY18fQtagYxhcbcf9BexpxG5TSnB5E",
+        "alias": "timriopelle",
+        "total_money_spent": 120.5,
+        "items": 2
+    },
+    {
+        "ranking": 185,
+        "wallet_id": "tz2BUZFMGhhnYhR3QKtUzPr52pcFFnhEztdX",
+        "alias": "cryton",
+        "total_money_spent": 120.0,
+        "items": 2
+    },
+    {
+        "ranking": 186,
+        "wallet_id": "tz1cusyAGA13hcgP7B2atQSh3RxxFhkYrcSy",
+        "alias": "",
+        "total_money_spent": 120.0,
+        "items": 2
+    },
+    {
+        "ranking": 187,
+        "wallet_id": "tz1VqZhZjAX4nHukvDRjichfF83CR5D4zRJ2",
+        "alias": "",
+        "total_money_spent": 120.0,
+        "items": 3
+    },
+    {
+        "ranking": 188,
+        "wallet_id": "tz1MXiYFteGmabPX8MCmgydVgxRQuKzkGevs",
+        "alias": "Tezticles.tez",
+        "total_money_spent": 120.0,
+        "items": 2
+    },
+    {
+        "ranking": 189,
+        "wallet_id": "tz1PxAkQVWEHrdByQg9xxuoDbGmeCwYsWzjF",
+        "alias": "bgolp",
+        "total_money_spent": 120.0,
+        "items": 2
+    },
+    {
+        "ranking": 190,
+        "wallet_id": "tz1LbxS7nzaN4aAxUWGh7xtuBLTtZw2X8UkQ",
+        "alias": "",
+        "total_money_spent": 120.0,
+        "items": 2
+    },
+    {
+        "ranking": 191,
+        "wallet_id": "tz29NMQe6TXpgvuJXwYcVDxmZGWnxSURhbny",
+        "alias": "",
+        "total_money_spent": 120.0,
+        "items": 2
+    },
+    {
+        "ranking": 192,
+        "wallet_id": "tz1LXgXVVH7xDF8eMBBwtkJugmCdwGDBCfuZ",
+        "alias": "",
+        "total_money_spent": 119.87,
+        "items": 2
+    },
+    {
+        "ranking": 193,
+        "wallet_id": "tz1ZgNszELkA3ctSbS9m1sups7hSZDeTKVuV",
+        "alias": "",
+        "total_money_spent": 119.68,
+        "items": 2
+    },
+    {
+        "ranking": 194,
+        "wallet_id": "tz1b58mxvQAc98hbXjcrgjf5xnSwYXzi5gX6",
+        "alias": "",
+        "total_money_spent": 119.45,
+        "items": 2
+    },
+    {
+        "ranking": 195,
+        "wallet_id": "tz1W3GnPNkgez9cnippkmEVpTRLzsRd2JQZR",
+        "alias": "",
+        "total_money_spent": 119.28,
+        "items": 2
+    },
+    {
+        "ranking": 196,
+        "wallet_id": "tz1WQ5biJWyKR6tLyBvBm88JeSyAK12VUcum",
+        "alias": "lucas manoel",
+        "total_money_spent": 119.0,
+        "items": 2
+    },
+    {
+        "ranking": 197,
+        "wallet_id": "tz1SyrTbRRhke2vsbVvfCuyJJSwS1oDP9VEv",
+        "alias": "Miguel",
+        "total_money_spent": 119.0,
+        "items": 2
+    },
+    {
+        "ranking": 198,
+        "wallet_id": "tz1XUgaKDjRo9AySmt5Wr1EZhk6qJCqNPjxf",
+        "alias": "",
+        "total_money_spent": 119.0,
+        "items": 2
+    },
+    {
+        "ranking": 199,
+        "wallet_id": "tz1MNGNi6vfbqGdhikvLBGbcz3FncMpuvU6J",
+        "alias": "",
+        "total_money_spent": 119.0,
+        "items": 3
+    },
+    {
+        "ranking": 200,
+        "wallet_id": "tz1ZvyZz4qGenz66CCC5wxECMYtykNa4BaUN",
+        "alias": "",
+        "total_money_spent": 119.0,
+        "items": 2
+    },
+    {
+        "ranking": 201,
+        "wallet_id": "tz1Z6hXZRzc2PoFvdEDcF413sUe3X93CkxD2",
+        "alias": "",
+        "total_money_spent": 119.0,
+        "items": 2
+    },
+    {
+        "ranking": 202,
+        "wallet_id": "tz1PMF9zfrbfQm2WB3rXiucdRBDu25kd73q9",
+        "alias": "",
+        "total_money_spent": 119.0,
+        "items": 2
+    },
+    {
+        "ranking": 203,
+        "wallet_id": "tz1iTj9nDsaBRdiPVPobiRN76CqzBTAuKaM5",
+        "alias": "awes",
+        "total_money_spent": 118.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 204,
+        "wallet_id": "tz1bJXsfLz8hTSNtMCeY6wMEmqmBB6jeguxd",
+        "alias": "",
+        "total_money_spent": 118.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 205,
+        "wallet_id": "tz1aLvmWNq1SbA8mTktMs9NwogU7rf8FiZHf",
+        "alias": "auger",
+        "total_money_spent": 118.68,
+        "items": 2
+    },
+    {
+        "ranking": 206,
+        "wallet_id": "tz1Xun5otZuqmtWpGyMj5J6RZDhcKC5B494M",
+        "alias": "cryptosapien",
+        "total_money_spent": 118.5,
+        "items": 2
+    },
+    {
+        "ranking": 207,
+        "wallet_id": "tz1LeLtKbBMKYj2Xg2q3DKmFWkYdzFgPqw9h",
+        "alias": "jtgi",
+        "total_money_spent": 118.39,
+        "items": 2
+    },
+    {
+        "ranking": 208,
+        "wallet_id": "tz1QuGesmWuT7w9w5viy1cyL7UaTRkdKfay1",
+        "alias": "",
+        "total_money_spent": 118.1,
+        "items": 2
+    },
+    {
+        "ranking": 209,
+        "wallet_id": "tz1ZGQ9DKUy8JeSS6WrYrDr1rC68bjgwbxVB",
+        "alias": "Mikus",
+        "total_money_spent": 118.0,
+        "items": 2
+    },
+    {
+        "ranking": 210,
+        "wallet_id": "tz1cEiyysMWVtQw5YdshUKKnFa2SsWF618Mb",
+        "alias": "",
+        "total_money_spent": 118.0,
+        "items": 2
+    },
+    {
+        "ranking": 211,
+        "wallet_id": "tz1fB4hPBy8oQyutbmSAHAiUQcugMbrFHstu",
+        "alias": "desultor",
+        "total_money_spent": 118.0,
+        "items": 2
+    },
+    {
+        "ranking": 212,
+        "wallet_id": "tz1L2ryiYbFXbkFt76gXr5U7PXucfXTxpoWg",
+        "alias": "",
+        "total_money_spent": 118.0,
+        "items": 2
+    },
+    {
+        "ranking": 213,
+        "wallet_id": "tz1MrW9kVcnM8GYx2Ndum2Vj2LkGvbLpb9ix",
+        "alias": "",
+        "total_money_spent": 117.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 214,
+        "wallet_id": "tz1TbDiJaGMXi649DkesaX7BYVX6FdBZkmw9",
+        "alias": "",
+        "total_money_spent": 117.97999999999999,
+        "items": 2
+    },
+    {
+        "ranking": 215,
+        "wallet_id": "tz1RRz3fYAnpMSD2mmjEWiKHCNG3r7TVpE3B",
+        "alias": "peterccung",
+        "total_money_spent": 117.4,
+        "items": 2
+    },
+    {
+        "ranking": 216,
+        "wallet_id": "tz1R5e8fyD8Q2mw1LNc5Us1gtHXwtc9BfE7b",
+        "alias": "uh",
+        "total_money_spent": 117.22,
+        "items": 2
+    },
+    {
+        "ranking": 217,
+        "wallet_id": "tz1gLbodi9gizCe7WddVnnaC1GxADEwVUPqh",
+        "alias": "",
+        "total_money_spent": 117.0,
+        "items": 2
+    },
+    {
+        "ranking": 218,
+        "wallet_id": "tz1f5BJ4yz8bPfW7FKkGjgNmXwpGMqXzUJHc",
+        "alias": "",
+        "total_money_spent": 117.0,
+        "items": 2
+    },
+    {
+        "ranking": 219,
+        "wallet_id": "tz1MfviRRGc93Dc8XHkSNhCADq4s9LiTRnMS",
+        "alias": "julienrivoire",
+        "total_money_spent": 117.0,
+        "items": 2
+    },
+    {
+        "ranking": 220,
+        "wallet_id": "tz1d1awMKjWwQUrD6oThofwxaKrcgRPCyuoJ",
+        "alias": "degenben",
+        "total_money_spent": 117.0,
+        "items": 2
+    },
+    {
+        "ranking": 221,
+        "wallet_id": "tz1bP7YB6XbxwcnF4VzZybmJFEtTDRc12QUw",
+        "alias": "",
+        "total_money_spent": 117.0,
+        "items": 2
+    },
+    {
+        "ranking": 222,
+        "wallet_id": "tz1V7TFcdUnxwMbgSLGs9Xa8Y4d3KtG1uRHU",
+        "alias": "",
+        "total_money_spent": 117.0,
+        "items": 2
+    },
+    {
+        "ranking": 223,
+        "wallet_id": "tz1X5fPjpLYzzNYpYpBADfddvrBeu8Eg5qSu",
+        "alias": "",
+        "total_money_spent": 117.0,
+        "items": 2
+    },
+    {
+        "ranking": 224,
+        "wallet_id": "tz1g6zPyHdcfA6xAFKz3CbiS1S1mb2LQbh9w",
+        "alias": "",
+        "total_money_spent": 117.0,
+        "items": 2
+    },
+    {
+        "ranking": 225,
+        "wallet_id": "tz1Nywz7TsKDmBvBEAmjbS84LRSN6Mm8aPvM",
+        "alias": "",
+        "total_money_spent": 116.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 226,
+        "wallet_id": "tz2GFH7Lv3yLgvNRkfajbxFA2zxURGkvYj9Y",
+        "alias": "cwaynehuddle",
+        "total_money_spent": 116.89,
+        "items": 2
+    },
+    {
+        "ranking": 227,
+        "wallet_id": "tz1SkJMvMBtmsrUMNY2gCEf6SBAt76AWBKzz",
+        "alias": "everlastingbuilding",
+        "total_money_spent": 116.88,
+        "items": 2
+    },
+    {
+        "ranking": 228,
+        "wallet_id": "tz1cnuhxWZnrG9Mkc8aqaTcDfZeXZQE2Xk1o",
+        "alias": "Radiant Daydreams",
+        "total_money_spent": 116.69,
+        "items": 2
+    },
+    {
+        "ranking": 229,
+        "wallet_id": "tz1S1ezDGWcTeBYbRbc9RppFaLmXRrYq4bng",
+        "alias": "m00se",
+        "total_money_spent": 116.0,
+        "items": 2
+    },
+    {
+        "ranking": 230,
+        "wallet_id": "tz1T1u1CET7ek19f5P59vCdjTNFWAscYQ5ct",
+        "alias": "Southern Tez",
+        "total_money_spent": 116.0,
+        "items": 2
+    },
+    {
+        "ranking": 231,
+        "wallet_id": "tz1MrpnRbw6HqHvKyBE3811uHgJYuvVj2hwN",
+        "alias": "mcfly420",
+        "total_money_spent": 116.0,
+        "items": 2
+    },
+    {
+        "ranking": 232,
+        "wallet_id": "tz1fcuSnEaEtGDUkJJtnuKkqLEN3gZaqruYM",
+        "alias": "",
+        "total_money_spent": 116.0,
+        "items": 2
+    },
+    {
+        "ranking": 233,
+        "wallet_id": "tz1Q8P9RVvpXePh2TFAZmryyTSiAoFn8DWsZ",
+        "alias": "",
+        "total_money_spent": 115.0,
+        "items": 2
+    },
+    {
+        "ranking": 234,
+        "wallet_id": "tz1VHUyTjg7Z1q6aEsQf7zPKe9SPgHxCjmR5",
+        "alias": "",
+        "total_money_spent": 115.0,
+        "items": 2
+    },
+    {
+        "ranking": 235,
+        "wallet_id": "tz1iyAAsmvEdDJpZ5cRkqdoSMUWBb9kXmhgH",
+        "alias": "szkandal",
+        "total_money_spent": 115.0,
+        "items": 2
+    },
+    {
+        "ranking": 236,
+        "wallet_id": "tz1TqhQcRFzBLrkVrGaEtpkmyGCKxNwTGPRj",
+        "alias": "blue_mino",
+        "total_money_spent": 115.0,
+        "items": 2
+    },
+    {
+        "ranking": 237,
+        "wallet_id": "tz1i5oRgtnwX2GJxnNyFrWRotwcCiYoaRri2",
+        "alias": "sastrecillo",
+        "total_money_spent": 115.0,
+        "items": 2
+    },
+    {
+        "ranking": 238,
+        "wallet_id": "tz1RvrzoXqM7RcvCide9vAopv2ccMjs65zGw",
+        "alias": "",
+        "total_money_spent": 115.0,
+        "items": 2
+    },
+    {
+        "ranking": 239,
+        "wallet_id": "tz1N34XDCAFXfe4vCLf9ipFPetaVYrtF61hq",
+        "alias": "dontbesovasya",
+        "total_money_spent": 114.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 240,
+        "wallet_id": "tz1bZDpUXMv8UGwLtZuMgyinPht4cF4U6Gar",
+        "alias": "",
+        "total_money_spent": 114.9,
+        "items": 2
+    },
+    {
+        "ranking": 241,
+        "wallet_id": "tz1f3wG5KoLkbz1pS1FP1ioF3fwkpj4PioiN",
+        "alias": "",
+        "total_money_spent": 114.9,
+        "items": 2
+    },
+    {
+        "ranking": 242,
+        "wallet_id": "tz1dkSNCGiojqmc5z4WWzgRLTEph9Lz3WRat",
+        "alias": "",
+        "total_money_spent": 114.0,
+        "items": 2
+    },
+    {
+        "ranking": 243,
+        "wallet_id": "tz2CYbLMDbiG54yz8Z5gNd61ZA2x6XJUZ1Gb",
+        "alias": "RipleyFR",
+        "total_money_spent": 114.0,
+        "items": 2
+    },
+    {
+        "ranking": 244,
+        "wallet_id": "tz1hUiDnhDb1JHbEvnf6bqCMBUAE4Rm18dmp",
+        "alias": "tezdudes",
+        "total_money_spent": 114.0,
+        "items": 2
+    },
+    {
+        "ranking": 245,
+        "wallet_id": "tz1PZDQAr9qek2FztwDxT9xsrtBPok7dNX6r",
+        "alias": "wylesy",
+        "total_money_spent": 113.95,
+        "items": 2
+    },
+    {
+        "ranking": 246,
+        "wallet_id": "tz1LKffzuePuhgsoAkUoNwgYDAvLfZWPWLtF",
+        "alias": "",
+        "total_money_spent": 113.8,
+        "items": 2
+    },
+    {
+        "ranking": 247,
+        "wallet_id": "tz1Yux1WbTsQCp6673VqWzifPfwU89YU4BHg",
+        "alias": "",
+        "total_money_spent": 113.65,
+        "items": 2
+    },
+    {
+        "ranking": 248,
+        "wallet_id": "tz1TXCuNBCPdJysStEzJKiZBRhVV7r511dCz",
+        "alias": "Chepertom",
+        "total_money_spent": 113.5,
+        "items": 2
+    },
+    {
+        "ranking": 249,
+        "wallet_id": "tz1R3egpnBd5zPrFGGoQfFEqGJsvF6TFRHfJ",
+        "alias": "",
+        "total_money_spent": 113.0,
+        "items": 2
+    },
+    {
+        "ranking": 250,
+        "wallet_id": "tz1gvKsNAFD5wRb4DApwWN58avgmyx6hLbFj",
+        "alias": "colorshifttt",
+        "total_money_spent": 113.0,
+        "items": 2
+    },
+    {
+        "ranking": 251,
+        "wallet_id": "tz1WYy3vTCVpThKdUioDzFgFpVj2CJ8FwDbB",
+        "alias": "",
+        "total_money_spent": 112.0,
+        "items": 2
+    },
+    {
+        "ranking": 252,
+        "wallet_id": "tz2LYELYe16viwVBaRjZc8GsauKRsxTGPvB1",
+        "alias": "",
+        "total_money_spent": 112.0,
+        "items": 2
+    },
+    {
+        "ranking": 253,
+        "wallet_id": "tz1VpMTCGPLNoZxezD6tJ5aC7hCYdbBpTGkB",
+        "alias": "CEO",
+        "total_money_spent": 112.0,
+        "items": 2
+    },
+    {
+        "ranking": 254,
+        "wallet_id": "tz1iWCSx6oMbFVkXGXq9zN5RywfTsKqiU2hA",
+        "alias": "",
+        "total_money_spent": 112.0,
+        "items": 2
+    },
+    {
+        "ranking": 255,
+        "wallet_id": "tz2MKSvxZUUe8fTShZfsrb3E7f6fPSY9Vo31",
+        "alias": "bposter",
+        "total_money_spent": 112.0,
+        "items": 2
+    },
+    {
+        "ranking": 256,
+        "wallet_id": "tz1LyNYhm5R6cnVMaRcWNbXbe1Pn7NxHAouq",
+        "alias": "",
+        "total_money_spent": 111.0,
+        "items": 2
+    },
+    {
+        "ranking": 257,
+        "wallet_id": "tz1fTBkMRqiBxhv57FZSDpbvmgmgDiT7DcQE",
+        "alias": "",
+        "total_money_spent": 111.0,
+        "items": 2
+    },
+    {
+        "ranking": 258,
+        "wallet_id": "tz1QpsXW5FVuczAjBmJQLnZEroMMmazAgxr1",
+        "alias": "",
+        "total_money_spent": 111.0,
+        "items": 2
+    },
+    {
+        "ranking": 259,
+        "wallet_id": "tz1WGm7CMDud17nGtdeQ91J7QUGgWJuHxEPq",
+        "alias": "iam_magicmike",
+        "total_money_spent": 110.0,
+        "items": 2
+    },
+    {
+        "ranking": 260,
+        "wallet_id": "tz1TkgXBGZYhomgX4QCHjh1UVdHaNgpiLwQP",
+        "alias": "",
+        "total_money_spent": 110.0,
+        "items": 2
+    },
+    {
+        "ranking": 261,
+        "wallet_id": "tz1W4SNhzwGVG1QQMDevm6N5EqDBZFfPgeE2",
+        "alias": "",
+        "total_money_spent": 109.95,
+        "items": 2
+    },
+    {
+        "ranking": 262,
+        "wallet_id": "tz1Q8w7g1XncTjXit974x5Xy5DSERm4PU9UB",
+        "alias": "fawkes",
+        "total_money_spent": 109.0,
+        "items": 2
+    },
+    {
+        "ranking": 263,
+        "wallet_id": "tz1MtHDx3i1rh11n76ZWfAWVGTWo7UNyKbpp",
+        "alias": "",
+        "total_money_spent": 109.0,
+        "items": 2
+    },
+    {
+        "ranking": 264,
+        "wallet_id": "tz1ccXwq87b1hNktXprs3GZ2BXpaF2KTPAXS",
+        "alias": "",
+        "total_money_spent": 108.97,
+        "items": 2
+    },
+    {
+        "ranking": 265,
+        "wallet_id": "tz1RVxHGbv7YXiMxEqRS6MZY3krV5S9tEDyU",
+        "alias": "",
+        "total_money_spent": 108.35,
+        "items": 2
+    },
+    {
+        "ranking": 266,
+        "wallet_id": "tz1TVr4QbBVD8s47yNstee6SmvXf2o5GQ8EK",
+        "alias": "",
+        "total_money_spent": 108.0,
+        "items": 2
+    },
+    {
+        "ranking": 267,
+        "wallet_id": "tz1c3uatXAdLK7D521T63dH3KEFFktdcPA1S",
+        "alias": "",
+        "total_money_spent": 107.0,
+        "items": 2
+    },
+    {
+        "ranking": 268,
+        "wallet_id": "tz1N2jjGYxhEFPfSBxFoqEMwkn3BRWdqhquX",
+        "alias": "",
+        "total_money_spent": 106.0,
+        "items": 2
+    },
+    {
+        "ranking": 269,
+        "wallet_id": "tz1aqesstBBcPcYFrqExyxCBx8BXFG27NW96",
+        "alias": "",
+        "total_money_spent": 105.5,
+        "items": 2
+    },
+    {
+        "ranking": 270,
+        "wallet_id": "tz1SMChVSVufxWM3GrQwAq4AQC2X6eFS6tz5",
+        "alias": "samicutza",
+        "total_money_spent": 104.0,
+        "items": 2
+    },
+    {
+        "ranking": 271,
+        "wallet_id": "tz1VcAGX1v4PnrxiaJWk6cUCVy5zFVbTVaiS",
+        "alias": "luanamallorquin",
+        "total_money_spent": 103.0,
+        "items": 2
+    },
+    {
+        "ranking": 272,
+        "wallet_id": "tz1WxvRm3XyfiGPGz5vmaqiXfLFuuUzNVdib",
+        "alias": "",
+        "total_money_spent": 102.0,
+        "items": 2
+    },
+    {
+        "ranking": 273,
+        "wallet_id": "tz1aQ8NTzkfGT46Dv48e8sMsw9X4Dog8qqKZ",
+        "alias": "sonni",
+        "total_money_spent": 100.0,
+        "items": 2
+    },
+    {
+        "ranking": 274,
+        "wallet_id": "tz1LPPxGjb3fNQQKiAvtFcpXg4Pjq6mcKdsr",
+        "alias": "boris.re",
+        "total_money_spent": 100.0,
+        "items": 2
+    },
+    {
+        "ranking": 275,
+        "wallet_id": "tz1Kh1kzhZppYe6YuxgcUUe67Kj9Ws4aLDUD",
+        "alias": "",
+        "total_money_spent": 100.0,
+        "items": 2
+    },
+    {
+        "ranking": 276,
+        "wallet_id": "tz1awcELorjPZMaSrppezxmA9Jq95EH2g8cn",
+        "alias": "",
+        "total_money_spent": 100.0,
+        "items": 2
+    },
+    {
+        "ranking": 277,
+        "wallet_id": "tz1LgSUqYi4gFaArYqgf1Bc21GDH4VAHW6R3",
+        "alias": "tubbsy",
+        "total_money_spent": 100.0,
+        "items": 2
+    },
+    {
+        "ranking": 278,
+        "wallet_id": "tz1XRB5ggBLtYak1xHa33zZjWa3HyYGJG7hZ",
+        "alias": "polytropos",
+        "total_money_spent": 99.0,
+        "items": 2
+    },
+    {
+        "ranking": 279,
+        "wallet_id": "tz1NURXUrjX1uovvmTU8GhZJYWETyNCwgSGb",
+        "alias": "",
+        "total_money_spent": 99.0,
+        "items": 2
+    },
+    {
+        "ranking": 280,
+        "wallet_id": "tz1UprBL3n29SS5Tt3jNajckNgFm435iEtPn",
+        "alias": "memeismetwice",
+        "total_money_spent": 95.5,
+        "items": 2
+    },
+    {
+        "ranking": 281,
+        "wallet_id": "tz1iv2DmHW8X9FxdsxFPXNJV1LBarPkfy7PS",
+        "alias": "",
+        "total_money_spent": 95.0,
+        "items": 2
+    },
+    {
+        "ranking": 282,
+        "wallet_id": "tz1LZo4vD8MtuNNSaVaS34Nhtzjgz5D1d28w",
+        "alias": "",
+        "total_money_spent": 94.0,
+        "items": 2
+    },
+    {
+        "ranking": 283,
+        "wallet_id": "tz1g2oHH1JJMhat5ifDVq3T4oUeJB9Qw1MA7",
+        "alias": "",
+        "total_money_spent": 94.0,
+        "items": 2
+    },
+    {
+        "ranking": 284,
+        "wallet_id": "tz1URdfSGhAfbtpEkjWBmpTt3pyLmxdHdPYy",
+        "alias": "daero",
+        "total_money_spent": 92.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 285,
+        "wallet_id": "tz1g8daGH9ce8wN2tsP59PfGSfQoqY6eRXSe",
+        "alias": "SlashedAce",
+        "total_money_spent": 87.0,
+        "items": 2
+    },
+    {
+        "ranking": 286,
+        "wallet_id": "tz1ZR5JKcHzU8Xn5m3w3pMGHiYnHwQNPDkSm",
+        "alias": "",
+        "total_money_spent": 86.5,
+        "items": 2
+    },
+    {
+        "ranking": 287,
+        "wallet_id": "tz1RWrvwq8LeJFwFkKkqii3CcYtqqDv6mjtV",
+        "alias": "",
+        "total_money_spent": 85.65,
+        "items": 2
+    },
+    {
+        "ranking": 288,
+        "wallet_id": "tz1SJYcEHZP9Ek9A5j5vzQksERmvaMZta5jz",
+        "alias": "devboi",
+        "total_money_spent": 85.0,
+        "items": 2
+    },
+    {
+        "ranking": 289,
+        "wallet_id": "tz1hAa5wMxLkSrk6GywxBjZrUyBDK67tAMkT",
+        "alias": "byron",
+        "total_money_spent": 84.0,
+        "items": 2
+    },
+    {
+        "ranking": 290,
+        "wallet_id": "tz1YjWKq4YBLQJNdu6y9DqnucXxbwELryMhQ",
+        "alias": "",
+        "total_money_spent": 83.5,
+        "items": 2
+    },
+    {
+        "ranking": 291,
+        "wallet_id": "tz1KgMUDdAYbvzMvyVoszX8Zmz9e6dYXNn7m",
+        "alias": "eviltypo",
+        "total_money_spent": 80.0,
+        "items": 1
+    },
+    {
+        "ranking": 292,
+        "wallet_id": "tz1UoArF9XXvTpX8U1Ryau3eBAPEzmsZwasJ",
+        "alias": "vin0grad",
+        "total_money_spent": 80.0,
+        "items": 1
+    },
+    {
+        "ranking": 293,
+        "wallet_id": "tz1YnTRCzYvqTn59VwnHW8UQW2swJDrabTGV",
+        "alias": "",
+        "total_money_spent": 80.0,
+        "items": 1
+    },
+    {
+        "ranking": 294,
+        "wallet_id": "tz1LSjfgjLXmbp6VtPx7Tptxuh3Ljjbqj2Py",
+        "alias": "idlebit",
+        "total_money_spent": 80.0,
+        "items": 2
+    },
+    {
+        "ranking": 295,
+        "wallet_id": "tz1UFes8FNE9i178otMP4wX9Q1Ky8Q6aoXfF",
+        "alias": "",
+        "total_money_spent": 79.9,
+        "items": 2
+    },
+    {
+        "ranking": 296,
+        "wallet_id": "tz1Nbgg46KKQVGt2itPZYARPfcgRQq11HSTp",
+        "alias": "GothBread",
+        "total_money_spent": 79.9,
+        "items": 2
+    },
+    {
+        "ranking": 297,
+        "wallet_id": "tz1MY1BKQd2QFDDsjCpkKi6vVDxPKycGiJA3",
+        "alias": "TheVessel",
+        "total_money_spent": 79.0,
+        "items": 2
+    },
+    {
+        "ranking": 298,
+        "wallet_id": "tz1dtEgbAAD2Xq8YP4UzK6ZW48KgyGns2Jjg",
+        "alias": "graffitiart.tez",
+        "total_money_spent": 78.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 299,
+        "wallet_id": "tz1dA4ZGHM7115QZro9VZNd9ccWLRNSdzwQi",
+        "alias": "",
+        "total_money_spent": 78.0,
+        "items": 2
+    },
+    {
+        "ranking": 300,
+        "wallet_id": "tz1PxCa22yb6ghSSKJbWzoqNUfpgoLqnwXkv",
+        "alias": "",
+        "total_money_spent": 77.99000000000001,
+        "items": 2
+    },
+    {
+        "ranking": 301,
+        "wallet_id": "tz1NV4FSSAhsnwx4k2KjDmpg2kLnNV8jH21D",
+        "alias": "",
+        "total_money_spent": 75.0,
+        "items": 2
+    },
+    {
+        "ranking": 302,
+        "wallet_id": "tz1ZSXiZK5YbWLH8XRJCPC2iSgwMdpPznspb",
+        "alias": "",
+        "total_money_spent": 75.0,
+        "items": 2
+    },
+    {
+        "ranking": 303,
+        "wallet_id": "tz1XeMmTKio2kC4NW8kQspz2RJfoWVH4t8kW",
+        "alias": "",
+        "total_money_spent": 75.0,
+        "items": 1
+    },
+    {
+        "ranking": 304,
+        "wallet_id": "tz1SAwMwZKQbguax7oYYYmF5MKWUiiikgrBw",
+        "alias": "",
+        "total_money_spent": 74.0,
+        "items": 2
+    },
+    {
+        "ranking": 305,
+        "wallet_id": "tz1f49q9VCbbUkonsruBFzUUPJAvwrx4dbmr",
+        "alias": "",
+        "total_money_spent": 70.888,
+        "items": 2
+    },
+    {
+        "ranking": 306,
+        "wallet_id": "tz1a9q734d21nYm5jozvrtNGx6V6RFqtQ5rH",
+        "alias": "VinnyPaz",
+        "total_money_spent": 70.0,
+        "items": 1
+    },
+    {
+        "ranking": 307,
+        "wallet_id": "tz1WT27PugwGBtre1hsj6BHmbAK2qQsVbRDo",
+        "alias": "Tezillion",
+        "total_money_spent": 70.0,
+        "items": 1
+    },
+    {
+        "ranking": 308,
+        "wallet_id": "tz1i6PzqrVNXayhRSn9EUGGVLxopsTi5WKGG",
+        "alias": "prince",
+        "total_money_spent": 70.0,
+        "items": 1
+    },
+    {
+        "ranking": 309,
+        "wallet_id": "tz1Trg6npgauME1Nb8zkkv7xv7sBdboNUFPP",
+        "alias": "andrew",
+        "total_money_spent": 70.0,
+        "items": 1
+    },
+    {
+        "ranking": 310,
+        "wallet_id": "tz1MQTKJHKrnMKzQjnhaWyzwXhbURbjfgGtg",
+        "alias": "timmybuggy",
+        "total_money_spent": 69.999,
+        "items": 1
+    },
+    {
+        "ranking": 311,
+        "wallet_id": "tz1SWaQsegS6yhetPNSEeYpxDpFLWWoGGwwv",
+        "alias": "",
+        "total_money_spent": 69.5,
+        "items": 1
+    },
+    {
+        "ranking": 312,
+        "wallet_id": "tz1gweZ5MNRidncb2TS1Vyy63ZqwGhVwPiQm",
+        "alias": "Matthew_Plummer-Fernandez",
+        "total_money_spent": 69.0,
+        "items": 1
+    },
+    {
+        "ranking": 313,
+        "wallet_id": "tz1iDSc4j2VF3cMudL6aTSqtxrG5EFh8L5XX",
+        "alias": "",
+        "total_money_spent": 69.0,
+        "items": 1
+    },
+    {
+        "ranking": 314,
+        "wallet_id": "tz1XPYtZVjVPYtg7Do61JZe5xfGT7M46LquW",
+        "alias": "",
+        "total_money_spent": 69.0,
+        "items": 1
+    },
+    {
+        "ranking": 315,
+        "wallet_id": "tz1fHQuSVKrL292fJYAhvPPVBvUGA4cR3YvV",
+        "alias": "pinguix",
+        "total_money_spent": 69.0,
+        "items": 1
+    },
+    {
+        "ranking": 316,
+        "wallet_id": "tz1Ln6dG6LJ19WQTqtG2p6PGLSnNro8YPDr9",
+        "alias": "",
+        "total_money_spent": 68.99,
+        "items": 1
+    },
+    {
+        "ranking": 317,
+        "wallet_id": "tz1h5ggjuAGW33VPksGmpBru2B3Cn868uxsh",
+        "alias": "itsgalo",
+        "total_money_spent": 68.69,
+        "items": 1
+    },
+    {
+        "ranking": 318,
+        "wallet_id": "tz1hwRy1ENMBXKFCcLkrREuuD1QbuehoUHQm",
+        "alias": "",
+        "total_money_spent": 68.5,
+        "items": 1
+    },
+    {
+        "ranking": 319,
+        "wallet_id": "tz1bVuMoH7PUA3vdij7maVLQsvciL7axd631",
+        "alias": "mattlehrer",
+        "total_money_spent": 68.5,
+        "items": 1
+    },
+    {
+        "ranking": 320,
+        "wallet_id": "tz2GJEQsSHvYSemz4Z72Lt2YzxqLtaPEobA8",
+        "alias": "",
+        "total_money_spent": 68.5,
+        "items": 1
+    },
+    {
+        "ranking": 321,
+        "wallet_id": "tz1bPboLRduiALPGj4Zc8wZPFQ5HHnrKH9E9",
+        "alias": "Matt Y",
+        "total_money_spent": 68.2,
+        "items": 1
+    },
+    {
+        "ranking": 322,
+        "wallet_id": "tz1bVbFK3dTdneNKHiGQPNShQZ5P78wXDWkC",
+        "alias": "",
+        "total_money_spent": 68.0,
+        "items": 1
+    },
+    {
+        "ranking": 323,
+        "wallet_id": "tz1WGoDArdPdHSXqkdPgr7gven7geDJaZKxu",
+        "alias": "7416",
+        "total_money_spent": 68.0,
+        "items": 1
+    },
+    {
+        "ranking": 324,
+        "wallet_id": "tz1Na1Tqd4HVLa7svWhanDHMtFD9sECKA3gQ",
+        "alias": "",
+        "total_money_spent": 68.0,
+        "items": 1
+    },
+    {
+        "ranking": 325,
+        "wallet_id": "tz1b64NiNgbNZeLUqXRxFZddG7rvY2JkPkN1",
+        "alias": "",
+        "total_money_spent": 68.0,
+        "items": 1
+    },
+    {
+        "ranking": 326,
+        "wallet_id": "tz1YLdhjKbVN97QS8XMCmKEh5gP8WmHb5TZU",
+        "alias": "",
+        "total_money_spent": 68.0,
+        "items": 1
+    },
+    {
+        "ranking": 327,
+        "wallet_id": "tz1fJtuwzeyMuvjVez5RNqxCftvtPtmmr8fH",
+        "alias": "",
+        "total_money_spent": 68.0,
+        "items": 1
+    },
+    {
+        "ranking": 328,
+        "wallet_id": "tz1Lsqor1SH7NJjfNaFpCP6emHX1BeEzBMHu",
+        "alias": "junkersfield",
+        "total_money_spent": 67.5,
+        "items": 1
+    },
+    {
+        "ranking": 329,
+        "wallet_id": "tz1WusK7Z8rxAVgpgUAb3VujtTCoX22JbjhX",
+        "alias": "",
+        "total_money_spent": 67.0,
+        "items": 1
+    },
+    {
+        "ranking": 330,
+        "wallet_id": "tz2MjmNGaH9rw7sJmp344S97bsjjVLdUETwT",
+        "alias": "sarpcer",
+        "total_money_spent": 67.0,
+        "items": 1
+    },
+    {
+        "ranking": 331,
+        "wallet_id": "tz1ZMGq2VLv4xxkL2v21eCcmwABemV1q6AA1",
+        "alias": "",
+        "total_money_spent": 66.9,
+        "items": 1
+    },
+    {
+        "ranking": 332,
+        "wallet_id": "tz2FD7sURzXZJNx9z5yCwWtzehijtmBjapj2",
+        "alias": "ArtLGP",
+        "total_money_spent": 66.599999,
+        "items": 1
+    },
+    {
+        "ranking": 333,
+        "wallet_id": "tz1TPzV1xy45DryqyxjT54Bc9Fm74wkZDqqa",
+        "alias": "",
+        "total_money_spent": 66.5,
+        "items": 1
+    },
+    {
+        "ranking": 334,
+        "wallet_id": "tz1XPPU5WUJNSFwgq51xofW2jwTNpFhsz9a3",
+        "alias": "",
+        "total_money_spent": 66.0,
+        "items": 1
+    },
+    {
+        "ranking": 335,
+        "wallet_id": "tz2AU3nWvzaTzum5GvRCBSuCV4d9Zp4bpsy7",
+        "alias": "",
+        "total_money_spent": 66.0,
+        "items": 1
+    },
+    {
+        "ranking": 336,
+        "wallet_id": "tz1gMDphxYPFEXqLY3qLyfDCfPa2SsPQYZzp",
+        "alias": "",
+        "total_money_spent": 66.0,
+        "items": 1
+    },
+    {
+        "ranking": 337,
+        "wallet_id": "tz1MgVh8qifYaaCU1f4LYng5gDiaVtU9GPHS",
+        "alias": "",
+        "total_money_spent": 66.0,
+        "items": 1
+    },
+    {
+        "ranking": 338,
+        "wallet_id": "tz1L5STDWXtqyUmiJvvNhPrhSzhGXEiQDC6D",
+        "alias": "",
+        "total_money_spent": 66.0,
+        "items": 1
+    },
+    {
+        "ranking": 339,
+        "wallet_id": "tz1ZmXrh7A9SVdQSzcNhUHnHgqaBwEyimb3D",
+        "alias": "nftdealer",
+        "total_money_spent": 66.0,
+        "items": 1
+    },
+    {
+        "ranking": 340,
+        "wallet_id": "tz1io8XobhQA9w2QmKDqR8Ty1zZW8rTDjnyv",
+        "alias": "CreatiWitty",
+        "total_money_spent": 66.0,
+        "items": 1
+    },
+    {
+        "ranking": 341,
+        "wallet_id": "tz1TJ9kTKzuPsafebiDZEzjzkN7onz28cWj5",
+        "alias": "",
+        "total_money_spent": 66.0,
+        "items": 1
+    },
+    {
+        "ranking": 342,
+        "wallet_id": "tz1WHu4vZ6u4K5hQ9nivu9UP4HGzEQEsZxmG",
+        "alias": "KelsBu",
+        "total_money_spent": 66.0,
+        "items": 1
+    },
+    {
+        "ranking": 343,
+        "wallet_id": "tz2FPkS8SR4TxN4RpoAKRF48Fj88GyzLjH5j",
+        "alias": "",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 344,
+        "wallet_id": "tz1eKcGZcj2VXzRtUoSzk8rwNYrKiAyXpotj",
+        "alias": "skyfallsin",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 345,
+        "wallet_id": "tz1Rt4d6eYdJJWD6SxeCSuNwvUeWwYv7dkdr",
+        "alias": "jibasAI",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 346,
+        "wallet_id": "tz1aG5uZcNtEmaVrU73QFTgDg8WrKvJZqHn3",
+        "alias": "",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 347,
+        "wallet_id": "tz1Qm3DHkV7V6peZPyWe4rv6aToH3nRmWEH7",
+        "alias": "premmy",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 348,
+        "wallet_id": "tz1U6MJtKP9ZxdLWGP7XgpMMJwDTVeAvW6fz",
+        "alias": "shyrenders",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 349,
+        "wallet_id": "tz1VotYQZSo7CVQACVTXMUjmjQ2GtAUnvexn",
+        "alias": "FuckYouBuyMe",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 350,
+        "wallet_id": "tz1dsAd2yYPCychJfWoM6LKGQPxWuyWFT3g1",
+        "alias": "PyramidGuy",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 351,
+        "wallet_id": "tz1UVJknCwVDGdnrFwD1hkRkTrry7ro8Yk71",
+        "alias": "",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 352,
+        "wallet_id": "tz1UifYfgYwmhxhcRU2NDBYwj4i7Jf8pu2bz",
+        "alias": "thesandwyrm",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 353,
+        "wallet_id": "tz2SMoEmBGX9LvVWJcd6py4emfxNzQyBPsyK",
+        "alias": "",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 354,
+        "wallet_id": "tz1fk2UwfR7C2tUZCCzX28oLTcKPZrJp1RN9",
+        "alias": "",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 355,
+        "wallet_id": "tz1fEjFvmBEBfRmu3jjFnbcXUoem7KPKXE2C",
+        "alias": "Ainslie",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 356,
+        "wallet_id": "tz1fqx9w4mWkb9zD7MRPrEohL8CbGpLma7Rb",
+        "alias": "flowerswithpowers",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 357,
+        "wallet_id": "tz1NxoijPhEYD3nkGqYFhW5DatxbyWFRrLwz",
+        "alias": "noisynft",
+        "total_money_spent": 65.0,
+        "items": 1
+    },
+    {
+        "ranking": 358,
+        "wallet_id": "tz1NUZK7rwfMKDQxhVewNrNQTs5ffUoMy8QQ",
+        "alias": "",
+        "total_money_spent": 64.998999,
+        "items": 1
+    },
+    {
+        "ranking": 359,
+        "wallet_id": "tz2RXsty7WmQ5xDnEcb1xRo13iB6FU9wCd4z",
+        "alias": "pochita",
+        "total_money_spent": 64.989999,
+        "items": 1
+    },
+    {
+        "ranking": 360,
+        "wallet_id": "tz2UDixyX8Fr8wtpD3VpDa1FNcVFWg86QM6C",
+        "alias": "",
+        "total_money_spent": 64.989999,
+        "items": 1
+    },
+    {
+        "ranking": 361,
+        "wallet_id": "tz1iHNYPWJmR9XAuwA36vUimFmaphYAggyBe",
+        "alias": "",
+        "total_money_spent": 64.56,
+        "items": 1
+    },
+    {
+        "ranking": 362,
+        "wallet_id": "tz1aMJYpmXCTTYRxdf2k4Gcu7s2ZY3tvSzTd",
+        "alias": "",
+        "total_money_spent": 64.0,
+        "items": 1
+    },
+    {
+        "ranking": 363,
+        "wallet_id": "tz1dwJHHS742G8zf8GFKBNSnVodpwbebDzeW",
+        "alias": "pornhub_xvideo",
+        "total_money_spent": 64.0,
+        "items": 1
+    },
+    {
+        "ranking": 364,
+        "wallet_id": "tz1SBsGEwBjPwy2XGkxsrifWuHPpnskALuDE",
+        "alias": "e_nry_h",
+        "total_money_spent": 63.9,
+        "items": 1
+    },
+    {
+        "ranking": 365,
+        "wallet_id": "tz3NJpPCD1pjabVb1EvUwMBqazK3AH8q3Ks1",
+        "alias": "",
+        "total_money_spent": 63.0,
+        "items": 1
+    },
+    {
+        "ranking": 366,
+        "wallet_id": "tz1cjHCorsyNqN3cWWKoYpzycBJmpifyoWd6",
+        "alias": "yangwong",
+        "total_money_spent": 63.0,
+        "items": 1
+    },
+    {
+        "ranking": 367,
+        "wallet_id": "tz1XybkRZWjLx3hwcy1hQ7PT6FWEhpHm1FBv",
+        "alias": "",
+        "total_money_spent": 63.0,
+        "items": 1
+    },
+    {
+        "ranking": 368,
+        "wallet_id": "tz1VB4SyaLcr8ZVpYKaXmQVYou6JWtd6UwY1",
+        "alias": "palashsaxena_",
+        "total_money_spent": 63.0,
+        "items": 1
+    },
+    {
+        "ranking": 369,
+        "wallet_id": "tz1gf2bX7pi6iB6PizPxrEG7PvBCPFEeP4rC",
+        "alias": "",
+        "total_money_spent": 62.99,
+        "items": 1
+    },
+    {
+        "ranking": 370,
+        "wallet_id": "tz1gwPu1qC1JUCf2ekEfpd8QmGcKcQeSfouh",
+        "alias": "dadadadadada",
+        "total_money_spent": 62.0,
+        "items": 1
+    },
+    {
+        "ranking": 371,
+        "wallet_id": "tz1bH7gxx6smzA7JxvznhEUH7ySjicoCxm6J",
+        "alias": "eskalator",
+        "total_money_spent": 62.0,
+        "items": 1
+    },
+    {
+        "ranking": 372,
+        "wallet_id": "tz1ZtGf829TEA2nazeqmycuRWs8pPrvfZpG8",
+        "alias": "",
+        "total_money_spent": 62.0,
+        "items": 1
+    },
+    {
+        "ranking": 373,
+        "wallet_id": "tz1LXGoNh3wNtuPPibkZnpcq1arLxYXGTmUx",
+        "alias": "",
+        "total_money_spent": 62.0,
+        "items": 1
+    },
+    {
+        "ranking": 374,
+        "wallet_id": "tz1NQWFFhVCiz9Kdc5XFEJrf7LoAuFMZjp1f",
+        "alias": "antisense",
+        "total_money_spent": 61.69,
+        "items": 1
+    },
+    {
+        "ranking": 375,
+        "wallet_id": "tz1iMevqaj7JfitcaWJrCdR99pSDb2Fe3h2E",
+        "alias": "pokerdude",
+        "total_money_spent": 61.0,
+        "items": 1
+    },
+    {
+        "ranking": 376,
+        "wallet_id": "tz1b5ufiMEtVngRKRFTwKg7bQZtZoX83PT23",
+        "alias": "theinstantmae",
+        "total_money_spent": 61.0,
+        "items": 1
+    },
+    {
+        "ranking": 377,
+        "wallet_id": "tz1Uva3ynPUXqpAsWJ3CxcXVPG7HEXB19rzU",
+        "alias": "dfmn",
+        "total_money_spent": 61.0,
+        "items": 1
+    },
+    {
+        "ranking": 378,
+        "wallet_id": "tz1c3wJk2s2w5YAQYzLG4fBfee6mVWocibeh",
+        "alias": "",
+        "total_money_spent": 61.0,
+        "items": 1
+    },
+    {
+        "ranking": 379,
+        "wallet_id": "tz1iRZkgv2pGmWGyFJ5ySzEJgzmSPz1r2Mc5",
+        "alias": "",
+        "total_money_spent": 61.0,
+        "items": 1
+    },
+    {
+        "ranking": 380,
+        "wallet_id": "tz1d9AdUJdLpfKsvxKNsD1pQf6wuZjNR1RvJ",
+        "alias": "vhs1183",
+        "total_money_spent": 61.0,
+        "items": 1
+    },
+    {
+        "ranking": 381,
+        "wallet_id": "tz1PpGEgBg2ZKk4PAeXh6hxSCqCpHA4YVwCy",
+        "alias": "ex_scientia_artis",
+        "total_money_spent": 61.0,
+        "items": 1
+    },
+    {
+        "ranking": 382,
+        "wallet_id": "tz2WqGiscFH5UFpDy892JbTu7yfc3oHjFBax",
+        "alias": "",
+        "total_money_spent": 60.5,
+        "items": 1
+    },
+    {
+        "ranking": 383,
+        "wallet_id": "tz29oCmSh3xwdwGvKUaAMtMXpoHu3p2GPw3p",
+        "alias": "",
+        "total_money_spent": 60.15,
+        "items": 1
+    },
+    {
+        "ranking": 384,
+        "wallet_id": "tz1hYTnA8SoWvGvBeZaVTnWQq4XFKE8Kck1E",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 385,
+        "wallet_id": "tz1a8fMi3KYqu4VzYW4hQatMAedKrrZjQTM2",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 386,
+        "wallet_id": "tz1PGW3ksDZNKeSUVbzYvjpwcKN2Zy4chmEg",
+        "alias": "Melopacare",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 387,
+        "wallet_id": "tz1gcHczH9PGoaCGHKURCiwcW8PztdWv7L4u",
+        "alias": "jefflebowski",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 388,
+        "wallet_id": "tz1Qq5n5GGBJi3uMx69yL6K1hpT9cNsWxBWH",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 389,
+        "wallet_id": "tz1bzn1ZLFPCwv8t4EnYhC1A5ziPFA2e7o7Q",
+        "alias": "mung",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 390,
+        "wallet_id": "tz1ZAonBW8Db7Erv2bg1RzhtQXGcJZzhRVbF",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 391,
+        "wallet_id": "tz1WA9kqwds1J3RPpzbDexo54FRswYeSzQm5",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 392,
+        "wallet_id": "tz1YfHRkMmpvQs93VdLsf525S7iefijt7UBD",
+        "alias": "vitalytsarenkov",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 393,
+        "wallet_id": "tz1YA8uQFT8HMpywm7Tngmuge2nLv66eMuMV",
+        "alias": "metaspherics",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 394,
+        "wallet_id": "tz1SHURNNMNbxNbwA4bXvPhonJaN5TffZMZA",
+        "alias": "GAWD",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 395,
+        "wallet_id": "tz1LSbC8nG7GDazbbLEAbF1x2V9oo7nEM3NR",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 396,
+        "wallet_id": "tz1heiihbfKE4J4etuU9rXvbQknXnkszNugA",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 397,
+        "wallet_id": "tz1Syo6KTuy3zHAQvvkRHpXDrafqU9z7wUyT",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 398,
+        "wallet_id": "tz1hPojdsT4NT21SdbdnavCmbqoC9XPckons",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 399,
+        "wallet_id": "tz1cgZ6PWKoER3gvW3jGKPHgBkRnpj8XzLm2",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 400,
+        "wallet_id": "tz1idC7XEoSZ45sXLwp1ujYJ3yNFi2tkLT7A",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 401,
+        "wallet_id": "tz1bqEgfZmCvFUpmKbfioJ4iBSvziCKA61np",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 402,
+        "wallet_id": "tz1Y1f65hztH3EeQmxZSLMXbiPrAnUXfg65C",
+        "alias": "tacodudez",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 403,
+        "wallet_id": "tz1UUSrrxHq647suLgAngWE481UTbzUonf9G",
+        "alias": "Kaloh",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 404,
+        "wallet_id": "tz1XmqF5gnTjgE6Cxu5CzaT5H7vXiFfihe95",
+        "alias": "Leon",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 405,
+        "wallet_id": "tz1UuujYk2VUaCLiRG8VzqFumMAikD4hLNQt",
+        "alias": "ver_nft",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 406,
+        "wallet_id": "tz1X12vAZhbKnqW1iFL2GpG47fhYChLhiFRt",
+        "alias": "BenBaret",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 407,
+        "wallet_id": "tz1TR9gCxDZheM3BF8gze8w88bj73ihZMwoq",
+        "alias": "smithyevol",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 408,
+        "wallet_id": "tz1cJvzXeSahRM9ZGN3a2uxs2vVqQmfchaRz",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 409,
+        "wallet_id": "tz2HTgAkVGmm73DghvfhEmYb5iJLRKYbkGAG",
+        "alias": "traumascalpel",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 410,
+        "wallet_id": "tz1QzTVcd9pj4FQ6pPYU5znsWaJGvaNWSQk8",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 411,
+        "wallet_id": "tz2Scwje3qgGtAndBjSxFXhmonRvhDpVGYZZ",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 412,
+        "wallet_id": "tz1ie7XRrYnuWivwK3YsT5iyA3WH35ui9DTx",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 413,
+        "wallet_id": "tz1ddVbmkzALufXA7yugERg98tGfxvCDAZRj",
+        "alias": "henpunkz",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 414,
+        "wallet_id": "tz1NZEtFkr2guKjpWcTpf4wxZhRhfcqZSkAE",
+        "alias": "stellar",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 415,
+        "wallet_id": "tz1NuweeaRe3bontved4sv7aUtQUGBRdcoLL",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 416,
+        "wallet_id": "tz1hHkndmCoSd7LNNK9QZwDJbaWnBmjpQeQX",
+        "alias": "acrwrs",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 417,
+        "wallet_id": "tz1dczoY69BbNsbFJdkchn7PdBPvBiXyWqgF",
+        "alias": "",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 418,
+        "wallet_id": "tz1h7s7VrrDnvHHzWz2TNvMQ6ciUFH91Tifq",
+        "alias": "wavegirls",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 419,
+        "wallet_id": "tz1Ue4Sf2b1NXsswCDQzodaRTZ2uPZ4gccs9",
+        "alias": "birth.nfts.death",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 420,
+        "wallet_id": "tz2KkgdVrCpzWVGmxLgeFWGAEbSVDAUEoaaP",
+        "alias": "slimytootsies",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 421,
+        "wallet_id": "tz1hqv9smTgdqxYdU71j46TTENJcPp9qs3Qe",
+        "alias": "duchessdee",
+        "total_money_spent": 60.0,
+        "items": 1
+    },
+    {
+        "ranking": 422,
+        "wallet_id": "tz1V8j8jbvy3URaHNewcXBrBEn2KgnVZEZtK",
+        "alias": "",
+        "total_money_spent": 59.99,
+        "items": 1
+    },
+    {
+        "ranking": 423,
+        "wallet_id": "tz1hAW2mGDdZYnb583PZFPRBbVFp1o5sc4Xg",
+        "alias": "",
+        "total_money_spent": 59.99,
+        "items": 1
+    },
+    {
+        "ranking": 424,
+        "wallet_id": "tz2L4t9S9LjpR2ca6B869siiKe2Ymp3aQ4gg",
+        "alias": "LeeSanFr",
+        "total_money_spent": 59.99,
+        "items": 1
+    },
+    {
+        "ranking": 425,
+        "wallet_id": "tz1L3HuNSGB1tiftAaNC81B7jFVGqCPNxy4U",
+        "alias": "jamesshedden",
+        "total_money_spent": 59.98,
+        "items": 1
+    },
+    {
+        "ranking": 426,
+        "wallet_id": "tz1WGRkrvZ5nsbhYQtMm7RYFfyb5CotVnsp2",
+        "alias": "davecourt",
+        "total_money_spent": 59.98,
+        "items": 1
+    },
+    {
+        "ranking": 427,
+        "wallet_id": "tz2DBqGV95vY14p677mqCsqGqvbykx9aA9Pg",
+        "alias": "",
+        "total_money_spent": 59.89,
+        "items": 1
+    },
+    {
+        "ranking": 428,
+        "wallet_id": "tz1KxARuCbAoiGGesnQjr2pvZa7CzJR7V9D7",
+        "alias": "",
+        "total_money_spent": 59.69,
+        "items": 1
+    },
+    {
+        "ranking": 429,
+        "wallet_id": "tz1i3rwCCMGBdigzrZbPxNH8RZGcJAkK1KWT",
+        "alias": "",
+        "total_money_spent": 59.69,
+        "items": 1
+    },
+    {
+        "ranking": 430,
+        "wallet_id": "tz1cGDBzgGgj4Ba1qwtCYVLNpgiXPWSatU52",
+        "alias": "noahart",
+        "total_money_spent": 59.5,
+        "items": 1
+    },
+    {
+        "ranking": 431,
+        "wallet_id": "tz1RTSocrhVh6AEkCWAS3VyxwCrf7ud6yjx9",
+        "alias": "Patuie",
+        "total_money_spent": 59.5,
+        "items": 1
+    },
+    {
+        "ranking": 432,
+        "wallet_id": "tz1LKpeN8ZSSFNyTWiBNaE4u4sjaq7J1Vz2z",
+        "alias": "marchingsquare",
+        "total_money_spent": 59.42069,
+        "items": 1
+    },
+    {
+        "ranking": 433,
+        "wallet_id": "tz1NHgLnBGvuBRqncEXvEkRXKaoJ1iyymU5Q",
+        "alias": "ezematteo",
+        "total_money_spent": 59.4,
+        "items": 1
+    },
+    {
+        "ranking": 434,
+        "wallet_id": "tz1Z7QyYBJBgoHHiVXUXqGxX2rGYB7KMD775",
+        "alias": "NFT*Art*House",
+        "total_money_spent": 59.3,
+        "items": 1
+    },
+    {
+        "ranking": 435,
+        "wallet_id": "tz1To7j5MHj4vjquGYdbASX4tZnstNgpsE9x",
+        "alias": "billymcsmithers",
+        "total_money_spent": 59.3,
+        "items": 1
+    },
+    {
+        "ranking": 436,
+        "wallet_id": "tz1akJUKXFmNjxKaCqcEHmwbx4u86xfHLYJc",
+        "alias": "",
+        "total_money_spent": 59.2,
+        "items": 1
+    },
+    {
+        "ranking": 437,
+        "wallet_id": "tz1iVm6yC6CSsL8HXkcb3VRgFwo13PdokwGN",
+        "alias": "",
+        "total_money_spent": 59.11,
+        "items": 1
+    },
+    {
+        "ranking": 438,
+        "wallet_id": "tz1cD87TJp9Kkg8FZ9m48YS8MSiw1F1x8pzG",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 439,
+        "wallet_id": "tz1gYNfSKyUA4GdfP5utpsodUAo76qmPJHve",
+        "alias": "boreuno",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 440,
+        "wallet_id": "tz1gqYvFupx3HAFsCXYgVybYpms3qv63UE7n",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 441,
+        "wallet_id": "tz1bvdyvhPJ4AE7ejeGG6NapR98yYsVrvC3a",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 442,
+        "wallet_id": "tz1TaSCugfgErAnwieFPYh4kxYajuNRixhgX",
+        "alias": "HistoricalDem0n",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 443,
+        "wallet_id": "tz1VwAPwtHtQ2jADWSzBJ8kBQQMV2NtcU4W8",
+        "alias": "Ojedasbodega",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 444,
+        "wallet_id": "tz1QCvhUnFp2659eu4iUjMneFHCN9uqaRFJ6",
+        "alias": "meow",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 445,
+        "wallet_id": "tz1dn2S8n6pFRcAmYFCCbmvPyKWg6LewhcYo",
+        "alias": "mentalnoise_e",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 446,
+        "wallet_id": "tz1cyQA7cXsJxENwJrXydsBN3wsrMhQusgxe",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 447,
+        "wallet_id": "tz1cLw8MybaqmoLYYCoTmJAWMUkiD6HmS7DL",
+        "alias": "cryptoejc",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 448,
+        "wallet_id": "tz2PomScbVPJk9T3hEC6iBoTbuBxBT36Qrxy",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 449,
+        "wallet_id": "tz1RtxG3VQ3XSjvaQG34tRzY2ozEE51jAeZU",
+        "alias": "ygormarotta",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 450,
+        "wallet_id": "tz1TbpNqZHiiyrip1NMPioM5vwRxoz8UXabj",
+        "alias": "catmom",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 451,
+        "wallet_id": "tz1Mc9iCWwponAfeJgWEA5RujCa5ptk4g1A4",
+        "alias": "IlyasNeuralExperiments",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 452,
+        "wallet_id": "tz1fdv4qjH467zGFJycBA1wX7kXgMdKSHfeq",
+        "alias": "Remy",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 453,
+        "wallet_id": "tz1cNDd8hrHKfoJK9Zw12vfT6sKnZMHzsLEx",
+        "alias": "Fool",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 454,
+        "wallet_id": "tz1cpUXmDLVgrjKbkT817pgnDhxEVAEVxEeU",
+        "alias": "Felipe_Denuzzo",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 455,
+        "wallet_id": "tz1Xd75PTAwQhK9TAhUZxB7GtdczkE3397Bu",
+        "alias": "very_bad_acid",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 456,
+        "wallet_id": "tz1MD6UYt63HGrgvjEkKZGzrbLbtNqpkwLXM",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 457,
+        "wallet_id": "tz1iWdgeaamXFyysXhh3SV873pcRLkbB5d2P",
+        "alias": "Pinocchio",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 458,
+        "wallet_id": "tz1hcDo77ovXdGBoLPAVzCJxXnp5XynWAXDk",
+        "alias": "uncut_h3n",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 459,
+        "wallet_id": "tz1f6T8TooAWoxS8eDFbWwGjBbWNDu91ywNh",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 460,
+        "wallet_id": "tz1Xngs5CAmKu9efD114nCjHuogvsPBYiWeJ",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 461,
+        "wallet_id": "tz1f6G2CQghaqKgbvhrZWowHpDLxTGJTDnQs",
+        "alias": "YanaUfelman",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 462,
+        "wallet_id": "tz2NvVe4hiCN5p9JpAGgxmtKHqQw2aXBreK1",
+        "alias": "codedeadboy",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 463,
+        "wallet_id": "tz1NqHv8WdD7sf9hHzvdCd6SpGNSzGdzE9Qt",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 464,
+        "wallet_id": "tz1cksqtXMBbKu2QzFfmqMvFPq6x8EHM919z",
+        "alias": "WWWoronin",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 465,
+        "wallet_id": "tz1S6TfXQ8xGTJahmR98bfcqTNzuFcy2tCB4",
+        "alias": "",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 466,
+        "wallet_id": "tz1YTysqBtXkefEDCrJMMzHC2yw2rBcZYUwm",
+        "alias": "pickledliver.tv",
+        "total_money_spent": 59.0,
+        "items": 1
+    },
+    {
+        "ranking": 467,
+        "wallet_id": "tz1WrBUF4Sp7ScRECLZFhqmuMtFcMRcBvUMb",
+        "alias": "",
+        "total_money_spent": 58.99,
+        "items": 1
+    },
+    {
+        "ranking": 468,
+        "wallet_id": "tz1V2KXCyWZywHoV3daM82thXZYjXRhbBAXL",
+        "alias": "AndyPandy",
+        "total_money_spent": 58.99,
+        "items": 1
+    },
+    {
+        "ranking": 469,
+        "wallet_id": "tz1ZoCVDTPHjHHDak8Xwi1PQzWJhWJrnPpdZ",
+        "alias": "what",
+        "total_money_spent": 58.99,
+        "items": 1
+    },
+    {
+        "ranking": 470,
+        "wallet_id": "tz1eYKZ866Htv63L4JyxAGCRt24FMKVhmgiR",
+        "alias": "plaugedoctor.tez",
+        "total_money_spent": 58.988888,
+        "items": 1
+    },
+    {
+        "ranking": 471,
+        "wallet_id": "tz1R8Ms9rERJmWKoCWoz2yx4Eg8Ldz4pruLy",
+        "alias": "fatboy",
+        "total_money_spent": 58.98,
+        "items": 1
+    },
+    {
+        "ranking": 472,
+        "wallet_id": "tz1MnoSe4HMAzfoyiPGkrAL6a3WzBhRQRba9",
+        "alias": "artsy0",
+        "total_money_spent": 58.9,
+        "items": 1
+    },
+    {
+        "ranking": 473,
+        "wallet_id": "tz1dLpmMvWwXbdmxTbGf5R53C962xYoptr2i",
+        "alias": "",
+        "total_money_spent": 58.9,
+        "items": 1
+    },
+    {
+        "ranking": 474,
+        "wallet_id": "tz1Zv63dC5nkVBbPz3BvdmWGqDw9cvahvm3s",
+        "alias": "stronghold",
+        "total_money_spent": 58.9,
+        "items": 1
+    },
+    {
+        "ranking": 475,
+        "wallet_id": "tz1iPqKPqnWk5XRwbux1YvczehhtbCNym76C",
+        "alias": "",
+        "total_money_spent": 58.9,
+        "items": 1
+    },
+    {
+        "ranking": 476,
+        "wallet_id": "tz1MfNmoaTqPtr8k9QLawrnwkX1g1gkFNK5Z",
+        "alias": "",
+        "total_money_spent": 58.8,
+        "items": 1
+    },
+    {
+        "ranking": 477,
+        "wallet_id": "tz1czGMShkB8ZtCHKHeCPTY3CpuiCrjsGJBy",
+        "alias": "",
+        "total_money_spent": 58.8,
+        "items": 1
+    },
+    {
+        "ranking": 478,
+        "wallet_id": "tz1VvVTb68NEkiUyCQoMJqnM6KcX8vRCvx9x",
+        "alias": "bijancastar",
+        "total_money_spent": 58.75,
+        "items": 1
+    },
+    {
+        "ranking": 479,
+        "wallet_id": "tz1ebDwBScBggmpwAsGiKxpyqy86zVDzt4oM",
+        "alias": "",
+        "total_money_spent": 58.7,
+        "items": 1
+    },
+    {
+        "ranking": 480,
+        "wallet_id": "tz1UEcMyvJjGEs6HzGBFBRA44D2KERHxY5GB",
+        "alias": "",
+        "total_money_spent": 58.5,
+        "items": 1
+    },
+    {
+        "ranking": 481,
+        "wallet_id": "tz1QBvsqG2Vs77NEkN3v4wsJb5UABUVtSkUQ",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 482,
+        "wallet_id": "tz1VBW6LXJLncXszcqbBaB8QUFZbfptF4nRV",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 483,
+        "wallet_id": "tz1iDWohnXcz9qyzf39i1Ek7KpgGZx3TdUYM",
+        "alias": "mcm",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 484,
+        "wallet_id": "tz1MVAabeRxqeHz5j5dJzJEuJBvoL5Wqb31F",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 485,
+        "wallet_id": "tz2LjCg6xZSmU2vBuh5NN5E8MvgMEZiX7wAy",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 486,
+        "wallet_id": "tz1iYcSTGN1AaVkgpPwdw6GnaB7dFobGHYxo",
+        "alias": "Shoscape",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 487,
+        "wallet_id": "tz1R97wv2Yn8vvbRoh14ASLpsEufTr3ojkxK",
+        "alias": "xlv_nft",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 488,
+        "wallet_id": "tz1Z6cDyVT6BGNMUXk42e2HFNCbXALgRK7C2",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 489,
+        "wallet_id": "tz1UiSry7s4BnymJaNR7x5R1gABiHc4nTvkA",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 490,
+        "wallet_id": "tz1ZUnpDSKJNNK1mZZqvjeWBNFB97iynE8dd",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 491,
+        "wallet_id": "tz1VhCvo2M7ne6GihA46hqhEoPceFo1Kbhg5",
+        "alias": "therunningman",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 492,
+        "wallet_id": "tz1dCwzUpVLiWnPKYcQiKuAAbGTdXVb1pYJ2",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 493,
+        "wallet_id": "tz1hgG8kCZgJLHnFKXPWd3htv5d6pzJFDmpu",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 494,
+        "wallet_id": "tz1dPjE1Vwyb9DXFvzLQfNVjAjSu3vzTdRNJ",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 495,
+        "wallet_id": "tz1XfZhAKzcGvUfjnXeH24UBjcCunYEFbBXi",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 496,
+        "wallet_id": "tz1YfgeuQvdcUPNgo8jn5cds45UZEm3Li7np",
+        "alias": "teexels",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 497,
+        "wallet_id": "tz1dmfN4EwfvMfUp3Rn6q8k3jMokaqpbCuG8",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 498,
+        "wallet_id": "tz1Zxzqhr2KscpWCVYPWrTHLFTMVBKhSV9nT",
+        "alias": "whatabout808",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 499,
+        "wallet_id": "tz1cgLe6Lj2ph4SMfzTgGVqzR537CcMaCLRT",
+        "alias": "",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 500,
+        "wallet_id": "tz2QuhWPbQ4esshaTJRAku2AWnLVGjRfs5mu",
+        "alias": "xmadxmartian",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 501,
+        "wallet_id": "tz1dwrXCPCB56Z78r9bsuH2GEHqXFYrmjKsf",
+        "alias": "s.c.",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 502,
+        "wallet_id": "tz1aFCcErQukspicJFwwnzVRkmSqQnjgMHru",
+        "alias": "1l_sweetss",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 503,
+        "wallet_id": "tz1PZWKvjqPbUGowQ7ADmYAScnqf2JViTcfh",
+        "alias": "dreadsandwich",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 504,
+        "wallet_id": "tz1dc8UtcCnz2ySNfqBM6qRstProDet8pqHt",
+        "alias": "meikora",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 505,
+        "wallet_id": "tz1SmSWvfQZQFd5y4eLntLdiyJBbFi3xhFp7",
+        "alias": "POSSUM",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 506,
+        "wallet_id": "tz1Y84f2ShqbMHtSJBGR9uiogMWypxY6ekfZ",
+        "alias": "_ron_west",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 507,
+        "wallet_id": "tz1PG5gnHoBiiEzyJCfrs9jaBo4e59PPEWoV",
+        "alias": "drocknfter",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 508,
+        "wallet_id": "tz1d67UPfqEsFSn2MuyAy2bVe8wbRCmwd1Ln",
+        "alias": "BarbaraBezina",
+        "total_money_spent": 58.0,
+        "items": 1
+    },
+    {
+        "ranking": 509,
+        "wallet_id": "tz1ZUXKERcoxHyDAwm8VSzwjGredsbf42hxK",
+        "alias": "Smallandround",
+        "total_money_spent": 57.99,
+        "items": 1
+    },
+    {
+        "ranking": 510,
+        "wallet_id": "tz1RZDK861JTya81Hpc5qp9FpieRkedg2May",
+        "alias": "",
+        "total_money_spent": 57.9,
+        "items": 1
+    },
+    {
+        "ranking": 511,
+        "wallet_id": "tz1Y16QEyviqHyNs275V1wRgkMrGkeCdCQ9a",
+        "alias": "lalalani",
+        "total_money_spent": 57.9,
+        "items": 1
+    },
+    {
+        "ranking": 512,
+        "wallet_id": "tz1L3wBLCSWbFJK8Ut4Vb1YyxhBJiRyMaiGH",
+        "alias": "smangiat",
+        "total_money_spent": 57.88,
+        "items": 1
+    },
+    {
+        "ranking": 513,
+        "wallet_id": "tz1hPLi5oFActbKr6AcVBLKcEETK1CAdkeWy",
+        "alias": "",
+        "total_money_spent": 57.8,
+        "items": 1
+    },
+    {
+        "ranking": 514,
+        "wallet_id": "tz1hjSiehU8Gv9HDzTpcSrCE5B9YT5knS5cR",
+        "alias": "",
+        "total_money_spent": 57.8,
+        "items": 1
+    },
+    {
+        "ranking": 515,
+        "wallet_id": "tz1htm127f6XtF79aAwsw8EbBY7Z5qdVsKnC",
+        "alias": "",
+        "total_money_spent": 57.8,
+        "items": 1
+    },
+    {
+        "ranking": 516,
+        "wallet_id": "tz1MZNCmUSQMaqANG7574v4VjH33AD6tRDAA",
+        "alias": "",
+        "total_money_spent": 57.75,
+        "items": 1
+    },
+    {
+        "ranking": 517,
+        "wallet_id": "tz1bsGawxxkS8YeinQtCN8owDaspBrZsJK1Y",
+        "alias": "Letsglitchit",
+        "total_money_spent": 57.5,
+        "items": 1
+    },
+    {
+        "ranking": 518,
+        "wallet_id": "tz1VYfnEUiPMKgZsvaqo43W4dzA3442pZdYY",
+        "alias": "Goldy",
+        "total_money_spent": 57.5,
+        "items": 1
+    },
+    {
+        "ranking": 519,
+        "wallet_id": "tz1et2m4mWBecFA9ypFifSRhmb542W1rCEtK",
+        "alias": "boshgolem",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 520,
+        "wallet_id": "tz1TmqDjz23bzb21cRtoCxfw3xdVZc6Ersek",
+        "alias": "",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 521,
+        "wallet_id": "tz1YJ6ET1Q1Dne2VmSnjjLPho5wWbyzf3wJL",
+        "alias": "bluebull",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 522,
+        "wallet_id": "tz1TGF3eRCiM7pxx8QGaDQmNRvhS83WuTBy1",
+        "alias": "SinnerCrypto",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 523,
+        "wallet_id": "tz1VrXfxvKDt6r59p4jDBTGavQt1XCgi9a6Y",
+        "alias": "",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 524,
+        "wallet_id": "tz1QpvURES6sBsL6gGh4aeBRtw6ShcAjYj6u",
+        "alias": "unblock.gallery",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 525,
+        "wallet_id": "tz1Vi3ASZZuuGqA6rNUMCb1SKA4ccWYj3Uza",
+        "alias": "",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 526,
+        "wallet_id": "tz1UCVnurQgXsF8MnZxD6QufbP45dektFHVp",
+        "alias": "",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 527,
+        "wallet_id": "tz2KkEi9yzZ37M9XyfFRdbZ8DkCYP9rEZsjq",
+        "alias": "abstrakto",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 528,
+        "wallet_id": "tz1ZBToFnhVg9SJWJFycy2mTH1vxZ2uwD1n8",
+        "alias": "",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 529,
+        "wallet_id": "tz1b4qkQGuvWaNfdSN8u45NNfF5rYiGH7txk",
+        "alias": "BasicSitch",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 530,
+        "wallet_id": "tz1LJDnLt8hLWwF1uSkrqYXyGhqBWQeRAVrv",
+        "alias": "fmk7",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 531,
+        "wallet_id": "tz1ejtDTVADmUEeba3wx66WmL9BXuVu3qX4o",
+        "alias": "",
+        "total_money_spent": 57.0,
+        "items": 1
+    },
+    {
+        "ranking": 532,
+        "wallet_id": "tz1LeudY3nLTqfhXKwBcTn6vvbx8PVYpPkoD",
+        "alias": "vacuum",
+        "total_money_spent": 56.99,
+        "items": 1
+    },
+    {
+        "ranking": 533,
+        "wallet_id": "tz1escpPZoyEKBxmzUSdzvC66CAVp5bAxQUm",
+        "alias": "a.r.",
+        "total_money_spent": 56.9,
+        "items": 1
+    },
+    {
+        "ranking": 534,
+        "wallet_id": "tz1Xu8afXDSrV9cKdJtp2HY3bcaQPvoUq6Eo",
+        "alias": "",
+        "total_money_spent": 56.9,
+        "items": 1
+    },
+    {
+        "ranking": 535,
+        "wallet_id": "tz1f7ArQc7mpNgXwj8Mv6dsSwUDfzreCFfa6",
+        "alias": "",
+        "total_money_spent": 56.9,
+        "items": 1
+    },
+    {
+        "ranking": 536,
+        "wallet_id": "tz2RX6cPXKmiB8ZU9vc51ihZ575ReC2BrY5E",
+        "alias": "",
+        "total_money_spent": 56.5,
+        "items": 1
+    },
+    {
+        "ranking": 537,
+        "wallet_id": "tz1fSf5ingWK5bm4mbyDDgbLJoSXP6uY8e3w",
+        "alias": "",
+        "total_money_spent": 56.2,
+        "items": 1
+    },
+    {
+        "ranking": 538,
+        "wallet_id": "tz1i6QrhHj55CaoELHe9peHF8x7dfSxDJeBv",
+        "alias": "",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 539,
+        "wallet_id": "tz1UgKUorMCBdW7Xh4PAx3VqGUHmtA7sDfTz",
+        "alias": "DeportedPhotographer",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 540,
+        "wallet_id": "tz1gWJHTmgGoxFAS14MqGq2GLCrgSPieoQRy",
+        "alias": "prasmussen",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 541,
+        "wallet_id": "tz1MT7k25TBpq9tJMSd3Qoa4eRkuQvvuUAdn",
+        "alias": "dannynft",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 542,
+        "wallet_id": "tz1Y4sEyc9xnkv1f29wN9qPx3V9sss2GJMMt",
+        "alias": "",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 543,
+        "wallet_id": "tz1XvcTDbZwb6KKkkMBNmj5jKXW44m7pgkov",
+        "alias": "",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 544,
+        "wallet_id": "tz1ScGfYzRpqDhf9SUQV2xFuoTCAXkDbqC8q",
+        "alias": "",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 545,
+        "wallet_id": "tz1c16SVPZrsRJBd4n3Y7bsMLoKDxjWJgJwp",
+        "alias": "Cryptoisdope2",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 546,
+        "wallet_id": "tz1bNdZhXuMZrV5h8uAmEYKj7HJSHAYWN6r8",
+        "alias": "",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 547,
+        "wallet_id": "tz1ZHepyYhLvh9rPsYDcuKaY9VDHEg58hG9k",
+        "alias": "",
+        "total_money_spent": 56.0,
+        "items": 1
+    },
+    {
+        "ranking": 548,
+        "wallet_id": "tz1ivKe6mnAgmKhzqjvvtSyxT8BfDv9niVna",
+        "alias": "solonnaire",
+        "total_money_spent": 55.99,
+        "items": 1
+    },
+    {
+        "ranking": 549,
+        "wallet_id": "tz1X7MkF4YgW487SwdWhhEtyVSLhDmZTer11",
+        "alias": "Voltaine",
+        "total_money_spent": 55.9,
+        "items": 1
+    },
+    {
+        "ranking": 550,
+        "wallet_id": "tz1NzzKPfru2gkrS5ZGYkziWfjmensuGdTXM",
+        "alias": "NFTeazer",
+        "total_money_spent": 55.69,
+        "items": 1
+    },
+    {
+        "ranking": 551,
+        "wallet_id": "tz1XsRaKzSE9FxpvbQXtxBX2Cgnb3bEa6ZXX",
+        "alias": "skynet",
+        "total_money_spent": 55.68,
+        "items": 1
+    },
+    {
+        "ranking": 552,
+        "wallet_id": "tz1YTVkYqMxJf2ngF51UcnY6ieaxJsdhKSwz",
+        "alias": "",
+        "total_money_spent": 55.55,
+        "items": 1
+    },
+    {
+        "ranking": 553,
+        "wallet_id": "tz1Nq9meyM5RfStCVn2gfdFto13EHD9tzZw1",
+        "alias": "",
+        "total_money_spent": 55.5,
+        "items": 1
+    },
+    {
+        "ranking": 554,
+        "wallet_id": "tz1Uzm53vPr2Giyi32yT9GUvBErKqHPBjvQL",
+        "alias": "",
+        "total_money_spent": 55.5,
+        "items": 1
+    },
+    {
+        "ranking": 555,
+        "wallet_id": "tz1TqEFfa6B2ACVcetEGXvdQjCpuoDaHx8Uq",
+        "alias": "AntaresAquarii",
+        "total_money_spent": 55.4,
+        "items": 1
+    },
+    {
+        "ranking": 556,
+        "wallet_id": "tz1Lmbjbs6KrNK22kfwsCKpG9GWcBjJ5bMSw",
+        "alias": "",
+        "total_money_spent": 55.3,
+        "items": 1
+    },
+    {
+        "ranking": 557,
+        "wallet_id": "tz2UaV4FQgcVkmqwmxehVzGD6Lze6frpJRDB",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 558,
+        "wallet_id": "tz1TNyGDAxGn2t4EDh5JK9Xu6KKaS3FeGViH",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 559,
+        "wallet_id": "tz1h2AzE3kDAPJYZeJ7rqfojDHwZECie5kyh",
+        "alias": "nftnorth",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 560,
+        "wallet_id": "tz1fsjPmgukJ28x1NPV3P27gYHr2uBso4Tdf",
+        "alias": "simpledsgn",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 561,
+        "wallet_id": "tz1Ntmgka6o5CohYWbvNErSmmeaYLoq8Be1q",
+        "alias": "jcrypto",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 562,
+        "wallet_id": "tz1T5ps443B9CCWp7y4mXQEEhMquq1MfhcWJ",
+        "alias": "antitheory",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 563,
+        "wallet_id": "tz1UC4wHex3zXF6k3VDZKT4LKDSbfiScK8Ys",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 564,
+        "wallet_id": "tz1M925f3t43mypH43qKn5aCEaPsyjfm1Piv",
+        "alias": "badodds",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 565,
+        "wallet_id": "tz1RWBfbiXbMZEtvs5kgZSZW7V3VjqGDjEmz",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 566,
+        "wallet_id": "tz1PGRf8zABoZPdXYT8VUqp4gDke2nY7abQf",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 567,
+        "wallet_id": "tz1QtryEhBUszo1A7swoAuGPH36sojFHwedH",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 568,
+        "wallet_id": "tz1PLu9vNB5Kc63nRGuXJFAsHRfAR948GJ9F",
+        "alias": "dustmrtn",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 569,
+        "wallet_id": "tz1XZpFyoSHsiH7EvgzdNgWtDz9QJ3uqnaLc",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 570,
+        "wallet_id": "tz1hakXkEY23YNCuiDxEqN69MzMhXgugTvv2",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 571,
+        "wallet_id": "tz1V3kAU5ou3zkpNBkyt4emxv4Bx1Kr3vhta",
+        "alias": "coolbluedata",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 572,
+        "wallet_id": "tz1YF4eNEdEj7a4snLPgoDqEHW1LF7YZDjzv",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 573,
+        "wallet_id": "tz29KRbMFnCVNpDdtcJxnvxpcS7BZMiSuCX6",
+        "alias": "Alkamist",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 574,
+        "wallet_id": "tz1fJuNiRZ16AV26rER9c7n9ob4v2hRwxCMc",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 575,
+        "wallet_id": "tz1ULuhmq2aze8GXwdkQmvVVyJzePNYLagTm",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 576,
+        "wallet_id": "tz1crYhZamd7wQaWicLv5zfPi8zqhxtB7kae",
+        "alias": "thenftman",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 577,
+        "wallet_id": "tz1LXk7mU5KwbjzPq3gngPWyqzzN3aCh3ury",
+        "alias": "Uberneath",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 578,
+        "wallet_id": "tz1Mx8P7HdXV28TXcTPhAj2VVJZ9jWqUbSvv",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 579,
+        "wallet_id": "tz1QbeM6z3kWw3aNLs1uWvYc2vPYi1yRtyBv",
+        "alias": "waynechu",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 580,
+        "wallet_id": "tz1NTWj2TdHheLH2yWjJ8KF3utwBLViQ293G",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 581,
+        "wallet_id": "tz1cyKqchw1Srm7CYRtVY2ZuHrgAB98shZW5",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 582,
+        "wallet_id": "tz1hUUicPGzKyEDZDzgnj8YUxXgXAjhGC7ez",
+        "alias": "Black Racer",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 583,
+        "wallet_id": "tz1MbRE7dKfAf49aGCCB7X4wouowdYPrMjhj",
+        "alias": "",
+        "total_money_spent": 55.0,
+        "items": 1
+    },
+    {
+        "ranking": 584,
+        "wallet_id": "tz1Q8d1EzX9dB1QR1ndfsPp1wBQEzzbeSd7H",
+        "alias": "",
+        "total_money_spent": 54.99,
+        "items": 1
+    },
+    {
+        "ranking": 585,
+        "wallet_id": "tz29xcq2XwrEvNgcNafW7ugA8XxFmQN3rEen",
+        "alias": "jackerator",
+        "total_money_spent": 54.99,
+        "items": 1
+    },
+    {
+        "ranking": 586,
+        "wallet_id": "tz1Y1cxkxTwgkkuTYKyUiPhqpB4vp7tFYdMq",
+        "alias": "",
+        "total_money_spent": 54.9,
+        "items": 1
+    },
+    {
+        "ranking": 587,
+        "wallet_id": "tz1UxET8jeKQpRQ7nzMEbMbd4yFfsP49aoao",
+        "alias": "",
+        "total_money_spent": 54.9,
+        "items": 1
+    },
+    {
+        "ranking": 588,
+        "wallet_id": "tz1aYYyUBJHig8KvtYkZrH8ipceQ5P4HxUvQ",
+        "alias": "eddietree",
+        "total_money_spent": 54.89,
+        "items": 1
+    },
+    {
+        "ranking": 589,
+        "wallet_id": "tz1ScbMTStud5JS44cPkRTeMvwLeJPbdUQUU",
+        "alias": "Trifinh0",
+        "total_money_spent": 54.8,
+        "items": 1
+    },
+    {
+        "ranking": 590,
+        "wallet_id": "tz1Q83jpUTPBJnuxjrD6UBTmrS2mDQkgkXvh",
+        "alias": "Justin.tez",
+        "total_money_spent": 54.5,
+        "items": 1
+    },
+    {
+        "ranking": 591,
+        "wallet_id": "tz29hrcxWKiyyVSKAGvZkfqeie1jTF2qhkus",
+        "alias": "",
+        "total_money_spent": 54.5,
+        "items": 1
+    },
+    {
+        "ranking": 592,
+        "wallet_id": "tz1LnDtxAszoXCZKsZBm9LgLa6hnTJe6tSQF",
+        "alias": "pgeek",
+        "total_money_spent": 54.0,
+        "items": 1
+    },
+    {
+        "ranking": 593,
+        "wallet_id": "tz1eEPHy4aF6f7ULH5gCa51ZYaDh7cMdTpAg",
+        "alias": "ArtnArchitect",
+        "total_money_spent": 54.0,
+        "items": 1
+    },
+    {
+        "ranking": 594,
+        "wallet_id": "tz1cvsPg9M6g8MGnzphQ9dsU5V15evMWHFtE",
+        "alias": "",
+        "total_money_spent": 54.0,
+        "items": 1
+    },
+    {
+        "ranking": 595,
+        "wallet_id": "tz2CVGtzYU8schre88JWgQSiKKLBkTttNCFX",
+        "alias": "",
+        "total_money_spent": 54.0,
+        "items": 1
+    },
+    {
+        "ranking": 596,
+        "wallet_id": "tz1W1US31dV6DDzTsewaEXrHQbPwNfveWDD5",
+        "alias": "",
+        "total_money_spent": 54.0,
+        "items": 1
+    },
+    {
+        "ranking": 597,
+        "wallet_id": "tz2NDGN8dq8UuD3ia2JkLBBPoXWRUXJ9vkP1",
+        "alias": "mixil",
+        "total_money_spent": 54.0,
+        "items": 1
+    },
+    {
+        "ranking": 598,
+        "wallet_id": "tz1URr8y6ZAWBiLptRibc9afx5G1mmmpqyaK",
+        "alias": "dml352red",
+        "total_money_spent": 53.99,
+        "items": 1
+    },
+    {
+        "ranking": 599,
+        "wallet_id": "tz1hhfsadEPMQPV4gbRhUe5EJzhWcGgPdomb",
+        "alias": "eneuem",
+        "total_money_spent": 53.95,
+        "items": 1
+    },
+    {
+        "ranking": 600,
+        "wallet_id": "tz1bFB8s8392wtKVLEqzqWkFS43RcE58eSTE",
+        "alias": "",
+        "total_money_spent": 53.69,
+        "items": 1
+    },
+    {
+        "ranking": 601,
+        "wallet_id": "tz1WqPBy33zKqv4hGaXrPKypN4VN7CzHZR5u",
+        "alias": "robbie",
+        "total_money_spent": 53.0,
+        "items": 1
+    },
+    {
+        "ranking": 602,
+        "wallet_id": "tz1befgFbNRdWZnABwKZ131eWNbGTFKsReF3",
+        "alias": "cmykchicago",
+        "total_money_spent": 53.0,
+        "items": 1
+    },
+    {
+        "ranking": 603,
+        "wallet_id": "tz1bv65vtpUghzsnmdWurNMgHaiKStyXHQgR",
+        "alias": "",
+        "total_money_spent": 53.0,
+        "items": 1
+    },
+    {
+        "ranking": 604,
+        "wallet_id": "tz1TNDuoohqWyyW2BZz21FjsGTuMauEuyTdi",
+        "alias": "",
+        "total_money_spent": 53.0,
+        "items": 1
+    },
+    {
+        "ranking": 605,
+        "wallet_id": "tz1g5FusYAAguoRgeg3br7T5qs2G3p4LpWkA",
+        "alias": "",
+        "total_money_spent": 53.0,
+        "items": 1
+    },
+    {
+        "ranking": 606,
+        "wallet_id": "tz1YyosCPXSh8jffUFHWS11B444DvMftg9nZ",
+        "alias": "tdcgallery",
+        "total_money_spent": 53.0,
+        "items": 1
+    },
+    {
+        "ranking": 607,
+        "wallet_id": "tz1VGZPvqytFVAoSAsM8VrUveJdL3PpVy6K9",
+        "alias": "999",
+        "total_money_spent": 52.0,
+        "items": 1
+    },
+    {
+        "ranking": 608,
+        "wallet_id": "tz1c4Q3cM3NUmsAcYGgMyDKbJsAm2YekG3Hc",
+        "alias": "glipty",
+        "total_money_spent": 52.0,
+        "items": 1
+    },
+    {
+        "ranking": 609,
+        "wallet_id": "tz1KgQPu6JSgppkWCUBcqP9RFYhXKfCeDSG3",
+        "alias": "eko33",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 610,
+        "wallet_id": "tz1c8bog1Hw3c2AUYUcsJrKs1hw9CTfFTeCe",
+        "alias": "thor",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 611,
+        "wallet_id": "tz1i665vhgT1TihT6HnGb13WEh8YHJzU4rZK",
+        "alias": "",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 612,
+        "wallet_id": "tz1QGmSvdLnndpZdsp8bPAWS4cAtpBoNJyCD",
+        "alias": "",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 613,
+        "wallet_id": "tz1iPaLZNe7798V5Rg6Gof4Z1Ri4J5xqdy3b",
+        "alias": "",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 614,
+        "wallet_id": "tz1LhFt9reUsbyYCCH9vosqSZqsAPXpZZdEr",
+        "alias": "",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 615,
+        "wallet_id": "tz1SKD2rC1KCdGyx6R2Jggnb9NKAG4ddwH7H",
+        "alias": "",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 616,
+        "wallet_id": "tz1iLugrwSPXvmdruCkNs3EnB4QjHWknWr23",
+        "alias": "",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 617,
+        "wallet_id": "tz2BzwVtwa2mTbspW1qqdiA2UtctbGntxAGi",
+        "alias": "",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 618,
+        "wallet_id": "tz1UHz55qTmnNUnm11FzLjHpXG3EvkJPPyB1",
+        "alias": "Desinfo",
+        "total_money_spent": 50.0,
+        "items": 1
+    },
+    {
+        "ranking": 619,
+        "wallet_id": "tz1ds8pMT6siVy2N7Ld5JhaPscNm7VJTCZED",
+        "alias": "",
+        "total_money_spent": 49.9,
+        "items": 1
+    },
+    {
+        "ranking": 620,
+        "wallet_id": "tz1gH5qBndFDibwQ1jyZ3QDGcm35qYD7ndru",
+        "alias": "Brendon",
+        "total_money_spent": 49.5,
+        "items": 1
+    },
+    {
+        "ranking": 621,
+        "wallet_id": "tz1RCEK6PV3a6mczWm8YfaBr8rd3qn5DfDWj",
+        "alias": "maulwolfone",
+        "total_money_spent": 49.5,
+        "items": 1
+    },
+    {
+        "ranking": 622,
+        "wallet_id": "tz1N8jZvExv7sDTKrtjLJ3pxATw8XfiA78MA",
+        "alias": "",
+        "total_money_spent": 49.0,
+        "items": 1
+    },
+    {
+        "ranking": 623,
+        "wallet_id": "tz1fFrWZFVxekkq3GbbN74GKaQggy8qs58N8",
+        "alias": "",
+        "total_money_spent": 48.99,
+        "items": 1
+    },
+    {
+        "ranking": 624,
+        "wallet_id": "tz1MdoaTqtKHQmbTzNYyMgtKW4xuikAnD9eu",
+        "alias": "Jarrett Cross",
+        "total_money_spent": 48.0,
+        "items": 1
+    },
+    {
+        "ranking": 625,
+        "wallet_id": "tz1YS54iDrNhX8KAvT9HSNgumBgkLQZ5UBNg",
+        "alias": "time.walker",
+        "total_money_spent": 47.5,
+        "items": 1
+    },
+    {
+        "ranking": 626,
+        "wallet_id": "tz1M24Xh8U8P3NAdBrapmqKqLo91mePLBCae",
+        "alias": "",
+        "total_money_spent": 47.0,
+        "items": 1
+    },
+    {
+        "ranking": 627,
+        "wallet_id": "tz1QfHrDDxQsMcvfGJ4eFWCjwMeYXGjq1cu9",
+        "alias": "",
+        "total_money_spent": 46.6,
+        "items": 1
+    },
+    {
+        "ranking": 628,
+        "wallet_id": "tz1ZU7vwEU4aoKard1acgnpGi8fFc4VkKzbP",
+        "alias": "louisfry",
+        "total_money_spent": 46.0,
+        "items": 1
+    },
+    {
+        "ranking": 629,
+        "wallet_id": "tz1Tuf6zhyZ4xB5jaAnuKE7FNkQjsDArzFXC",
+        "alias": "",
+        "total_money_spent": 45.0,
+        "items": 1
+    },
+    {
+        "ranking": 630,
+        "wallet_id": "tz1YvmjFeLjUYfUEVjuq1GwnM4DuFa8JARRH",
+        "alias": "",
+        "total_money_spent": 45.0,
+        "items": 1
+    },
+    {
+        "ranking": 631,
+        "wallet_id": "tz1dVnukX4eiU4HAjKb7Amjtey941JkWVjCy",
+        "alias": "",
+        "total_money_spent": 45.0,
+        "items": 1
+    },
+    {
+        "ranking": 632,
+        "wallet_id": "tz1fR3t5PggeWierKDsVZmXUSDrwUTJJBwZN",
+        "alias": "theochron",
+        "total_money_spent": 45.0,
+        "items": 1
+    },
+    {
+        "ranking": 633,
+        "wallet_id": "tz2E3zsVHhfnKsgTRdsym12poyZqQfwXZERf",
+        "alias": "",
+        "total_money_spent": 45.0,
+        "items": 1
+    },
+    {
+        "ranking": 634,
+        "wallet_id": "tz1dciLQa6czMcmgvvfbdtpDohT3LsJFGHe4",
+        "alias": "",
+        "total_money_spent": 44.9,
+        "items": 1
+    },
+    {
+        "ranking": 635,
+        "wallet_id": "tz1g1e9oYJuXwRqQWoNh6y7JkJAJEqfP2tPm",
+        "alias": "bertholet",
+        "total_money_spent": 44.88,
+        "items": 1
+    },
+    {
+        "ranking": 636,
+        "wallet_id": "tz1ZWshhoEpKN4ma6rwDh5USQH7aa61T1tJR",
+        "alias": "",
+        "total_money_spent": 44.0,
+        "items": 1
+    },
+    {
+        "ranking": 637,
+        "wallet_id": "tz1ZUmGJQWpTusqRHyH3xXYf4aPnyHxy7YgZ",
+        "alias": "",
+        "total_money_spent": 44.0,
+        "items": 1
+    },
+    {
+        "ranking": 638,
+        "wallet_id": "tz1RnN8t9vezLssksVbGo5wref3RdDEJ4PPb",
+        "alias": "",
+        "total_money_spent": 44.0,
+        "items": 1
+    },
+    {
+        "ranking": 639,
+        "wallet_id": "tz1TggeichxYBW37dBE69HeT3GXivgFh44nW",
+        "alias": "",
+        "total_money_spent": 44.0,
+        "items": 1
+    },
+    {
+        "ranking": 640,
+        "wallet_id": "tz1fy7JB4iYBLdekdgKmeTcgeCmdPbBnm6U3",
+        "alias": "",
+        "total_money_spent": 44.0,
+        "items": 1
+    },
+    {
+        "ranking": 641,
+        "wallet_id": "tz1hkXv6HiPrFvLFGXWMChHYCw5YDRuHMtjb",
+        "alias": "flynn",
+        "total_money_spent": 43.9,
+        "items": 1
+    },
+    {
+        "ranking": 642,
+        "wallet_id": "tz1LtxDS8zqC9fYQLMBLhv6afZiN2zra8X9v",
+        "alias": "LouBegaJr",
+        "total_money_spent": 43.0,
+        "items": 1
+    },
+    {
+        "ranking": 643,
+        "wallet_id": "tz1NXLkuHxwpCoCkEwx8Js8mWaQHV2tpLpJe",
+        "alias": "mrjonkane",
+        "total_money_spent": 43.0,
+        "items": 1
+    },
+    {
+        "ranking": 644,
+        "wallet_id": "tz1VgJhx99HWYTijia8LtXXMiHRs6ikZtnkg",
+        "alias": "LP_NFT",
+        "total_money_spent": 41.0,
+        "items": 1
+    },
+    {
+        "ranking": 645,
+        "wallet_id": "tz1QGz8x1BnHCSMfvSbF6JY59ogoWA5UDBRo",
+        "alias": "",
+        "total_money_spent": 41.0,
+        "items": 1
+    },
+    {
+        "ranking": 646,
+        "wallet_id": "tz1NMEmuHnfv8uxcrpcAVGdU3jVr2gDyktPA",
+        "alias": "NFTArmory",
+        "total_money_spent": 41.0,
+        "items": 1
+    },
+    {
+        "ranking": 647,
+        "wallet_id": "tz1WnsNv3sDcbX54ReFunRnPTZcB4WTQRcpe",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 648,
+        "wallet_id": "tz1M7n1FpvfKhByTPhW3pwbQv67Ka5YV17BC",
+        "alias": "kellyrichardson",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 649,
+        "wallet_id": "tz1aWjMJ21hgvL3erNBqkr5D4nndGyZ1d4ES",
+        "alias": "Kleon",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 650,
+        "wallet_id": "tz1gHRrgxcp4abdoZq6htRe4nwJLWAg3TaDL",
+        "alias": "eraabstractum",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 651,
+        "wallet_id": "tz1awMBQByvvYb5b4wfovnUnnyfbcc2EtYmu",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 652,
+        "wallet_id": "tz1NJLe4Qt912n28sZsjSrUWT4aCccGmGQng",
+        "alias": "BARBI.S.A.",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 653,
+        "wallet_id": "tz1Z7DhfpZiiDQvwi2Y9R2LuWwUnGJ1Pf8yB",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 654,
+        "wallet_id": "tz1ZyAwJ37cJw45WvbPM1wHjHUyh5CoZt7RK",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 655,
+        "wallet_id": "tz1dJmyMB3jpEBE2uxQhnmbF8WttyUF88uA7",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 656,
+        "wallet_id": "tz1dJtRQyoyKsSRrxz2f1hs3M874HrpzDdfu",
+        "alias": "elbarto_0",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 657,
+        "wallet_id": "tz1e2YdSw7khJ1Pqj1dXSqGmfuEKptFUjwuY",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 658,
+        "wallet_id": "tz1MqvRnniV9avpdzobCZyCyf5zFfpBW2j22",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 659,
+        "wallet_id": "tz1Q6DJYsCheokpa9eqYryqGaHLQjFCFkocb",
+        "alias": "Taya Ferdinand",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 660,
+        "wallet_id": "tz1LY2Gg9WDckV5tQHvcRXZFJFvhzctqpwVg",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 661,
+        "wallet_id": "tz1fpFdRwhLLoKnYzMsZaw8mTL9QJMdyNwbH",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 662,
+        "wallet_id": "tz1UkAoGvQkf8vJXSEPXnjr7f2SEkW3mNuNq",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 663,
+        "wallet_id": "tz1XkrHY1RjRQ3RXS3njmGZUJqGMkdg8s3DK",
+        "alias": "wonderland",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 664,
+        "wallet_id": "tz1fkm5FBp5MVLXZjWkTVfNbeciHvBfckPMo",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 665,
+        "wallet_id": "tz1RCtiQG8htUinxut1Smuj3ExASgxeWzrUa",
+        "alias": "velhodalancha",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 666,
+        "wallet_id": "tz1cHCZ8tXkfhwDGVqqRu5vM947bnXoTNTTK",
+        "alias": "Discokid909",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 667,
+        "wallet_id": "tz1Lj7Bs9kWAPCvvtxM7jGrTMxK17afDvLa5",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 668,
+        "wallet_id": "tz1aVig3sm4rrsnyWTwCxVPhjK1p4kRFPqJp",
+        "alias": "",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 669,
+        "wallet_id": "tz1WXriKsenG8HKkZ4dk8yEtbRnLNFPU514P",
+        "alias": "adityaputral",
+        "total_money_spent": 40.0,
+        "items": 1
+    },
+    {
+        "ranking": 670,
+        "wallet_id": "tz1N2nCmHuFMVugzY4Fs6P5KKwDisWM7Eyk7",
+        "alias": "",
+        "total_money_spent": 39.9,
+        "items": 1
+    },
+    {
+        "ranking": 671,
+        "wallet_id": "tz1YXSJ2K3k6uWn56vPv731hrgdHa7JbRxRG",
+        "alias": "",
+        "total_money_spent": 39.5,
+        "items": 1
+    },
+    {
+        "ranking": 672,
+        "wallet_id": "tz2NHSUu7RAqipiEvVx1okVBqZ3nPp5vX2q1",
+        "alias": "Pradaomygada",
+        "total_money_spent": 39.0,
+        "items": 1
+    },
+    {
+        "ranking": 673,
+        "wallet_id": "tz1gu54wW9hBsADXFcoTXTubGm6894sDPoAE",
+        "alias": "",
+        "total_money_spent": 39.0,
+        "items": 1
+    },
+    {
+        "ranking": 674,
+        "wallet_id": "tz1ipmHSJRq4XGGxZKND8dhYBwUk8GbBLBT2",
+        "alias": "",
+        "total_money_spent": 39.0,
+        "items": 1
+    },
+    {
+        "ranking": 675,
+        "wallet_id": "tz1WKqQ2jpHTC6qAAfknXM2dMiYnD5DogbgB",
+        "alias": "",
+        "total_money_spent": 39.0,
+        "items": 1
+    },
+    {
+        "ranking": 676,
+        "wallet_id": "tz1hKFfAzpF3VzchA4V7CNF3Cfxw2UD7NCYD",
+        "alias": "",
+        "total_money_spent": 39.0,
+        "items": 1
+    },
+    {
+        "ranking": 677,
+        "wallet_id": "tz1RxeY78zE8hNJbqPypB1mTVyTsBRmPuqry",
+        "alias": "Horium",
+        "total_money_spent": 39.0,
+        "items": 1
+    },
+    {
+        "ranking": 678,
+        "wallet_id": "tz1aQKoJYGJTZRNDjunJVuPmJeZPKsrRvpBZ",
+        "alias": "marcuscus",
+        "total_money_spent": 39.0,
+        "items": 1
+    },
+    {
+        "ranking": 679,
+        "wallet_id": "tz1VMdJRbRdnp2oHqqeKDtLNWq2YRoqMrqsB",
+        "alias": "illuvatar",
+        "total_money_spent": 38.0,
+        "items": 1
+    },
+    {
+        "ranking": 680,
+        "wallet_id": "tz1L91mzG47xaTvCd2iBAQ4ozNcNLjBbs4en",
+        "alias": "Cifu",
+        "total_money_spent": 38.0,
+        "items": 1
+    },
+    {
+        "ranking": 681,
+        "wallet_id": "tz1bS7XnoqP5FiVVC716Pusf6KTk1Nh4bgEo",
+        "alias": "",
+        "total_money_spent": 38.0,
+        "items": 1
+    },
+    {
+        "ranking": 682,
+        "wallet_id": "tz1UUVjPmX9wxC23P2UvFGp8wecNoHVm45Kk",
+        "alias": "",
+        "total_money_spent": 35.0,
+        "items": 1
+    },
+    {
+        "ranking": 683,
+        "wallet_id": "tz1NCsGajb5YgZdhdviKrfisN3VteMasnzQi",
+        "alias": "",
+        "total_money_spent": 35.0,
+        "items": 1
+    },
+    {
+        "ranking": 684,
+        "wallet_id": "tz1WRMbjkdqCTzssQMUQdWohk4RH8GchMSbS",
+        "alias": "",
+        "total_money_spent": 34.0,
+        "items": 1
+    },
+    {
+        "ranking": 685,
+        "wallet_id": "tz1XVu6DTg56A1UUAb6tbsEKSeGrdBnmaQQn",
+        "alias": "",
+        "total_money_spent": 33.0,
+        "items": 1
+    },
+    {
+        "ranking": 686,
+        "wallet_id": "tz1V6YfNEZdyDstDyJRkw52F5CUidMrX1iwZ",
+        "alias": "rosejackson",
+        "total_money_spent": 2.0,
+        "items": 2
+    }
+]

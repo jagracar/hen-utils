@@ -35,7 +35,9 @@ def plot_histogram(data, title, x_label, y_label, bins=100, log=False, **kwargs)
     plt.show(block=False)
 
 
-def plot_operations_per_day(operations, title, x_label, y_label, exclude_last_day=False, **kwargs):
+def plot_operations_per_day(operations, title, x_label, y_label,
+                            exclude_last_day=False, first_year=2021,
+                            first_month=3, first_day=1, **kwargs):
     """Plots the number of operation per day as a function of time.
 
     Parameters
@@ -50,13 +52,21 @@ def plot_operations_per_day(operations, title, x_label, y_label, exclude_last_da
         The label for the y axis.
     exclude_last_day: bool, optional
         If True the last day will be excluded from the plot. Default is False.
+    first_year: int, optional
+        The first year to count. Default is 2021.
+    first_month: int, optional
+        The first month to count. Default is 3 (March).
+    first_day: int, optional
+        The first day to count. Default is 1.
     kwargs: plt.figure properties
         Any additional property that should be passed to the figure.
 
     """
     # Get the operations per day
     timestamps = [operation["timestamp"] for operation in operations]
-    operations_per_day = get_counts_per_day(timestamps)
+    operations_per_day = get_counts_per_day(
+        timestamps, first_year=first_year, first_month=first_month,
+        first_day=first_day)
 
     if exclude_last_day:
         operations_per_day = operations_per_day[:-1]
@@ -66,11 +76,14 @@ def plot_operations_per_day(operations, title, x_label, y_label, exclude_last_da
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
+    plt.ylim(-0.05 * max(operations_per_day), 1.05 * max(operations_per_day))
     plt.plot(operations_per_day)
     plt.show(block=False)
 
 
-def plot_new_users_per_day(users, title, x_label, y_label, exclude_last_day=False, **kwargs):
+def plot_new_users_per_day(users, title, x_label, y_label,
+                           exclude_last_day=False, first_year=2021,
+                           first_month=3, first_day=1, **kwargs):
     """Plots the new users per day as a function of time.
 
     Parameters
@@ -85,13 +98,21 @@ def plot_new_users_per_day(users, title, x_label, y_label, exclude_last_day=Fals
         The label for the y axis.
     exclude_last_day: bool, optional
         If True the last day will be excluded from the plot. Default is False.
+    first_year: int, optional
+        The first year to count. Default is 2021.
+    first_month: int, optional
+        The first month to count. Default is 3 (March).
+    first_day: int, optional
+        The first day to count. Default is 1.
     kwargs: plt.figure properties
         Any additional property that should be passed to the figure.
 
     """
     # Get the users per day
     timestamps = [users[wallet_id]["first_interaction"]["timestamp"] for wallet_id in users]
-    users_per_day = get_counts_per_day(timestamps)
+    users_per_day = get_counts_per_day(
+        timestamps, first_year=first_year, first_month=first_month,
+        first_day=first_day)
 
     if exclude_last_day:
         users_per_day = users_per_day[:-1]
@@ -105,7 +126,9 @@ def plot_new_users_per_day(users, title, x_label, y_label, exclude_last_day=Fals
     plt.show(block=False)
 
 
-def plot_data_per_day(data, timestamps, title, x_label, y_label, exclude_last_day=False, **kwargs):
+def plot_data_per_day(data, timestamps, title, x_label, y_label,
+                      exclude_last_day=False, first_year=2021, first_month=3,
+                      first_day=1, **kwargs):
     """Plots some combined data per day as a function of time.
 
     Parameters
@@ -122,6 +145,12 @@ def plot_data_per_day(data, timestamps, title, x_label, y_label, exclude_last_da
         The label for the y axis.
     exclude_last_day: bool, optional
         If True the last day will be excluded from the plot. Default is False.
+    first_year: int, optional
+        The first year to count. Default is 2021.
+    first_month: int, optional
+        The first month to count. Default is 3 (March).
+    first_day: int, optional
+        The first day to count. Default is 1.
     kwargs: plt.figure properties
         Any additional property that should be passed to the figure.
 
@@ -136,12 +165,14 @@ def plot_data_per_day(data, timestamps, title, x_label, y_label, exclude_last_da
     finished = False
     now = datetime.utcnow()
 
-    for year in range(2021, np.max(years) + 1):
+    for year in range(first_year, np.max(years) + 1):
         for month in range(1, 13):
             for day in range(1, monthrange(year, month)[1] + 1):
-                # Check if we passed the starting day: 2021-03-01
+                # Check if we passed the starting day
                 if not started:
-                    started = (year == 2021) and (month == 3) and (day == 1)
+                    started = ((year == first_year) and 
+                               (month == first_month) and 
+                               (day == first_day))
 
                 # Check that we started and didn't finish yet
                 if started and not finished:
@@ -161,11 +192,16 @@ def plot_data_per_day(data, timestamps, title, x_label, y_label, exclude_last_da
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
+    plt.ylim(min(min(data_per_day), -0.05 * max(data_per_day)),
+             1.05 * max(data_per_day))
     plt.plot(data_per_day)
     plt.show(block=False)
 
 
-def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_label, y_label, exclude_last_day=False, **kwargs):
+def plot_price_distribution_per_day(money, timestamps, price_ranges, title,
+                                    x_label, y_label, exclude_last_day=False,
+                                    first_year=2021, first_month=3, first_day=1,
+                                    **kwargs):
     """Plots the price distribution in collect operations per day as a function
     of time.
 
@@ -185,6 +221,12 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_la
         The label for the y axis.
     exclude_last_day: bool, optional
         If True the last day will be excluded from the plot. Default is False.
+    first_year: int, optional
+        The first year to count. Default is 2021.
+    first_month: int, optional
+        The first month to count. Default is 3 (March).
+    first_day: int, optional
+        The first day to count. Default is 1.
     kwargs: plt.figure properties
         Any additional property that should be passed to the figure.
 
@@ -201,12 +243,14 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_la
     finished = False
     now = datetime.utcnow()
 
-    for year in range(2021, np.max(years) + 1):
+    for year in range(first_year, np.max(years) + 1):
         for month in range(1, 13):
             for day in range(1, monthrange(year, month)[1] + 1):
-                # Check if we passed the starting day: 2021-03-01
+                # Check if we passed the starting day
                 if not started:
-                    started = (year == 2021) and (month == 3) and (day == 1)
+                    started = ((year == first_year) and 
+                               (month == first_month) and 
+                               (day == first_day))
 
                 # Check that we started and didn't finish yet
                 if started and not finished:
@@ -248,7 +292,9 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title, x_la
     plt.show(block=False)
 
 
-def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, exclude_last_day=False, **kwargs):
+def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label,
+                              exclude_last_day=False, first_year=2021,
+                              first_month=3, first_day=1, **kwargs):
     """Plots the active users per day as a function of time.
 
     Parameters
@@ -265,6 +311,12 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, e
         The label for the y axis.
     exclude_last_day: bool, optional
         If True the last day will be excluded from the plot. Default is False.
+    first_year: int, optional
+        The first year to count. Default is 2021.
+    first_month: int, optional
+        The first month to count. Default is 3 (March).
+    first_day: int, optional
+        The first day to count. Default is 1.
     kwargs: plt.figure properties
         Any additional property that should be passed to the figure.
 
@@ -278,12 +330,14 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, e
     finished = False
     now = datetime.utcnow()
 
-    for year in range(2021, np.max(years) + 1):
+    for year in range(first_year, np.max(years) + 1):
         for month in range(1, 13):
             for day in range(1, monthrange(year, month)[1] + 1):
-                # Check if we passed the starting day: 2021-03-01
+                # Check if we passed the starting day
                 if not started:
-                    started = (year == 2021) and (month == 3) and (day == 1)
+                    started = ((year == first_year) and 
+                               (month == first_month) and 
+                               (day == first_day))
 
                 # Check that we started and didn't finish yet
                 if started and not finished:
@@ -307,7 +361,9 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label, e
     plt.show(block=False)
 
 
-def plot_users_last_active_day(wallet_ids, timestamps, title, x_label, y_label, exclude_last_day=False, **kwargs):
+def plot_users_last_active_day(wallet_ids, timestamps, title, x_label, y_label,
+                               exclude_last_day=False, first_year=2021,
+                               first_month=3, first_day=1, **kwargs):
     """Plots users last active day as a function of time.
 
     Parameters
@@ -324,6 +380,12 @@ def plot_users_last_active_day(wallet_ids, timestamps, title, x_label, y_label, 
         The label for the y axis.
     exclude_last_day: bool, optional
         If True the last day will be excluded from the plot. Default is False.
+    first_year: int, optional
+        The first year to count. Default is 2021.
+    first_month: int, optional
+        The first month to count. Default is 3 (March).
+    first_day: int, optional
+        The first day to count. Default is 1.
     kwargs: plt.figure properties
         Any additional property that should be passed to the figure.
 
@@ -342,7 +404,9 @@ def plot_users_last_active_day(wallet_ids, timestamps, title, x_label, y_label, 
     timestamps = list(users_last_activity.values())
 
     # Get the users per day
-    users_per_day = get_counts_per_day(timestamps)
+    users_per_day = get_counts_per_day(
+        timestamps, first_year=first_year, first_month=first_month,
+        first_day=first_day)
 
     if exclude_last_day:
         users_per_day = users_per_day[:-1]

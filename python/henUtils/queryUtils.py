@@ -230,6 +230,32 @@ def get_transactions(entrypoint, contract, offset=0, limit=100, timestamp=None,
     return get_query_result(query)
 
 
+def extract_relevant_transaction_information(transactions):
+    """Extracts the most relevant information from a list of transactions.
+
+    Parameters
+    ----------
+    transactions: list
+        The list of transactions.
+
+    Returns
+    -------
+    list
+        A python list with the most relevant transactions information.
+
+    """
+    relevant_transaction_information = []
+    relevant_keywords = [
+        "timestamp", "hash", "initiator", "sender", "target", "amount",
+        "parameter"]
+
+    for transaction in transactions:
+        relevant_transaction_information.append({
+            keyword: transaction[keyword] for keyword in relevant_keywords if keyword in transaction})
+
+    return relevant_transaction_information
+
+
 def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_time=1):
     """Returns the complete list of applied transactions of a given type
     ordered by increasing time stamp.
@@ -295,14 +321,16 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000, sleep_tim
                 print_info(
                     "Batch %i has been already downloaded. Reading it from "
                     "local json file." % total_counter)
-                transactions += read_json_file(file_name)
+                transactions += extract_relevant_transaction_information(
+                    read_json_file(file_name))
             else:
                 print_info("Downloading batch %i" % total_counter)
                 new_transactions = get_transactions(
                     entrypoint, contract,
                     (counter - 1) * transactions_per_batch,
                     transactions_per_batch, parameter_query=parameter_query)
-                transactions += new_transactions
+                transactions += extract_relevant_transaction_information(
+                    new_transactions)
 
                 if len(new_transactions) != transactions_per_batch:
                     counter = 1
@@ -465,7 +493,7 @@ def get_objktcom_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=
     name: str
         The bigmap name: bids, asks, english auctions or ductch auctions.
     token: str
-        The token name: OBJKT, tezzardz.
+        The token name: OBJKT, tezzardz, prjktneon, artcardz, gogo, neonz.
     data_dir: str
         The complete path to the directory where the objkt.com bigmap keys
         information should be saved.
@@ -502,10 +530,20 @@ def get_objktcom_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=
 
     # Set the token contract
     if token == "OBJKT":
-        token_contract = "KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"
+        token_contracts = ["KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"]
     elif token == "tezzardz":
-        token_contract = "KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6"
-        
+        token_contracts = ["KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6"]
+    elif token == "prjktneon":
+        token_contracts = [
+            "KT1VbHpQmtkA3D4uEbbju26zS8C42M5AGNjZ",
+            "KT1H8sxNSgnkCeZsij4z76pkXu8BCZNvPZEx"]
+    elif token == "artcardz":
+        token_contracts = ["KT1LbLNTTPoLgpumACCBFJzBEHDiEUqNxz5C"]
+    elif token == "gogo":
+        token_contracts = ["KT1SyPgtiXTaEfBuMZKviWGNHqVrBBEjvtfQ"]
+    elif token == "neonz":
+        token_contracts = ["KT1MsdyBSAMQwzvDH4jt2mxUKJvBSWZuPoRJ"]
+
     # Get the objkt.com bigmap keys
     bigmap_keys = get_bigmap_keys(
         bigmap_ids, data_dir, keys_per_batch, sleep_time)
@@ -514,7 +552,7 @@ def get_objktcom_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=
     bigmap = {}
 
     for bigmap_key in bigmap_keys:
-        if bigmap_key["value"]["fa2"] == token_contract:
+        if bigmap_key["value"]["fa2"] in token_contracts:
             bigmap[bigmap_key["key"]] = bigmap_key["value"]
             bigmap[bigmap_key["key"]]["active"] = bigmap_key["active"]
 
@@ -652,7 +690,9 @@ def extract_collector_accounts(transactions, registries_bigmap, swaps_bigmap):
 def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
                                         english_auction_transactions,
                                         dutch_auction_transactions,
-                                        bids_bigmap, english_auctions_bigmap,
+                                        bids_bigmap, ask_bigmap,
+                                        english_auctions_bigmap,
+                                        dutch_auctions_bigmap,
                                         registries_bigmap):
     """Extracts the objkt.com collector accounts information from a several
     lists of transactions.
@@ -669,8 +709,12 @@ def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
         The list of objkt.com dutch auction transactions.
     bids_bigmap: dict
         The objkt.com bid bigmap.
+    ask_bigmap: dict
+        The objkt.com ask bigmap.
     english_auctions_bigmap: dict
         The objkt.com english auctions bigmap.
+    dutch_auctions_bigmap: dict
+        The objkt.com dutch auctions bigmap.
     registries_bigmap: dict
         The H=N registries bigmap.
 
@@ -685,81 +729,137 @@ def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
     for transaction in bid_transactions:
         bid = bids_bigmap[transaction["parameter"]["value"]]
         collector_wallet_id = bid["issuer"]
+        objkt_id = bid["objkt_id"]
         amount = int(bid["xtz_per_objkt"]) / 1e6
 
-        if collector_wallet_id not in collectors:
-            collectors[collector_wallet_id] = {
-                "bid_money_spent": [],
-                "ask_money_spent": [],
-                "english_auction_money_spent": [],
-                "dutch_auction_money_spent": [],
-                "alias": "",
-                "reported": False}
+        if collector_wallet_id.startswith("tz"):
+            if collector_wallet_id not in collectors:
+                collectors[collector_wallet_id] = {
+                    "bid_objkts": [],
+                    "bid_money_spent": [],
+                    "bid_timestamps": [],
+                    "ask_objkts": [],
+                    "ask_money_spent": [],
+                    "ask_timestamps": [],
+                    "english_auction_objkts": [],
+                    "english_auction_money_spent": [],
+                    "english_auction_timestamps": [],
+                    "dutch_auction_objkts": [],
+                    "dutch_auction_money_spent": [],
+                    "dutch_auction_timestamps": [],
+                    "alias": "",
+                    "reported": False}
 
-        collectors[collector_wallet_id]["bid_money_spent"].append(amount)
+            collectors[collector_wallet_id]["bid_objkts"].append(objkt_id)
+            collectors[collector_wallet_id]["bid_money_spent"].append(amount)
+            collectors[collector_wallet_id]["bid_timestamps"].append(
+                transaction["timestamp"])
 
     for transaction in ask_transactions:
+        ask = ask_bigmap[transaction["parameter"]["value"]]
         collector_wallet_id = transaction["sender"]["address"]
+        objkt_id = ask["objkt_id"]
         amount = transaction["amount"] / 1e6
 
-        if "alias" in transaction["sender"]:
-            collector_alias = transaction["sender"]["alias"]
-        else:
-            collector_alias = ""
+        if collector_wallet_id.startswith("tz"):
+            if "alias" in transaction["sender"]:
+                collector_alias = transaction["sender"]["alias"]
+            else:
+                collector_alias = ""
 
-        if collector_wallet_id not in collectors:
-            collectors[collector_wallet_id] = {
-                "bid_money_spent": [],
-                "ask_money_spent": [],
-                "english_auction_money_spent": [],
-                "dutch_auction_money_spent": [],
-                "alias": "",
-                "reported": False}
+            if collector_wallet_id not in collectors:
+                collectors[collector_wallet_id] = {
+                    "bid_objkts": [],
+                    "bid_money_spent": [],
+                    "bid_timestamps": [],
+                    "ask_objkts": [],
+                    "ask_money_spent": [],
+                    "ask_timestamps": [],
+                    "english_auction_objkts": [],
+                    "english_auction_money_spent": [],
+                    "english_auction_timestamps": [],
+                    "dutch_auction_objkts": [],
+                    "dutch_auction_money_spent": [],
+                    "dutch_auction_timestamps": [],
+                    "alias": "",
+                    "reported": False}
 
-        collectors[collector_wallet_id]["ask_money_spent"].append(amount)
-        collectors[collector_wallet_id]["alias"] = collector_alias
+            collectors[collector_wallet_id]["ask_objkts"].append(objkt_id)
+            collectors[collector_wallet_id]["ask_money_spent"].append(amount)
+            collectors[collector_wallet_id]["alias"] = collector_alias
+            collectors[collector_wallet_id]["ask_timestamps"].append(
+                transaction["timestamp"])
 
     for transaction in english_auction_transactions:
         auction = english_auctions_bigmap[transaction["parameter"]["value"]]
         collector_wallet_id = auction["highest_bidder"]
         amount = int(auction["current_price"]) / 1e6
+        objkt_id = auction["objkt_id"]
 
         if amount == 0:
             continue
 
-        if collector_wallet_id not in collectors:
-            collectors[collector_wallet_id] = {
-                "bid_money_spent": [],
-                "ask_money_spent": [],
-                "english_auction_money_spent": [],
-                "dutch_auction_money_spent": [],
-                "alias": "",
-                "reported": False}
+        if collector_wallet_id.startswith("tz"):
+            if collector_wallet_id not in collectors:
+                collectors[collector_wallet_id] = {
+                    "bid_objkts": [],
+                    "bid_money_spent": [],
+                    "bid_timestamps": [],
+                    "ask_objkts": [],
+                    "ask_money_spent": [],
+                    "ask_timestamps": [],
+                    "english_auction_objkts": [],
+                    "english_auction_money_spent": [],
+                    "english_auction_timestamps": [],
+                    "dutch_auction_objkts": [],
+                    "dutch_auction_money_spent": [],
+                    "dutch_auction_timestamps": [],
+                    "alias": "",
+                    "reported": False}
 
-        collectors[collector_wallet_id]["english_auction_money_spent"].append(
-            amount)
+            collectors[collector_wallet_id]["english_auction_objkts"].append(
+                objkt_id)
+            collectors[collector_wallet_id]["english_auction_money_spent"].append(
+                amount)
+            collectors[collector_wallet_id]["english_auction_timestamps"].append(
+                transaction["timestamp"])
 
     for transaction in dutch_auction_transactions:
+        auction = dutch_auctions_bigmap[transaction["parameter"]["value"]]
         collector_wallet_id = transaction["sender"]["address"]
         amount = transaction["amount"] / 1e6
+        objkt_id = auction["objkt_id"]
 
-        if "alias" in transaction["sender"]:
-            collector_alias = transaction["sender"]["alias"]
-        else:
-            collector_alias = ""
+        if collector_wallet_id.startswith("tz"):
+            if "alias" in transaction["sender"]:
+                collector_alias = transaction["sender"]["alias"]
+            else:
+                collector_alias = ""
 
-        if collector_wallet_id not in collectors:
-            collectors[collector_wallet_id] = {
-                "bid_money_spent": [],
-                "ask_money_spent": [],
-                "english_auction_money_spent": [],
-                "dutch_auction_money_spent": [],
-                "alias": "",
-                "reported": False}
+            if collector_wallet_id not in collectors:
+                collectors[collector_wallet_id] = {
+                    "bid_objkts": [],
+                    "bid_money_spent": [],
+                    "bid_timestamps": [],
+                    "ask_objkts": [],
+                    "ask_money_spent": [],
+                    "ask_timestamps": [],
+                    "english_auction_objkts": [],
+                    "english_auction_money_spent": [],
+                    "english_auction_timestamps": [],
+                    "dutch_auction_objkts": [],
+                    "dutch_auction_money_spent": [],
+                    "dutch_auction_timestamps": [],
+                    "alias": "",
+                    "reported": False}
 
-        collectors[collector_wallet_id]["dutch_auction_money_spent"].append(
-            amount)
-        collectors[collector_wallet_id]["alias"] = collector_alias
+            collectors[collector_wallet_id]["dutch_auction_objkts"].append(
+                objkt_id)
+            collectors[collector_wallet_id]["dutch_auction_money_spent"].append(
+                amount)
+            collectors[collector_wallet_id]["alias"] = collector_alias
+            collectors[collector_wallet_id]["dutch_auction_timestamps"].append(
+                transaction["timestamp"])
 
     for collector_wallet_id, collector in collectors.items():
         collector["total_money_spent"] = (
@@ -767,7 +867,12 @@ def extract_objktcom_collector_accounts(bid_transactions, ask_transactions,
             sum(collector["ask_money_spent"]) + 
             sum(collector["english_auction_money_spent"]) + 
             sum(collector["dutch_auction_money_spent"]))
-        
+        collector["items"] = (
+            len(collector["bid_money_spent"]) + 
+            len(collector["ask_money_spent"]) + 
+            len(collector["english_auction_money_spent"]) + 
+            len(collector["dutch_auction_money_spent"]))
+
         if collector_wallet_id in registries_bigmap:
             collector["alias"] = registries_bigmap[collector_wallet_id]["user"]
 
@@ -891,11 +996,13 @@ def get_objkt_creators(transactions):
 
 
 def extract_users_connections(objkt_creators, transactions, swaps_bigmap,
-                              users, reported_users):
+                              users, objktcom_collectors, reported_users):
     users_connections = {}
     user_counter = 0
 
     for artist_wallet_id in objkt_creators.values():
+        # Add the artists wallets, since it could be that they might not have
+        # connections from collect operations
         if artist_wallet_id.startswith("KT"):
             continue
         elif artist_wallet_id not in users_connections:
@@ -906,8 +1013,8 @@ def extract_users_connections(objkt_creators, transactions, swaps_bigmap,
 
             users_connections[artist_wallet_id] = {
                 "alias": alias,
-                "artists" : set(),
-                "collectors" : set(),
+                "artists" : {},
+                "collectors" : {},
                 "reported": False,
                 "counter": user_counter}
             user_counter += 1
@@ -928,19 +1035,31 @@ def extract_users_connections(objkt_creators, transactions, swaps_bigmap,
         collector_wallet_id = transaction["sender"]["address"]
         artist_wallet_id = objkt_creators[objkt_id]
 
+        # Move to the next transaction if one of the walles is a contract
         if (artist_wallet_id.startswith("KT") or 
             collector_wallet_id.startswith("KT")):
             continue
 
+        # Move to the next transaction if the artist and the collector coincide
         if artist_wallet_id == collector_wallet_id:
             continue
 
-        users_connections[artist_wallet_id]["collectors"].add(
-            collector_wallet_id)
+        # Add the collector to the artist collectors list
+        collectors = users_connections[artist_wallet_id]["collectors"]
 
+        if collector_wallet_id in collectors:
+            collectors[collector_wallet_id] += 1
+        else:
+            collectors[collector_wallet_id] = 1
+
+        # Add the artist to the collector artists list
         if collector_wallet_id in users_connections:
-            users_connections[collector_wallet_id]["artists"].add(
-                artist_wallet_id)
+            artists = users_connections[collector_wallet_id]["artists"]
+
+            if artist_wallet_id in artists:
+                artists[artist_wallet_id] += 1
+            else:
+                artists[artist_wallet_id] = 1
         else:
             if collector_wallet_id in users:
                 alias = users[collector_wallet_id]["alias"]
@@ -949,24 +1068,94 @@ def extract_users_connections(objkt_creators, transactions, swaps_bigmap,
 
             users_connections[collector_wallet_id] = {
                 "alias": alias,
-                "artists" : set([artist_wallet_id]),
-                "collectors" : set(),
+                "artists" : {artist_wallet_id: 1},
+                "collectors" : {},
                 "reported": False,
                 "counter": user_counter}
             user_counter += 1
 
+    for collector_wallet_id, objktcom_collector in objktcom_collectors.items():
+        # Get the objkt ids
+        objkt_ids = (objktcom_collector["bid_objkts"] + 
+                     objktcom_collector["ask_objkts"] + 
+                     objktcom_collector["english_auction_objkts"] + 
+                     objktcom_collector["dutch_auction_objkts"])
+
+        # Loop over the collected OBJKT ids
+        for objkt_id in objkt_ids:
+            # Get the artist wallet id
+            artist_wallet_id = objkt_creators[objkt_id]
+
+            # Move to the next OBJKT if the wallet is a contract
+            if artist_wallet_id.startswith("KT"):
+                continue
+
+            # Move to the next OBJKT if the artist and the collector coincide
+            if artist_wallet_id == collector_wallet_id:
+                continue
+
+            # Add the collector to the artist collectors list
+            collectors = users_connections[artist_wallet_id]["collectors"]
+
+            if collector_wallet_id in collectors:
+                collectors[collector_wallet_id] += 1
+            else:
+                collectors[collector_wallet_id] = 1
+
+            # Add the artist to the collector artists list
+            if collector_wallet_id in users_connections:
+                artists = users_connections[collector_wallet_id]["artists"]
+
+                if artist_wallet_id in artists:
+                    artists[artist_wallet_id] += 1
+                else:
+                    artists[artist_wallet_id] = 1
+            else:
+                if collector_wallet_id in users:
+                    alias = users[collector_wallet_id]["alias"]
+                else:
+                    alias = objktcom_collector["alias"]
+
+                users_connections[collector_wallet_id] = {
+                    "alias": alias,
+                    "artists" : {artist_wallet_id: 1},
+                    "collectors" : {},
+                    "reported": False,
+                    "counter": user_counter}
+                user_counter += 1
+
+    # Fill the reported user information
     for reported_user_wallet_id in reported_users:
         if reported_user_wallet_id in users_connections:
             users_connections[reported_user_wallet_id]["reported"] = True
 
+    # Process the connections information to a different format
     for user in users_connections.values():
-        user["artists_and_collectors"] = user["artists"].intersection(user["collectors"])
-        user["artists"] = user["artists"] - user["artists_and_collectors"] 
-        user["collectors"] = user["collectors"] - user["artists_and_collectors"] 
-        user["artists_and_collectors"] = list(user["artists_and_collectors"])
-        user["artists"] = list(user["artists"])
-        user["collectors"] = list(user["collectors"])
+        # Get the lists of artist and collectors wallets
+        artists_and_collectors_wallets = [
+            wallet for wallet in user["artists"] if wallet in user["collectors"]]
+        artists_wallets = [
+            wallet for wallet in user["artists"] if not wallet in user["collectors"]]
+        collectors_wallets = [
+            wallet for wallet in user["collectors"] if not wallet in user["artists"]]
 
+        # Get the lists of artists and collectors weights
+        artists_and_collectors_weights = [
+            user["artists"][wallet] + user["collectors"][wallet] for wallet in artists_and_collectors_wallets]
+        artists_weights = [
+            user["artists"][wallet] for wallet in artists_wallets]
+        collectors_weights = [
+            user["collectors"][wallet] for wallet in collectors_wallets]
+
+        # Add these lists to the user information
+        user["artists_and_collectors"] = artists_and_collectors_wallets
+        user["artists_and_collectors_weights"] = artists_and_collectors_weights
+        user["artists"] = artists_wallets
+        user["artists_weights"] = artists_weights
+        user["collectors"] = collectors_wallets
+        user["collectors_weights"] = collectors_weights
+
+    # Create the serialized users connections
     serialized_users_connections = {}
 
     for wallet_id, user in users_connections.items():
@@ -981,8 +1170,11 @@ def extract_users_connections(objkt_creators, transactions, swaps_bigmap,
             "wallet": wallet_id,
             "alias": user["alias"],
             "artists_and_collectors": serialized_artists_and_collectors,
+            "artists_and_collectors_weights": user["artists_and_collectors_weights"],
             "artists": serialized_artists,
+            "artists_weights": user["artists_weights"],
             "collectors": serialized_collectors,
+            "collectors_weights": user["collectors_weights"],
             "reported": user["reported"]}
 
     return users_connections, serialized_users_connections
@@ -1078,13 +1270,19 @@ def split_timestamps(timestamps):
     return years, months, days
 
 
-def get_counts_per_day(timestamps):
+def get_counts_per_day(timestamps, first_year=2021, first_month=3, first_day=1):
     """Calculates the counts per day for a list of time stamps.
 
     Parameters
     ----------
     timestamps: list
         A python list with ordered time stamps.
+    first_year: int, optional
+        The first year to count. Default is 2021.
+    first_month: int, optional
+        The first month to count. Default is 3 (March).
+    first_day: int, optional
+        The first day to count. Default is 1.
 
     Returns
     -------
@@ -1101,12 +1299,14 @@ def get_counts_per_day(timestamps):
     finished = False
     now = datetime.utcnow()
 
-    for year in range(2021, np.max(years) + 1):
+    for year in range(first_year, np.max(years) + 1):
         for month in range(1, 13):
             for day in range(1, monthrange(year, month)[1] + 1):
-                # Check if we passed the starting day: 2021-03-01
+                # Check if we passed the first day
                 if not started:
-                    started = (year == 2021) and (month == 3) and (day == 1)
+                    started = ((year == first_year) and 
+                               (month == first_month) and 
+                               (day == first_day))
 
                 # Check that we started and didn't finish yet
                 if started and not finished:
@@ -1121,13 +1321,19 @@ def get_counts_per_day(timestamps):
     return counts_per_day
 
 
-def group_users_per_day(users):
+def group_users_per_day(users, first_year=2021, first_month=3, first_day=1):
     """Groups the given users per the day of their first interaction.
 
     Parameters
     ----------
     users: dict
         A python dictionary with the users information.
+    first_year: int, optional
+        The first year to count. Default is 2021.
+    first_month: int, optional
+        The first month to count. Default is 3 (March).
+    first_day: int, optional
+        The first day to count. Default is 1.
 
     Returns
     -------
@@ -1149,12 +1355,14 @@ def group_users_per_day(users):
     finished = False
     now = datetime.utcnow()
 
-    for year in range(2021, np.max(years) + 1):
+    for year in range(first_year, np.max(years) + 1):
         for month in range(1, 13):
             for day in range(1, monthrange(year, month)[1] + 1):
-                # Check if we passed the starting day: 2021-03-01
+                # Check if we passed the starting day
                 if not started:
-                    started = (year == 2021) and (month == 3) and (day == 1)
+                    started = ((year == first_year) and 
+                               (month == first_month) and 
+                               (day == first_day))
 
                 # Check that we started and didn't finish yet
                 if started and not finished:
