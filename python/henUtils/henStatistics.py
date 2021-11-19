@@ -3,14 +3,21 @@ from henUtils.queryUtils import *
 from henUtils.plotUtils import *
 
 # Exclude the last day from most of the plots?
-exclude_last_day = True
+exclude_last_day = False
 
 # Set the path to the directory where the transaction information will be saved
 # to avoid to query for it again and again
 transactions_dir = "../data/transactions"
 
+# Set the path to the directory where the tezos wallets information will be
+# saved to avoid to query for it again and again
+tezos_dir = "../data/tezos"
+
 # Set the path to the directory where the figures will be saved
 figures_dir = "../figures"
+
+# Get the complete list of tezos wallets
+tezos_wallets = get_tezos_wallets(tezos_dir, sleep_time=1)
 
 # Read the connected wallets information (wallets connected to the same user)
 connected_wallets = read_json_file("../data/connected_wallets.json")
@@ -25,6 +32,21 @@ cancel_swap_transactions = get_all_transactions(
     "cancel_swap", transactions_dir, sleep_time=1)
 burn_transactions = get_all_transactions("burn", transactions_dir, sleep_time=1)
 
+# Get the complete list of fxhash mint, collect, offer and cancel_offer
+# transactions
+fxhash_mint_issuer_transactions = get_all_transactions(
+    "fxhash_mint_issuer", transactions_dir, sleep_time=1)
+fxhash_update_issuer_transactions = get_all_transactions(
+    "fxhash_update_issuer", transactions_dir, sleep_time=1)
+fxhash_mint_transactions = get_all_transactions(
+    "fxhash_mint", transactions_dir, sleep_time=1)
+fxhash_collect_transactions = get_all_transactions(
+    "fxhash_collect", transactions_dir, sleep_time=1)
+fxhash_offer_transactions = get_all_transactions(
+    "fxhash_offer", transactions_dir, sleep_time=1)
+fxhash_cancel_offer_transactions = get_all_transactions(
+    "fxhash_cancel_offer", transactions_dir, sleep_time=1)
+
 # Get the complete list of objkt.com bid, ask, english auction and dutch auction
 # transactions
 bid_transactions = get_all_transactions("bid", transactions_dir, sleep_time=1)
@@ -36,36 +58,105 @@ dutch_auction_transactions = get_all_transactions(
 
 # Get the H=N bigmaps
 swaps_bigmap = get_hen_bigmap("swaps", transactions_dir, sleep_time=1)
+royalties_bigmap = get_hen_bigmap("royalties", transactions_dir, sleep_time=1)
 registries_bigmap = get_hen_bigmap("registries", transactions_dir, sleep_time=1)
 subjkts_metadata_bigmap = get_hen_bigmap(
     "subjkts metadata", transactions_dir, sleep_time=1)
 
-# Get the objkt.com bigmaps
-bids_bigmap = get_objktcom_bigmap(
-    "bids", "OBJKT", transactions_dir, sleep_time=1)
-asks_bigmap = get_objktcom_bigmap(
-    "asks", "OBJKT", transactions_dir, sleep_time=1)
-english_auctions_bigmap = get_objktcom_bigmap(
-    "english auctions", "OBJKT", transactions_dir, sleep_time=1)
-dutch_auctions_bigmap = get_objktcom_bigmap(
-    "dutch auctions", "OBJKT", transactions_dir, sleep_time=1)
+# Get the fxhash bigmaps
+fxhash_offer_bigmap = get_fxhash_bigmap(
+    "offers", transactions_dir, sleep_time=1)
 
-# Select only the objkt.com transactions related with H=N OBJKTs
-bid_transactions = [transaction for transaction in bid_transactions if 
-                    transaction["parameter"]["value"] in bids_bigmap]
-ask_transactions = [transaction for transaction in ask_transactions if 
-                    transaction["parameter"]["value"] in asks_bigmap]
-english_auction_transactions = [
+# Get the objkt.com bigmaps associated to OBJKTs
+objkt_bids_bigmap = get_objktcom_bigmap(
+    "bids", "OBJKT", transactions_dir, sleep_time=1)
+objkt_asks_bigmap = get_objktcom_bigmap(
+    "asks", "OBJKT", transactions_dir, sleep_time=1)
+objkt_english_auctions_bigmap = get_objktcom_bigmap(
+    "english auctions", "OBJKT", transactions_dir, sleep_time=1)
+objkt_dutch_auctions_bigmap = get_objktcom_bigmap(
+    "dutch auctions", "OBJKT", transactions_dir, sleep_time=1)
+objkt_minter_bigmap = get_objktcom_bigmap(
+    "minter", "all", transactions_dir, sleep_time=1)
+
+collections_contracts = [entry["contract"] for entry in objkt_minter_bigmap.values()]
+
+# Get the objkt.com bigmaps associated to all the big tezos tokens
+collections_bids_bigmap = get_objktcom_bigmap(
+    "bids", "collections", transactions_dir, sleep_time=1,
+    token_addresses=collections_contracts)
+collections_asks_bigmap = get_objktcom_bigmap(
+    "asks", "collections", transactions_dir, sleep_time=1,
+    token_addresses=collections_contracts)
+collections_english_auctions_bigmap = get_objktcom_bigmap(
+    "english auctions", "collections", transactions_dir, sleep_time=1,
+    token_addresses=collections_contracts)
+collections_dutch_auctions_bigmap = get_objktcom_bigmap(
+    "dutch auctions", "collections", transactions_dir, sleep_time=1,
+    token_addresses=collections_contracts)
+
+# Get the objkt.com bigmaps associated to all the big tezos tokens
+all_bids_bigmap = get_objktcom_bigmap(
+    "bids", "all", transactions_dir, sleep_time=1)
+all_asks_bigmap = get_objktcom_bigmap(
+    "asks", "all", transactions_dir, sleep_time=1)
+all_english_auctions_bigmap = get_objktcom_bigmap(
+    "english auctions", "all", transactions_dir, sleep_time=1)
+all_dutch_auctions_bigmap = get_objktcom_bigmap(
+    "dutch auctions", "all", transactions_dir, sleep_time=1)
+
+# Select the objkt.com transactions related with H=N OBJKTs
+objkt_bid_transactions = [
+    transaction for transaction in bid_transactions if 
+    transaction["parameter"]["value"] in objkt_bids_bigmap]
+objkt_ask_transactions = [
+    transaction for transaction in ask_transactions if 
+    transaction["parameter"]["value"] in objkt_asks_bigmap]
+objkt_english_auction_transactions = [
     transaction for transaction in english_auction_transactions if 
-    transaction["parameter"]["value"] in english_auctions_bigmap]
-dutch_auction_transactions = [
+    transaction["parameter"]["value"] in objkt_english_auctions_bigmap]
+objkt_dutch_auction_transactions = [
     transaction for transaction in dutch_auction_transactions if 
-    transaction["parameter"]["value"] in dutch_auctions_bigmap]
+    transaction["parameter"]["value"] in objkt_dutch_auctions_bigmap]
+
+# Select the objkt.com transactions related with objkt.com collections
+collections_bid_transactions = [
+    transaction for transaction in bid_transactions if 
+    transaction["parameter"]["value"] in collections_bids_bigmap]
+collections_ask_transactions = [
+    transaction for transaction in ask_transactions if 
+    transaction["parameter"]["value"] in collections_asks_bigmap]
+collections_english_auction_transactions = [
+    transaction for transaction in english_auction_transactions if 
+    transaction["parameter"]["value"] in collections_english_auctions_bigmap]
+collections_dutch_auction_transactions = [
+    transaction for transaction in dutch_auction_transactions if 
+    transaction["parameter"]["value"] in collections_dutch_auctions_bigmap]
+
+# Select the objkt.com transactions related with the main tezos tokens
+all_bid_transactions = [
+    transaction for transaction in bid_transactions if 
+    transaction["parameter"]["value"] in all_bids_bigmap]
+all_ask_transactions = [
+    transaction for transaction in ask_transactions if 
+    transaction["parameter"]["value"] in all_asks_bigmap]
+all_english_auction_transactions = [
+    transaction for transaction in english_auction_transactions if 
+    transaction["parameter"]["value"] in all_english_auctions_bigmap]
+all_dutch_auction_transactions = [
+    transaction for transaction in dutch_auction_transactions if 
+    transaction["parameter"]["value"] in all_dutch_auctions_bigmap]
 
 # Get only the english auction transactions that resulted in a successful sell
-english_auction_transactions = [
-    transaction for transaction in english_auction_transactions if 
-    english_auctions_bigmap[transaction["parameter"]["value"]]["current_price"] != "0"]
+objkt_english_auction_transactions = [
+    transaction for transaction in objkt_english_auction_transactions if 
+    objkt_english_auctions_bigmap[transaction["parameter"]["value"]]["current_price"] != "0"]
+collections_english_auction_transactions = [
+    transaction for transaction in collections_english_auction_transactions if 
+    collections_english_auctions_bigmap[transaction["parameter"]["value"]]["current_price"] != "0"]
+all_english_auction_transactions = [
+    transaction for transaction in all_english_auction_transactions if 
+    all_english_auctions_bigmap[transaction["parameter"]["value"]]["current_price"] != "0"]
 
 # Plot the number of operations per day
 plot_operations_per_day(
@@ -75,10 +166,22 @@ plot_operations_per_day(
 save_figure(os.path.join(figures_dir, "objkt_mint_operations_per_day.png"))
 
 plot_operations_per_day(
+    fxhash_mint_transactions, "fxhash mint operations per day",
+    "Days since first minted GENTK (10th of November)", "Mint operations per day",
+    exclude_last_day=exclude_last_day, first_month=11, first_day=10)
+save_figure(os.path.join(figures_dir, "fxhash_mint_operations_per_day.png"))
+
+plot_operations_per_day(
     collect_transactions, "OBJKT collect operations per day",
     "Days since first minted OBJKT (1st of March)", "Collect operations per day",
     exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "objkt_collect_operations_per_day.png"))
+
+plot_operations_per_day(
+    fxhash_collect_transactions, "fxhash collect operations per day",
+    "Days since first minted GENTK (10th of November)", "Collect operations per day",
+    exclude_last_day=exclude_last_day, first_month=11, first_day=10)
+save_figure(os.path.join(figures_dir, "fxhash_collect_operations_per_day.png"))
 
 plot_operations_per_day(
     swap_transactions, "OBJKT swap operations per day",
@@ -87,10 +190,22 @@ plot_operations_per_day(
 save_figure(os.path.join(figures_dir, "objkt_swap_operations_per_day.png"))
 
 plot_operations_per_day(
+    fxhash_offer_transactions, "fxhash offer operations per day",
+    "Days since first minted GENTK (10th of November)", "Offer operations per day",
+    exclude_last_day=exclude_last_day, first_month=11, first_day=10)
+save_figure(os.path.join(figures_dir, "fxhash_offer_operations_per_day.png"))
+
+plot_operations_per_day(
     cancel_swap_transactions, "OBJKT cancel_swap operations per day",
     "Days since first minted OBJKT (1st of March)", "cancel_swap operations per day",
     exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "objkt_cancel_swap_operations_per_day.png"))
+
+plot_operations_per_day(
+    fxhash_cancel_offer_transactions, "fxhash cancel_offer operations per day",
+    "Days since first minted GENTK (10th of November)", "Cancel_offer operations per day",
+    exclude_last_day=exclude_last_day, first_month=11, first_day=10)
+save_figure(os.path.join(figures_dir, "fxhash_cancel_offer_operations_per_day.png"))
 
 plot_operations_per_day(
     burn_transactions, "OBJKT burn operations per day",
@@ -99,39 +214,87 @@ plot_operations_per_day(
 save_figure(os.path.join(figures_dir, "objkt_burn_operations_per_day.png"))
 
 plot_operations_per_day(
-    bid_transactions, "OBJKT objkt.com bid operations per day",
+    objkt_bid_transactions, "OBJKT objkt.com bid operations per day",
     "Days since first minted OBJKT (1st of March)", "Bid operations per day",
     exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "objkt_bid_operations_per_day.png"))
 
 plot_operations_per_day(
-    ask_transactions, "OBJKT objkt.com ask operations per day",
+    collections_bid_transactions, "Collections objkt.com bid operations per day",
+    "Days since first minted OBJKT (1st of March)", "Bid operations per day",
+    exclude_last_day=exclude_last_day)
+save_figure(os.path.join(figures_dir, "collections_bid_operations_per_day.png"))
+
+plot_operations_per_day(
+    objkt_ask_transactions, "OBJKT objkt.com ask operations per day",
     "Days since first minted OBJKT (1st of March)", "Ask operations per day",
     exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "objkt_ask_operations_per_day.png"))
 
 plot_operations_per_day(
-    english_auction_transactions, "OBJKT objkt.com english auction operations per day",
+    collections_ask_transactions, "Collections objkt.com ask operations per day",
+    "Days since first minted OBJKT (1st of March)", "Ask operations per day",
+    exclude_last_day=exclude_last_day)
+save_figure(os.path.join(figures_dir, "collections_ask_operations_per_day.png"))
+
+plot_operations_per_day(
+    objkt_english_auction_transactions,
+    "OBJKT objkt.com english auction operations per day",
     "Days since first minted OBJKT (1st of March)",
     "English auction operations per day", exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "objkt_english_auction_operations_per_day.png"))
 
 plot_operations_per_day(
-    dutch_auction_transactions, "OBJKT objkt.com dutch auction operations per day",
+    collections_english_auction_transactions,
+    "Collections objkt.com english auction operations per day",
+    "Days since first minted OBJKT (1st of March)",
+    "English auction operations per day", exclude_last_day=exclude_last_day)
+save_figure(os.path.join(figures_dir, "collections_english_auction_operations_per_day.png"))
+
+plot_operations_per_day(
+    objkt_dutch_auction_transactions,
+    "OBJKT objkt.com dutch auction operations per day",
     "Days since first minted OBJKT (1st of March)",
     "Dutch auction operations per day", exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "objkt_dutch_auction_operations_per_day.png"))
 
+plot_operations_per_day(
+    collections_dutch_auction_transactions,
+    "Collections objkt.com dutch auction operations per day",
+    "Days since first minted OBJKT (1st of March)",
+    "Dutch auction operations per day", exclude_last_day=exclude_last_day)
+save_figure(os.path.join(figures_dir, "collections_dutch_auction_operations_per_day.png"))
+
+
 # Extract the artists, collector and patron accounts
-artists = extract_artist_accounts(mint_transactions, registries_bigmap)
+artists = extract_artist_accounts(
+    mint_transactions, registries_bigmap, tezos_wallets)
 collectors = extract_collector_accounts(
-    collect_transactions, registries_bigmap, swaps_bigmap)
+    collect_transactions, registries_bigmap, swaps_bigmap, tezos_wallets)
+swappers = extract_swapper_accounts(
+    swap_transactions, registries_bigmap, tezos_wallets)
 patrons = get_patron_accounts(artists, collectors)
-users = get_user_accounts(artists, patrons)
-objktcom_collectors = extract_objktcom_collector_accounts(
-    bid_transactions, ask_transactions, english_auction_transactions,
-    dutch_auction_transactions, bids_bigmap, asks_bigmap,
-    english_auctions_bigmap, dutch_auctions_bigmap, registries_bigmap)
+users = get_user_accounts(artists, patrons, swappers)
+fxhash_collectors = extract_fxhash_collector_accounts(
+    fxhash_mint_transactions, fxhash_collect_transactions, registries_bigmap,
+    tezos_wallets)
+objkt_objktcom_collectors = extract_objktcom_collector_accounts(
+    objkt_bid_transactions, objkt_ask_transactions,
+    objkt_english_auction_transactions, objkt_dutch_auction_transactions,
+    objkt_bids_bigmap, objkt_asks_bigmap, objkt_english_auctions_bigmap,
+    objkt_dutch_auctions_bigmap, registries_bigmap, tezos_wallets)
+collections_objktcom_collectors = extract_objktcom_collector_accounts(
+    collections_bid_transactions, collections_ask_transactions,
+    collections_english_auction_transactions,
+    collections_dutch_auction_transactions,
+    collections_bids_bigmap, collections_asks_bigmap,
+    collections_english_auctions_bigmap, collections_dutch_auctions_bigmap,
+    registries_bigmap, tezos_wallets)
+all_objktcom_collectors = extract_objktcom_collector_accounts(
+    all_bid_transactions, all_ask_transactions,
+    all_english_auction_transactions, all_dutch_auction_transactions,
+    all_bids_bigmap, all_asks_bigmap, all_english_auctions_bigmap,
+    all_dutch_auctions_bigmap, registries_bigmap, tezos_wallets)
 
 # Get the list of H=N reported users and add some extra ones that are suspect
 # of buying their own OBJKTs with the only purpose to get the free hDAOs
@@ -143,13 +306,20 @@ reported_users.append("tz1bhMc5uPJynkrHpw7pAiBt6YMhQktn7owF")
 # Add the reported users information
 add_reported_users_information(artists, reported_users)
 add_reported_users_information(collectors, reported_users)
+add_reported_users_information(swappers, reported_users)
 add_reported_users_information(patrons, reported_users)
 add_reported_users_information(users, reported_users)
-add_reported_users_information(objktcom_collectors, reported_users)
+add_reported_users_information(fxhash_collectors, reported_users)
+add_reported_users_information(objkt_objktcom_collectors, reported_users)
+add_reported_users_information(collections_objktcom_collectors, reported_users)
+add_reported_users_information(all_objktcom_collectors, reported_users)
 
 # Get the objkt.com collectors that never used the H=N contracts
-objktcom_only_collectors = {
-    key: value for key, value in objktcom_collectors.items() if key not in users}
+objkt_objktcom_only_collectors = {
+    key: value for key, value in objkt_objktcom_collectors.items() if key not in users}
+
+all_objktcom_only_collectors = {
+    key: value for key, value in all_objktcom_collectors.items() if key not in users}
 
 # Get a dictionary with the OBJKT creators
 objkt_creators = get_objkt_creators(mint_transactions)
@@ -157,7 +327,7 @@ objkt_creators = get_objkt_creators(mint_transactions)
 # Get a dictionary with the users connections
 users_connections, serialized_users_connections = extract_users_connections(
     objkt_creators, collect_transactions, swaps_bigmap, users,
-    objktcom_collectors, reported_users)
+    objkt_objktcom_collectors, reported_users)
 save_json_file("users_connections.json", users_connections)
 save_json_file(
     "serialized_users_connections.json", serialized_users_connections,
@@ -165,15 +335,19 @@ save_json_file(
 
 # Print some information about the total number of users
 print("There are currently %i unique users in hic et nunc." % (
-    len(users) + len(objktcom_only_collectors)))
+    len(users) + len(objkt_objktcom_only_collectors)))
 print("Of those %i are artists and %i are patrons." % (
-    len(artists), len(patrons) + len(objktcom_only_collectors)))
+    len(artists), len(patrons) + len(objkt_objktcom_only_collectors)))
 print("%i artists are also collectors." % (len(collectors) - len(patrons)))
 print("%i users are in the block list." % len(reported_users))
 print("There are %i unique users in objkt.com that collected an OBJKT "
-      "using the objkt.com smart contracts." % len(objktcom_collectors))
-print("%i objkt.com users never used the H=N smart contracts." % len(
-    objktcom_only_collectors))
+      "using the objkt.com smart contracts." % len(objkt_objktcom_collectors))
+print("%i objkt.com users never used the H=N smart contracts to collect "
+      "OBJKTs." % len(objkt_objktcom_only_collectors))
+print("There are %i unique users in objkt.com that collected one of the main "
+      "tezos tokens using the objkt.com smart contracts." % len(
+          all_objktcom_collectors))
+print("There are %i unique fxhash collectors." % len(fxhash_collectors))
 
 # Get the total money spent by H=N collectors
 wallet_ids = [wallet_id for wallet_id in collectors]
@@ -185,19 +359,19 @@ is_reported_collector = [
 
 # Add the money spent in objkt.com
 for i, wallet_id in enumerate(wallet_ids):
-    if wallet_id in objktcom_collectors:
-        total_money_spent[i] += objktcom_collectors[
+    if wallet_id in objkt_objktcom_collectors:
+        total_money_spent[i] += objkt_objktcom_collectors[
             wallet_id]["total_money_spent"]
 
 # Add the objkt.com only collectors
 wallet_ids = np.array(
-    wallet_ids + [wallet_id for wallet_id in objktcom_only_collectors])
+    wallet_ids + [wallet_id for wallet_id in objkt_objktcom_only_collectors])
 aliases = np.array(aliases + [
-    collector["alias"] for collector in objktcom_only_collectors.values()])
+    collector["alias"] for collector in objkt_objktcom_only_collectors.values()])
 total_money_spent = np.array(total_money_spent + [
-    collector["total_money_spent"] for collector in objktcom_only_collectors.values()])
+    collector["total_money_spent"] for collector in objkt_objktcom_only_collectors.values()])
 is_reported_collector = np.array(is_reported_collector + [
-    collector["reported"] for collector in objktcom_only_collectors.values()])
+    collector["reported"] for collector in objkt_objktcom_only_collectors.values()])
 
 # Select only the data from non-reported collectors
 wallet_ids = wallet_ids[~is_reported_collector]
@@ -293,11 +467,25 @@ collect_from_patron = np.array(collect_from_patron)
 collect_timestamps = np.array(collect_timestamps)
 collect_money = np.array(collect_money)
 
-# Get the objkt.com collected money that doesn't come from a reported user
+# Get the fxhash collected money that doesn't come from a reported user
+fxhash_collect_timestamps = []
+fxhash_collect_money = []
+
+for wallet_id, collector in fxhash_collectors.items():
+    if wallet_id not in reported_users:
+        fxhash_collect_timestamps += collector["mint_timestamps"]
+        fxhash_collect_timestamps += collector["collect_timestamps"]
+        fxhash_collect_money += collector["mint_money_spent"]
+        fxhash_collect_money += collector["collect_money_spent"]
+
+fxhash_collect_timestamps = np.array(fxhash_collect_timestamps)
+fxhash_collect_money = np.array(fxhash_collect_money)
+
+# Get the objkt.com OBJKT collected money that doesn't come from a reported user
 objktcom_collect_timestamps = []
 objktcom_collect_money = []
 
-for wallet_id, collector in objktcom_collectors.items():
+for wallet_id, collector in objkt_objktcom_collectors.items():
     if wallet_id not in reported_users:
         objktcom_collect_timestamps += collector["bid_timestamps"]
         objktcom_collect_timestamps += collector["ask_timestamps"]
@@ -310,6 +498,42 @@ for wallet_id, collector in objktcom_collectors.items():
 
 objktcom_collect_timestamps = np.array(objktcom_collect_timestamps)
 objktcom_collect_money = np.array(objktcom_collect_money)
+
+# Get the collections objkt.com collected money that doesn't come from a reported user
+collections_objktcom_collect_timestamps = []
+collections_objktcom_collect_money = []
+
+for wallet_id, collector in collections_objktcom_collectors.items():
+    if wallet_id not in reported_users:
+        collections_objktcom_collect_timestamps += collector["bid_timestamps"]
+        collections_objktcom_collect_timestamps += collector["ask_timestamps"]
+        collections_objktcom_collect_timestamps += collector["english_auction_timestamps"]
+        collections_objktcom_collect_timestamps += collector["dutch_auction_timestamps"]
+        collections_objktcom_collect_money += collector["bid_money_spent"]
+        collections_objktcom_collect_money += collector["ask_money_spent"]
+        collections_objktcom_collect_money += collector["english_auction_money_spent"]
+        collections_objktcom_collect_money += collector["dutch_auction_money_spent"]
+
+collections_objktcom_collect_timestamps = np.array(collections_objktcom_collect_timestamps)
+collections_objktcom_collect_money = np.array(collections_objktcom_collect_money)
+
+# Get all the objkt.com collected money that doesn't come from a reported user
+all_objktcom_collect_timestamps = []
+all_objktcom_collect_money = []
+
+for wallet_id, collector in all_objktcom_collectors.items():
+    if wallet_id not in reported_users:
+        all_objktcom_collect_timestamps += collector["bid_timestamps"]
+        all_objktcom_collect_timestamps += collector["ask_timestamps"]
+        all_objktcom_collect_timestamps += collector["english_auction_timestamps"]
+        all_objktcom_collect_timestamps += collector["dutch_auction_timestamps"]
+        all_objktcom_collect_money += collector["bid_money_spent"]
+        all_objktcom_collect_money += collector["ask_money_spent"]
+        all_objktcom_collect_money += collector["english_auction_money_spent"]
+        all_objktcom_collect_money += collector["dutch_auction_money_spent"]
+
+all_objktcom_collect_timestamps = np.array(all_objktcom_collect_timestamps)
+all_objktcom_collect_money = np.array(all_objktcom_collect_money)
 
 # Plot a histogram of the collected editions prices
 adapted_collect_money = np.hstack((collect_money, objktcom_collect_money))
@@ -339,12 +563,41 @@ plot_data_per_day(
 save_figure(os.path.join(figures_dir, "objkt_objktcom_money_per_day.png"))
 
 plot_data_per_day(
+    collections_objktcom_collect_money, collections_objktcom_collect_timestamps,
+    "Money spent in collect operations per day (objkt.com contracts)",
+    "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
+    exclude_last_day=exclude_last_day)
+save_figure(os.path.join(figures_dir, "collections_objktcom_money_per_day.png"))
+
+plot_data_per_day(
+    all_objktcom_collect_money, all_objktcom_collect_timestamps,
+    "Money spent in collect operations per day (objkt.com contracts)",
+    "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
+    exclude_last_day=exclude_last_day)
+save_figure(os.path.join(figures_dir, "all_objktcom_money_per_day.png"))
+
+plot_data_per_day(
     np.hstack((collect_money, objktcom_collect_money)),
     np.hstack((collect_timestamps, objktcom_collect_timestamps)),
     "Money spent in collect operations per day (H=N + objkt.com contracts)",
     "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
     exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "objkt_money_per_day.png"))
+
+plot_data_per_day(
+    fxhash_collect_money, fxhash_collect_timestamps,
+    "Money spent in mint and collect operations per day (fxhash contract)",
+    "Days since first minted GENTK (10th of November)", "Money spent (tez)",
+    exclude_last_day=exclude_last_day, first_month=11, first_day=10)
+save_figure(os.path.join(figures_dir, "fxhash_money_per_day.png"))
+
+plot_data_per_day(
+    np.hstack((collect_money, all_objktcom_collect_money, fxhash_collect_money)),
+    np.hstack((collect_timestamps, all_objktcom_collect_timestamps, fxhash_collect_timestamps)),
+    "Money spent in collect operations per day (H=N + objkt.com + fxhash)",
+    "Days since first minted OBJKT (1st of March)", "Money spent (tez)",
+    exclude_last_day=exclude_last_day)
+save_figure(os.path.join(figures_dir, "all_money_per_day.png"))
 
 plot_data_per_day(
     collect_money[~collect_is_secondary],

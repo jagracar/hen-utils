@@ -1,9 +1,12 @@
 import numpy as np
 from datetime import datetime
+from datetime import timezone
 import matplotlib.pyplot as plt
 from calendar import monthrange
 
-from henUtils.queryUtils import split_timestamps, get_counts_per_day
+from henUtils.queryUtils import get_counts_per_day
+from henUtils.queryUtils import get_tez_exchange_rates
+from henUtils.queryUtils import split_timestamps
 
 
 def plot_histogram(data, title, x_label, y_label, bins=100, log=False, **kwargs):
@@ -128,7 +131,8 @@ def plot_new_users_per_day(users, title, x_label, y_label,
 
 def plot_data_per_day(data, timestamps, title, x_label, y_label,
                       exclude_last_day=False, first_year=2021, first_month=3,
-                      first_day=1, **kwargs):
+                      first_day=1, add_exchange_rates=False,
+                      exchange_rates_scaling=1, **kwargs):
     """Plots some combined data per day as a function of time.
 
     Parameters
@@ -151,6 +155,10 @@ def plot_data_per_day(data, timestamps, title, x_label, y_label,
         The first month to count. Default is 3 (March).
     first_day: int, optional
         The first day to count. Default is 1.
+    add_exchange_rates: bool, optional
+        If True the tez to USD exchange rates will be added. Default is False.
+    exchange_rates_scaling: float, optional
+        The scaling to apply to the exchange rates values. Default is 1.
     kwargs: plt.figure properties
         Any additional property that should be passed to the figure.
 
@@ -187,6 +195,15 @@ def plot_data_per_day(data, timestamps, title, x_label, y_label,
     if exclude_last_day:
         data_per_day = data_per_day[:-1]
 
+    # Get the tez exchange rates if necessary
+    if add_exchange_rates:
+        datetime_format = "%Y-%m-%dT%H:%M:%SZ"
+        start_date = datetime(
+            first_year, first_month, first_day, tzinfo=timezone.utc)
+        _, exchange_rates = get_tez_exchange_rates(
+            "USD", start_date=start_date.strftime(datetime_format),
+            end_date=None, sampling="1d")
+
     # Create the figure
     plt.figure(figsize=(7, 5), facecolor="white", tight_layout=True, **kwargs)
     plt.title(title)
@@ -195,6 +212,10 @@ def plot_data_per_day(data, timestamps, title, x_label, y_label,
     plt.ylim(min(min(data_per_day), -0.05 * max(data_per_day)),
              1.05 * max(data_per_day))
     plt.plot(data_per_day)
+
+    if add_exchange_rates:
+        plt.plot(exchange_rates_scaling * np.array(exchange_rates))
+
     plt.show(block=False)
 
 
