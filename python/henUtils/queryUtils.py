@@ -108,7 +108,7 @@ def get_reported_users():
         A python list with the wallet ids of all the reported users.
 
     """
-    github_repository = "hicetnunc2000/hicetnunc"
+    github_repository = "hicetnunc2000/hicetnunc-reports"
     file_path = "filters/w.json"
     query = "https://raw.githubusercontent.com//%s/main/%s" % (
         github_repository, file_path)
@@ -645,7 +645,7 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
     name: str
         The bigmap name: ledger, token_metadata, operators.
     token: str
-        The token name: OBJKT, tezzardz, prjktneon, artcardz, gogo, neonz,
+        The token name: OBJKT, hDAO, tezzardz, prjktneon, artcardz, gogo, neonz,
         skele, GENTK.
     data_dir: str
         The complete path to the directory where the token bigmap keys
@@ -667,6 +667,8 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
     if name == "ledger":
         if token == "OBJKT":
             bigmap_ids = ["511"]   # KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton
+        elif token == "hDAO":
+            bigmap_ids = ["515"]   # KT1AFA2mwNUMNd4SsujE1YYp29vd8BZejyKW
         elif token == "tezzardz":
             bigmap_ids = ["12112"] # KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6
         elif token == "prjktneon":
@@ -684,6 +686,8 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
     elif name == "token_metadata":
         if token == "OBJKT":
             bigmap_ids = ["514"]   # KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton
+        elif token == "hDAO":
+            bigmap_ids = ["518"]   # KT1AFA2mwNUMNd4SsujE1YYp29vd8BZejyKW
         elif token == "tezzardz":
             bigmap_ids = ["12115"] # KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6
         elif token == "prjktneon":
@@ -701,6 +705,8 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
     elif name == "operators":
         if token == "OBJKT":
             bigmap_ids = ["513"]   # KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton
+        elif token == "hDAO":
+            bigmap_ids = ["517"]   # KT1AFA2mwNUMNd4SsujE1YYp29vd8BZejyKW
         elif token == "tezzardz":
             bigmap_ids = ["12114"] # KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6
         elif token == "prjktneon":
@@ -726,11 +732,12 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
 
     for bigmap_key in bigmap_keys:
         if isinstance(bigmap_key["key"], dict):
-            bigmap[counter] = bigmap_key["key"]
+            bigmap[counter] = {
+                "key": bigmap_key["key"],
+                "value": bigmap_key["value"]}
             counter += 1
         else:
-            key = bigmap_key["key"]
-            bigmap[key] = bigmap_key["value"]
+            bigmap[bigmap_key["key"]] = bigmap_key["value"]
 
     return bigmap
 

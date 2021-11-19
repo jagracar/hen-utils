@@ -1,4 +1,8 @@
 /ask_transactions_*.json
+/bid_transactions_*.json
+/english_auction_transactions_*.json
+/dutch_auction_transactions_*.json
+/fxhash_mint_transactions_*.json
 /collect_transactions_*.json
 /mint_transactions_*.json
 /swap_transactions_*.json
