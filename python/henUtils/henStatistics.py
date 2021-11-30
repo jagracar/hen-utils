@@ -3,7 +3,7 @@ from henUtils.queryUtils import *
 from henUtils.plotUtils import *
 
 # Exclude the last day from most of the plots?
-exclude_last_day = False
+exclude_last_day = True
 
 # Set the path to the directory where the transaction information will be saved
 # to avoid to query for it again and again
@@ -66,6 +66,10 @@ subjkts_metadata_bigmap = get_hen_bigmap(
 # Get the fxhash bigmaps
 fxhash_offer_bigmap = get_fxhash_bigmap(
     "offers", transactions_dir, sleep_time=1)
+fxhash_users_name_bigmap = get_fxhash_bigmap(
+    "users_name", transactions_dir, sleep_time=1)
+fxhash_collections_bigmap = get_fxhash_bigmap(
+    "collections", transactions_dir, sleep_time=1)
 
 # Get the objkt.com bigmaps associated to OBJKTs
 objkt_bids_bigmap = get_objktcom_bigmap(
@@ -265,7 +269,6 @@ plot_operations_per_day(
     "Dutch auction operations per day", exclude_last_day=exclude_last_day)
 save_figure(os.path.join(figures_dir, "collections_dutch_auction_operations_per_day.png"))
 
-
 # Extract the artists, collector and patron accounts
 artists = extract_artist_accounts(
     mint_transactions, registries_bigmap, tezos_wallets)
@@ -275,6 +278,8 @@ swappers = extract_swapper_accounts(
     swap_transactions, registries_bigmap, tezos_wallets)
 patrons = get_patron_accounts(artists, collectors)
 users = get_user_accounts(artists, patrons, swappers)
+fxhash_artists = {
+    collection["artist"] : 0 for collection in fxhash_collections_bigmap.values()}
 fxhash_collectors = extract_fxhash_collector_accounts(
     fxhash_mint_transactions, fxhash_collect_transactions, registries_bigmap,
     tezos_wallets)
@@ -347,6 +352,7 @@ print("%i objkt.com users never used the H=N smart contracts to collect "
 print("There are %i unique users in objkt.com that collected one of the main "
       "tezos tokens using the objkt.com smart contracts." % len(
           all_objktcom_collectors))
+print("There are %i unique fxhash artists." % len(fxhash_artists))
 print("There are %i unique fxhash collectors." % len(fxhash_collectors))
 
 # Get the total money spent by H=N collectors
@@ -746,10 +752,12 @@ for transaction in burn_transactions:
 
 transactions_wallet_ids = np.array(transactions_wallet_ids)
 transactions_timestamps = np.array(transactions_timestamps)
+transactions_is_artist = np.array([wallet in artists for wallet in transactions_wallet_ids])
+transactions_is_patron = np.array([wallet in patrons for wallet in transactions_wallet_ids])
 
 # Plot the active users per day
 plot_active_users_per_day(
-    transactions_wallet_ids, transactions_timestamps,
+    transactions_wallet_ids, transactions_timestamps, users,
     "Active users per day",
     "Days since first minted OBJKT (1st of March)", "Active users per day",
     exclude_last_day=exclude_last_day)
@@ -762,3 +770,19 @@ plot_users_last_active_day(
     "Days since first minted OBJKT (1st of March)", "Users",
     exclude_last_day=False)
 save_figure(os.path.join(figures_dir, "objkt_users_last_active_day.png"))
+
+plot_users_last_active_day(
+    transactions_wallet_ids[transactions_is_artist],
+    transactions_timestamps[transactions_is_artist],
+    "Artists last active day",
+    "Days since first minted OBJKT (1st of March)", "Artists",
+    exclude_last_day=False)
+save_figure(os.path.join(figures_dir, "objkt_artists_last_active_day.png"))
+
+plot_users_last_active_day(
+    transactions_wallet_ids[transactions_is_patron],
+    transactions_timestamps[transactions_is_patron],
+    "Patrons last active day",
+    "Days since first minted OBJKT (1st of March)", "Patrons",
+    exclude_last_day=False)
+save_figure(os.path.join(figures_dir, "objkt_patrons_last_active_day.png"))

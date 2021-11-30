@@ -313,8 +313,8 @@ def plot_price_distribution_per_day(money, timestamps, price_ranges, title,
     plt.show(block=False)
 
 
-def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label,
-                              exclude_last_day=False, first_year=2021,
+def plot_active_users_per_day(wallet_ids, timestamps, users, title, x_label,
+                              y_label, exclude_last_day=False, first_year=2021,
                               first_month=3, first_day=1, **kwargs):
     """Plots the active users per day as a function of time.
 
@@ -324,6 +324,8 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label,
         A numpy array with the wallet id of each operation.
     timestamps: object
         A numpy array with the timestamps of each operation.
+    users: dict
+        A python dictionary with the users information.
     title: str
         The plot title.
     x_label: str
@@ -345,8 +347,10 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label,
     # Extract the years, months and days from the time stamps
     years, months, days = split_timestamps(timestamps)
 
-    # Get the active users per day
+    # Get the active users, artists and patrons per day
     active_users_per_day = []
+    active_artists_per_day = []
+    active_patrons_per_day = []
     started = False
     finished = False
     now = datetime.utcnow()
@@ -363,8 +367,17 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label,
                 # Check that we started and didn't finish yet
                 if started and not finished:
                     # Get the number of unique users for the current day
-                    active_users_per_day.append(len(np.unique(wallet_ids[
-                        (years == year) & (months == month) & (days == day)])))
+                    unique_users = np.unique(wallet_ids[
+                        (years == year) & (months == month) & (days == day)])
+                    is_artist = np.array([
+                        (wallet in users and users[wallet]["type"] == "artist") 
+                        for wallet in unique_users])
+                    is_patron = np.array([
+                        (wallet in users and users[wallet]["type"] == "patron") 
+                        for wallet in unique_users])
+                    active_users_per_day.append(len(unique_users))
+                    active_artists_per_day.append(np.sum(is_artist))
+                    active_patrons_per_day.append(np.sum(is_patron))
 
                     # Check if we reached the last day
                     finished = (year == now.year) and (
@@ -372,13 +385,18 @@ def plot_active_users_per_day(wallet_ids, timestamps, title, x_label, y_label,
 
     if exclude_last_day:
         active_users_per_day = active_users_per_day[:-1]
+        active_artists_per_day = active_artists_per_day[:-1]
+        active_patrons_per_day = active_patrons_per_day[:-1]
 
     # Create the figure
     plt.figure(figsize=(7, 5), facecolor="white", tight_layout=True, **kwargs)
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.plot(active_users_per_day)
+    plt.plot(active_users_per_day, label="all users")
+    plt.plot(active_artists_per_day, label="artists")
+    plt.plot(active_patrons_per_day, label="patrons")
+    plt.legend()
     plt.show(block=False)
 
 

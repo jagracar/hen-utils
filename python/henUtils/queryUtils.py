@@ -597,7 +597,7 @@ def get_fxhash_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
     Parameters
     ----------
     name: str
-        The bigmap name: offers.
+        The bigmap name: offers, users_name, collections.
     data_dir: str
         The complete path to the directory where the fxhash bigmap keys
         information should be saved.
@@ -619,7 +619,15 @@ def get_fxhash_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
         bigmap_ids = [
             "22799"  # KT1Xo5B7PNBAeynZPmca4bRh6LQow4og1Zb9
         ]
-
+    elif name == "users_name":
+        bigmap_ids = [
+            "21411"  # KT1Ezht4PDKZri7aVppVGT4Jkw39sesaFnww
+        ]
+    elif name == "collections":
+        bigmap_ids = [
+            "22781"  # KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS
+        ]
+        
     # Get the fxhash bigmap keys
     bigmap_keys = get_bigmap_keys(
         bigmap_ids, data_dir, keys_per_batch, sleep_time)
@@ -631,6 +639,15 @@ def get_fxhash_bigmap(name, data_dir, keys_per_batch=10000, sleep_time=1):
         if name == "offers":
             key = bigmap_key["key"]
             bigmap[key] = bigmap_key["value"]
+        elif name == "users_name":
+            key = bigmap_key["key"]
+            value = bytes.fromhex(bigmap_key["value"]).decode(
+                "utf-8", errors="replace")
+            bigmap[key] = {"user": value}
+        elif name == "collections":
+            key = bigmap_key["key"]["nat"]
+            bigmap[key] = bigmap_key["value"]
+            bigmap[key]["artist"] = bigmap_key["key"]["address"]
 
         bigmap[key]["active"] = bigmap_key["active"]
 

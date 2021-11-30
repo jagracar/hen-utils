@@ -9,8 +9,15 @@ exclude_last_day = False
 # to avoid to query for it again and again
 transactions_dir = "../data/transactions"
 
+# Set the path to the directory where the tezos wallets information will be
+# saved to avoid to query for it again and again
+tezos_dir = "../data/tezos"
+
 # Set the path to the directory where the figures will be saved
 figures_dir = "../figures"
+
+# Get the complete list of tezos wallets
+tezos_wallets = get_tezos_wallets(tezos_dir, sleep_time=1)
 
 # Read the connected wallets information (wallets connected to the same user)
 connected_wallets = read_json_file("../data/connected_wallets.json")
@@ -85,7 +92,8 @@ save_figure(os.path.join(figures_dir, "gogo_dutch_auction_operations_per_day.png
 collectors = extract_objktcom_collector_accounts(
     bid_transactions, ask_transactions, english_auction_transactions,
     dutch_auction_transactions, bids_bigmap, asks_bigmap,
-    english_auctions_bigmap, dutch_auctions_bigmap, registries_bigmap)
+    english_auctions_bigmap, dutch_auctions_bigmap, registries_bigmap,
+    tezos_wallets)
 
 # Get the list of H=N reported users and add some extra ones that are suspect
 # of buying their own OBJKTs with the only purpose to get the free hDAOs

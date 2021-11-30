@@ -87,6 +87,9 @@ is_hen_user = is_hen_user[sorted_indices]
 is_reported = is_reported[sorted_indices]
 is_contract = is_contract[sorted_indices]
 
+# Calculate the voting power with a quadratic formula
+voting_power = np.sqrt(hdaos)
+
 # Print some information about the owners
 print("Total amount of hDAOs in circulation: %i hDAOs" % round(np.sum(hdaos)))
 print("Number of wallets in posession of hDAOs: %s wallets" % len(wallets))
