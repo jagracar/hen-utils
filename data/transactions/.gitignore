@@ -2,11 +2,12 @@
 /bid_transactions_*.json
 /english_auction_transactions_*.json
 /dutch_auction_transactions_*.json
+/fxhash_cancel_offer_transactions_*.json
 /fxhash_mint_transactions_*.json
+/fxhash_offer_transactions_*.json
 /collect_transactions_*.json
 /mint_transactions_*.json
 /swap_transactions_*.json
 /cancel_swap_transactions_*.json
 /burn_transactions_*.json
 /bigmap_*.json
-
