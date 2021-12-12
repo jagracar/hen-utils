@@ -700,6 +700,8 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
             bigmap_ids = ["22381"] # KT1HZVd9Cjc2CMe3sQvXgbxhpJkdena21pih
         elif token == "GENTK":
             bigmap_ids = ["22785"] # KT1KEa8z6vWXDJrVqtMrAeDVzsvxat3kHaCE
+        elif token == "ZIGGURATS":
+            bigmap_ids = ["42519"] # KT1PNcZQkJXMQ2Mg92HG1kyrcu3auFX5pfd8
     elif name == "token_metadata":
         if token == "OBJKT":
             bigmap_ids = ["514"]   # KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton
@@ -719,6 +721,8 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
             bigmap_ids = ["22384"] # KT1HZVd9Cjc2CMe3sQvXgbxhpJkdena21pih
         elif token == "GENTK":
             bigmap_ids = ["22789"] # KT1KEa8z6vWXDJrVqtMrAeDVzsvxat3kHaCE
+        elif token == "ZIGGURATS":
+            bigmap_ids = ["42521"] # KT1PNcZQkJXMQ2Mg92HG1kyrcu3auFX5pfd8
     elif name == "operators":
         if token == "OBJKT":
             bigmap_ids = ["513"]   # KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton
@@ -738,7 +742,9 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
             bigmap_ids = ["22383"] # KT1HZVd9Cjc2CMe3sQvXgbxhpJkdena21pih
         elif token == "GENTK":
             bigmap_ids = ["22787"] # KT1KEa8z6vWXDJrVqtMrAeDVzsvxat3kHaCE
-        
+        elif token == "ZIGGURATS":
+            bigmap_ids = ["42520"] # KT1PNcZQkJXMQ2Mg92HG1kyrcu3auFX5pfd8
+      
     # Get the token bigmap keys
     bigmap_keys = get_bigmap_keys(
         bigmap_ids, data_dir, keys_per_batch, sleep_time)
