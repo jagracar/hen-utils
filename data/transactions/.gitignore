@@ -5,6 +5,7 @@
 /fxhash_cancel_offer_transactions_*.json
 /fxhash_mint_transactions_*.json
 /fxhash_offer_transactions_*.json
+/fxhash_collect_transactions_*.json
 /collect_transactions_*.json
 /mint_transactions_*.json
 /swap_transactions_*.json
