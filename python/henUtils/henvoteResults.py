@@ -10,8 +10,12 @@ def get_query_result(query, timeout=10):
 hen_users = get_query_result("https://vote.hencommunity.quest/hen-users-snapshot-16-01-2022.json")
 
 # Get the poll information from ipfs
-poll_id = "QmU7zZepzHiLMUme1xRHZyTdbyD4j2EfUodiGJeA1Rv6QQ"
+poll_id = "QmPDYWmGdxae8gUxqiPa4rkuQCc8P6sggLvUi5HQrrCzug"
 poll_information = get_query_result("https://infura-ipfs.io/ipfs/" + poll_id)
+
+if poll_information["multi"] == "false":
+    poll_information["opt1"] = "YES"
+    poll_information["opt2"] = "NO"
 
 # Get the votes associated to the poll
 all_votes = get_query_result("https://api.mainnet.tzkt.io/v1/bigmaps/64367/keys?limit=10000&key.string=" + poll_id)
@@ -23,7 +27,7 @@ print("%4i H=N users have voted so far." % len(valid_votes))
 print("%4i votes were invalid because they didn't come from a wallet in the H=N users list." % (len(all_votes) - len(valid_votes)))
 
 # Initialize the results dictionary taking the names from the poll information
-results = {str(i): {"name": poll_information["opt" + str(i)], "votes": 0} for i in range(1, 11)}
+results = {str(i): {"name": poll_information["opt" + str(i)], "votes": 0} for i in range(1, 3)}
 
 # Count the valid votes
 for vote in valid_votes:

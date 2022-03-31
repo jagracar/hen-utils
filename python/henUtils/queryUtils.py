@@ -303,7 +303,8 @@ def get_all_transactions(type, data_dir, transactions_per_batch=10000,
         contracts = ["KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS"]
         entrypoint = "mint_issuer"
     elif type == "fxhash_mint":
-        contracts = ["KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS"]
+        contracts = ["KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+                     "KT1KEa8z6vWXDJrVqtMrAeDVzsvxat3kHaCE"]
         entrypoint = "mint"
     elif type == "fxhash_collect":
         contracts = ["KT1Xo5B7PNBAeynZPmca4bRh6LQow4og1Zb9"]
@@ -702,6 +703,8 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
             bigmap_ids = ["22785"] # KT1KEa8z6vWXDJrVqtMrAeDVzsvxat3kHaCE
         elif token == "ZIGGURATS":
             bigmap_ids = ["42519"] # KT1PNcZQkJXMQ2Mg92HG1kyrcu3auFX5pfd8
+        elif token == "MATERIA":
+            bigmap_ids = ["76310"] # KT1KRvNVubq64ttPbQarxec5XdS6ZQU4DVD2
     elif name == "token_metadata":
         if token == "OBJKT":
             bigmap_ids = ["514"]   # KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton
@@ -723,6 +726,8 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
             bigmap_ids = ["22789"] # KT1KEa8z6vWXDJrVqtMrAeDVzsvxat3kHaCE
         elif token == "ZIGGURATS":
             bigmap_ids = ["42521"] # KT1PNcZQkJXMQ2Mg92HG1kyrcu3auFX5pfd8
+        elif token == "MATERIA":
+            bigmap_ids = ["76314"] # KT1KRvNVubq64ttPbQarxec5XdS6ZQU4DVD2
     elif name == "operators":
         if token == "OBJKT":
             bigmap_ids = ["513"]   # KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton
@@ -744,6 +749,8 @@ def get_token_bigmap(name, token, data_dir, keys_per_batch=10000, sleep_time=1):
             bigmap_ids = ["22787"] # KT1KEa8z6vWXDJrVqtMrAeDVzsvxat3kHaCE
         elif token == "ZIGGURATS":
             bigmap_ids = ["42520"] # KT1PNcZQkJXMQ2Mg92HG1kyrcu3auFX5pfd8
+        elif token == "MATERIA":
+            bigmap_ids = ["76312"] # KT1KRvNVubq64ttPbQarxec5XdS6ZQU4DVD2
       
     # Get the token bigmap keys
     bigmap_keys = get_bigmap_keys(
